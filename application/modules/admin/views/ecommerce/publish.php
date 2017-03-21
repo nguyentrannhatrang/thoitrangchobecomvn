@@ -148,6 +148,54 @@ if ($this->session->flashdata('result_publish')) {
     <div class="form-group for-shop">
         <a class="btn btn-default btn-xs" data-target="#modalConvertor" data-toggle="modal" href="javascript:void(0)">Convert currency <span class="glyphicon glyphicon-euro"></span></a>
     </div>
+    <?php if($details) {?>
+        <?php foreach ($details->result() as $details) { ?>
+            <div class="form-group for-shop row">
+                <div class="col-lg-3">
+                    <select name="detail_color[]">
+                        <?php foreach ($colors->result() as $color) { ?>
+                            <option value="<?php echo $color->code; ?>" <?php echo ($details->color ==$color->code?'selected':'' ) ?>><?php echo $color->name; ?></option>
+                        <?php }?>
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <select name="detail_size[]">
+                        <?php foreach ($sizes->result() as $size) { ?>
+                            <option value="<?php echo $size->code; ?>" <?php echo ($details->size ==$size->code?'selected':'' ) ?>><?php echo $size->name; ?></option>
+                        <?php }?>
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <input name="detail_quantity[]" value="<?php echo $details->quantity; ?>" />
+                </div>
+            </div>
+        <?php }?>
+    <?php }?>
+
+    <div class="form-group for-shop hide" id="color_size_add">
+        <div class="form-group for-shop row">
+            <div class="col-lg-3">
+                <select name="detail_color[]">
+                    <?php foreach ($colors->result() as $color) { ?>
+                        <option value="<?php echo $color->code; ?>"><?php echo $color->name; ?></option>
+                    <?php }?>
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select name="detail_size[]">
+                    <?php foreach ($sizes->result() as $size) { ?>
+                        <option value="<?php echo $size->code; ?>"><?php echo $size->name; ?></option>
+                    <?php }?>
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <input name="detail_quantity[]" value="" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group for-shop">
+        <button type="button" value="" id="btn-add-detail">Add Detail</button>
+    </div>
     <button type="submit" name="submit" class="btn btn-lg btn-default">Publish</button>
     <?php if ($this->uri->segment(3) !== null) { ?>
         <a href="<?= base_url('admin/products') ?>" class="btn btn-lg btn-default">Cancel</a>
@@ -222,3 +270,4 @@ if ($this->session->flashdata('result_publish')) {
         </div>
     </div>
 </div>
+<script src="/assets/admin/js/product.js"></script>

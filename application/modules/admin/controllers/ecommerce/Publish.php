@@ -80,9 +80,12 @@ class Publish extends ADMIN_Controller
         $data['id'] = $id;
         $data['trans_load'] = $trans_load;
         $data['languages'] = $this->AdminModel->getLanguages();
+        $data['colors'] = $this->AdminModel->getColors();
+        $data['sizes'] = $this->AdminModel->getSizes();
         $data['shop_categories'] = $this->AdminModel->getShopCategories();
         $data['brands'] = $this->AdminModel->getBrands();
         $data['otherImgs'] = $this->loadOthersImages();
+        $data['details'] = $this->AdminModel->getProductDetailByProduct($id);
         $this->load->view('_parts/header', $head);
         $this->load->view('ecommerce/publish', $data);
         $this->load->view('_parts/footer');

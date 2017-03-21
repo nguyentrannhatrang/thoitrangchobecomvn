@@ -168,10 +168,20 @@ class AdminModel extends CI_Model
 
     public function setProduct($post, $id = 0)
     {
+        $aDetails = array(
+            'detail_quantity'=>isset($post['detail_quantity'])?$post['detail_quantity']:'',
+            'detail_color'=>isset($post['detail_color'])?$post['detail_color']:'',
+            'detail_size'=>isset($post['detail_size'])?$post['detail_size']:'',
+        );
+        unset($post['detail_quantity']);
+        unset($post['detail_color']);
+        unset($post['detail_size']);
         if ($id > 0) {
             unset($post['title_for_url']);
             $post['time_update'] = time();
             $result = $this->db->where('id', $id)->update('products', $post);
+            $this->db->where('product', $id)->delete('product_detail');
+            $this->saveProductDetail($aDetails,$id);
         } else {
             if (trim($post['title_for_url']) != '') {
                 $url_fr = except_letters($post['title_for_url']);
@@ -188,6 +198,7 @@ class AdminModel extends CI_Model
             unset($post['id']);
             $result = $this->db->insert('products', $post);
             $last_id = $this->db->insert_id();
+            $this->saveProductDetail($aDetails,$last_id);
         }
         if ($result == false)
             return false;
@@ -847,6 +858,48 @@ class AdminModel extends CI_Model
         $result = $this->db->update('shop_categories', array(
             'position' => $post['new_pos']
         ));
+    }
+
+    public function getColors()
+    {
+        $query = $this->db->query('SELECT * FROM colors');
+        return $query;
+    }
+    public function getSizes()
+    {
+        $query = $this->db->query('SELECT * FROM sizes');
+        return $query;
+    }
+
+    protected function saveProductDetail($post,$id){
+        if(!isset($post['detail_quantity']) || !is_array($post['detail_quantity']) || empty($post['detail_quantity']))
+            return;
+        if(!isset($post['detail_color']) || !is_array($post['detail_color']) || empty($post['detail_color']))
+            return;
+        if(!isset($post['detail_size']) || !is_array($post['detail_size']) || empty($post['detail_size']))
+            return;
+        $aColor = $post['detail_color'];
+        $aSize = $post['detail_size'];
+        foreach ($post['detail_quantity'] as $index=>$quantity){
+            if(!$quantity) continue;
+            $color = isset($aColor[$index])?$aColor[$index]:'';
+            $size = isset($aSize[$index])?$aSize[$index]:'';
+            if(!$size || !$color) continue;
+            $this->db->insert('product_detail',
+                array(
+                    'product' => $id,
+                    'color' => $color,
+                    'size' => $size,
+                    'quantity' => (int)$quantity
+                ));
+        }
+    }
+
+    public function getProductDetailByProduct($id)
+    {
+        if(!$id) return null;
+        $query = $this->db->query('SELECT * FROM product_detail WHERE product='.$id);
+        return $query;
     }
 
 }
