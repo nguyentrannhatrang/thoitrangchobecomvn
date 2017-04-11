@@ -99,6 +99,11 @@ if ($this->session->flashdata('result_publish')) {
                     <?php
                     foreach ($shop_categorie['info'] as $nameAbbr) {
                         if ($nameAbbr['abbr'] == $this->config->item('language_abbr')) {
+                            /*if(isset($shop_categorie['sub']) && isset($shop_categorie['sub'][0]) && $shop_categorie['sub'][0]){
+                                echo $shop_categorie['sub'][0].'-'.$nameAbbr['name'];
+                            }else{
+                                echo $nameAbbr['name'];
+                            }*/
                             echo $nameAbbr['name'];
                         }
                     }
@@ -139,6 +144,13 @@ if ($this->session->flashdata('result_publish')) {
         <select class="selectpicker" name="in_slider">
             <option value="1" <?= isset($_POST['in_slider']) && $_POST['in_slider'] == 1 ? 'selected' : '' ?>>Yes</option>
             <option value="0" <?= isset($_POST['in_slider']) && $_POST['in_slider'] == 0 || !isset($_POST['in_slider']) ? 'selected' : '' ?>>No</option>
+        </select>
+    </div>
+    <div class="form-group for-shop">
+        <label>Show Home Page</label>
+        <select class="selectpicker" name="show_home">
+            <option value="1" <?= isset($_POST['show_home']) && $_POST['show_home'] == 1 ? 'selected' : '' ?>>Yes</option>
+            <option value="0" <?= isset($_POST['show_home']) && $_POST['show_home'] == 0 || !isset($_POST['show_home']) ? 'selected' : '' ?>>No</option>
         </select>
     </div>
     <div class="form-group for-shop">

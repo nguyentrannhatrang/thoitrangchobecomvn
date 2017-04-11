@@ -15,3 +15,5 @@ CREATE TABLE `product_detail` (
   `quantity` int(5) NOT NULL,
   PRIMARY KEY (`product`,`color`,`size`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE products ADD show_home TINYINT(1);

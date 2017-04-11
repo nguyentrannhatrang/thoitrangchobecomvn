@@ -279,9 +279,12 @@ class AdminModel extends CI_Model
         $query = $this->db->query('SELECT translations_first.*, (SELECT name FROM translations WHERE for_id = sub_for AND type="shop_categorie" AND abbr = translations_first.abbr) as sub_is, shop_categories.position FROM translations as translations_first INNER JOIN shop_categories ON shop_categories.id = translations_first.for_id WHERE type="shop_categorie" ORDER BY position ASC ' . $limit_sql);
         $arr = array();
         foreach ($query->result() as $shop_categorie) {
+            $name = $shop_categorie->name;
+            if($shop_categorie->sub_is)
+                $name = $shop_categorie->sub_is.'-'.$name;
             $arr[$shop_categorie->for_id]['info'][] = array(
                 'abbr' => $shop_categorie->abbr,
-                'name' => $shop_categorie->name
+                'name' => $name
             );
             $arr[$shop_categorie->for_id]['sub'][] = $shop_categorie->sub_is;
             $arr[$shop_categorie->for_id]['position'] = $shop_categorie->position;
