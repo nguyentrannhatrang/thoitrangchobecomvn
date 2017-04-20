@@ -99,6 +99,10 @@
                             </div>
                         <?php } ?>
                         <div class="form-group">
+                            <label>URL</label>
+                            <input type="text" name="category_url" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label>Parent <sup>this categorie will be subcategorie of parent</sup>:</label>
                             <select class="form-control" name="sub_for">
                                 <option value="0">None</option>

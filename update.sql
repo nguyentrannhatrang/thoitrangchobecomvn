@@ -17,3 +17,5 @@ CREATE TABLE `product_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE products ADD show_home TINYINT(1);
+ALTER TABLE shop_categories ADD url_name VARCHAR(100);
+ALTER  TABLE shop_categories ADD UNIQUE (url_name);

@@ -299,7 +299,7 @@ class AdminModel extends CI_Model
 
     public function setShopCategorie($post)
     {
-        $this->db->insert('shop_categories', array('sub_for' => $post['sub_for']));
+        $this->db->insert('shop_categories', array('sub_for' => $post['sub_for'],'url_name' => $post['category_url']));
         $id = $this->db->insert_id();
 
         $i = 0;
