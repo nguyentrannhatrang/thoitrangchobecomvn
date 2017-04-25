@@ -44,7 +44,7 @@ class Checkout extends MY_Controller
         $data['cashondelivery_visibility'] = $this->AdminModel->getValueStore('cashondelivery_visibility');
         $data['paypal_email'] = $this->AdminModel->getValueStore('paypal_email');
         $data['bestSellers'] = $this->Publicmodel->getbestSellers();
-        $this->render('checkout', $head, $data);
+        $this->render2('checkout', $head, $data);
     }
 
     private function goToDestination()

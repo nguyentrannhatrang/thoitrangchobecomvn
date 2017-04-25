@@ -71,7 +71,9 @@
 <!--    <link rel='stylesheet' id='font-awesome-css'  href='http://jenscornershop.com.au/wp-content/plugins/woo-extra-flat-rate/public/css/font-awesome/css/font-awesome.css?ver=2.1' type='text/css' media='all' />-->
 <!--    <link rel='stylesheet' id='font-awesome-min-css'  href='http://jenscornershop.com.au/wp-content/plugins/woo-extra-flat-rate/public/css/font-awesome/css/font-awesome.min.css?ver=2.1' type='text/css' media='all' />-->
     <link rel='stylesheet' id='woocommerce-layout-css'  href='<?= base_url('templatecss/frontend.css') ?>' type='text/css' media='all' />
+    <?php if(isset($isCartPage) && $isCartPage){ ?>
     <link rel='stylesheet' id='woocommerce-layout-css'  href='<?= base_url('templatecss/woocommerce-layout.css') ?>' type='text/css' media='all' />
+    <?php }?>
     <link rel='stylesheet' id='woocommerce-smallscreen-css'  href='<?= base_url('templatecss/woocommerce-smallscreen.css') ?>' type='text/css' media='only screen and (max-width: 768px)' />
     <link rel='stylesheet' id='woocommerce-general-css'  href='<?= base_url('templatecss/woocommerce.css') ?>' type='text/css' media='all' />
     <link rel='stylesheet' id='accesspress-store-google-fonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C600%2C700%2C300%7COswald%3A400%2C700%2C300%7CDosis%3A400%2C300%2C500%2C600%2C700%7CLato%3A300%2C400%2C700%2C900&#038;ver=4.7.3' type='text/css' media='all' />

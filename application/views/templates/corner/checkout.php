@@ -1,157 +1,175 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<div class="container" id="checkout-page">
-    <?php
-    if ($cartItems['array'] != null) {
-        ?>
-        <?= purchase_steps(1, 2) ?>
-        <div class="row">
-            <div class="col-sm-9 left-side">
-                <form method="POST" id="goOrder">
-                    <div class="title alone">
-                        <span><?= lang('checkout') ?></span>
-                    </div>
-                    <?php
-                    if ($this->session->flashdata('submit_error')) {
-                        ?>
-                        <hr>
-                        <div class="alert alert-danger">
-                            <h4><span class="glyphicon glyphicon-alert"></span> <?= lang('finded_errors') ?></h4>
-                            <?php
-                            foreach ($this->session->flashdata('submit_error') as $error) {
-                                echo $error . '<br>';
-                            }
-                            ?>
-                        </div>
-                        <hr>
-                        <?php
-                    }
-                    ?>
-                    <div class="payment-type-box">
-                        <select class="selectpicker payment-type" data-style="btn-blue" name="payment_type">
-                            <?php if ($cashondelivery_visibility == 1) { ?>
-                                <option value="cashOnDelivery"><?= lang('cash_on_delivery') ?> </option>
-                            <?php } if (filter_var($paypal_email, FILTER_VALIDATE_EMAIL)) { ?>
-                                <option value="PayPal"><?= lang('paypal') ?> </option>
-                            <?php } if ($bank_account['iban'] != null) { ?>
-                                <option value="Bank"><?= lang('bank_payment') ?> </option>
-                            <?php } ?>
-                        </select>
-                        <span class="top-header text-center"><?= lang('choose_payment') ?></span>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-sm-6">
-                            <label for="firstNameInput"><?= lang('first_name') ?> (<sup><?= lang('requires') ?></sup>)</label>
-                            <input id="firstNameInput" class="form-control" name="first_name" value="<?= @$_POST['first_name'] ?>" type="text" placeholder="<?= lang('first_name') ?>">
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label for="lastNameInput"><?= lang('last_name') ?> (<sup><?= lang('requires') ?></sup>)</label>
-                            <input id="lastNameInput" class="form-control" name="last_name" value="<?= @$_POST['last_name'] ?>" type="text" placeholder="<?= lang('last_name') ?>">
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label for="emailAddressInput"><?= lang('email_address') ?> (<sup><?= lang('requires') ?></sup>)</label>
-                            <input id="emailAddressInput" class="form-control" name="email" value="<?= @$_POST['email'] ?>" type="text" placeholder="<?= lang('email_address') ?>">
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label for="phoneInput"><?= lang('phone') ?> (<sup><?= lang('requires') ?></sup>)</label>
-                            <input id="phoneInput" class="form-control" name="phone" value="<?= @$_POST['phone'] ?>" type="text" placeholder="<?= lang('phone') ?>">
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <label for="addressInput"><?= lang('address') ?> (<sup><?= lang('requires') ?></sup>)</label>
-                            <textarea id="addressInput" name="address" class="form-control" rows="3"><?= @$_POST['address'] ?></textarea>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label for="cityInput"><?= lang('city') ?> (<sup><?= lang('requires') ?></sup>)</label>
-                            <input id="cityInput" class="form-control" name="city" value="<?= @$_POST['city'] ?>" type="text" placeholder="<?= lang('city') ?>">
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label for="postInput"><?= lang('post_code') ?></label>
-                            <input id="postInput" class="form-control" name="post_code" value="<?= @$_POST['post_code'] ?>" type="text" placeholder="<?= lang('post_code') ?>">
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <label for="notesInput"><?= lang('notes') ?></label>
-                            <textarea id="notesInput" class="form-control" name="notes" rows="3"><?= @$_POST['notes'] ?></textarea>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-products">
-                            <thead>
-                                <tr>
-                                    <th><?= lang('product') ?></th>
-                                    <th><?= lang('title') ?></th>
-                                    <th><?= lang('quantity') ?></th>
-                                    <th><?= lang('price') ?></th>
-                                    <th><?= lang('total') ?></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($cartItems['array'] as $item) { ?>
-                                    <tr>
-                                        <td class="relative">
-                                            <input type="hidden" name="id[]" value="<?= $item['id'] ?>">
-                                            <input type="hidden" name="quantity[]" value="<?= $item['num_added'] ?>">
-                                            <img class="product-image" src="<?= base_url('/attachments/shop_images/' . $item['image']) ?>" alt="">
-                                            <a href="<?= base_url('home/removeFromCart?delete-product=' . $item['id'] . '&back-to=checkout') ?>" class="btn btn-xs btn-danger remove-product">
-                                                <span class="glyphicon glyphicon-remove"></span>
-                                            </a>
-                                        </td>
-                                        <td><a href="<?= LANG_URL . '/' . $item['url'] ?>"><?= $item['title'] ?></a></td>
-                                        <td>
-                                            <a class="btn btn-xs btn-primary refresh-me add-to-cart" data-id="<?= $item['id'] ?>" href="javascript:void(0);">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </a>
-                                            <span class="quantity-num">
-                                                <?= $item['num_added'] ?>
-                                            </span>
-                                            <a class="btn  btn-xs btn-danger" onclick="removeProduct(<?= $item['id'] ?>, true)" href="javascript:void(0);">
-                                                <span class="glyphicon glyphicon-minus"></span>
-                                            </a>
-                                        </td>
-                                        <td><?= $item['price'] . CURRENCY ?></td>
-                                        <td><?= $item['sum_price'] . CURRENCY ?></td>
-                                    </tr>
-                                <?php } ?>
-                                <tr>
-                                    <td colspan="4" class="text-right"><?= lang('total') ?></td>
-                                    <td><?= $cartItems['finalSum'] . CURRENCY ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </form>
-                <div>
-                    <a href="<?= LANG_URL ?>" class="btn btn-primary go-shop">
-                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
-                        <?= lang('back_to_shop') ?>
-                    </a>
-                    <a href="javascript:void(0);" class="btn btn-primary go-order" onclick="document.getElementById('goOrder').submit();" class="pull-left">
-                        <?= lang('custom_order') ?> 
-                        <span class="glyphicon glyphicon-circle-arrow-right"></span>
-                    </a>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-sm-3"> 
-                <div class="filter-sidebar">
-                    <div class="title">
-                        <span><?= lang('best_sellers') ?></span>
-                        <i class="fa fa-trophy" aria-hidden="true"></i>
-                    </div>
-                    <?= $load::getProducts($bestSellers, '', true) ?>
-                </div>
+<body class="page-template-default page page-id-6 woocommerce-checkout woocommerce-page apwidget_title ">
+<div id="page" class="hfeed site">
+
+    <header id="mastheads" class="site-header headertwo" role="banner">
+
+        <div class="before-top-header">
+            <div class="ak-container clearfix">
             </div>
         </div>
-    </div>
-<?php } else { ?>
-    <div class="alert alert-info"><?= lang('no_products_in_cart') ?></div>
-    <?php
-}
-if ($this->session->flashdata('deleted')) {
-    ?>
-    <script>
-        $(document).ready(function () {
-            ShowNotificator('alert-info', '<?= $this->session->flashdata('deleted') ?>');
-        });
-    </script>
-<?php } ?>
+        <div class="top-header clearfix">
+            <div class="ak-container clearfix">
+
+                <div id="site-branding" class="clearfix">
+                    <a class="site-logo" href="http://jenscornershop.com.au/">
+                        <img src="http://jenscornershop.com.au/wp-content/uploads/2016/11/logo.png" alt=""/>
+                    </a>
+                    <a class="site-text" href="http://jenscornershop.com.au/">
+                        <h1 class="site-title"></h1>
+                        <h2 class="site-description"></h2>
+                    </a>
+                </div><!-- .site-branding -->
+                <div class="headertwo-wrap">
+                    <!-- Cart Link -->
+                    <div class="view-cart">
+                        <a class="cart-contents wcmenucart-contents" href="http://jenscornershop.com.au/cart/" title="View your shopping cart">
+                            <i class="fa fa-shopping-cart"></i> [ 1 / <span class="amount">&#036;55.00</span> ]
+                        </a>
+                    </div>
+                    <a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
+                        <i class="fa fa-heart"></i>
+                        (0)
+                    </a>
+                    <div class="login-woocommerce">
+                        <a href="http://jenscornershop.com.au/my-account/" class="account">
+                            Login
+                        </a>
+                    </div>
+                    <!-- if enabled from customizer -->
+                    <div class="search-form">
+                        <form method="get" class="searchform" action="http://jenscornershop.com.au/" role="search">
+                            <input type="text" name="s" value="" class="search-field" placeholder="Search products" />
+                            <input type="hidden" name="post_type" value="product">
+                            <button type="submit" class="searchsubmit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <?php $this->view('templates/corner/_parts/menu'); ?>
+    </header><!-- #masthead -->
+
+    <div id="content" class="site-content"><div class="page_header_wrap clearfix" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
+            <div class="ak-container">
+                <header class="entry-header">
+                    <h2 class="entry-title">Checkout</h2>        </header><!-- .entry-header -->
+                <div id="accesspress-breadcrumb"><a href="http://jenscornershop.com.au">Home</a>  <span class="current">Checkout</span></div>    </div>
+        </div>
+        <div class="inner">
+            <main id="main" class="site-main clearfix no-sidebar">
+
+                <div id="primary" class="content-area">
+
+
+                    <article id="post-6" class="post-6 page type-page status-publish hentry">
+
+                        <div class="entry-content">
+                            <div class="content-inner clearfix">
+                                <h2 class="post-title">Checkout</h2>
+                                <div class="content-page">
+                                    <div class="woocommerce">
+                                        <form name="checkout" method="post" class="checkout woocommerce-checkout" action="http://jenscornershop.com.au/checkout/" enctype="multipart/form-data">
+
+
+
+                                            <div class="col2-set" id="customer_details">
+                                                <div class="col-1">
+                                                    <div class="woocommerce-billing-fields">
+
+                                                        <h3>Billing details</h3>
+                                                        <div class="woocommerce-billing-fields__field-wrapper">
+                                                            <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-sort="10">
+                                                                <label for="billing_first_name" class="">First name <abbr class="required" title="required">*</abbr>
+                                                                </label>
+                                                                <input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder=""  value="" autocomplete="given-name" autofocus="autofocus" />
+                                                            </p>
+                                                            <p class="form-row form-row-last validate-required" id="billing_last_name_field" data-sort="20">
+                                                                <label for="billing_last_name" class="">Last name <abbr class="required" title="required">*</abbr>
+                                                                </label>
+                                                                <input type="text" class="input-text " name="billing_last_name" id="billing_last_name" placeholder=""  value="" autocomplete="family-name" />
+                                                            </p>
+                                                            <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-sort="50">
+                                                                <label for="billing_address_1" class="">Address <abbr class="required" title="required">*</abbr></label>
+                                                                <input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="Street address"  value="" autocomplete="address-line1" />
+                                                            </p>
+                                                            <p class="form-row form-row-first validate-phone" id="billing_phone_field" data-sort="100">
+                                                                <label for="billing_phone" class="">Phone</label>
+                                                                <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder=""  value="" autocomplete="tel" />
+                                                            </p>
+                                                            <p class="form-row form-row-last validate-required validate-email" id="billing_email_field" data-sort="110">
+                                                                <label for="billing_email" class="">Email address <abbr class="required" title="required">*</abbr></label>
+                                                                <input type="email" class="input-text " name="billing_email" id="billing_email" placeholder=""  value="" autocomplete="email username" />
+                                                            </p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <h3 id="order_review_heading">Your order</h3>
+
+
+                                            <div id="order_review" class="woocommerce-checkout-review-order">
+                                                <table class="shop_table woocommerce-checkout-review-order-table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="product-name">Product</th>
+                                                        <th class="product-total">Total</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="cart_item">
+                                                        <td class="product-name">
+                                                            Spanish Tea Party Dress &ndash; 3&nbsp;							 <strong class="product-quantity">&times; 1</strong>													</td>
+                                                        <td class="product-total">
+                                                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>55.00</span>						</td>
+                                                    </tr>
+                                                    </tbody>
+                                                    <tfoot>
+
+                                                    <tr class="cart-subtotal">
+                                                        <th>Subtotal</th>
+                                                        <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>55.00</span></td>
+                                                    </tr>
+                                                    <tr class="shipping">
+                                                        <th>Shipping</th>
+                                                        <td>
+                                                            <p>Shipping costs will be calculated once you have provided your address.</p>
+
+                                                        </td>
+                                                    </tr>
+                                                    <script>
+                                                        jQuery(document).ready(function() {
+                                                            jQuery(".extra-flate-tool-tip").parent().css("position", "relative");
+                                                        });
+                                                    </script>
+                                                    <tr class="order-total">
+                                                        <th>Total</th>
+                                                        <td><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>55.00</span></strong> </td>
+                                                    </tr>
+                                                    </tfoot>
+                                                </table>
+                                                <div id="payment" class="woocommerce-checkout-payment">
+                                                    <div class="form-row place-order" style="float: right">
+                                                        <input class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Book Now" data-value="Place order" type="submit">
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+
+                    </article><!-- #post-## -->
+
+                </div><!-- #primary -->
+            </main>
+        </div>
+    </div><!-- #content -->
