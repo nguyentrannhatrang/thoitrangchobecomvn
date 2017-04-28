@@ -158,4 +158,9 @@ a.orders-referral {display:block; word-break:break-all;}
     .show-menu {display: block; padding:0 10px !important;}
     .sidebar-menu {display: none;}
 }
+#urlEditor {
+    position: absolute;
+    display: none;
+    width: 230px;
+}
 

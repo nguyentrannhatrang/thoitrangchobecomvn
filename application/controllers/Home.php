@@ -12,6 +12,8 @@ class Home extends MY_Controller
         parent::__construct();
         $this->load->helper(array('pagination'));
         $this->load->Model('AdminModel');
+        $this->load->Model('Product');
+        $this->load->Model('Category');
     }
 
     public function index($page = 0)
@@ -22,7 +24,7 @@ class Home extends MY_Controller
         $head['title'] = @$arrSeo['title'];
         $head['description'] = @$arrSeo['description'];
         $head['keywords'] = str_replace(" ", ",", $head['title']);
-        $all_categories = $this->Publicmodel->getShopCategories();
+        //$all_categories = $this->Publicmodel->getShopCategories();
 
         /*
          * Tree Builder for categories menu
@@ -43,19 +45,48 @@ class Home extends MY_Controller
             return $branch;
         }
 
-        $data['home_categories'] = $tree = buildTree($all_categories);
-        $data['all_categories'] = $all_categories;
-        $data['countQuantities'] = $this->Publicmodel->getCountQuantities();
-        $data['bestSellers'] = $this->Publicmodel->getbestSellers();
-        $data['sliderProducts'] = $this->Publicmodel->getSliderProducts();
-        $data['products'] = $this->Publicmodel->getProducts($this->num_rows, $page, $_GET);
-        $rowscount = $this->Publicmodel->productsCount($_GET);
-        $data['shippingOrder'] = $this->AdminModel->getValueStore('shippingOrder');
-        $data['showOutOfStock'] = $this->AdminModel->getValueStore('outOfStock');
-        $data['showBrands'] = $this->AdminModel->getValueStore('showBrands');
-        $data['brands'] = $this->AdminModel->getBrands();
-        $data['links_pagination'] = pagination('home', $rowscount, $this->num_rows);
+        //$data['home_categories'] = $tree = buildTree($all_categories);
+        //$data['all_categories'] = $all_categories;
+        //$data['countQuantities'] = $this->Publicmodel->getCountQuantities();
+        //$data['bestSellers'] = $this->Publicmodel->getbestSellers();
+        //$data['sliderProducts'] = $this->Publicmodel->getSliderProducts();
+        //$data['products'] = $this->Publicmodel->getProducts($this->num_rows, $page, $_GET);
+        $data['products'] = $this->getProductShowHome();
+        //$rowscount = $this->Publicmodel->productsCount($_GET);
+        //$data['shippingOrder'] = $this->AdminModel->getValueStore('shippingOrder');
+        //$data['showOutOfStock'] = $this->AdminModel->getValueStore('outOfStock');
+        //$data['showBrands'] = $this->AdminModel->getValueStore('showBrands');
+        //$data['brands'] = $this->AdminModel->getBrands();
+        //$data['links_pagination'] = pagination('home', $rowscount, $this->num_rows);
         $this->render('home', $head, $data);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getProductShowHome(){
+        $list = array();
+        $topCategories = array();
+        /** @var Category[]  $categories */
+        $categories = $this->Category->loadAll();
+        /** @var Category $category */
+        foreach ($categories as $category){
+            if(!$category->subFor && !isset($topCategories[$category->id])){
+                $topCategories[$category->id] = [];
+                $topCategories[$category->id]['name'] = $category->name;
+                $topCategories[$category->id]['value'] = array();
+            }
+                
+            if($category->subFor)
+                $topCategories[$category->subFor]['value'][] = $category->id;
+        }
+        foreach ($topCategories as $key=>$topCategory) {
+            if(empty($topCategory['value'])) continue;
+            $topCategory['value'][] = $key;
+            $data = $this->Product->loadByCategorieTop($topCategory['value']);
+            $list[$key] = array('name'=>$topCategory['name'],'data'=>$data);
+        }
+        return $list;
     }
 
     /*

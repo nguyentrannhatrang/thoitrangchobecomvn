@@ -11,6 +11,7 @@ class MY_Controller extends MX_Controller
     {
         parent::__construct();
         $this->load->model('AdminModel');
+        $this->load->model('Category');
         $this->getActivePages();
         $this->checkForPostRequests();
         $this->setReferrer();
@@ -33,6 +34,8 @@ class MY_Controller extends MX_Controller
         $this->load->view($this->template . $view, $data);
         $this->load->view($this->template . '_parts/footer', $footer);
     }
+    
+    
 
     /*
      * Render page from controller

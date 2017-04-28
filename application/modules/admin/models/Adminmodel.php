@@ -276,7 +276,7 @@ class AdminModel extends CI_Model
             $limit_sql = ' LIMIT ' . $start . ',' . $limit;
         }
 
-        $query = $this->db->query('SELECT translations_first.*, (SELECT name FROM translations WHERE for_id = sub_for AND type="shop_categorie" AND abbr = translations_first.abbr) as sub_is, shop_categories.position FROM translations as translations_first INNER JOIN shop_categories ON shop_categories.id = translations_first.for_id WHERE type="shop_categorie" ORDER BY position ASC ' . $limit_sql);
+        $query = $this->db->query('SELECT translations_first.*, (SELECT name FROM translations WHERE for_id = sub_for AND type="shop_categorie" AND abbr = translations_first.abbr) as sub_is, shop_categories.position,url_name FROM translations as translations_first INNER JOIN shop_categories ON shop_categories.id = translations_first.for_id WHERE type="shop_categorie" ORDER BY position ASC ' . $limit_sql);
         $arr = array();
         foreach ($query->result() as $shop_categorie) {
             $name = $shop_categorie->name;
@@ -288,6 +288,7 @@ class AdminModel extends CI_Model
             );
             $arr[$shop_categorie->for_id]['sub'][] = $shop_categorie->sub_is;
             $arr[$shop_categorie->for_id]['position'] = $shop_categorie->position;
+            $arr[$shop_categorie->for_id]['url_name'] = $shop_categorie->url_name;
         }
         return $arr;
     }
@@ -860,6 +861,14 @@ class AdminModel extends CI_Model
         $this->db->where('id', $post['editid']);
         $result = $this->db->update('shop_categories', array(
             'position' => $post['new_pos']
+        ));
+    }
+
+    public function editShopCategorieUrl($post)
+    {
+        $this->db->where('id', $post['editid']);
+        $result = $this->db->update('shop_categories', array(
+            'url_name' => $post['new_pos']
         ));
     }
 

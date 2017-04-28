@@ -146,7 +146,7 @@ class Publicmodel extends CI_Model
 
     public function getShopCategories()
     {
-        $this->db->select('shop_categories.sub_for, shop_categories.id, translations.name');
+        $this->db->select('shop_categories.sub_for, shop_categories.id, translations.name,shop_categories.url_name');
         $this->db->where('abbr', MY_LANGUAGE_ABBR);
         $this->db->where('type', 'shop_categorie');
         $this->db->order_by('position', 'asc');

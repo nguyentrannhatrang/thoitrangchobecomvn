@@ -30,6 +30,7 @@
                     <th>Name</th>
                     <th>Subcategory for</th>
                     <th>Position</th>
+                    <th>URL</th>
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -63,6 +64,12 @@
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
                         <span id="position-<?= $key_cat ?>"><?= $shop_categorie['position'] ?></span>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0);" class="editUrl" data-url-for-id="<?= $key_cat ?>" data-my-url="<?= $shop_categorie['url_name'] ?>">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <span id="url-<?= $key_cat ?>"><?= $shop_categorie['url_name'] ?></span>
                     </td>
                     <td class="text-center">
                         <a href="<?= base_url('admin/shopcategories/?delete=' . $key_cat) ?>" class="btn btn-danger btn-xs confirm-delete"><span class="glyphicon glyphicon-remove"></span> Del</a>
@@ -134,6 +141,15 @@
         <i class="fa fa-spinner fa-spin fa-fw yesSaveEdit"></i>
     </button>
     <button type="button" class="btn btn-default closeEditCategorie"><i class="fa fa-times" aria-hidden="true"></i></button>
+</div>
+<div id="urlEditor">
+    <input type="hidden" name="urlEditId" value="">
+    <input type="text" name="new_url" class="form-control" value="">
+    <button type="button" class="btn btn-default saveEditUrl">
+        <i class="fa fa-floppy-o noSaveEdit" aria-hidden="true"></i>
+<!--        <i class="fa fa-spinner fa-spin fa-fw yesSaveUrl"></i>-->
+    </button>
+    <button type="button" class="btn btn-default closeEditUrl"><i class="fa fa-times" aria-hidden="true"></i></button>
 </div>
 <div id="categorieSubEdit">
     <form method="POST" id="categorieEditSubChanger">

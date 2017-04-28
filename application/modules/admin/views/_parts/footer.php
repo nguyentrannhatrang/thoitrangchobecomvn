@@ -106,7 +106,8 @@
         ordersOrderBy: '<?= base_url('admin/orders?order_by=') ?>',
         uploadOthersImages: '<?= base_url('admin/uploadOthersImages') ?>',
         loadOthersImages: '<?= base_url('admin/loadOthersImages') ?>',
-        editPositionCategorie: '<?= base_url('admin/changePosition') ?>'
+        editPositionCategorie: '<?= base_url('admin/changePosition') ?>',
+        editUrlCategorie: '<?= base_url('admin/changeUrl') ?>'
     };
 </script>
 <script src="<?= base_url('assets/js/mine_admin.js') ?>"></script>

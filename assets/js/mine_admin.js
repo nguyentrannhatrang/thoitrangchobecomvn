@@ -496,3 +496,27 @@ $('.savePositionCategorie').click(function () {
         $('#position-' + editPositionField).text(new_val);
     });
 });
+
+$('.editUrl').click(function () {
+    var editId = $(this).data('url-for-id');
+    $('[name="urlEditId"]').val(editId);
+    var myPosition = $(this).data('my-url');
+    var position = $(this).position();
+    $('#urlEditor').css({top: position.top, left: position.left, display: 'block'});
+    $('[name="new_url"]').val(myPosition);
+});
+$('.closeEditUrl').click(function () {
+    $('#urlEditor').hide();
+});
+$('.saveEditUrl').click(function () {
+    var new_val = $('[name="new_url"]').val();
+    var editId = $('[name="urlEditId"]').val();
+    $.ajax({
+        type: "POST",
+        url: urls.editUrlCategorie,
+        data: {editid: editId, new_pos: new_val}
+    }).done(function (data) {
+        $('#urlEditor').hide();
+        $('#url-' + editId).text(new_val);
+    });
+});
