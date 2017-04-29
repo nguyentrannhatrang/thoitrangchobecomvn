@@ -13,17 +13,22 @@
                     <div id="menu">
                         <nav id="site-navigation" class="main-navigation" role="navigation">
                             <a class="menu-toggle">
-                                Menu                                    </a>
-                            <div class="store-menu"><ul id="menu-main-menu" class="menu"><li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-26"><a href="http://jenscornershop.com.au/">Home</a></li>
-                                    <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><a href="http://jenscornershop.com.au/about-me/">About Me</a></li>
-                                    <li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="http://jenscornershop.com.au/instagram-gallery/">Instagram Gallery</a></li>
-                                    <li id="menu-item-100" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-100"><a href="http://jenscornershop.com.au/product-category/handmade/">Handmade Products</a></li>
-                                    <li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a href="http://jenscornershop.com.au/product-category/sewing/">Sewing products</a></li>
-                                    <li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="http://jenscornershop.com.au/my-account/">My Account</a></li>
-                                    <li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="http://jenscornershop.com.au/blog/">Blog</a></li>
-                                    <li id="menu-item-906" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-906"><a href="http://jenscornershop.com.au/faqs/">FAQS</a></li>
-                                    <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a href="http://jenscornershop.com.au/contact-us/">Contact Us</a></li>
-                                </ul></div>                                </nav><!-- #site-navigation -->
+                                Menu
+                            </a>
+                            <div class="store-menu">
+                                <ul id="menu-main-menu" class="menu">
+                                    <li id="home"
+                                        class="menu-item <?php if(isset($current_menu['home'])) echo 'current_page_item';?>"><a href="/">Home</a></li>
+                                    <?php foreach ($categories as $categoty){?>
+                                    <li id="categorie-<?= $categoty->id?>"
+                                        class="menu-item <?php if(isset($current_menu['categorie-'.$categoty->id])) echo 'current_page_item';?>"><a href="/category-<?=$categoty->urlName?>"><?=$categoty->name ?></a></li>
+                                    <?php }?>
+                                    <li id="faqs" class="menu-item <?php if(isset($current_menu['faqs'])) echo 'current_page_item';?>"><a href="http://jenscornershop.com.au/faqs/">FAQS</a></li>
+                                    <li id="aboutus" class="menu-item <?php if(isset($current_menu['aboutus'])) echo 'current_page_item';?>"><a href="/about-me/">About Me</a></li>
+                                    <li id="contacts" class="menu-item <?php if(isset($current_menu['contacts'])) echo 'current_page_item';?>"><a href="http://jenscornershop.com.au/contact-us/">Contact Us</a></li>
+                                </ul>
+                            </div>                               
+                        </nav><!-- #site-navigation -->
                     </div>
                 </div> <!-- right-header -->
             </div> <!-- right-header-main -->

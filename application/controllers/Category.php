@@ -9,6 +9,8 @@ class Category extends MY_Controller
     {
         parent::__construct();
         $this->load->library('email');
+        $this->load->model('CategoryModel');
+        $this->load->model('ProductModel');
     }
 
     public function index($category = '')
@@ -19,7 +21,18 @@ class Category extends MY_Controller
         $head['title'] = @$arrSeo['title'];
         $head['description'] = @$arrSeo['description'];
         $head['keywords'] = str_replace(" ", ",", $head['title']);
+        $data['products'] = $this->getListProduct($category);
         $this->render2('category', $head, $data);
+    }
+
+    /**
+     * @param $categorie
+     * @return mixed
+     */
+    protected function getListProduct($categorie){
+        $aCategories = $this->CategoryModel->getIdByUrl($categorie);
+        return $this->ProductModel->getProducts($aCategories);
+        
     }
 
     private function sendEmail()

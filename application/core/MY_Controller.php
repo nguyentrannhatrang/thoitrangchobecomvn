@@ -11,7 +11,7 @@ class MY_Controller extends MX_Controller
     {
         parent::__construct();
         $this->load->model('AdminModel');
-        $this->load->model('Category');
+        $this->load->model('CategoryModel');
         $this->getActivePages();
         $this->checkForPostRequests();
         $this->setReferrer();
@@ -28,11 +28,29 @@ class MY_Controller extends MX_Controller
     {
         $head['cartItems'] = $this->shoppingcart->getCartItems();
         $head['sumOfItems'] = $this->shoppingcart->sumValues;
+        $head['menu'] = $this->getListMenu();
+        $head['current_menu'] = array($view=>true);
         $vars = $this->loadVars();
         $this->load->vars($vars);
         $this->load->view($this->template . '_parts/header', $head);
         $this->load->view($this->template . $view, $data);
         $this->load->view($this->template . '_parts/footer', $footer);
+    }
+
+    /**
+     * @return array
+     */
+    public function getListMenu(){
+        $topCategories = array();
+        /** @var Categorymodel[]  $categories */
+        $categories = $this->CategoryModel->loadAll();
+        /** @var CategoryModel $category */
+        foreach ($categories as $category){
+            if(!$category->subFor && !isset($topCategories[$category->id])){
+                $topCategories[$category->id]= $category;
+            }           
+        }
+        return $topCategories;
     }
     
     
@@ -46,6 +64,8 @@ class MY_Controller extends MX_Controller
     {
         $head['cartItems'] = $this->shoppingcart->getCartItems();
         $head['sumOfItems'] = $this->shoppingcart->sumValues;
+        $head['menu'] = $this->getListMenu();
+        $head['current_menu'] = array($view=>true);
         $vars = $this->loadVars();
         $this->load->vars($vars);
         $this->load->view($this->template . '_parts/header1', $head);

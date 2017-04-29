@@ -12,8 +12,8 @@ class Home extends MY_Controller
         parent::__construct();
         $this->load->helper(array('pagination'));
         $this->load->Model('AdminModel');
-        $this->load->Model('Product');
-        $this->load->Model('Category');
+        $this->load->Model('ProductModel');
+        $this->load->Model('CategoryModel');
     }
 
     public function index($page = 0)
@@ -67,9 +67,9 @@ class Home extends MY_Controller
     protected function getProductShowHome(){
         $list = array();
         $topCategories = array();
-        /** @var Category[]  $categories */
-        $categories = $this->Category->loadAll();
-        /** @var Category $category */
+        /** @var CategoryModel[]  $categories */
+        $categories = $this->CategoryModel->loadAll();
+        /** @var CategoryModel $category */
         foreach ($categories as $category){
             if(!$category->subFor && !isset($topCategories[$category->id])){
                 $topCategories[$category->id] = [];
@@ -83,7 +83,7 @@ class Home extends MY_Controller
         foreach ($topCategories as $key=>$topCategory) {
             if(empty($topCategory['value'])) continue;
             $topCategory['value'][] = $key;
-            $data = $this->Product->loadByCategorieTop($topCategory['value']);
+            $data = $this->ProductModel->loadByCategorieTop($topCategory['value']);
             $list[$key] = array('name'=>$topCategory['name'],'data'=>$data);
         }
         return $list;

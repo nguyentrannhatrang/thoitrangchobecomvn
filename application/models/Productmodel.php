@@ -6,8 +6,9 @@
  * Date: 4/28/2017
  * Time: 9:48 PM
  */
-class Product extends CI_Model
+class ProductModel extends CI_Model
 {
+    const TABLE_NAME = 'products';
     public $id;
     public $folder;
     public $image;
@@ -26,6 +27,7 @@ class Product extends CI_Model
     public $name;
     public $price;
     public $priceOld;
+    public $basicDescription;
 
     /**
      * @return array
@@ -55,7 +57,48 @@ class Product extends CI_Model
         $this->db->where('show_home', 1);
         $this->db->where('quantity >', 0);
         $this->db->order_by('position', 'asc');
-        $query = $this->db->get('products');
+        $query = $this->db->get(self::TABLE_NAME);
+        $arr = array();
+        if ($query !== false) {
+            foreach ($query->result_array() as $row) {
+                $arr[] = $this->convertToObject($row);
+            }
+        }
+        return $arr;
+    }
+
+    /**
+     * @param array $categories
+     * @param bool $checkQuantity
+     * @param int $limit
+     * @param int $start
+     * @return array
+     */
+    public function getProducts(array $categories = array(),$checkQuantity = true,$limit = 20,$start = 0)
+    {
+        if ($limit !== null && $start !== null) {
+            $this->db->limit($limit, $start);
+        }
+        $this->db->select(
+            'products.id,
+            products.image, 
+            products.quantity, 
+            translations.title as name,
+            translations.description,
+            translations.basic_description,
+             translations.price,
+              translations.old_price,
+               products.url');
+        $this->db->join('translations', 'translations.for_id = products.id', 'left');
+        $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
+        $this->db->where('translations.type', 'product');
+        $this->db->where('visibility', 1);
+        $this->db->where_in('shop_categorie', $categories);
+        if ($checkQuantity) {
+            $this->db->where('quantity >', 0);
+        }
+        $this->db->order_by('position', 'asc');
+        $query = $this->db->get(self::TABLE_NAME);
         $arr = array();
         if ($query !== false) {
             foreach ($query->result_array() as $row) {
@@ -70,7 +113,7 @@ class Product extends CI_Model
      * @return Category
      */
     public function convertToObject($arr){
-        $product = new Product();
+        $product = new ProductModel();
         $product->id = isset($arr['id'])?$arr['id']:'';
         $product->folder = isset($arr['folder'])?$arr['folder']:'';
         $product->image = isset($arr['image'])?$arr['image']:'';
@@ -88,6 +131,8 @@ class Product extends CI_Model
         $product->name = isset($arr['name'])?$arr['name']:'';
         $product->priceOld = isset($arr['old_price'])?$arr['old_price']:0;
         $product->price = isset($arr['price'])?$arr['price']:0;
+        $product->description = isset($arr['description'])?$arr['description']:'';
+        $product->basicDescription = isset($arr['basic_description'])?$arr['basic_description']:'';
         return $product;
     }
 

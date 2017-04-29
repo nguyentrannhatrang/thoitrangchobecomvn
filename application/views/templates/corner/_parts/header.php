@@ -151,6 +151,6 @@
 
         </div>
 
-        <?php $this->view('templates/corner/_parts/menu'); ?><!--Home Navigation-->
+        <?php $this->view('templates/corner/_parts/menu',array('categories'=>$menu,'current_menu'=>$current_menu)); ?><!--Home Navigation-->
 
     </header><!-- #masthead -->

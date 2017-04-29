@@ -53,148 +53,105 @@
 
         </div>
 
-        <?php $this->view('templates/corner/_parts/menu'); ?>
+        <?php $this->view('templates/corner/_parts/menu',array('categories'=>$menu,'current_menu'=>$current_menu)); ?>
 
     </header><!-- #masthead -->
     <div id="content" class="site-content"><header id="title_bread_wrap" class="entry-header" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
             <div class="ak-container">
-                <h1 class="entry-title ak-container">Newborn</h1>
-                <div class="woocommerce-breadcrumb accesspress-breadcrumb" ><a href="http://jenscornershop.com.au">Home</a>&nbsp;<a href="http://jenscornershop.com.au/product-category/handmade/">Handmade</a>&nbsp;<span>Newborn</span></div>            </div>
+                <h1 class="entry-title ak-container">The Autumn Collection</h1>
+                <div class="woocommerce-breadcrumb accesspress-breadcrumb" ><a href="http://jenscornershop.com.au">Home</a>&nbsp;<a href="http://jenscornershop.com.au/product-category/handmade/">Handmade</a>&nbsp;<span>The Autumn Collection</span></div>            </div>
         </header>
-<div class="inner">
-    <div class="ak-container left-sidebar">
-        <div id="primary" class="content-area clearfix">
-            <div class="content-inner">
-                <p class="woocommerce-result-count">
-                    Showing all <span class="total-products">4 results</span></p>
-                <form class="woocommerce-ordering" method="get">
-                    <select name="orderby" class="orderby">
-                        <option value="menu_order"  selected='selected'>Default sorting</option>
-                        <option value="popularity" >Sort by popularity</option>
-                        <option value="rating" >Sort by average rating</option>
-                        <option value="date" >Sort by newness</option>
-                        <option value="price" >Sort by price: low to high</option>
-                        <option value="price-desc" >Sort by price: high to low</option>
-                    </select>
-                </form>
-                <nav class="gridlist-toggle"><a href="#" id="grid" title="Grid view"><span class="dashicons dashicons-grid-view"></span> <em>Grid view</em></a><a href="#" id="list" title="List view"><span class="dashicons dashicons-exerpt-view"></span> <em>List view</em></a></nav>                    <div class="clearfix"></div>
-                <div class="wc-products">
-                    <ul class="products grid">
-                        <li class="first post-555 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-playsuits product_cat-newborn product_tag-playsuit product_tag-seaside product_shipping_class-whole-post  instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                            <a href="http://jenscornershop.com.au/product/white-arrows-playsuit/" class="woocommerce-LoopProduct-link">    <div class="collection_combine">
-                                    <a href="http://jenscornershop.com.au/product/white-arrows-playsuit/" class="full-outer">
-                                        <div class="outer-img">
-                                            <div class="inner-img">
-                                                <img width="300" height="300" src="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-768x768.jpg 768w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-1024x1024.jpg 1024w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-600x600.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" />                </div>
+        <div class="inner">
+            <div class="ak-container left-sidebar">
+                <div id="primary" class="content-area clearfix">
+                    <div class="content-inner">
+                        <p class="woocommerce-result-count">
+                            Showing all <span class="total-products"><?= count($products) ?> results</span></p>
+                        <!--<form class="woocommerce-ordering" method="get">
+                            <select name="orderby" class="orderby">
+                                <option value="menu_order"  selected='selected'>Default sorting</option>
+                                <option value="popularity" >Sort by popularity</option>
+                                <option value="rating" >Sort by average rating</option>
+                                <option value="date" >Sort by newness</option>
+                                <option value="price" >Sort by price: low to high</option>
+                                <option value="price-desc" >Sort by price: high to low</option>
+                            </select>
+                        </form>-->
+                        <nav class="gridlist-toggle"><a href="#" id="grid" title="Grid view">
+                                <span class="dashicons dashicons-grid-view"></span> <em>Grid view</em></a>
+                            <a href="#" id="list" title="List view">
+                                <span class="dashicons dashicons-exerpt-view"></span> <em>List view</em></a></nav>
+                        <div class="clearfix"></div>
+                        <div class="wc-products">
+                            <ul class="products">
+                                <?php foreach ($products as $index=>$product){?>
+                                <li class="<?php echo (($index % 3 == 0) ?'first':(($index % 3 == 1)?'last':''));?> post-1340 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-autumn-collection product_cat-shorts-skirts product_shipping_class-whole-post  instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
+                                    <a href="/product-<?= $product->url?>" class="woocommerce-LoopProduct-link">
+                                        <div class="collection_combine">
+                                            <a href="/product-<?= $product->url?>" class="full-outer">
+                                                <div class="outer-img">
+                                                    <div class="inner-img">
+                                                        <img width="300" height="300"
+                                                             src="<?= base_url('/attachments/shop_images/'.$product->image)?>"
+                                                             class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
+                                                             srcset="<?= base_url('/attachments/shop_images/'.$product->image)?> 300w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
+                                        <div class="collection_desc clearfix">
+                                            <a href="/product-<?= $product->url?>" class="collection_title">
+                                                <h3><?= $product->name?></h3>
+<!--                                                <p class="short_desc">--><?//= $product->basicDescription?><!--</p>-->
+                                            </a>
+                                            <div class="price-cart">
+                                                <span class="price">
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <span class="woocommerce-Price-currencySymbol"></span><?= $product->price?></span>
+                                                    <!--<span class="woocommerce-Price-amount amount">
+                                                        <span class="woocommerce-Price-currencySymbol"></span><?/*= $product->priceOld*/?>
+                                                    </span>-->
+                                                </span>
                                     </a>
-                                    <a class="item-wishlist" href="/product-category/handmade/newborn/?add_to_wishlist=555">Wishlist</a>
-                                </div>
-                                <div class="collection_desc clearfix">
-                                    <a href="http://jenscornershop.com.au/product/white-arrows-playsuit/" class="collection_title">
-                                        <h3>White Arrows Playsuit</h3>
-                                        <p class="short_desc">Flutter sleeve plays</p>
-                                    </a>
-                                    <div class="price-cart">
+                                    <div class="woocommerce-product-details__short-description">
+                                        <p><?= $product->basicDescription?></p>
+                                    </div>
+                                    <hr />
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
 
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>35.00</span></span>
-                                        <p class="afterpay-payment-info">or 4 payments of <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>8.75</span> with Afterpay</p></a><div class="gridlist-buttonwrap"><a rel="nofollow" href="http://jenscornershop.com.au/product/white-arrows-playsuit/" data-quantity="1" data-product_id="555" data-product_sku="" class="button product_type_variable add_to_cart_button">Select options</a></div><hr />        </div>
-            </div>
-            </li>                                                    <li class="last post-544 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-playsuits product_cat-newborn product_cat-size00 product_tag-playsuit product_tag-seaside product_shipping_class-whole-post first instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                <a href="http://jenscornershop.com.au/product/crosses-aqua-trim-playsuit/" class="woocommerce-LoopProduct-link">    <div class="collection_combine">
-                        <a href="http://jenscornershop.com.au/product/crosses-aqua-trim-playsuit/" class="full-outer">
-                            <div class="outer-img">
-                                <div class="inner-img">
-                                    <img width="300" height="300" src="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.27-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.27-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.27-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.27-768x768.jpg 768w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.27-1024x1024.jpg 1024w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.27-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.27-600x600.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" />                </div>
-                            </div>
-                        </a>
-                        <a class="item-wishlist" href="/product-category/handmade/newborn/?add_to_wishlist=544">Wishlist</a>
                     </div>
-                    <div class="collection_desc clearfix">
-                        <a href="http://jenscornershop.com.au/product/crosses-aqua-trim-playsuit/" class="collection_title">
-                            <h3>Crosses Aqua Trim Playsuit</h3>
-                            <p class="short_desc">Flutter sleeve plays</p>
-                        </a>
-                        <div class="price-cart">
-
-                            <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>35.00</span></span>
-                            <p class="afterpay-payment-info">or 4 payments of <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>8.75</span> with Afterpay</p></a><div class="gridlist-buttonwrap"><a rel="nofollow" href="http://jenscornershop.com.au/product/crosses-aqua-trim-playsuit/" data-quantity="1" data-product_id="544" data-product_sku="" class="button product_type_variable add_to_cart_button">Select options</a></div><hr />        </div>
-    </div>
-    </li>
-    <li class="post-539 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-playsuits product_cat-newborn product_cat-size000 product_cat-size00 product_cat-size0 product_tag-playsuit product_tag-seaside product_shipping_class-whole-post last instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-        <a href="http://jenscornershop.com.au/product/pink-antlers-playsuit/" class="woocommerce-LoopProduct-link">    <div class="collection_combine">
-                <a href="http://jenscornershop.com.au/product/pink-antlers-playsuit/" class="full-outer">
-                    <div class="outer-img">
-                        <div class="inner-img">
-                            <img width="300" height="300" src="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.52-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.52-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.52-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.52-768x768.jpg 768w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.52-1024x1024.jpg 1024w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.52-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.12.52-600x600.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" />                </div>
-                    </div>
-                </a>
-                <a class="item-wishlist" href="/product-category/handmade/newborn/?add_to_wishlist=539">Wishlist</a>
-            </div>
-            <div class="collection_desc clearfix">
-                <a href="http://jenscornershop.com.au/product/pink-antlers-playsuit/" class="collection_title">
-                    <h3>Pink Antlers Playsuit</h3>
-                    <p class="short_desc">Flutter sleeve plays</p>
-                </a>
-                <div class="price-cart">
-
-                    <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>35.00</span></span>
-                    <p class="afterpay-payment-info">or 4 payments of <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>8.75</span> with Afterpay</p></a><div class="gridlist-buttonwrap"><a rel="nofollow" href="http://jenscornershop.com.au/product/pink-antlers-playsuit/" data-quantity="1" data-product_id="539" data-product_sku="" class="button product_type_variable add_to_cart_button">Select options</a></div><hr />        </div>
-</div>
-</li>
-<li class="first post-454 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-playsuits product_cat-newborn product_tag-newborn product_tag-playsuit product_tag-seaside product_shipping_class-whole-post  instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-    <a href="http://jenscornershop.com.au/product/sage-swan-playsuit/" class="woocommerce-LoopProduct-link">    <div class="collection_combine">
-            <a href="http://jenscornershop.com.au/product/sage-swan-playsuit/" class="full-outer">
-                <div class="outer-img">
-                    <div class="inner-img">
-                        <img width="300" height="300" src="http://jenscornershop.com.au/wp-content/uploads/2016/12/15138461_1076791859114191_5775950735487595292_o-1-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2016/12/15138461_1076791859114191_5775950735487595292_o-1-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2016/12/15138461_1076791859114191_5775950735487595292_o-1-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2016/12/15138461_1076791859114191_5775950735487595292_o-1-768x768.jpg 768w, http://jenscornershop.com.au/wp-content/uploads/2016/12/15138461_1076791859114191_5775950735487595292_o-1-1024x1024.jpg 1024w, http://jenscornershop.com.au/wp-content/uploads/2016/12/15138461_1076791859114191_5775950735487595292_o-1-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2016/12/15138461_1076791859114191_5775950735487595292_o-1-600x600.jpg 600w, http://jenscornershop.com.au/wp-content/uploads/2016/12/15138461_1076791859114191_5775950735487595292_o-1.jpg 1307w" sizes="(max-width: 300px) 100vw, 300px" />                </div>
                 </div>
-            </a>
-            <a class="item-wishlist" href="/product-category/handmade/newborn/?add_to_wishlist=454">Wishlist</a>
+                <div id="secondary" class="widget-area secondary-left sidebar">
+                    <!-- #secondary -->
+                    <div id="woocommerce_product_search-3" class="widget woocommerce widget_product_search widget-count-3">
+                    </div><div id="woocommerce_price_filter-2" class="widget woocommerce widget_price_filter widget-count-3"><span class="widget-title">Filter by price</span><form method="get" action="http://jenscornershop.com.au/product-category/handmade/autumn-collection/">
+                            <div class="price_slider_wrapper">
+                                <div class="price_slider" style="display:none;"></div>
+                                <div class="price_slider_amount">
+                                    <input type="text" id="min_price" name="min_price" value="" data-min="8" placeholder="Min price" />
+                                    <input type="text" id="max_price" name="max_price" value="" data-max="45" placeholder="Max price" />
+                                    <button type="submit" class="button">Filter</button>
+                                    <div class="price_label" style="display:none;">
+                                        Price: <span class="from"></span> &mdash; <span class="to"></span>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </form></div><div id="woocommerce_product_categories-3" class="widget woocommerce widget_product_categories widget-count-3"><span class="widget-title">Product Categories</span><ul class="product-categories"><li class="cat-item cat-item-7 cat-parent current-cat-parent"><a href="http://jenscornershop.com.au/product-category/handmade/">Handmade</a><ul class='children'>
+                                    <li class="cat-item cat-item-18"><a href="http://jenscornershop.com.au/product-category/handmade/dresses/">Dresses</a></li>
+                                    <li class="cat-item cat-item-19"><a href="http://jenscornershop.com.au/product-category/handmade/hats/">Hats</a></li>
+                                </ul>
+                            </li>
+                            <li class="cat-item cat-item-8 cat-parent"><a href="http://jenscornershop.com.au/product-category/sewing/">Sewing</a><ul class='children'>
+                                    <li class="cat-item cat-item-40"><a href="http://jenscornershop.com.au/product-category/sewing/biasbinding/">Bias Binding</a></li>
+                               </ul>
+                            </li>
+                        </ul></div>
+                </div>
+            </div>
         </div>
-        <div class="collection_desc clearfix">
-            <a href="http://jenscornershop.com.au/product/sage-swan-playsuit/" class="collection_title">
-                <h3>Mint Swan Playsuit</h3>
-                <p class="short_desc">Flutter sleeve plays</p>
-            </a>
-            <div class="price-cart">
-
-                <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>35.00</span></span>
-                <p class="afterpay-payment-info">or 4 payments of <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>8.75</span> with Afterpay</p></a><div class="gridlist-buttonwrap"><a rel="nofollow" href="http://jenscornershop.com.au/product/sage-swan-playsuit/" data-quantity="1" data-product_id="454" data-product_sku="" class="button product_type_variable add_to_cart_button">Select options</a></div><hr />        </div>
-    </div>
-</li>
-</ul>
-</div>
-
-</div>
-</div>
-<div id="secondary" class="widget-area secondary-left sidebar">
-    <!-- #secondary -->
-    <!--<div id="woocommerce_product_search-3" class="widget woocommerce widget_product_search widget-count-3"><span class="widget-title">Search Products</span><form role="search" method="get" class="woocommerce-product-search" action="http://jenscornershop.com.au/">
-            <label class="screen-reader-text" for="woocommerce-product-search-field-0">Search for:</label>
-            <input type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="Search products&hellip;" value="" name="s" />
-            <input type="submit" value="Search" />
-            <input type="hidden" name="post_type" value="product" />
-        </form>
-    </div>-->
-    <div id="woocommerce_product_categories-3" class="widget woocommerce widget_product_categories widget-count-3">
-        <span class="widget-title">Product Categories</span>
-        <ul class="product-categories">
-            <li class="cat-item cat-item-7 cat-parent current-cat-parent">
-                <a href="http://jenscornershop.com.au/product-category/handmade/">Handmade</a>
-                <ul class='children'>
-                    <li class="cat-item cat-item-18"><a href="http://jenscornershop.com.au/product-category/handmade/dresses/">Dresses</a></li>
-                    <li class="cat-item cat-item-19"><a href="http://jenscornershop.com.au/product-category/handmade/hats/">Hats</a></li>
-                    <li class="cat-item cat-item-116 current-cat"><a href="http://jenscornershop.com.au/product-category/handmade/newborn/">Newborn</a></li>
-                </ul>
-            </li>
-            <li class="cat-item cat-item-8 cat-parent"><a href="http://jenscornershop.com.au/product-category/sewing/">Sewing</a><ul class='children'>
-                    <li class="cat-item cat-item-40"><a href="http://jenscornershop.com.au/product-category/sewing/biasbinding/">Bias Binding</a></li>
-                    <li class="cat-item cat-item-41"><a href="http://jenscornershop.com.au/product-category/sewing/clover/">Clover</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
-</div>
-</div>
+    </div><!-- #content -->
