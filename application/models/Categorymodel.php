@@ -33,6 +33,26 @@ class Category extends CI_Model
     }
 
     /**
+     * @return array
+     */
+    public function loadAllTopCategorie(){
+        $this->db->select('shop_categories.sub_for, shop_categories.id, translations.name,shop_categories.url_name');
+        $this->db->where('abbr', MY_LANGUAGE_ABBR);
+        $this->db->where('type', 'shop_categorie');
+        $this->db->where('sub_for', 0);
+        $this->db->order_by('position', 'asc');
+        $this->db->join('shop_categories', 'shop_categories.id = translations.for_id', 'INNER');
+        $query = $this->db->get('translations');
+        $arr = array();
+        if ($query !== false) {
+            foreach ($query->result_array() as $row) {
+                $arr[] = $this->convertToObject($row);
+            }
+        }
+        return $arr;
+    }
+
+    /**
      * @param $arr
      * @return Category
      */
