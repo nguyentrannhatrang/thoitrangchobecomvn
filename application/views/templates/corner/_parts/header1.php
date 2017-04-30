@@ -48,29 +48,13 @@
     <link rel='stylesheet' id='lightbox-css'  href='<?= base_url('templatecss/lightbox.css') ?>' type='text/css' media='all' />
     <link rel='stylesheet' id='owl-theme-css'  href='<?= base_url('templatecss/owl.theme.css') ?>' type='text/css' media='all' />
     <link rel='stylesheet' id='owl-carousel-css'  href='<?= base_url('templatecss/owl.carousel.css') ?>' type='text/css' media='all' />
-<!--    <link rel='stylesheet' id='apif-frontend-css-css'  href='http://jenscornershop.com.au/wp-content/plugins/accesspress-instagram-feed/css/frontend.css?ver=2.2.7' type='text/css' media='all' />-->
-    <link rel='stylesheet' id='apif-frontend-css-css'  href='<?= base_url('templatecss/button.css') ?>' type='text/css' media='all' />
-<!--    <link rel='stylesheet' id='apsc-font-awesome-css'  href='http://jenscornershop.com.au/wp-content/plugins/accesspress-instagram-feed/css/font-awesome.min.css?ver=2.2.7' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='apif-gridrotator-css'  href='http://jenscornershop.com.au/wp-content/plugins/accesspress-instagram-feed/css/gridrotator.css?ver=2.2.7' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='fontawesome-css-css'  href='http://jenscornershop.com.au/wp-content/plugins/accesspress-social-counter/css/font-awesome.min.css?ver=1.7.1' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='apsc-frontend-css-css'  href='http://jenscornershop.com.au/wp-content/plugins/accesspress-social-counter/css/frontend.css?ver=1.7.1' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='aps-animate-css-css'  href='http://jenscornershop.com.au/wp-content/plugins/accesspress-social-icons/css/animate.css?ver=1.6.7' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='aps-frontend-css-css'  href='http://jenscornershop.com.au/wp-content/plugins/accesspress-social-icons/css/frontend.css?ver=1.6.7' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='fontawsome-css-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css?ver=3.2.6' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='apsl-frontend-css-css'  href='http://jenscornershop.com.au/wp-content/plugins/accesspress-social-login-lite/css/frontend.css?ver=3.2.6' type='text/css' media='all' />-->
+   <link rel='stylesheet' id='apif-frontend-css-css'  href='<?= base_url('templatecss/button.css') ?>' type='text/css' media='all' />
     <link rel='stylesheet' id='aptf-bxslider-css'  href='<?= base_url('templatecss/jquery.bxslider.css') ?>' type='text/css' media='all' />
-<!--    <link rel='stylesheet' id='aptf-front-css-css'  href='http://jenscornershop.com.au/wp-content/plugins/accesspress-twitter-feed/css/frontend.css?ver=1.5.5' type='text/css' media='all' />-->
-    <link rel='stylesheet' id='aptf-font-css-css'  href='<?= base_url('templatecss/fonts.css') ?>' type='text/css' media='all' />
+<link rel='stylesheet' id='aptf-font-css-css'  href='<?= base_url('templatecss/fonts.css') ?>' type='text/css' media='all' />
     <link rel='stylesheet' id='contact-form-7-css'  href='<?= base_url('templatecss/styles.css') ?>' type='text/css' media='all' />
-<!--    <link rel='stylesheet' id='es-widget-css-css'  href='http://jenscornershop.com.au/wp-content/plugins/email-subscribers/widget/es-widget.css?ver=4.7.3' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='sb_instagram_styles-css'  href='http://jenscornershop.com.au/wp-content/plugins/instagram-feed/css/sb-instagram.min.css?ver=1.4.8' type='text/css' media='all' />-->
-    <link rel='stylesheet' id='sb_instagram_icons-css'  href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=4.6.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sb_instagram_icons-css'  href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=4.6.3' type='text/css' media='all' />
     <link rel='stylesheet' id='ufbl-custom-select-css-css'  href='<?= base_url('templatecss/jquery.selectbox.css') ?>' type='text/css' media='all' />
-<!--    <link rel='stylesheet' id='ufbl-front-css-css'  href='http://jenscornershop.com.au/wp-content/plugins/ultimate-form-builder-lite/css/frontend.css?ver=1.3.3' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='woo-extra-flat-rate-css'  href='http://jenscornershop.com.au/wp-content/plugins/woo-extra-flat-rate/public/css/woo-extra-flat-rate-public.css?ver=2.1' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='font-awesome-css'  href='http://jenscornershop.com.au/wp-content/plugins/woo-extra-flat-rate/public/css/font-awesome/css/font-awesome.css?ver=2.1' type='text/css' media='all' />-->
-<!--    <link rel='stylesheet' id='font-awesome-min-css'  href='http://jenscornershop.com.au/wp-content/plugins/woo-extra-flat-rate/public/css/font-awesome/css/font-awesome.min.css?ver=2.1' type='text/css' media='all' />-->
-    <link rel='stylesheet' id='woocommerce-layout-css'  href='<?= base_url('templatecss/frontend.css') ?>' type='text/css' media='all' />
+   <link rel='stylesheet' id='woocommerce-layout-css'  href='<?= base_url('templatecss/frontend.css') ?>' type='text/css' media='all' />
     <?php if(isset($isCartPage) && $isCartPage){ ?>
     <link rel='stylesheet' id='woocommerce-layout-css'  href='<?= base_url('templatecss/woocommerce-layout.css') ?>' type='text/css' media='all' />
     <?php }?>
@@ -79,19 +63,13 @@
     <link rel='stylesheet' id='accesspress-store-google-fonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C600%2C700%2C300%7COswald%3A400%2C700%2C300%7CDosis%3A400%2C300%2C500%2C600%2C700%7CLato%3A300%2C400%2C700%2C900&#038;ver=4.7.3' type='text/css' media='all' />
     <link rel='stylesheet' id='animate-css'  href='<?= base_url('templatecss/animate.css') ?>' type='text/css' media='all' />
     <link rel='stylesheet' id='slick-css'  href='<?= base_url('templatecss/slick.css') ?>' type='text/css' media='all' />
-<!--    <link rel='stylesheet' id='ticker-css'  href='http://jenscornershop.com.au/wp-content/themes/accesspress-store/css/ticker-style.css?ver=4.7.3' type='text/css' media='all' />-->
-
     <link rel='stylesheet' id='accesspress-store-minify-style-css'  href='<?= base_url('templatecss/responsive.css') ?>' type='text/css' media='all' />
-<!--    <link rel='stylesheet' id='wp-add-custom-css-css'  href='http://jenscornershop.com.au?display_custom_css=css&#038;ver=4.7.3' type='text/css' media='all' />-->
     <link rel='https://api.w.org/' href='http://jenscornershop.com.au/wp-json/' />
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://jenscornershop.com.au/xmlrpc.php?rsd" />
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://jenscornershop.com.au/wp-includes/wlwmanifest.xml" />
     <meta name="generator" content="WordPress 4.7.3" />
     <meta name="generator" content="WooCommerce 3.0.1" />
     <link rel='shortlink' href='http://jenscornershop.com.au/' />
-<!--    <link rel="alternate" type="application/json+oembed" href="http://jenscornershop.com.au/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjenscornershop.com.au%2F" />-->
-<!--    <link rel="alternate" type="text/xml+oembed" href="http://jenscornershop.com.au/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjenscornershop.com.au%2F&#038;format=xml" />-->
-
     <style>html body{background:none;}</style>		<style type="text/css">
     </style>
     <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>

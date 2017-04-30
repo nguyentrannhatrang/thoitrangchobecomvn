@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 
 $route['category-(:any)'] = 'category/index/$1';
-$route['product/(:any)'] = 'product/index/$1';
+$route['product-(:any)'] = 'product/index/$1';
 
 
 // Load default conrtoller when have only currency from multilanguage

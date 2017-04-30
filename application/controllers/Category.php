@@ -22,6 +22,8 @@ class Category extends MY_Controller
         $head['description'] = @$arrSeo['description'];
         $head['keywords'] = str_replace(" ", ",", $head['title']);
         $data['products'] = $this->getListProduct($category);
+        $data['left_menu'] = $this->getLeftMenu();
+        $data['current_categorie'] = $this->CategoryModel->getByUrl($category);
         $this->render2('category', $head, $data);
     }
 
@@ -34,6 +36,35 @@ class Category extends MY_Controller
         return $this->ProductModel->getProducts($aCategories);
         
     }
+
+    /**
+     * only 2 level
+     * @return array
+     */
+    protected function getLeftMenu(){
+        $result=array();
+        $aCategories = $this->CategoryModel->loadAll();
+        /** @var CategoryModel $category */
+        foreach ($aCategories as $category){
+            if(empty($category->subFor)){
+                if(!isset($result[$category->id]))
+                    $result[$category->id] = array();
+                $result[$category->id]['info'] = array('name' => $category->name, 'url' => $category->urlName);
+                if(!isset($result[$category->id]['children']))
+                    $result[$category->id]['children'] = array();
+                continue;
+            }            
+            if(!empty($category->subFor)){
+                if(!isset($result[$category->subFor])){
+                    $result[$category->subFor] = array('info' => array());
+                    $result[$category->subFor]['children'] = array();
+                }
+                $result[$category->subFor]['children'][] = array('name' => $category->name, 'url' => $category->urlName);
+            }            
+        }
+        return $result;
+    }
+
 
     private function sendEmail()
     {

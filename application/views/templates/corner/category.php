@@ -56,10 +56,19 @@
         <?php $this->view('templates/corner/_parts/menu',array('categories'=>$menu,'current_menu'=>$current_menu)); ?>
 
     </header><!-- #masthead -->
-    <div id="content" class="site-content"><header id="title_bread_wrap" class="entry-header" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
+    <div id="content" class="site-content">
+        <header id="title_bread_wrap" class="entry-header" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
             <div class="ak-container">
-                <h1 class="entry-title ak-container">The Autumn Collection</h1>
-                <div class="woocommerce-breadcrumb accesspress-breadcrumb" ><a href="http://jenscornershop.com.au">Home</a>&nbsp;<a href="http://jenscornershop.com.au/product-category/handmade/">Handmade</a>&nbsp;<span>The Autumn Collection</span></div>            </div>
+                <h1 class="entry-title ak-container"><?=$current_categorie->getName() ?></h1>
+                <div class="woocommerce-breadcrumb accesspress-breadcrumb" >
+                    <a href="/">Home</a>&nbsp;
+                    <?php if($current_categorie->getSubFor() && isset($menu[$current_categorie->getSubFor()])){
+                    $categorieParent = $menu[$current_categorie->getSubFor()]; ?>
+                    <a href="/category-<?= $categorieParent->getUrlName() ?>/"><?= $categorieParent->getName() ?></a>&nbsp;
+                    <?php }?>
+                    <span><?=$current_categorie->getName() ?></span>
+                </div>
+            </div>
         </header>
         <div class="inner">
             <div class="ak-container left-sidebar">
@@ -127,13 +136,22 @@
                 <div id="secondary" class="widget-area secondary-left sidebar">
                     <!-- #secondary -->
                     <div id="woocommerce_product_search-3" class="widget woocommerce widget_product_search widget-count-3">
-                    </div><div id="woocommerce_price_filter-2" class="widget woocommerce widget_price_filter widget-count-3"><span class="widget-title">Filter by price</span><form method="get" action="http://jenscornershop.com.au/product-category/handmade/autumn-collection/">
+                    </div>
+                    <!--<div id="woocommerce_price_filter-2" class="widget woocommerce widget_price_filter widget-count-3">
+                        <span class="widget-title">Filter by price</span>
+                        <form method="get" action="http://jenscornershop.com.au/product-category/handmade/autumn-collection/">
                             <div class="price_slider_wrapper">
                                 <div class="price_slider" style="display:none;"></div>
                                 <div class="price_slider_amount">
-                                    <input type="text" id="min_price" name="min_price" value="" data-min="8" placeholder="Min price" />
-                                    <input type="text" id="max_price" name="max_price" value="" data-max="45" placeholder="Max price" />
-                                    <button type="submit" class="button">Filter</button>
+                                    <div class="left" style="width: 40%">
+                                        <input type="text" id="min_price" name="min_price" value="" data-min="8" placeholder="Min price" />
+                                    </div>
+                                    <div class="left" style="width: 40%">
+                                        <input type="text" id="max_price" name="max_price" value="" data-max="45" placeholder="Max price" />
+                                    </div>
+                                    <div class="left">
+                                        <button type="submit" class="button">Filter</button>
+                                    </div>
                                     <div class="price_label" style="display:none;">
                                         Price: <span class="from"></span> &mdash; <span class="to"></span>
                                     </div>
@@ -141,16 +159,27 @@
                                     <div class="clear"></div>
                                 </div>
                             </div>
-                        </form></div><div id="woocommerce_product_categories-3" class="widget woocommerce widget_product_categories widget-count-3"><span class="widget-title">Product Categories</span><ul class="product-categories"><li class="cat-item cat-item-7 cat-parent current-cat-parent"><a href="http://jenscornershop.com.au/product-category/handmade/">Handmade</a><ul class='children'>
-                                    <li class="cat-item cat-item-18"><a href="http://jenscornershop.com.au/product-category/handmade/dresses/">Dresses</a></li>
-                                    <li class="cat-item cat-item-19"><a href="http://jenscornershop.com.au/product-category/handmade/hats/">Hats</a></li>
+                        </form>
+                    </div>-->
+                    <div id="woocommerce_product_categories-3" class="widget woocommerce widget_product_categories widget-count-3">
+                        <span class="widget-title">Product Categories</span>
+                        <ul class="product-categories">
+                            <?php foreach ($left_menu as $item){?>
+                            <li class="cat-item cat-item-7 cat-parent current-cat-parent">
+                                <a href="/category-<?= $item['info']['url'] ?>"><?= $item['info']['name'] ?></a>
+                                <?php if(!empty($item['children'])){ ?>
+                                <ul class='children'>
+                                    <?php foreach ($item['children'] as $child){ ?>
+                                    <li class="cat-item cat-item-18">
+                                        <a href="/category-<?= $child['url'] ?>"><?= $child['name'] ?></a>
+                                    </li>
+                                    <?php } ?>
                                 </ul>
+                                <?php } ?>
                             </li>
-                            <li class="cat-item cat-item-8 cat-parent"><a href="http://jenscornershop.com.au/product-category/sewing/">Sewing</a><ul class='children'>
-                                    <li class="cat-item cat-item-40"><a href="http://jenscornershop.com.au/product-category/sewing/biasbinding/">Bias Binding</a></li>
-                               </ul>
-                            </li>
-                        </ul></div>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

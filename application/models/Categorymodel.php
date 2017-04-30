@@ -55,6 +55,24 @@ class CategoryModel extends CI_Model
 
     /**
      * @param $url
+     * @return $this|Category
+     */
+    public function getByUrl($url){
+        $this->db->select('shop_categories.sub_for, shop_categories.id, translations.name,shop_categories.url_name');
+        $this->db->where('abbr', MY_LANGUAGE_ABBR);
+        $this->db->where('type', 'shop_categorie');
+        $this->db->where('url_name', $url);
+        $this->db->join('shop_categories', 'shop_categories.id = translations.for_id', 'INNER');
+        $query = $this->db->get('translations');
+        if ($query !== false) {
+            $result = $query->row_array();
+            return $this->convertToObject($result);
+        }
+        return $this;
+    }
+
+    /**
+     * @param $url
      * @return array
      */
     public function getIdByUrl($url){
@@ -105,6 +123,88 @@ class CategoryModel extends CI_Model
         $category->name = isset($arr['name'])?$arr['name']:'';
         return $category;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubFor()
+    {
+        return $this->subFor;
+    }
+
+    /**
+     * @param mixed $subFor
+     */
+    public function setSubFor($subFor)
+    {
+        $this->subFor = $subFor;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param mixed $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrlName()
+    {
+        return $this->urlName;
+    }
+
+    /**
+     * @param mixed $urlName
+     */
+    public function setUrlName($urlName)
+    {
+        $this->urlName = $urlName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    
+    
 
 
 }
