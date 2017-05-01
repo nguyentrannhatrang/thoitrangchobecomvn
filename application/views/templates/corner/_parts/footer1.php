@@ -65,7 +65,13 @@
             $('#main-slider .slick-slide[data-slick-index='+currentSlide+'] .caption-read-more1').addClass('displayNone');
 
         });
-
+        $('.images-slick').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1
+        });
+        $('.item-image').click(function () {
+            $('#main-image img').attr('src',$(this).find('img').attr('src'));
+        });
     });
 </script>
 <!--<script data-cfasync="false" type="text/javascript">
@@ -218,7 +224,7 @@
         function active_tabs(element){
             $('#tab-title-description').removeClass('active');
             $('#tab-title-additional_information').removeClass('active');
-            $('#tab-title-reviews').addClass('removeClass');
+            $('#tab-title-reviews').removeClass('active');
             $('#'+element).addClass('active');
             $('#tab-description').css('display','none');
             $('#tab-additional_information').css('display','none');

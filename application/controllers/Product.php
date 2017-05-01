@@ -9,9 +9,11 @@ class Product extends MY_Controller
     {
         parent::__construct();
         $this->load->library('email');
+        $this->load->model('CategoryModel');
+        $this->load->model('ProductModel');
     }
 
-    public function index($product = '')
+    public function index($url = '')
     {
         $data = array();
         $head = array();
@@ -19,8 +21,16 @@ class Product extends MY_Controller
         $head['title'] = @$arrSeo['title'];
         $head['description'] = @$arrSeo['description'];
         $head['keywords'] = str_replace(" ", ",", $head['title']);
+        $data['right_menu'] = $this->getLeftMenu();
+        /** @var ProductModel $product */
+        $product = $this->ProductModel->getProductByUrl($url);
+        $data['product'] = $product;
+        $data['current_categorie'] = $this->CategoryModel->getById($product->shopCategorie);
+        $data['relation_products'] = $this->ProductModel->getProducts(array($product->shopCategorie),true,10);
         $this->render2('product', $head, $data);
     }
+    
+    
 
     private function sendEmail()
     {

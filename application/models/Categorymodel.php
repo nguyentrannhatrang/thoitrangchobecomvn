@@ -73,6 +73,24 @@ class CategoryModel extends CI_Model
 
     /**
      * @param $url
+     * @return $this|Category
+     */
+    public function getById($id){
+        $this->db->select('shop_categories.sub_for, shop_categories.id, translations.name,shop_categories.url_name');
+        $this->db->where('abbr', MY_LANGUAGE_ABBR);
+        $this->db->where('type', 'shop_categorie');
+        $this->db->where('shop_categories.id', $id);
+        $this->db->join('shop_categories', 'shop_categories.id = translations.for_id', 'INNER');
+        $query = $this->db->get('translations');
+        if ($query !== false) {
+            $result = $query->row_array();
+            return $this->convertToObject($result);
+        }
+        return $this;
+    }
+
+    /**
+     * @param $url
      * @return array
      */
     public function getIdByUrl($url){

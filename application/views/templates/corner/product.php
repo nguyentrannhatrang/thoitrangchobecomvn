@@ -56,38 +56,73 @@
         <?php $this->view('templates/corner/_parts/menu',array('categories'=>$menu,'current_menu'=>$current_menu)); ?><!--Home Navigation-->
 
     </header><!-- #masthead -->
-    <div id="content" class="site-content"><header id="title_bread_wrap" class="entry-header" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
+    <div id="content" class="site-content">
+        <header id="title_bread_wrap" class="entry-header" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
             <div class="ak-container">
-                <h1 class="entry-title ak-container">Newborn</h1>
-                <div class="woocommerce-breadcrumb accesspress-breadcrumb" ><a href="http://jenscornershop.com.au">Home</a>&nbsp;<a href="http://jenscornershop.com.au/product-category/handmade/">Handmade</a>&nbsp;<span>Newborn</span></div>            </div>
+                <h1 class="entry-title ak-container"><?=$current_categorie->getName() ?></h1>
+                <div class="woocommerce-breadcrumb accesspress-breadcrumb" >
+                    <a href="http://jenscornershop.com.au">Home</a>&nbsp;
+                    <?php if($current_categorie->getSubFor() && isset($menu[$current_categorie->getSubFor()])){
+                        $categorieParent = $menu[$current_categorie->getSubFor()]; ?>
+                        <a href="/category-<?= $categorieParent->getUrlName() ?>/"><?= $categorieParent->getName() ?></a>&nbsp;
+                    <?php }?>
+                    <span><?=$current_categorie->getName() ?></span>
+                </div>
+            </div>
         </header>
 <div class="inner">
     <div class="ak-container">
         <div id="primary" class="content-area">
             <div class="content-inner clearfix">
-
-
                 <div itemscope itemtype="http://schema.org/Product" id="product-555" class="single-img post-555 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-playsuits product_cat-newborn product_tag-playsuit product_tag-seaside product_shipping_class-whole-post first instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
 
                     <div class="img-wrap">
                         <div class="images">
-                            <a href="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31.jpg" itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto">
-                                <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-600x600.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="picsart_12-04-02-10-31" title="picsart_12-04-02-10-31" srcset="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-600x600.jpg 600w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-768x768.jpg 768w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-1024x1024.jpg 1024w, http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px" />
+                            <a id="main-image">
+                            <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-21-02.15.30-600x600.jpg" class="attachment-shop_single size-shop_single wp-post-image"/>
                             </a>
-                            <div class="thumbnails columns-3 slick-initialized slick-slider"><div aria-live="polite" class="slick-list draggable" tabindex="0"><div class="slick-track" style="opacity: 1; width: 1196px; transform: translate3d(-368px, 0px, 0px);"><li class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17.jpg" class="zoom" title="PicsArt_04-07-11.12.17" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24.jpg" class="zoom last" title="PicsArt_04-07-11.12.24" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22.jpg" class="zoom first" title="PicsArt_04-07-11.13.22" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31.jpg" class="zoom" title="PicsArt_04-05-05.38.31" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-768x768.jpg 768w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-1024x1024.jpg 1024w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-active" data-slick-index="0" aria-hidden="false" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56.jpg" class="zoom first" title="PicsArt_04-07-09.18.56" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-768x768.jpg 768w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-1024x1024.jpg 1024w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17.jpg" class="zoom" title="PicsArt_04-07-11.12.17" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24.jpg" class="zoom last" title="PicsArt_04-07-11.12.24" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22.jpg" class="zoom first" title="PicsArt_04-07-11.13.22" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31.jpg" class="zoom" title="PicsArt_04-05-05.38.31" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-768x768.jpg 768w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-1024x1024.jpg 1024w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-05-05.38.31-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56.jpg" class="zoom first" title="PicsArt_04-07-09.18.56" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-768x768.jpg 768w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-1024x1024.jpg 1024w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-09.18.56-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17.jpg" class="zoom" title="PicsArt_04-07-11.12.17" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.17-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24.jpg" class="zoom last" title="PicsArt_04-07-11.12.24" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.12.24-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li><li class="slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" style="width: 92px;"><a href="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22.jpg" class="zoom first" title="PicsArt_04-07-11.13.22" data-rel="prettyPhoto[product-gallery]"><img width="180" height="180" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-11.13.22-600x600.jpg 600w" sizes="(max-width: 180px) 100vw, 180px"></a></li></div></div><a class="slick-prev" aria-label="previous" style="display: inline-block;">Previous</a><a class="slick-next" aria-label="next" style="display: inline-block;">Next</a></div>
+                            <div class="thumbnails columns-3 images-slick">
+                                <div class="item-image">
+                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31.jpg"/>
+                                </div>
+                                <div class="item-image">
+                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-08.32.21-180x180.jpg"/>
+                                </div>
+                                <div class="item-image">
+                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-09-09.20.56-180x180.jpg"/>
+                                </div>
+                                <div class="item-image">
+                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-09-09.20.56-180x180.jpg"/>
+                                </div>
+                                <div class="item-image">
+                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-09-09.20.56-180x180.jpg"/>
+                                </div>
+                                <div class="item-image">
+                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-09-09.20.56-180x180.jpg"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="summary entry-summary">
-                        <h1 class="product_title entry-title">White Arrows Playsuit</h1><p class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>35.00</span></p>
-                        <p class="afterpay-payment-info">or 4 payments of <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>8.75</span> with Afterpay</p>
-                        <form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="555" data-product_variations="[{&quot;id&quot;:556,&quot;name&quot;:&quot;White Arrows Playsuit &amp;ndash; NB&quot;,&quot;slug&quot;:&quot;variation-556-of-coastline-playsuit-copy&quot;,&quot;date_created&quot;:{&quot;date&quot;:&quot;2016-12-04 03:34:05.000000&quot;,&quot;timezone_type&quot;:1,&quot;timezone&quot;:&quot;+00:00&quot;},&quot;date_modified&quot;:{&quot;date&quot;:&quot;2016-12-04 03:34:05.000000&quot;,&quot;timezone_type&quot;:1,&quot;timezone&quot;:&quot;+00:00&quot;},&quot;status&quot;:&quot;publish&quot;,&quot;featured&quot;:false,&quot;catalog_visibility&quot;:&quot;visible&quot;,&quot;description&quot;:&quot;Newborn \/ 0000&quot;,&quot;short_description&quot;:&quot;&quot;,&quot;sku&quot;:&quot;&quot;,&quot;price&quot;:&quot;35&quot;,&quot;regular_price&quot;:&quot;35&quot;,&quot;sale_price&quot;:&quot;&quot;,&quot;date_on_sale_from&quot;:null,&quot;date_on_sale_to&quot;:null,&quot;total_sales&quot;:&quot;0&quot;,&quot;tax_status&quot;:&quot;taxable&quot;,&quot;tax_class&quot;:&quot;&quot;,&quot;manage_stock&quot;:true,&quot;stock_quantity&quot;:1,&quot;stock_status&quot;:&quot;instock&quot;,&quot;backorders&quot;:&quot;no&quot;,&quot;sold_individually&quot;:false,&quot;weight&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;,&quot;upsell_ids&quot;:[],&quot;cross_sell_ids&quot;:[],&quot;parent_id&quot;:555,&quot;reviews_allowed&quot;:false,&quot;purchase_note&quot;:&quot;&quot;,&quot;attributes&quot;:{&quot;attribute_pa_size&quot;:&quot;nb&quot;},&quot;default_attributes&quot;:[],&quot;menu_order&quot;:1,&quot;virtual&quot;:false,&quot;downloadable&quot;:false,&quot;category_ids&quot;:[],&quot;tag_ids&quot;:[],&quot;shipping_class_id&quot;:0,&quot;downloads&quot;:[],&quot;image_id&quot;:&quot;0&quot;,&quot;gallery_image_ids&quot;:[],&quot;download_limit&quot;:-1,&quot;download_expiry&quot;:-1,&quot;rating_counts&quot;:[],&quot;average_rating&quot;:0,&quot;review_count&quot;:0,&quot;meta_data&quot;:[],&quot;image&quot;:{&quot;title&quot;:&quot;picsart_12-04-02-10-31&quot;,&quot;caption&quot;:&quot;&quot;,&quot;url&quot;:&quot;http:\/\/jenscornershop.com.au\/wp-content\/uploads\/2016\/12\/PicsArt_12-04-02.10.31.jpg&quot;,&quot;alt&quot;:&quot;picsart_12-04-02-10-31&quot;,&quot;src&quot;:&quot;http:\/\/jenscornershop.com.au\/wp-content\/uploads\/2016\/12\/PicsArt_12-04-02.10.31-600x600.jpg&quot;,&quot;srcset&quot;:&quot;http:\/\/jenscornershop.com.au\/wp-content\/uploads\/2016\/12\/PicsArt_12-04-02.10.31-600x600.jpg 600w, http:\/\/jenscornershop.com.au\/wp-content\/uploads\/2016\/12\/PicsArt_12-04-02.10.31-150x150.jpg 150w, http:\/\/jenscornershop.com.au\/wp-content\/uploads\/2016\/12\/PicsArt_12-04-02.10.31-300x300.jpg 300w, http:\/\/jenscornershop.com.au\/wp-content\/uploads\/2016\/12\/PicsArt_12-04-02.10.31-768x768.jpg 768w, http:\/\/jenscornershop.com.au\/wp-content\/uploads\/2016\/12\/PicsArt_12-04-02.10.31-1024x1024.jpg 1024w, http:\/\/jenscornershop.com.au\/wp-content\/uploads\/2016\/12\/PicsArt_12-04-02.10.31-180x180.jpg 180w&quot;,&quot;sizes&quot;:&quot;(max-width: 600px) 100vw, 600px&quot;,&quot;full_src&quot;:&quot;http:\/\/jenscornershop.com.au\/wp-content\/uploads\/2016\/12\/PicsArt_12-04-02.10.31-1024x1024.jpg&quot;,&quot;full_src_w&quot;:640,&quot;full_src_h&quot;:640,&quot;src_w&quot;:600,&quot;src_h&quot;:600},&quot;weight_html&quot;:&quot;N\/A&quot;,&quot;dimensions_html&quot;:&quot;N\/A&quot;,&quot;price_html&quot;:&quot;&quot;,&quot;availability_html&quot;:&quot;&lt;p class=\&quot;stock in-stock\&quot;&gt;1 in stock&lt;\/p&gt;\n&quot;,&quot;variation_id&quot;:556,&quot;variation_is_visible&quot;:true,&quot;variation_is_active&quot;:true,&quot;is_purchasable&quot;:true,&quot;display_price&quot;:35,&quot;display_regular_price&quot;:35,&quot;dimensions&quot;:&quot;N\/A&quot;,&quot;min_qty&quot;:1,&quot;max_qty&quot;:1,&quot;backorders_allowed&quot;:false,&quot;is_in_stock&quot;:true,&quot;is_downloadable&quot;:false,&quot;is_virtual&quot;:false,&quot;is_sold_individually&quot;:&quot;no&quot;,&quot;variation_description&quot;:&quot;&lt;p&gt;Newborn \/ 0000&lt;\/p&gt;\n&quot;}]">
+                        <h1 class="product_title entry-title"><?= $product->getName() ?></h1>
+                        <p class="price">
+                            <span class="woocommerce-Price-amount amount">
+                                <span class="woocommerce-Price-currencySymbol"></span><?= $product->getPriceFormat() ?>
+                            </span>
+                        </p>
 
+                        <form class="variations_form cart" method="post">
                             <table class="variations" cellspacing="0">
                                 <tbody>
                                 <tr>
                                     <td class="label"><label for="pa_size">Size</label></td>
                                     <td class="value">
-                                        <select id="pa_size" class="" name="attribute_pa_size" data-attribute_name="attribute_pa_size" data-show_option_none="yes"><option value="">Choose an option</option><option value="nb" >NB</option></select><a class="reset_variations" href="#">Clear</a>						</td>
+                                        <select id="pa_size" class="" name="attribute_pa_size" data-attribute_name="attribute_pa_size" data-show_option_none="yes">
+                                            <option value="">Choose an option</option>
+                                            <option value="nb" >NB</option>
+                                        </select>
+                                        <a class="reset_variations" href="#">Clear</a>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -122,16 +157,14 @@
                             <li class="additional_information_tab tab-details" id="tab-title-additional_information" role="tab" aria-controls="tab-additional_information">
                                 <a href="#tab-additional_information">Additional information</a>
                             </li>
-                            <li class="reviews_tab tab-details" id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
+                            <li class="tab-title-reviews tab-details" id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
                                 <a href="#tab-reviews">Reviews (0)</a>
                             </li>
                         </ul>
                         <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
 
                             <h2>Description</h2>
-
-                            <!-- AddThis Sharing Buttons above --><p><strong>Flutter sleeve playsuit</strong></p>
-                            <p>This gorgeous seaside playsuit has been finished with a gold trim and has a snap crotch for easy nappy changes. </p>
+                            <?= $product->getDescription()?>
                             </div>
                         <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab" id="tab-additional_information" role="tabpanel" aria-labelledby="tab-title-additional_information">
 
@@ -201,41 +234,35 @@
                             <h2>Related Products</h2>
                         </div>
                         <ul class="products">
-                            <li class="first post-944 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-shorts-skirts product_cat-size0 product_cat-size1 product_cat-size2 product_cat-size3 product_cat-size4  instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                                <div class="collection_combine">
-                                    <a href="http://jenscornershop.com.au/product/chambray-linen-pucker-shorts/" class="full-outer">
-                                        <div class="outer-img">
-                                            <div class="inner-img">
-                                                <img width="300" height="300" src="http://jenscornershop.com.au/wp-content/uploads/2017/02/PicsArt_02-02-11.48.58-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="http://jenscornershop.com.au/wp-content/uploads/2017/02/PicsArt_02-02-11.48.58-300x300.jpg 300w, http://jenscornershop.com.au/wp-content/uploads/2017/02/PicsArt_02-02-11.48.58-150x150.jpg 150w, http://jenscornershop.com.au/wp-content/uploads/2017/02/PicsArt_02-02-11.48.58-180x180.jpg 180w, http://jenscornershop.com.au/wp-content/uploads/2017/02/PicsArt_02-02-11.48.58-600x600.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" />                </div>
-                                        </div>
-                                    </a>
-                                    <a class="item-wishlist" href="/product/white-arrows-playsuit/?add_to_wishlist=944">Wishlist</a>
-                                </div>
-                                <div class="collection_desc clearfix">
-                                    <a href="http://jenscornershop.com.au/product/chambray-linen-pucker-shorts/" class="collection_title">
-                                        <h3>Chambray Linen Pucker Shorts</h3>
-                                        <p class="short_desc">Chambray Linen pucke</p>
-                                    </a>
-                                    <div class="price-cart">
+                            <?php foreach ($relation_products as $index=>$_product){?>
+                                <li class="product type-product <?php echo (($index % 3 == 0) ?'first':(($index % 3 == 2)?'first':''));?> ">
+                                    <div class="collection_combine">
+                                        <a href="/product-<?=$_product->getUrl() ?>" class="full-outer">
+                                            <div class="outer-img">
+                                                <div class="inner-img">
+                                                    <img width="300" height="300" src="<?= base_url('/attachments/shop_images/'.$_product->getImage()) ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""  />
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="collection_desc clearfix">
+                                        <a href="/product-<?=$_product->getUrl() ?>" class="collection_title">
+                                            <h3><?=$_product->getName() ?></h3>
+                                            <p class="short_desc"><?=$_product->getName() ?></p>
+                                        </a>
+                                        <div class="price-cart">
 
                                         <span class="price">
                                             <span class="woocommerce-Price-amount amount">
-                                                <span class="woocommerce-Price-currencySymbol">&#36;</span>29.00
+                                                <span class="woocommerce-Price-currencySymbol">&#36;</span><?=$_product->getPriceFormat() ?>
                                             </span>
                                         </span>
-                                        <p class="afterpay-payment-info">or 4 payments of
-                                            <span class="woocommerce-Price-amount amount">
-                                                <span class="woocommerce-Price-currencySymbol">&#36;</span>7.25
-                                            </span> with Afterpay
-                                        </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-
+                                </li>
+                            <?php }?>
                         </ul>
                     </div>
-
-<meta itemprop="url" content="http://jenscornershop.com.au/product/white-arrows-playsuit/" />
 </div><!-- #product-555 -->
 
 
@@ -247,21 +274,22 @@
     <div id="woocommerce_product_categories-3" class="widget woocommerce widget_product_categories widget-count-3">
         <span class="widget-title">Product Categories</span>
         <ul class="product-categories">
-            <li class="cat-item cat-item-7 current-cat cat-parent"><a href="http://jenscornershop.com.au/product-category/handmade/">Handmade</a><ul class='children'>
-                    <li class="cat-item cat-item-18"><a href="http://jenscornershop.com.au/product-category/handmade/dresses/">Dresses</a></li>
-                    <li class="cat-item cat-item-19"><a href="http://jenscornershop.com.au/product-category/handmade/hats/">Hats</a></li>
-
-                </ul>
-            </li>
-            <li class="cat-item cat-item-8 cat-parent"><a href="http://jenscornershop.com.au/product-category/sewing/">Sewing</a>
-                <ul class='children'>
-                    <li class="cat-item cat-item-40"><a href="http://jenscornershop.com.au/product-category/sewing/biasbinding/">Bias Binding</a></li>
-                    <li class="cat-item cat-item-41"><a href="http://jenscornershop.com.au/product-category/sewing/clover/">Clover</a></li>
-
-                </ul>
-            </li>
+            <?php foreach ($right_menu as $item){?>
+                <li class="cat-item cat-item-7 cat-parent current-cat-parent">
+                    <a href="/category-<?= $item['info']['url'] ?>"><?= $item['info']['name'] ?></a>
+                    <?php if(!empty($item['children'])){ ?>
+                        <ul class='children'>
+                            <?php foreach ($item['children'] as $child){ ?>
+                                <li class="cat-item cat-item-18">
+                                    <a href="/category-<?= $child['url'] ?>"><?= $child['name'] ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    <?php } ?>
+                </li>
+            <?php } ?>
         </ul>
     </div>
 </div>
 </div>
-</div>
+</div>        

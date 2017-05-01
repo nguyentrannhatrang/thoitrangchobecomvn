@@ -19,10 +19,10 @@
                             <?php foreach ($arrData['data'] as $product) {?>
                             <li class="span3 wow flipInY" data-wow-delay="0.2s">
                                 <div class="item-img">
-                                    <a href="/product/<?= $product->url?>/" title="<?= $product->name?>">
+                                    <a href="/product-<?= $product->url?>/" title="<?= $product->name?>">
                                         <img width="300" height="300" src="<?= base_url('/attachments/shop_images/'.$product->image)?>" sizes="(max-width: 300px) 100vw, 300px" />            </a>
 <!--                                    <a rel="nofollow" href="/product/--><?//= $product->url?><!--/" data-quantity="1" data-product_id="--><?//= $product->id?><!--" data-product_sku="" class="button product_type_variable add_to_cart_button">Select options</a>          </div>-->
-                                <a href="/product/<?= $product->url?>" title="<?= $product->name?>">
+                                <a href="/product-<?= $product->url?>" title="<?= $product->name?>">
                                     <h3><?= $product->name?></h3>
                                     <p class="short_desc"><?= $product->description?></p>
                                     <span class="price">

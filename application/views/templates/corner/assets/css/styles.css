@@ -682,7 +682,7 @@ a {
 .boxed #site-navigation > .store-menu > ul > li:last-child:hover ul {
     left: -99px;
 }
-boxed .#site-navigation > .store-menu > ul > li:last-child:hover ul:after {
+.boxed #site-navigation > .store-menu > ul > li:last-child:hover ul:after {
     left: 136px;
 }
 /*--------------------------------------------------------------
@@ -1173,7 +1173,7 @@ HEADER TWO
     background: radial-gradient(rgba(0, 0, 0, 0.3), transparent 70%);
     background: -webkit-radial-gradient(rgba(0, 0, 0, 0.3), transparent 70%);
     background: -moz-radial-gradient(rgba(0, 0, 0, 0.3), transparent 70%);
-    background: -ms-radial-gradient(rgba(0, 0, 0, 0.3), transparent 70%)
+    background: -ms-radial-gradient(rgba(0, 0, 0, 0.3), transparent 70%);
     background: -o-radial-gradient(rgba(0, 0, 0, 0.3), transparent 70%);
     content: "";
     height: 35px;
@@ -3007,7 +3007,7 @@ Responsive grid for pages
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    -moz-background-clip: padding-box !important;
+    /*-moz-background-clip: padding-box !important;*/
     -webkit-background-clip: padding-box !important;
     background-clip: padding-box !important;
 }
@@ -6562,7 +6562,7 @@ ul.products.list li.product hr, ul.products.grid hr {
 .promo-desc {
     font-size: 48px;
 }
-.btn promo-link-btn {
+.btn .promo-link-btn {
     font-family: Lato Black;
     font-size: 20px;
     line-height: 50px;
@@ -6574,7 +6574,7 @@ ul.products.list li.product hr, ul.products.grid hr {
     text-transform: uppercase;
     margin-top: 20px;
 }
-.btn promo-link-btn:hover {
+.btn .promo-link-btn:hover {
     background: #ffffff;
     color: #ce4444;
 }
@@ -7172,4 +7172,7 @@ ul.products.list li.product hr {
 }
 .woocommerce-page div.product .woocommerce-tabs{
     clear: both;
+}
+.item-image{
+    margin: 0px 3px;
 }
