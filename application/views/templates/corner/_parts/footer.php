@@ -195,6 +195,9 @@
 <script type='text/javascript' src='<?= base_url('templatejs/jquery.ticker.js') ?>'></script>
 <script type='text/javascript' src='<?= base_url('templatejs/skip-link-focus-fix.js') ?>'></script>
 <script type='text/javascript' src='<?= base_url('templatejs/custom.js') ?>'></script>
+
+<script type='text/javascript' src='<?= base_url('templatejs/function.js') ?>'></script>
+<script type='text/javascript' src='<?= base_url('templatejs/cart.js') ?>'></script>
 <!--<script type='text/javascript' src='http://jenscornershop.com.au/wp-includes/js/wp-embed.min.js?ver=4.7.3'></script>
 <script type='text/javascript'>
     /* <![CDATA[ */

@@ -34,6 +34,27 @@ class ProductDetailModel extends CI_Model
         return $arr;
     }
 
+    /**
+     * @return array
+     */
+    public function loadByProductSize($product = '',$size = '',$checkAllotment = false){
+        
+        $this->db->where('product_detail.product', $product);
+        $this->db->where('product_detail.size', $size);
+        $this->db->select(
+            'product_detail.*');
+        if($checkAllotment)
+            $this->db->where('quantity >', 0);
+        $query = $this->db->get(self::TABLE_NAME);
+        $arr = array();
+        if ($query !== false) {
+            foreach ($query->result_array() as $row) {
+                $arr[] = $this->convertToObject($row);
+            }
+        }
+        return $arr;
+    }
+
 
     /**
      * @param $arr

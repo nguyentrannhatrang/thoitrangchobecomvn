@@ -29,16 +29,19 @@
                 <div class="headertwo-wrap">
                     <!-- Cart Link -->
                     <div class="view-cart">
-                        <a class="cart-contents wcmenucart-contents" href="http://jenscornershop.com.au/cart/" title="View your shopping cart">
-                            <i class="fa fa-shopping-cart"></i> [ 0 / <span class="amount">&#036;0.00</span> ]
+                        <a class="cart-contents wcmenucart-contents" href="/cart/" title="View your shopping cart">
+                            <i class="fa fa-shopping-cart"></i> [<span class="total-quantity">0</span> / <span class="amount">&#036;0.00</span> VND]
                         </a>
-                    </div>                                        <a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
+                    </div><!--
+                    <a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
                         <i class="fa fa-heart"></i>
-                        (0)                        </a>
+                        (0)                        
+                    </a>
                     <div class="login-woocommerce">
                         <a href="http://jenscornershop.com.au/my-account/" class="account">
-                            Login                        </a>
-                    </div>
+                            Login                        
+                        </a>
+                    </div>-->
                     <!-- if enabled from customizer -->
                     <div class="search-form">
                         <form method="get" class="searchform" action="http://jenscornershop.com.au/" role="search">
@@ -74,7 +77,8 @@
     <div class="ak-container">
         <div id="primary" class="content-area">
             <div class="content-inner clearfix">
-                <div itemscope itemtype="http://schema.org/Product" id="product-555" class="single-img post-555 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-playsuits product_cat-newborn product_tag-playsuit product_tag-seaside product_shipping_class-whole-post first instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
+                <div itemscope itemtype="http://schema.org/Product" id="product-555" 
+                     class="single-img post-555 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-playsuits product_cat-newborn product_tag-playsuit product_tag-seaside product_shipping_class-whole-post first instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
 
                     <div class="img-wrap">
                         <div class="images">
@@ -102,20 +106,26 @@
                             <?= $product->getDescription() ?>
                         </div>
                         <br/>
-                        <form class="variations_form cart" id="frm-product" method="post">
+                        <form class="variations_form cart frm-product" id="frm-product" method="post">
+                            <input type="hidden" name="product_id" id="product_id" value="<?= $product->getId() ?>">
+                            <input type="hidden" name="product_price" id="product_price" value="<?= $product->getPrice() ?>">
                             <table class="variations" cellspacing="0">
                                 <tbody>
                                 <tr>
                                     <td class="label"><label for="pa_size">Size</label></td>
                                     <td class="value">
-                                        <select id="pa_size" class="" name="attribute_pa_size" data-attribute_name="attribute_pa_size" data-show_option_none="yes">
+                                        <select id="pa_size" class="" name="size" data-attribute_name="attribute_pa_size" data-show_option_none="yes">
                                             <option value="">Choose an option</option>
                                             <?php foreach ($sizes_data as $size){?>
                                             <option value="<?= $size['code']?>" ><?= $size['name']?></option>
                                             <?php }?>
                                         </select>
+                                        <span class="error" id="error_pa_size"></span>
                                         <a class="reset_variations" href="#">Clear</a>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" id="out_stock"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -123,12 +133,15 @@
                                 <div class="woocommerce-variation single_variation"></div>
                                 <div class="woocommerce-variation-add-to-cart variations_button">
                                     <div class="quantity">
-                                        <input type="number" class="qty" step="1" min="0" max="0" name="quantity" value="1" />
+                                        <input type="number" class="qty" step="1" min="0" max="0" id="quantity" name="quantity" value="0" />
+                                        <span class="error" id="error_quantity"></span>
                                     </div>
-                                    <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
-                                    <input type="hidden" name="add-to-cart" value="555" />
-                                    <input type="hidden" name="product_id" value="555" />
-                                    <input type="hidden" name="variation_id" class="variation_id" value="0" />
+                                    <button type="button" id="add_to_cart" class="single_add_to_cart_button button alt">Add to cart</button>
+                                    
+                                </div>
+                                <div class="total-price">
+                                    <span>Total: </span>
+                                    <span class="price" id="total-price"></span>VND
                                 </div>
                             </div>
                         </form>
@@ -277,4 +290,7 @@
     </div>
 </div>
 </div>
-</div>        
+</div>
+ <script>
+     var size_quantity = '<?php echo json_encode($sizes_data);?>';
+ </script>

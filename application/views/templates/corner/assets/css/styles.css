@@ -7182,3 +7182,8 @@ a#main-image img{
     max-height: 360px;
     max-width: 360px;
 }
+.total-price{
+    text-align: left;
+    clear: both;
+    margin-top: 10px;
+}

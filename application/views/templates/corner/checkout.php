@@ -22,17 +22,8 @@
                 <div class="headertwo-wrap">
                     <!-- Cart Link -->
                     <div class="view-cart">
-                        <a class="cart-contents wcmenucart-contents" href="http://jenscornershop.com.au/cart/" title="View your shopping cart">
-                            <i class="fa fa-shopping-cart"></i> [ 1 / <span class="amount">&#036;55.00</span> ]
-                        </a>
-                    </div>
-                    <a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
-                        <i class="fa fa-heart"></i>
-                        (0)
-                    </a>
-                    <div class="login-woocommerce">
-                        <a href="http://jenscornershop.com.au/my-account/" class="account">
-                            Login
+                        <a class="cart-contents wcmenucart-contents" href="/cart/" title="View your shopping cart">
+                            <i class="fa fa-shopping-cart"></i> [<span class="total-quantity">0</span> / <span class="amount">&#036;0.00</span> VND]
                         </a>
                     </div>
                     <!-- if enabled from customizer -->
@@ -48,36 +39,31 @@
             </div>
 
         </div>
-        <?php $this->view('templates/corner/_parts/menu'); ?>
+        <?php $this->view('templates/corner/_parts/menu',array('categories'=>$menu,'current_menu'=>$current_menu)); ?>
     </header><!-- #masthead -->
 
     <div id="content" class="site-content"><div class="page_header_wrap clearfix" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
             <div class="ak-container">
                 <header class="entry-header">
                     <h2 class="entry-title">Checkout</h2>        </header><!-- .entry-header -->
-                <div id="accesspress-breadcrumb"><a href="http://jenscornershop.com.au">Home</a>  <span class="current">Checkout</span></div>    </div>
+                <div id="accesspress-breadcrumb"><a href="http://jenscornershop.com.au">Home</a>  <span class="current">Checkout</span>
+                </div>
+            </div>
         </div>
         <div class="inner">
             <main id="main" class="site-main clearfix no-sidebar">
-
                 <div id="primary" class="content-area">
-
-
                     <article id="post-6" class="post-6 page type-page status-publish hentry">
-
                         <div class="entry-content">
                             <div class="content-inner clearfix">
                                 <h2 class="post-title">Checkout</h2>
                                 <div class="content-page">
                                     <div class="woocommerce">
-                                        <form name="checkout" method="post" class="checkout woocommerce-checkout" action="http://jenscornershop.com.au/checkout/" enctype="multipart/form-data">
-
-
-
+                                        <form name="checkout" method="post" class="checkout woocommerce-checkout"
+                                              action="/checkout/" enctype="multipart/form-data">
                                             <div class="col2-set" id="customer_details">
                                                 <div class="col-1">
                                                     <div class="woocommerce-billing-fields">
-
                                                         <h3>Billing details</h3>
                                                         <div class="woocommerce-billing-fields__field-wrapper">
                                                             <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-sort="10">
@@ -99,7 +85,8 @@
                                                                 <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder=""  value="" autocomplete="tel" />
                                                             </p>
                                                             <p class="form-row form-row-last validate-required validate-email" id="billing_email_field" data-sort="110">
-                                                                <label for="billing_email" class="">Email address <abbr class="required" title="required">*</abbr></label>
+                                                                <label for="billing_email" class="">Email address <abbr class="required" title="required">*</abbr>
+                                                                </label>
                                                                 <input type="email" class="input-text " name="billing_email" id="billing_email" placeholder=""  value="" autocomplete="email username" />
                                                             </p>
                                                         </div>
@@ -107,12 +94,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
                                             <h3 id="order_review_heading">Your order</h3>
-
-
                                             <div id="order_review" class="woocommerce-checkout-review-order">
                                                 <table class="shop_table woocommerce-checkout-review-order-table">
                                                     <thead>
@@ -124,32 +106,45 @@
                                                     <tbody>
                                                     <tr class="cart_item">
                                                         <td class="product-name">
-                                                            Spanish Tea Party Dress &ndash; 3&nbsp;							 <strong class="product-quantity">&times; 1</strong>													</td>
+                                                            Spanish Tea Party Dress &ndash; 3&nbsp;
+                                                            <strong class="product-quantity">&times; 1</strong>
+                                                        </td>
                                                         <td class="product-total">
-                                                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>55.00</span>						</td>
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <span class="woocommerce-Price-currencySymbol">&#36;</span>55.00</span>
+                                                        </td>
                                                     </tr>
                                                     </tbody>
                                                     <tfoot>
 
                                                     <tr class="cart-subtotal">
                                                         <th>Subtotal</th>
-                                                        <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>55.00</span></td>
+                                                        <td>
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <span class="woocommerce-Price-currencySymbol">&#36;</span>55.00
+                                                            </span>
+                                                        </td>
                                                     </tr>
                                                     <tr class="shipping">
                                                         <th>Shipping</th>
                                                         <td>
                                                             <p>Shipping costs will be calculated once you have provided your address.</p>
-
                                                         </td>
                                                     </tr>
-                                                    <script>
+                                                   <!-- <script>
                                                         jQuery(document).ready(function() {
                                                             jQuery(".extra-flate-tool-tip").parent().css("position", "relative");
                                                         });
-                                                    </script>
+                                                    </script>-->
                                                     <tr class="order-total">
                                                         <th>Total</th>
-                                                        <td><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>55.00</span></strong> </td>
+                                                        <td>
+                                                            <strong>
+                                                                <span class="woocommerce-Price-amount amount">
+                                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>55.00
+                                                                </span>
+                                                            </strong>
+                                                        </td>
                                                     </tr>
                                                     </tfoot>
                                                 </table>
@@ -158,17 +153,12 @@
                                                         <input class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Book Now" data-value="Place order" type="submit">
                                                 </div>
                                             </div>
-
-
                                         </form>
-
                                     </div>
                                 </div>
                             </div>
                         </div><!-- .entry-content -->
-
                     </article><!-- #post-## -->
-
                 </div><!-- #primary -->
             </main>
         </div>

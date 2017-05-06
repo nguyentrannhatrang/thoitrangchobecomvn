@@ -26,8 +26,8 @@ class MY_Controller extends MX_Controller
 
     public function render($view, $head, $data = null, $footer = null)
     {
-        $head['cartItems'] = $this->shoppingcart->getCartItems();
-        $head['sumOfItems'] = $this->shoppingcart->sumValues;
+        ///$head['cartItems'] = $this->shoppingcart->getCartItems();
+        //$head['sumOfItems'] = $this->shoppingcart->sumValues;
         $head['menu'] = $this->getListMenu();
         $head['current_menu'] = array($view=>true);
         $vars = $this->loadVars();
@@ -62,8 +62,8 @@ class MY_Controller extends MX_Controller
 
     public function render2($view, $head, $data = null, $footer = null)
     {
-        $head['cartItems'] = $this->shoppingcart->getCartItems();
-        $head['sumOfItems'] = $this->shoppingcart->sumValues;
+        //$head['cartItems'] = $this->shoppingcart->getCartItems();
+        //$head['sumOfItems'] = $this->shoppingcart->sumValues;
         $head['menu'] = $this->getListMenu();
         $head['current_menu'] = array($view=>true);
         $vars = $this->loadVars();

@@ -116,7 +116,9 @@ class ProductModel extends CI_Model
     {
         $this->db->where('products.id', $id);
 
-        $this->db->select('products.*, translations.title,translations.description, translations.price, translations.old_price, products.url, trans2.name as categorie_name');
+        $this->db->select('products.*, translations.title as name,
+        translations.description, translations.price, translations.old_price,
+        products.url, trans2.name as categorie_name');
 
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
         $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
