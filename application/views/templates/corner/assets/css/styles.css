@@ -7176,3 +7176,9 @@ ul.products.list li.product hr {
 .item-image{
     margin: 0px 3px;
 }
+a#main-image img{
+    min-height: 360px;
+    min-width: 360px;
+    max-height: 360px;
+    max-width: 360px;
+}

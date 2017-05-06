@@ -11,6 +11,8 @@ class Product extends MY_Controller
         $this->load->library('email');
         $this->load->model('CategoryModel');
         $this->load->model('ProductModel');
+        $this->load->model('ProductDetailModel');
+        $this->load->model('SizeModel');
     }
 
     public function index($url = '')
@@ -25,11 +27,54 @@ class Product extends MY_Controller
         /** @var ProductModel $product */
         $product = $this->ProductModel->getProductByUrl($url);
         $data['product'] = $product;
+        $data['others_image'] = $this->loadOthersImages($product->getFolder());
+        $listSize = $this->SizeModel->loadArray();
+        $productDetails = $this->ProductDetailModel->loadByProduct($product->id);
+        $aSize = $this->getSizes($productDetails,$listSize);
+        $data['sizes_data'] = $aSize;
         $data['current_categorie'] = $this->CategoryModel->getById($product->shopCategorie);
         $data['relation_products'] = $this->ProductModel->getProducts(array($product->shopCategorie),true,10);
         $this->render2('product', $head, $data);
     }
-    
+
+    /**
+     * @param array $productDetails
+     * @param array $size
+     * @return array
+     */
+    protected function getSizes($productDetails = array(),$size = array()){
+        $result = array();
+        /** @var ProductDetailModel $detail */
+        foreach ($productDetails as $detail){
+            $result[$detail->size] = array('name'=>isset($size[$detail->size])?$size[$detail->size]:'',
+                'quantity'=>$detail->quantity,
+                'code'=>$detail->size);
+        }
+        return $result;
+    }
+
+    /**
+     * @param null $folder
+     * @return array
+     */
+    public function loadOthersImages($folder = null)
+    {
+        $aResult = array();
+        if ($folder != null) {
+            $dir = 'attachments' . DIRECTORY_SEPARATOR . 'shop_images' . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR;
+            if (is_dir($dir)) {
+                if ($dh = opendir($dir)) {
+                    while (($file = readdir($dh)) !== false) {
+                        if (is_file($dir . $file)) {
+                            $aResult[] = base_url($dir . $file);
+                        }
+                    }
+                    closedir($dh);
+                }
+            }
+        }
+        return $aResult;
+    }
     
 
     private function sendEmail()

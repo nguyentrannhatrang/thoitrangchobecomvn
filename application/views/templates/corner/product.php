@@ -79,27 +79,15 @@
                     <div class="img-wrap">
                         <div class="images">
                             <a id="main-image">
-                            <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-21-02.15.30-600x600.jpg" class="attachment-shop_single size-shop_single wp-post-image"/>
+                            <img width="600" height="600" src="<?= base_url('/attachments/shop_images/'.$product->image)?>" class="attachment-shop_single size-shop_single wp-post-image"/>
                             </a>
                             <div class="thumbnails columns-3 images-slick">
+                                <?php foreach ($others_image as $other) {?>
                                 <div class="item-image">
-                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2016/12/PicsArt_12-04-02.10.31.jpg"/>
+                                    <img width="600" height="600"
+                                         src="<?= $other?>"/>
                                 </div>
-                                <div class="item-image">
-                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-07-08.32.21-180x180.jpg"/>
-                                </div>
-                                <div class="item-image">
-                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-09-09.20.56-180x180.jpg"/>
-                                </div>
-                                <div class="item-image">
-                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-09-09.20.56-180x180.jpg"/>
-                                </div>
-                                <div class="item-image">
-                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-09-09.20.56-180x180.jpg"/>
-                                </div>
-                                <div class="item-image">
-                                    <img width="600" height="600" src="http://jenscornershop.com.au/wp-content/uploads/2017/04/PicsArt_04-09-09.20.56-180x180.jpg"/>
-                                </div>
+                                <?php }?>
                             </div>
                         </div>
                     </div>
@@ -107,11 +95,14 @@
                         <h1 class="product_title entry-title"><?= $product->getName() ?></h1>
                         <p class="price">
                             <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol"></span><?= $product->getPriceFormat() ?>
+                                <span class="woocommerce-Price-currencySymbol"></span><?= $product->getPriceFormat() ?> VND
                             </span>
                         </p>
-
-                        <form class="variations_form cart" method="post">
+                        <div>
+                            <?= $product->getDescription() ?>
+                        </div>
+                        <br/>
+                        <form class="variations_form cart" id="frm-product" method="post">
                             <table class="variations" cellspacing="0">
                                 <tbody>
                                 <tr>
@@ -119,19 +110,20 @@
                                     <td class="value">
                                         <select id="pa_size" class="" name="attribute_pa_size" data-attribute_name="attribute_pa_size" data-show_option_none="yes">
                                             <option value="">Choose an option</option>
-                                            <option value="nb" >NB</option>
+                                            <?php foreach ($sizes_data as $size){?>
+                                            <option value="<?= $size['code']?>" ><?= $size['name']?></option>
+                                            <?php }?>
                                         </select>
                                         <a class="reset_variations" href="#">Clear</a>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
-
-
                             <div class="single_variation_wrap">
-                                <div class="woocommerce-variation single_variation"></div><div class="woocommerce-variation-add-to-cart variations_button">
-                                    <div class="quantity hidden">
-                                        <input type="hidden" class="qty" name="quantity" value="1" />
+                                <div class="woocommerce-variation single_variation"></div>
+                                <div class="woocommerce-variation-add-to-cart variations_button">
+                                    <div class="quantity">
+                                        <input type="number" class="qty" step="1" min="0" max="0" name="quantity" value="1" />
                                     </div>
                                     <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
                                     <input type="hidden" name="add-to-cart" value="555" />
@@ -139,14 +131,7 @@
                                     <input type="hidden" name="variation_id" class="variation_id" value="0" />
                                 </div>
                             </div>
-
-
                         </form>
-
-                        <div class="product_meta">
-                            <div class="sku_wrapper">SKU: <span class="sku" itemprop="sku">N/A</span>.</div>
-                            <div class="posted_in">Categories: <a href="http://jenscornershop.com.au/product-category/handmade/" rel="tag">Handmade</a>, <a href="http://jenscornershop.com.au/product-category/handmade/playsuits/" rel="tag">Playsuits</a>, <a href="http://jenscornershop.com.au/product-category/handmade/newborn/" rel="tag">Newborn</a>.</div>	<div class="tagged_as">Tags: <a href="http://jenscornershop.com.au/product-tag/playsuit/" rel="tag">playsuit</a>, <a href="http://jenscornershop.com.au/product-tag/seaside/" rel="tag">seaside</a>.</div>	</div>
-
                     </div><!-- .summary -->
 
                     <div class="woocommerce-tabs wc-tabs-wrapper">
