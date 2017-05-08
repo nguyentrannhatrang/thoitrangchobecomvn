@@ -1,5 +1,5 @@
 <?php
-class Booking_detail_model extends CI_Model {
+class BookingDetailModel extends CI_Model {
     
     const STATUS_REQUEST = 0;
     const STATUS_CONFIRM = 1;
@@ -33,7 +33,7 @@ class Booking_detail_model extends CI_Model {
         $this->db->insert($this->table, $this);
     }
 
-    public function get_by_booking($bkId)
+    public function load($bkId)
     {
         $query = $this->db->get_where($this->table, ['bkId' => $bkId]);
 
@@ -48,7 +48,7 @@ class Booking_detail_model extends CI_Model {
         return $result;
     }
 
-    public function get_data_by_id($id)
+    public function getById($id)
     {
         $query = $this->db->get_where($this->table, ['id' => $id]);
 
@@ -79,7 +79,7 @@ class Booking_detail_model extends CI_Model {
     }
     /**
      * @param $data
-     * @return Booking_detail_mode
+     * @return BookingDetailModel
      */
     private function convertToModel($data){
         if(empty($data)) return $this;
@@ -101,7 +101,7 @@ class Booking_detail_model extends CI_Model {
         return $obj;
     }
     /**
-     * @param Booking_detail_model $data
+     * @param BookingDetailModel $data
      * @return array
      */
     public function convertToArray($obj){

@@ -43,10 +43,17 @@
     </header><!-- #masthead -->
 
     <div id="content" class="site-content"><div class="page_header_wrap clearfix" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
+            <?php if ($this->session->flashdata('error')) { ?>
+                <div class="message error" style="display:block">
+                    <p><?= $this->session->flashdata('error') ?></p>
+                </div>
+            <?php } ?>
             <div class="ak-container">
                 <header class="entry-header">
-                    <h2 class="entry-title">Checkout</h2>        </header><!-- .entry-header -->
-                <div id="accesspress-breadcrumb"><a href="http://jenscornershop.com.au">Home</a>  <span class="current">Checkout</span>
+                    <h2 class="entry-title">Checkout</h2>
+                </header><!-- .entry-header -->
+                <div id="accesspress-breadcrumb">
+                    <a href="http://jenscornershop.com.au">Home</a>  <span class="current">Checkout</span>
                 </div>
             </div>
         </div>
@@ -59,74 +66,79 @@
                                 <h2 class="post-title">Checkout</h2>
                                 <div class="content-page">
                                     <div class="woocommerce">
-                                        <form name="checkout" method="post" class="checkout woocommerce-checkout"
+                                        <form name="checkout" id="frm-checkout" method="post" class="checkout woocommerce-checkout"
                                               action="/checkout/" enctype="multipart/form-data">
                                             <div class="col2-set" id="customer_details">
                                                 <div class="col-1">
                                                     <div class="woocommerce-billing-fields">
-                                                        <h3>Billing details</h3>
+                                                        <h3>Thông tin khách hàng</h3>
                                                         <div class="woocommerce-billing-fields__field-wrapper">
                                                             <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-sort="10">
-                                                                <label for="billing_first_name" class="">First name <abbr class="required" title="required">*</abbr>
+                                                                <label for="billing_first_name" class="">Họ và tên<abbr class="required" title="required">*</abbr>
                                                                 </label>
-                                                                <input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder=""  value="" autocomplete="given-name" autofocus="autofocus" />
-                                                            </p>
-                                                            <p class="form-row form-row-last validate-required" id="billing_last_name_field" data-sort="20">
-                                                                <label for="billing_last_name" class="">Last name <abbr class="required" title="required">*</abbr>
-                                                                </label>
-                                                                <input type="text" class="input-text " name="billing_last_name" id="billing_last_name" placeholder=""  value="" autocomplete="family-name" />
-                                                            </p>
+                                                                <input type="text" class="input-text require" name="name" id="billing_name" placeholder=""  value="" autocomplete="given-name" autofocus="autofocus" />
+                                                            </p>                                                            
                                                             <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-sort="50">
-                                                                <label for="billing_address_1" class="">Address <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="Street address"  value="" autocomplete="address-line1" />
+                                                                <label for="billing_address_1" class="">Địa chỉ <abbr class="required" title="required">*</abbr></label>
+                                                                <input type="text" class="input-text require " name="address" id="billing_address_1" placeholder="Street address"  value="" autocomplete="address-line1" />
                                                             </p>
                                                             <p class="form-row form-row-first validate-phone" id="billing_phone_field" data-sort="100">
-                                                                <label for="billing_phone" class="">Phone</label>
-                                                                <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder=""  value="" autocomplete="tel" />
+                                                                <label for="billing_phone" class="">Điện thoại</label>
+                                                                <input type="tel" class="input-text require" name="phone" id="billing_phone" placeholder=""  value="" autocomplete="tel" />
                                                             </p>
                                                             <p class="form-row form-row-last validate-required validate-email" id="billing_email_field" data-sort="110">
-                                                                <label for="billing_email" class="">Email address <abbr class="required" title="required">*</abbr>
+                                                                <label for="billing_email" class="">Email <abbr class="required" title="required">*</abbr>
                                                                 </label>
-                                                                <input type="email" class="input-text " name="billing_email" id="billing_email" placeholder=""  value="" autocomplete="email username" />
+                                                                <input type="email" class="input-text require " name="email" id="billing_email" placeholder=""  value="" autocomplete="email username" />
+                                                            </p>
+                                                            <p class="form-row form-row-last validate-required validate-email" id="billing_email_field" data-sort="110">
+                                                                <label for="billing_email" class="">Yêu cầu <abbr class="required" title="required">*</abbr>
+                                                                </label>
+                                                                <textarea name="message" class="input-text "></textarea>
+                                                                
                                                             </p>
                                                         </div>
 
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h3 id="order_review_heading">Your order</h3>
+                                            <h3 id="order_review_heading">Thông tin đơn hàng</h3>
                                             <div id="order_review" class="woocommerce-checkout-review-order">
                                                 <table class="shop_table woocommerce-checkout-review-order-table">
                                                     <thead>
                                                     <tr>
-                                                        <th class="product-name">Product</th>
-                                                        <th class="product-total">Total</th>
+                                                        <th class="product-name">Sản phẩm</th>
+                                                        <th class="product-total">Giá trị</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr class="cart_item">
-                                                        <td class="product-name">
-                                                            Spanish Tea Party Dress &ndash; 3&nbsp;
-                                                            <strong class="product-quantity">&times; 1</strong>
-                                                        </td>
-                                                        <td class="product-total">
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-currencySymbol">&#36;</span>55.00</span>
-                                                        </td>
-                                                    </tr>
+                                                    <?php foreach ($data_carts as $data_cart){ ?>
+                                                        <?php foreach ($data_cart as $sizeCode=>$item) {?>
+                                                            <tr class="cart_item">
+                                                                <td class="product-name">
+                                                                    <?= $item['name']?> &ndash; <?= $item['size']?>
+                                                                    <strong class="product-quantity">&times; <?= $item['quantity']?></strong>
+                                                                </td>
+                                                                <td class="product-total">
+                                                                    <span class="woocommerce-Price-amount amount">
+                                                                        <span class="woocommerce-Price-currencySymbol"></span><?= number_format($item['price'], 2, '.', ',') ?> đồng</span>
+                                                                </td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                    <?php } ?>
                                                     </tbody>
                                                     <tfoot>
 
                                                     <tr class="cart-subtotal">
-                                                        <th>Subtotal</th>
+                                                        <th>Số tiền</th>
                                                         <td>
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-currencySymbol">&#36;</span>55.00
+                                                                <span class="woocommerce-Price-currencySymbol"></span><?= number_format($summary['total'], 2, '.', ',') ?> đồng
                                                             </span>
                                                         </td>
                                                     </tr>
                                                     <tr class="shipping">
-                                                        <th>Shipping</th>
+                                                        <th>Phí giao hàng</th>
                                                         <td>
                                                             <p>Shipping costs will be calculated once you have provided your address.</p>
                                                         </td>
@@ -137,11 +149,11 @@
                                                         });
                                                     </script>-->
                                                     <tr class="order-total">
-                                                        <th>Total</th>
+                                                        <th>Tổng tiền</th>
                                                         <td>
                                                             <strong>
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol">&#36;</span>55.00
+                                                                    <span class="woocommerce-Price-currencySymbol"></span><?= number_format($summary['total'], 2, '.', ',') ?> đồng
                                                                 </span>
                                                             </strong>
                                                         </td>

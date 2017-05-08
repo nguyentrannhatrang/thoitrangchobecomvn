@@ -1,5 +1,5 @@
 <?php
-class Traveller_model extends CI_Model {    
+class TravellerModel extends CI_Model {    
     public $id;
     public $name;
     public $email;

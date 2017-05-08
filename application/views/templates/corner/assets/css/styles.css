@@ -7187,3 +7187,6 @@ a#main-image img{
     clear: both;
     margin-top: 10px;
 }
+form.checkout input.input-text.error{
+    border:1px solid red !important;
+}

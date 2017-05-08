@@ -1,5 +1,5 @@
 <?php
-class Booking_model extends CI_Model {
+class BookingModel extends CI_Model {
     
     const STATUS_REQUEST = 0;
     const STATUS_CONFIRM = 1;
@@ -34,7 +34,7 @@ class Booking_model extends CI_Model {
         }
     }
 
-    public function get_latest($limit = 20, $start = 0)
+    public function getLatest($limit = 20, $start = 0)
     {
         $this->db->limit($limit, $start);
         $query = $this->db->get($this->table);
@@ -50,7 +50,7 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    public function get_data_by_id($id)
+    public function getById($id)
     {
         $query = $this->db->get_where($this->table, ['id' => $id]);
 
@@ -58,7 +58,7 @@ class Booking_model extends CI_Model {
         return $this->convertToModel(end($data));
     }
 
-    public function get_data_today(){
+    public function getToday(){
         $day = date('j',time());
         $month = date('n',time());
         $year = date('Y',time());
@@ -66,7 +66,7 @@ class Booking_model extends CI_Model {
         return $this->get_data_by_date($today,$today + 86400);
     }
 
-    public function get_data_yesterday(){
+    public function getYesterday(){
         $day = date('j',time());
         $month = date('n',time());
         $year = date('Y',time());
@@ -74,7 +74,7 @@ class Booking_model extends CI_Model {
         return $this->get_data_by_date($today - 86400,$today);
     }
 
-    public function get_data_week(){
+    public function getWeek(){
         $day = date('j',time());
         $month = date('n',time());
         $year = date('Y',time());
@@ -85,7 +85,7 @@ class Booking_model extends CI_Model {
      * @param $date
      * @return array
      */
-    public function get_data_by_date($from,$to)
+    public function getByDate($from,$to)
     {
         $query = $this->db->order_by('created', 'DESC')->get_where($this->table, ['created >=' => (int)$from,'created <=' => (int)$to]);
 
@@ -120,7 +120,7 @@ class Booking_model extends CI_Model {
     }
     /**
      * @param $data
-     * @return $this|Booking_model
+     * @return $this|BookingModel
      */
     private function convertToModel($data){
         if(empty($data)) return $this;
@@ -168,7 +168,7 @@ class Booking_model extends CI_Model {
     }
 
     /**
-     * @param Booking_model $obj
+     * @param BookingModel $obj
      * @return array
      */
     public function convertToArray($obj){
@@ -186,32 +186,31 @@ class Booking_model extends CI_Model {
     }
 
     /**
-     * @param Traveller_model $traveller
+     * @param TravellerModel $traveller
      * @param array $aDetails
      */
-    public function insertAll(Traveller_model $traveller,array $aDetails = array()){
+    public function insertAll(TravellerModelodel $traveller,array $aDetails = array()){
         $this->db->trans_start();
-        /** @var Booking_model $booking */
+        /** @var BookingModel $booking */
         $booking = $this;
         $travellerId = $traveller->insert();
         $booking->user_id = $travellerId;
         $booking->updateDataFromDetail($aDetails);
         $bkId = $booking->insert();
         $arrReduce = array();
-        /** @var Booking_detail_model $itemDetail */
+        /** @var BookingDetailModel $itemDetail */
         foreach ($aDetails as $itemDetail){
             $itemDetail->id = null;
             $itemDetail->bkId = $bkId;
             $itemDetail->insert();
-            $productDetail = new Product_detail_model();
-            $productDetail->getObjectDetail(
+            $productDetail = new ProductDetailModel();
+            $productDetail->loadByProductSize(
                 $itemDetail->product,
-                $itemDetail->color,
                 $itemDetail->size);
             $productDetail->quantity -= $itemDetail->quantity;
             $arrReduce[] = $productDetail;
         }
-        /** @var Product_detail_model $item */
+        /** @var ProductDetailModel $item */
         foreach ($arrReduce as $item) {
             $item->update();
         }

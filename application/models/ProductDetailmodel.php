@@ -54,7 +54,21 @@ class ProductDetailModel extends CI_Model
         }
         return $arr;
     }
+    /**
+     * @return bool
+     */
+    public function insert()
+    {
+        $insert = $this->db->insert(self::TABLE_NAME, $this);
+        return (boolean) $insert;
+    }
 
+    public function update()
+    {
+        $this->db->where(array('product'=>$this->product,'size'=>$this->size));
+        $update = $this->db->update(self::TABLE_NAME, $this);
+        return (boolean) $update;
+    }
 
     /**
      * @param $arr
