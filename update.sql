@@ -3,11 +3,13 @@ CREATE TABLE `colors` (
   `name` varchar(100) NOT NULL,
    PRIMARY KEY (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `sizes` (
   `code` varchar(5) NOT NULL,
   `name` varchar(50) NOT NULL,
    PRIMARY KEY (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `product_detail` (
   `product` int(11) NOT NULL,
   `color` varchar(20) NOT NULL,
@@ -27,7 +29,9 @@ CREATE TABLE `traveller`(
   `phone` varchar(20),
   `address` varchar(255),
   `created` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `traveller_email_index` (`email`),
+  INDEX `traveller_phone_index` (`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -41,7 +45,9 @@ CREATE TABLE `traveller`(
   `message` TEXT CHARACTER SET utf8 COLLATE utf8_bin NULL,
   `updated` int(10) NOT NULL,
   `created` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `booking_user_id_index` (`user_id`),
+  INDEX `booking_status_index` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `booking_detail`(
@@ -59,5 +65,22 @@ CREATE TABLE `booking_detail`(
   `status` int(1) NOT NULL,
   `updated` int(10) NOT NULL,
   `created` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `booking_detail_bkId_index` (`bkId`),
+  INDEX `booking_detail_status_index` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `comments`(
+  `id` int(11) NOT NULL AUTO_INCREMENT ,
+  `email` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `message` TEXT CHARACTER SET utf8 COLLATE utf8_bin NULL,
+  `product` int(11) NOT NULL,
+  `status` int(1) NOT NULL,
+  `updated` int(10) NOT NULL,
+  `created` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `comments_email` (`email`),
+  INDEX `comments_product` (`product`),
+  INDEX `comments_status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

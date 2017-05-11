@@ -156,7 +156,8 @@
                                 <a href="#tab-additional_information">Additional information</a>
                             </li>
                             <li class="tab-title-reviews tab-details" id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
-                                <a href="#tab-reviews">Reviews (0)</a>
+                                <a href="#tab-reviews">Reviews (<?= $count_reviews ?>)</a>
+                                <input id="number_review" type="hidden" value="<?= $count_reviews ?>" />
                             </li>
                         </ul>
                         <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
@@ -183,9 +184,19 @@
                                 <div id="comments">
                                     <h2 class="woocommerce-Reviews-title">Reviews</h2>
 
+                                    <?php if($count_reviews == 0){ ?>
+                                        <p class="woocommerce-noreviews">There are no reviews yet.</p>
+                                    <?php } ?>
 
-                                    <p class="woocommerce-noreviews">There are no reviews yet.</p>
-
+                                </div>
+                                <div id="template-comment-view" style="display: none;">
+                                    <div class="item-comment">
+                                        <p> {{comment}}</p>
+                                        <strong>{{name}} ({{email}})</strong>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="#" id="load_more">Hiển thị thêm</a>
                                 </div>
 
 
@@ -194,7 +205,7 @@
                                         <div id="respond" class="comment-respond">
                                             <span id="reply-title" class="comment-reply-title">Be the first to review &ldquo;White Arrows Playsuit&rdquo; <small><a rel="nofollow" id="cancel-comment-reply-link" href="/product/white-arrows-playsuit/#respond" style="display:none;">Cancel reply</a></small></span>			<form action="http://jenscornershop.com.au/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
                                                 <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
-                                                <p class="comment-form-rating">
+                                                <!--<p class="comment-form-rating">
                                                     <label for="rating">Your rating</label>
                                                     <select name="rating" id="rating" aria-required="true" required>
                                                         <option value="">Rate&hellip;</option>
@@ -204,7 +215,9 @@
                                                         <option value="2">Not that bad</option>
                                                         <option value="1">Very poor</option>
                                                     </select>
-                                                </p>
+                                                </p>-->
+                                                <p class="error" id="review_error"></p>
+                                                <p class="mesage-success" id="review_success"></p>
                                                 <p class="comment-form-comment">
                                                     <label for="comment">Your review <span class="required">*</span></label>
                                                     <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
@@ -213,9 +226,10 @@
                                                     <input id="author" name="author" type="text" value="" size="30" aria-required="true" required />
                                                 </p>
                                                 <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" aria-required="true" required /></p>
-                                                <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit" /> <input type='hidden' name='comment_post_ID' value='555' id='comment_post_ID' />
-                                                    <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
-                                                </p>			</form>
+                                                <p class="form-submit">
+                                                    <input name="submit-review" type="submit" id="submit" class="submit" value="Submit" />
+                                                </p>
+                                            </form>
                                         </div><!-- #respond -->
                                     </div>
                                 </div>

@@ -7190,3 +7190,17 @@ a#main-image img{
 form.checkout input.input-text.error{
     border:1px solid red !important;
 }
+.error{
+    color:#990000 !important;
+}
+.mesage-success{
+    color:#0000C0 !important;
+}
+#comments .item-comment{
+    border-bottom: 1px solid #0A87A1;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+#comments .item-comment p{
+    margin-bottom: 10px;
+}

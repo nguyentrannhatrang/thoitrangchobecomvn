@@ -13,6 +13,7 @@ class Thankyou extends MY_Controller
         $this->load->model('BookingDetailModel');
         $this->load->model('BookingModel');
         $this->load->model('Booking');
+        $this->load->model('SizeModel');
     }
 
     public function index($bkId = '')
@@ -22,6 +23,8 @@ class Thankyou extends MY_Controller
         unset($_SESSION['shopping_cart']);
         @delete_cookie('shopping_cart');
         $this->Booking->load($bkId);
+        $data['booking'] = $this->Booking;
+        $data['listSize'] = $this->SizeModel->loadArray();;
         $this->render2('thankyou', $head, $data);
     }
 

@@ -112,7 +112,8 @@ CREATE TABLE IF NOT EXISTS `products` (
   `url` varchar(255) NOT NULL,
   `brand_id` int(10) UNSIGNED NOT NULL,
   `position` int(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `product_url_index` (`url`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
@@ -143,7 +144,8 @@ CREATE TABLE IF NOT EXISTS `shop_categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `sub_for` int(11) NOT NULL,
   `position` int(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `categories_sub_for_index` (`sub_for`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
@@ -169,6 +171,7 @@ CREATE TABLE IF NOT EXISTS `translations` (
   `type` varchar(30) NOT NULL,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
+  INDEX `translations_for_id_index` (`for_id`),
   UNIQUE KEY `art_id_abbr` (`abbr`,`for_id`,`type`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 

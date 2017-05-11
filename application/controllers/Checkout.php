@@ -70,18 +70,18 @@ class Checkout extends MY_Controller
                         $this->db->trans_commit();
                         //send mail
                         //$this->send();
-                        redirect('thankyou/index/'.$bkId);
+                        redirect($this->config->item('base_url').'thankyou/'.$bkId);
                         return;
                     }catch (\Exception $e){
                         $this->db->trans_rollback();
                         $this->session->set_flashdata('error',
                             'error. try again');
-                        redirect('checkout');
+                        redirect($this->config->item('base_url').'checkout');
                         return;
                     }
 
                 }else{
-                    redirect('checkout');
+                    redirect($this->config->item('base_url').'checkout');
                     return;
                 }
             }
@@ -89,7 +89,9 @@ class Checkout extends MY_Controller
         }
 
         $dataCart = $this->session->userdata('shopping_cart');
-        if(is_null($dataCart)) $dataCart = array();
+        if(is_null($dataCart)) {
+            redirect($this->config->item('base_url'));
+        }
         $data['data_carts'] = $dataCart;
         $data['summary'] = $this->totalQuantityPrice();
         $this->render2('checkout', $head, $data);

@@ -13,6 +13,7 @@ class Product extends MY_Controller
         $this->load->model('ProductModel');
         $this->load->model('ProductDetailModel');
         $this->load->model('SizeModel');
+        $this->load->model('CommentsModel');
     }
 
     public function index($url = '')
@@ -32,6 +33,7 @@ class Product extends MY_Controller
         $productDetails = $this->ProductDetailModel->loadByProduct($product->id);
         $aSize = $this->getSizes($productDetails,$listSize);
         $data['sizes_data'] = $aSize;
+        $data['count_reviews'] = $this->CommentsModel->countByProduct($product->getId());
         $data['current_categorie'] = $this->CategoryModel->getById($product->shopCategorie);
         $data['relation_products'] = $this->ProductModel->getProducts(array($product->shopCategorie),true,10);
         $this->render2('product', $head, $data);
@@ -93,6 +95,29 @@ class Product extends MY_Controller
             return true;
         }
         return false;
+    }
+    
+    public function saveComment($product){
+        if($this->input->post()) {
+            $message = $this->input->post('comment');
+            $name = $this->input->post('author');
+            $email = $this->input->post('email');
+            $comment = new CommentsModel();
+            $comment->email = $email;
+            $comment->name = $name;
+            $comment->message = strip_tags($message);
+            $comment->product = $product;
+            $comment->status = CommentsModel::DE_ACTIVE;
+            $comment->insert();
+        }
+        echo json_encode(array('result'=>1));
+    }
+    
+    public function loadComment($product,$page){
+        $limit = 10;
+        $start = ($page-1)*$limit;
+        $data = $this->CommentsModel->getByProductArray($product,$limit,$start);
+        echo json_encode(array('count'=>count($data),'data'=>$data));
     }
 
 }

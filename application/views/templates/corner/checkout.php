@@ -163,6 +163,7 @@
                                                 <div id="payment" class="woocommerce-checkout-payment">
                                                     <div class="form-row place-order" style="float: right">
                                                         <input class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Book Now" data-value="Place order" type="submit">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
