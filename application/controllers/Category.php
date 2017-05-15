@@ -17,13 +17,13 @@ class Category extends MY_Controller
     {
         $data = array();
         $head = array();
-        $arrSeo = $this->Publicmodel->getSeo('page_home');
-        $head['title'] = @$arrSeo['title'];
-        $head['description'] = @$arrSeo['description'];
-        $head['keywords'] = str_replace(" ", ",", $head['title']);
+//        $arrSeo = $this->Publicmodel->getSeo('page_home');
+//        $head['description'] = @$arrSeo['description'];
+//        $head['keywords'] = str_replace(" ", ",", $head['title']);
         $data['products'] = $this->getListProduct($category);
         $data['left_menu'] = $this->getLeftMenu();
         $data['current_categorie'] = $this->CategoryModel->getByUrl($category);
+        $head['title_page'] = $data['current_categorie']->getName();
         $this->render2('category', $head, $data);
     }
 

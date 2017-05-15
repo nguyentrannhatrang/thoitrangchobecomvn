@@ -5,32 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="http://jenscornershop.com.au/xmlrpc.php">
-    <title>Home -</title>
+    <title>Trang chủ</title>
 
     <!-- This site is optimized with the Yoast SEO plugin v4.5 - https://yoast.com/wordpress/plugins/seo/ -->
-    <link rel="canonical" href="http://jenscornershop.com.au/" />
-    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="http://thoitrangchobe.com.vn/" />
+    <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Jen&#039;s Corner Shop" />
-    <meta property="og:description" content="Jen&#039;s Corner Shop" />
-    <meta property="og:url" content="http://jenscornershop.com.au/" />
-    <meta property="og:image" content="http://jenscornershop.com.au/wp-content/uploads/2016/11/4-1.jpg" />
+    <meta property="og:title" content="Thời trang cho bé" />
+    <meta property="og:description" content="Thời trang cho bé" />
+    <meta property="og:url" content="http://thoitrangchobe.com.vn/" />
+    <meta name="keywords" content="Thời trang cho bé" />
+    <!--<meta property="og:image" content="http://jenscornershop.com.au/wp-content/uploads/2016/11/4-1.jpg" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="Jen&#039;s Corner Shop" />
     <meta name="twitter:title" content="Jen&#039;s Corner Shop" />
-    <meta name="twitter:image" content="http://jenscornershop.com.au/wp-content/uploads/2016/11/4-1.jpg" />
-    <script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"http:\/\/jenscornershop.com.au\/","name":"","potentialAction":{"@type":"SearchAction","target":"http:\/\/jenscornershop.com.au\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <meta name="twitter:image" content="http://jenscornershop.com.au/wp-content/uploads/2016/11/4-1.jpg" />-->
+<!--    <script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"http:\/\/jenscornershop.com.au\/","name":"","potentialAction":{"@type":"SearchAction","target":"http:\/\/jenscornershop.com.au\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>-->
     <!-- / Yoast SEO plugin. -->
 
     <link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//s.w.org' />
-    <link rel="alternate" type="application/rss+xml" title=" &raquo; Feed" href="http://jenscornershop.com.au/feed/" />
-    <link rel="alternate" type="application/rss+xml" title=" &raquo; Comments Feed" href="http://jenscornershop.com.au/comments/feed/" />
-    <script type="text/javascript">
+<!--    <link rel="alternate" type="application/rss+xml" title=" &raquo; Feed" href="http://jenscornershop.com.au/feed/" />-->
+<!--    <link rel="alternate" type="application/rss+xml" title=" &raquo; Comments Feed" href="http://jenscornershop.com.au/comments/feed/" />-->
+   <!-- <script type="text/javascript">
         window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/jenscornershop.com.au\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.3"}};
         !function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
-    </script>
+    </script>-->
     <style type="text/css">
         img.wp-smiley,
         img.emoji {
@@ -130,17 +131,20 @@
                         <a class="cart-contents wcmenucart-contents" href="http://jenscornershop.com.au/cart/" title="View your shopping cart">
                             <i class="fa fa-shopping-cart"></i> [ <span class="total-quantity">0</span> / <span class="amount">&#036;0.00</span> ]
                         </a>
-                    </div>                                        <a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
+                    </div>   
+                    <!--<a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
                         <i class="fa fa-heart"></i>
-                        (0)                        </a>
+                        (0)                        
+                    </a>-->
                     <div class="login-woocommerce">
-                        <a href="http://jenscornershop.com.au/my-account/" class="account">
-                            Login                        </a>
+                        <a href="#" class="account">
+                            Đăng nhập                        
+                        </a>
                     </div>
                     <!-- if enabled from customizer -->
                     <div class="search-form">
-                        <form method="get" class="searchform" action="http://jenscornershop.com.au/" role="search">
-                            <input type="text" name="s" value="" class="search-field" placeholder="Search products" />
+                        <form method="get" class="searchform" action="http://thoitrangchobe.com.vn/" role="search">
+                            <input type="text" name="s" value="" class="search-field" placeholder="Tìm kiếm" />
                             <input type="hidden" name="post_type" value="product">
                             <button type="submit" class="searchsubmit"><i class="fa fa-search"></i></button>
                         </form>

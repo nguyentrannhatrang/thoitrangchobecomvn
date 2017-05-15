@@ -15,10 +15,10 @@
             <div class="ak-container clearfix">
 
                 <div id="site-branding" class="clearfix">
-                    <a class="site-logo" href="http://jenscornershop.com.au/">
+                    <a class="site-logo" href="http://thoitrangchobe.com.vn/">
                         <img src="http://jenscornershop.com.au/wp-content/uploads/2016/11/logo.png" alt=""/>
                     </a>
-                    <a class="site-text" href="http://jenscornershop.com.au/">
+                    <a class="site-text" href="http://thoitrangchobe.com.vn/">
                         <h1 class="site-title"></h1>
                         <h2 class="site-description"></h2>
                     </a>
@@ -35,8 +35,8 @@
                     </div>
                     <!-- if enabled from customizer -->
                     <div class="search-form">
-                        <form method="get" class="searchform" action="http://jenscornershop.com.au/" role="search">
-                            <input type="text" name="s" value="" class="search-field" placeholder="Search products" />
+                        <form method="get" class="searchform" action="#" role="search">
+                            <input type="text" name="s" value="" class="search-field" placeholder="Tìm kiếm" />
                             <input type="hidden" name="post_type" value="product">
                             <button type="submit" class="searchsubmit"><i class="fa fa-search"></i></button>
                         </form>
@@ -53,11 +53,11 @@
     <div id="content" class="site-content"><div class="page_header_wrap clearfix" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
             <div class="ak-container">
                 <header class="entry-header">
-                    <h2 class="entry-title">Cart</h2>
+                    <h2 class="entry-title">Giỏ hàng</h2>
                 </header><!-- .entry-header -->
                 <div id="accesspress-breadcrumb">
-                    <a href="http://jenscornershop.com.au">Home</a>
-                    <span class="current">Cart</span>
+                    <a href="http://thoitrangchobe.com.vn">Trang chủ</a>
+                    <span class="current">Giỏ hàng</span>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                     <article id="post-5" class="post-5 page type-page status-publish hentry">
                         <div class="entry-content">
                             <div class="content-inner clearfix">
-                                <h2 class="post-title">Cart</h2>
+                                <h2 class="post-title">Giỏ hàng</h2>
                                 <div class="content-page">
                                     <div class="woocommerce">
                                         <form class="woocommerce-cart-form" action="/cart/"
@@ -77,10 +77,10 @@
                                                 <tr>
                                                     <th class="product-remove">&nbsp;</th>
                                                     <th class="product-thumbnail">&nbsp;</th>
-                                                    <th class="product-name">Product</th>
-                                                    <th class="product-price">Price</th>
-                                                    <th class="product-quantity">Quantity</th>
-                                                    <th class="product-subtotal">Total</th>
+                                                    <th class="product-name">Sản phẩm</th>
+                                                    <th class="product-price">Giá</th>
+                                                    <th class="product-quantity">Số lượng</th>
+                                                    <th class="product-subtotal">Giá tiền</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -140,7 +140,7 @@
                                                             <label for="coupon_code">Coupon:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code" /> <input type="submit" class="button" name="apply_coupon" value="Apply coupon" />
                                                         </div>-->
 
-                                                        <input type="submit" class="button" name="update_cart" value="Update cart" />
+                                                        <input type="submit" class="button" name="update_cart" value="Cập nhật" />
 
 
                                                         <!--<input type="hidden" id="_wpnonce" name="_wpnonce" value="f35b9ee221" /><input type="hidden" name="_wp_http_referer" value="/cart/" />-->				</td>
@@ -154,21 +154,21 @@
                                             <div class="cart_totals ">
 
 
-                                                <h2>Cart totals</h2>
+                                                <h2>Tổng tiền</h2>
 
                                                 <table cellspacing="0" class="shop_table shop_table_responsive">
 
                                                     <tr class="cart-subtotal">
-                                                        <th>Subtotal</th>
+                                                        <th>Số tiền</th>
                                                         <td data-title="Subtotal"><span class="woocommerce-Price-amount amount">
                                                                 <span class="woocommerce-Price-currencySymbol"></span><?= number_format($summary['total'], 2, '.', ',') ?></span> VND
                                                         </td>
                                                     </tr>
                                                     <tr class="shipping">
-                                                        <th>Shipping</th>
+                                                        <th>Phí giao hàng</th>
                                                         <td>
-                                                            <p>Shipping costs will be calculated once you have provided your address.</p>
-                                                            <form class="woocommerce-shipping-calculator" action="http://jenscornershop.com.au/cart/" method="post">
+                                                            <p>Tùy từng vị trí.</p>
+                                                            <!--<form class="woocommerce-shipping-calculator" action="http://jenscornershop.com.au/cart/" method="post">
                                                                 <p><a href="#" class="shipping-calculator-button">Calculate shipping</a></p>
                                                                 <section class="shipping-calculator-form" style="display:none;">
 
@@ -189,7 +189,7 @@
                                                                     <input type="hidden" id="_wpnonce" name="_wpnonce" value="f35b9ee221" />
                                                                     <input type="hidden" name="_wp_http_referer" value="/cart/" />
                                                                 </section>
-                                                            </form>
+                                                            </form>-->
 
                                                         </td>
                                                     </tr>
@@ -202,7 +202,7 @@
 
 
                                                     <tr class="order-total">
-                                                        <th>Total</th>
+                                                        <th>Tổng cộng</th>
                                                         <td data-title="Total">
                                                             <strong>
                                                                 <span class="woocommerce-Price-amount amount">
@@ -214,7 +214,7 @@
                                                 </table>
                                                 <div class="wc-proceed-to-checkout">
                                                     <a href="/checkout/" class="checkout-button button alt wc-forward">
-                                                        Proceed to checkout</a>
+                                                        Đặt hàng</a>
                                                 </div>
                                             </div>
                                         </div>

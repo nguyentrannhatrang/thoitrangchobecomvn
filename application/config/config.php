@@ -558,3 +558,15 @@ $config['proxy_ips'] = '';
   |
  */
 $config['template'] = 'redlabel';
+
+$config['setting_email']=array('protocol' => 'smtp',
+    'smtp_host' => 'ssl://smtp.googlemail.com',
+    'smtp_port' => 465,
+    'smtp_user' => 'tadidinguyentrang@gmail.com',
+    'smtp_pass' => 'ntnt123456',
+    'mailtype' => 'html',
+    'charset' => 'utf-8');
+
+$config['email_from']=array('email' => 'tadidinguyentrang@gmail.com',
+    'name' => 'ntnt');
+    

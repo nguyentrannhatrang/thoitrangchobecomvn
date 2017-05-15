@@ -1,4 +1,5 @@
-<div id="content" class="site-content">		<section id="main-slider">
+<div id="content" class="site-content">		
+    <section id="main-slider">
         <div class="bx-slider">
             <div class="slides">
             </div>
@@ -28,14 +29,15 @@
                                     <span class="price">
                                         <span class="woocommerce-Price-amount amount">
                                             <span class="woocommerce-Price-currencySymbol">
-                                            </span><?= $product->price?></span>
+                                            </span><?= number_format($product->price, 2, '.', ',')?> đồng</span>
                                     </span>
                                 </a>
 <!--                                <a class="item-wishlist" href="/?add_to_wishlist=1350">Wishlist</a>-->
                             </li>
                             <?php }?>
                         </ul>
-                    </aside>  </div>
+                    </aside>
+                </div>
             </section>
         </div>
     </section>

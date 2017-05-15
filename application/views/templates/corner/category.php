@@ -15,10 +15,10 @@
             <div class="ak-container clearfix">
 
                 <div id="site-branding" class="clearfix">
-                    <a class="site-logo" href="http://jenscornershop.com.au/">
+                    <a class="site-logo" href="http://thoitrangchobe.com.vn/">
                         <img src="http://jenscornershop.com.au/wp-content/uploads/2016/11/logo.png" alt=""/>
                     </a>
-                    <a class="site-text" href="http://jenscornershop.com.au/">
+                    <a class="site-text" href="http://thoitrangchobe.com.vn/">
                         <h1 class="site-title"></h1>
                         <h2 class="site-description"></h2>
                     </a>
@@ -29,20 +29,23 @@
                 <div class="headertwo-wrap">
                     <!-- Cart Link -->
                     <div class="view-cart">
-                        <a class="cart-contents wcmenucart-contents" href="http://jenscornershop.com.au/cart/" title="View your shopping cart">
+                        <a class="cart-contents wcmenucart-contents" href="/cart/" title="View your shopping cart">
                             <i class="fa fa-shopping-cart"></i> [ 0 / <span class="amount">&#036;0.00</span> ]
                         </a>
-                    </div>                                        <a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
+                    </div>
+                    <!--<a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
                         <i class="fa fa-heart"></i>
-                        (0)                        </a>
+                        (0)
+                    </a>-->
                     <div class="login-woocommerce">
-                        <a href="http://jenscornershop.com.au/my-account/" class="account">
-                            Login                        </a>
+                        <a href="#" class="account">
+                            Đăng nhập
+                        </a>
                     </div>
                     <!-- if enabled from customizer -->
                     <div class="search-form">
-                        <form method="get" class="searchform" action="http://jenscornershop.com.au/" role="search">
-                            <input type="text" name="s" value="" class="search-field" placeholder="Search products" />
+                        <form method="get" class="searchform" action="http://thoitrangchobe.com.vn/" role="search">
+                            <input type="text" name="s" value="" class="search-field" placeholder="Tìm kiếm" />
                             <input type="hidden" name="post_type" value="product">
                             <button type="submit" class="searchsubmit"><i class="fa fa-search"></i></button>
                         </form>
@@ -61,7 +64,7 @@
             <div class="ak-container">
                 <h1 class="entry-title ak-container"><?=$current_categorie->getName() ?></h1>
                 <div class="woocommerce-breadcrumb accesspress-breadcrumb" >
-                    <a href="/">Home</a>&nbsp;
+                    <a href="/">Trang chủ</a>&nbsp;
                     <?php if($current_categorie->getSubFor() && isset($menu[$current_categorie->getSubFor()])){
                     $categorieParent = $menu[$current_categorie->getSubFor()]; ?>
                     <a href="/category-<?= $categorieParent->getUrlName() ?>/"><?= $categorieParent->getName() ?></a>&nbsp;
@@ -75,7 +78,7 @@
                 <div id="primary" class="content-area clearfix">
                     <div class="content-inner">
                         <p class="woocommerce-result-count">
-                            Showing all <span class="total-products"><?= count($products) ?> results</span></p>
+                            Có <span class="total-products"><?= count($products) ?> sản phẩm</span></p>
                         <!--<form class="woocommerce-ordering" method="get">
                             <select name="orderby" class="orderby">
                                 <option value="menu_order"  selected='selected'>Default sorting</option>
@@ -162,7 +165,7 @@
                         </form>
                     </div>-->
                     <div id="woocommerce_product_categories-3" class="widget woocommerce widget_product_categories widget-count-3">
-                        <span class="widget-title">Product Categories</span>
+                        <span class="widget-title">Danh mục sản phẩm</span>
                         <ul class="product-categories">
                             <?php foreach ($left_menu as $item){?>
                             <li class="cat-item cat-item-7 cat-parent current-cat-parent">

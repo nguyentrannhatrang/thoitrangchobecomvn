@@ -36,6 +36,7 @@ class Cart extends MY_Controller
         $data['data_carts'] = $dataCart;
         $data['quantity_available'] = $this->getQuantityAvailable();
         $data['summary'] = $this->totalQuantityPrice();
+        $head['title_page'] = 'Giỏ hàng';
         $this->render2('shopping_cart', $head, $data);
 
     }

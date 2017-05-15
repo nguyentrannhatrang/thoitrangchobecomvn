@@ -6,7 +6,8 @@
         <div class="ak-container">
             <div class="site-info">
 
-                © 2017 Cherry Fashion        </div><!-- .site-info -->
+                © 2017 Cherry Fashion        
+            </div><!-- .site-info -->
         </div>
     </div>
 

@@ -6,8 +6,6 @@
         <div class="before-top-header">
             <div class="ak-container clearfix">
 
-
-
             </div>
         </div>
 
@@ -15,15 +13,13 @@
             <div class="ak-container clearfix">
 
                 <div id="site-branding" class="clearfix">
-                    <a class="site-logo" href="http://jenscornershop.com.au/">
+                    <a class="site-logo" href="http://thoitrangchobe.com.vn/">
                         <img src="http://jenscornershop.com.au/wp-content/uploads/2016/11/logo.png" alt=""/>
                     </a>
-                    <a class="site-text" href="http://jenscornershop.com.au/">
+                    <a class="site-text" href="http://thoitrangchobe.com.vn/">
                         <h1 class="site-title"></h1>
                         <h2 class="site-description"></h2>
                     </a>
-
-
                 </div><!-- .site-branding -->
 
                 <div class="headertwo-wrap">
@@ -44,8 +40,8 @@
                     </div>-->
                     <!-- if enabled from customizer -->
                     <div class="search-form">
-                        <form method="get" class="searchform" action="http://jenscornershop.com.au/" role="search">
-                            <input type="text" name="s" value="" class="search-field" placeholder="Search products" />
+                        <form method="get" class="searchform" action="http://thoitrangchobe.com.vn/" role="search">
+                            <input type="text" name="s" value="" class="search-field" placeholder="Tìm kiếm" />
                             <input type="hidden" name="post_type" value="product">
                             <button type="submit" class="searchsubmit"><i class="fa fa-search"></i></button>
                         </form>
@@ -64,7 +60,7 @@
             <div class="ak-container">
                 <h1 class="entry-title ak-container"><?=$current_categorie->getName() ?></h1>
                 <div class="woocommerce-breadcrumb accesspress-breadcrumb" >
-                    <a href="http://jenscornershop.com.au">Home</a>&nbsp;
+                    <a href="http://thoitrangchobe.com.vn">Trang chủ</a>&nbsp;
                     <?php if($current_categorie->getSubFor() && isset($menu[$current_categorie->getSubFor()])){
                         $categorieParent = $menu[$current_categorie->getSubFor()]; ?>
                         <a href="/category-<?= $categorieParent->getUrlName() ?>/"><?= $categorieParent->getName() ?></a>&nbsp;
@@ -112,10 +108,10 @@
                             <table class="variations" cellspacing="0">
                                 <tbody>
                                 <tr>
-                                    <td class="label"><label for="pa_size">Size</label></td>
+                                    <td class="label"><label for="pa_size">Kích cỡ</label></td>
                                     <td class="value">
                                         <select id="pa_size" class="" name="size" data-attribute_name="attribute_pa_size" data-show_option_none="yes">
-                                            <option value="">Choose an option</option>
+                                            <option value="">Chọn kích cỡ</option>
                                             <?php foreach ($sizes_data as $size){?>
                                             <option value="<?= $size['code']?>" ><?= $size['name']?></option>
                                             <?php }?>
@@ -136,12 +132,12 @@
                                         <input type="number" class="qty" step="1" min="0" max="0" id="quantity" name="quantity" value="0" />
                                         <span class="error" id="error_quantity"></span>
                                     </div>
-                                    <button type="button" id="add_to_cart" class="single_add_to_cart_button button alt">Add to cart</button>
+                                    <button type="button" id="add_to_cart" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
                                     
                                 </div>
                                 <div class="total-price">
-                                    <span>Total: </span>
-                                    <span class="price" id="total-price"></span>VND
+                                    <span>Tổng tiền: </span>
+                                    <span class="price" id="total-price"></span> đồng
                                 </div>
                             </div>
                         </form>
@@ -150,24 +146,24 @@
                     <div class="woocommerce-tabs wc-tabs-wrapper">
                         <ul class="tabs wc-tabs" role="tablist">
                             <li class="description_tab active tab-details" id="tab-title-description" role="tab" aria-controls="tab-description">
-                                <a href="#tab-description">Description</a>
+                                <a href="#tab-description">Mô tả</a>
                             </li>
                             <li class="additional_information_tab tab-details" id="tab-title-additional_information" role="tab" aria-controls="tab-additional_information">
-                                <a href="#tab-additional_information">Additional information</a>
+                                <a href="#tab-additional_information">Thông tin kèm</a>
                             </li>
                             <li class="tab-title-reviews tab-details" id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
-                                <a href="#tab-reviews">Reviews (<?= $count_reviews ?>)</a>
+                                <a href="#tab-reviews">Đánh giá (<?= $count_reviews ?>)</a>
                                 <input id="number_review" type="hidden" value="<?= $count_reviews ?>" />
                             </li>
                         </ul>
                         <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
 
-                            <h2>Description</h2>
+                            <h2>Mô tả</h2>
                             <?= $product->getDescription()?>
                             </div>
                         <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab" id="tab-additional_information" role="tabpanel" aria-labelledby="tab-title-additional_information">
 
-                            <h2>Additional information</h2>
+                            <h2>Thông tin kèm theo</h2>
 
                             <table class="shop_attributes">
 
@@ -182,7 +178,7 @@
                         <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
                             <div id="reviews" class="woocommerce-Reviews">
                                 <div id="comments">
-                                    <h2 class="woocommerce-Reviews-title">Reviews</h2>
+                                    <h2 class="woocommerce-Reviews-title">Đánh giá</h2>
 
                                     <?php if($count_reviews == 0){ ?>
                                         <p class="woocommerce-noreviews">There are no reviews yet.</p>
@@ -199,12 +195,14 @@
                                     <a href="#" id="load_more">Hiển thị thêm</a>
                                 </div>
 
-
                                 <div id="review_form_wrapper">
                                     <div id="review_form">
                                         <div id="respond" class="comment-respond">
-                                            <span id="reply-title" class="comment-reply-title">Be the first to review &ldquo;White Arrows Playsuit&rdquo; <small><a rel="nofollow" id="cancel-comment-reply-link" href="/product/white-arrows-playsuit/#respond" style="display:none;">Cancel reply</a></small></span>			<form action="http://jenscornershop.com.au/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
-                                                <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
+                                            <span id="reply-title" class="comment-reply-title">Be the first to review &ldquo;White Arrows Playsuit&rdquo; <small><a rel="nofollow" id="cancel-comment-reply-link" href="/product/white-arrows-playsuit/#respond" style="display:none;">Cancel reply</a></small></span>
+                                            <form action="http://thoitrangchobe.com.vn" method="post" id="commentform" class="comment-form" novalidate>
+                                               <!-- <p class="comment-notes">
+                                                    <span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
+                                                </p>-->
                                                 <!--<p class="comment-form-rating">
                                                     <label for="rating">Your rating</label>
                                                     <select name="rating" id="rating" aria-required="true" required>
@@ -219,10 +217,10 @@
                                                 <p class="error" id="review_error"></p>
                                                 <p class="mesage-success" id="review_success"></p>
                                                 <p class="comment-form-comment">
-                                                    <label for="comment">Your review <span class="required">*</span></label>
+                                                    <label for="comment">Ý kiến của bạn <span class="required">*</span></label>
                                                     <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
                                                 </p>
-                                                <p class="comment-form-author"><label for="author">Name <span class="required">*</span></label>
+                                                <p class="comment-form-author"><label for="author">Họ tên <span class="required">*</span></label>
                                                     <input id="author" name="author" type="text" value="" size="30" aria-required="true" required />
                                                 </p>
                                                 <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" aria-required="true" required /></p>
@@ -243,7 +241,7 @@
 
                     <div class="related products">
                         <div class="title-bg">
-                            <h2>Related Products</h2>
+                            <h2>Sản phẩm cùng loại</h2>
                         </div>
                         <ul class="products">
                             <?php foreach ($relation_products as $index=>$_product){?>
@@ -284,7 +282,7 @@
 <div id="secondary" class="widget-area secondary-right sidebar">
     <!-- #secondary -->
     <div id="woocommerce_product_categories-3" class="widget woocommerce widget_product_categories widget-count-3">
-        <span class="widget-title">Product Categories</span>
+        <span class="widget-title">Danh mục sản phẩm</span>
         <ul class="product-categories">
             <?php foreach ($right_menu as $item){?>
                 <li class="cat-item cat-item-7 cat-parent current-cat-parent">

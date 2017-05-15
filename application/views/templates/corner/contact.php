@@ -50,59 +50,38 @@
             <?php } ?>
             <div class="ak-container">
                 <header class="entry-header">
-                    <h2 class="entry-title">Thankyou</h2>
+                    <h2 class="entry-title">Liên hệ</h2>
                 </header><!-- .entry-header -->
                 <div id="accesspress-breadcrumb">
-                    <a href="http://thoitrangchobe.com.vn">Trang chủ</a>  <span class="current">Thankyou</span>
+                    <a href="http://thoitrangchobe.com.vn">Trang chủ</a>  <span class="current">Liên hệ</span>
                 </div>
             </div>
         </div>
         <div class="inner">
             <main id="main" class="site-main clearfix no-sidebar">
-                <div class="text-thanks">
-                    <p>Cám ơn quý khách đã mua hàng tại website của chúng tôi.</p>
-                    <p>Số điện thoại: 0123654789</p>
-                    <p>Email: cherryfashion@gmail.com</p>
-                    <p>FanPage: <a>cherryfashion</a></p>
-                </div>
-                <h3 id="order_review_heading">Thông tin đơn hàng</h3>
-                <div id="order_review" class="woocommerce-checkout-review-order">
-                    <table class="shop_table woocommerce-checkout-review-order-table">
-                        <thead>
-                        <tr>
-                            <th class="product-name">Sản phẩm</th>
-                            <th class="product-total">Giá trị</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($booking->details as $item){ ?>
-                                <tr class="cart_item">
-                                    <td class="product-name">
-                                        <?= $item->product_name?> &ndash; <?= isset($listSize[$item->size])?$listSize[$item->size]:''?>
-                                        <strong class="product-quantity">&times; <?= $item->quantity?></strong>
-                                    </td>
-                                    <td class="product-total">
-                                        <span class="woocommerce-Price-amount amount">
-                                            <span class="woocommerce-Price-currencySymbol"></span><?= number_format($item->price, 2, '.', ',') ?> đồng
-                                        </span>
-                                    </td>
-                                </tr>
-                        <?php } ?>
-                        </tbody>
-                        <tfoot>
-                        <tr class="order-total">
-                            <th>Tổng tiền</th>
-                            <td>
-                                <strong>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol"></span><?= number_format($booking->booking->total, 2, '.', ',') ?> đồng
-                                    </span>
-                                </strong>
-                            </td>
-                        </tr>
-                        </tfoot>
-                    </table>
+                <p class="text-5-desc"><strong>Email:</strong> info@jenscornershop.com.au</p>
+                <p class="text-5-desc"><strong>Email:</strong> info@jenscornershop.com.au</p>
+                <p class="text-5-desc"><strong>Email:</strong> info@jenscornershop.com.au</p>
+                <p class="text-5-desc"><strong>Email:</strong> info@jenscornershop.com.au</p>
+                <div class="map" id="map">
+
                 </div>
             </main>
         </div>
     </div><!-- #content -->
+    <script>
+        function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSOZFXJu7gd1yWU4nLxqWolbn6d__-n8Q&callback=initMap">
+    </script>

@@ -1,0 +1,36 @@
+@media screen and (min-width: 673px) {
+
+    /* Force table to not be like tables anymore */
+    #frm-checkout #customer_details,
+    #frm-checkout #order_review{
+        width: 50%;
+        float: left;
+        padding: 10px;
+    }
+}
+@media screen and (max-width: 672px) {
+
+    /* Force table to not be like tables anymore */
+    #frm-checkout #customer_details,
+    #frm-checkout #order_review{
+        width: 100%;
+    }
+}
+.h-checkout{
+    background: #e8e8e8;
+    border-bottom: 3px solid #f09f9f;
+    margin-bottom: 15px;
+    color: #5a5a5a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 40px;
+    padding-left: 10px;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+#map {
+    width: 60%;
+    height: 400px;
+    background-color: grey;
+}

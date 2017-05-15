@@ -28,6 +28,7 @@ class Product extends MY_Controller
         /** @var ProductModel $product */
         $product = $this->ProductModel->getProductByUrl($url);
         $data['product'] = $product;
+        $head['title_page'] = $product->getName();
         $data['others_image'] = $this->loadOthersImages($product->getFolder());
         $listSize = $this->SizeModel->loadArray();
         $productDetails = $this->ProductDetailModel->loadByProduct($product->id);
