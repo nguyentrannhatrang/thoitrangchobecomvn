@@ -32,7 +32,13 @@
             padding: 0 !important;
         }
     </style>
-    <link rel='stylesheet' id='lightbox-css'  href='<?= base_url('templatecss/css_home.css') ?>' type='text/css' media='all' />
+
+    <style>
+        <?php
+            echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/application/views/templates/corner/assets/css/css_home.css');
+        ?>
+    </style>
+<!--    <link rel='stylesheet' id='lightbox-css'  href='--><?//= base_url('templatecss/css_home.css') ?><!--' type='text/css' media='all' />-->
     <link rel='stylesheet' id='sb_instagram_icons-css'  href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=4.6.3' type='text/css' media='all' />
     <link rel='stylesheet' id='accesspress-store-google-fonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A400%2C600%2C700%2C300%7COswald%3A400%2C700%2C300%7CDosis%3A400%2C300%2C500%2C600%2C700%7CLato%3A300%2C400%2C700%2C900&#038;ver=4.7.3' type='text/css' media='all' />
     <link rel='https://api.w.org/' href='http://jenscornershop.com.au/wp-json/' />
