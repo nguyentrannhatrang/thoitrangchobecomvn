@@ -32,7 +32,13 @@
             padding: 0 !important;
         }
     </style>
-    <link rel='stylesheet' id='lightbox-css'  href='<?= base_url('templatecss/main.css') ?>' type='text/css' media='all' />
+    <style>
+        <?php
+            echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/application/views/templates/corner/assets/css/main.css');
+        ?>
+    </style>
+<!--    <link rel='stylesheet' id='lightbox-css'  href='--><?//= base_url('templatecss/main.css') ?><!--' type='text/css' media='all' />-->
+    <link rel='stylesheet' id='woocommerce-smallscreen-css'  href='<?= base_url('templatecss/woocommerce-smallscreen.css') ?>' type='text/css' media='only screen and (max-width: 768px)' />
 <link rel='stylesheet' id='sb_instagram_icons-css'  href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=4.6.3' type='text/css' media='all' />
     <?php if(isset($isCartPage) && $isCartPage){ ?>
     <link rel='stylesheet' id='woocommerce-layout-css'  href='<?= base_url('templatecss/woocommerce-layout.css') ?>' type='text/css' media='all' />

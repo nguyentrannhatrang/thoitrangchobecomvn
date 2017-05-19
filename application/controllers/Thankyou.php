@@ -11,6 +11,7 @@ class Thankyou extends MY_Controller
     {
         parent::__construct();
         $this->load->model('BookingDetailModel');
+        $this->load->model('CategoryModel');
         $this->load->model('BookingModel');
         $this->load->model('Booking');
         $this->load->model('SizeModel');
