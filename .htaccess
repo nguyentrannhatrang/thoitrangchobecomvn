@@ -3,3 +3,11 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L]
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|css|swf)$">
+   <IfModule mod_expires.c>
+       ExpiresActive on
+       ExpiresDefault "access plus 30 days"
+   </IfModule>
+   Header unset ETag
+   FileETag None
+</FilesMatch>
