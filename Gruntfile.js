@@ -57,6 +57,7 @@ module.exports = function (grunt) {
                 	'tmp/public_common.min.js': ['tmp/public_common.js'],
                 	'tmp/home.min.js': ['tmp/home.js'],
                 	'tmp/other.min.js': ['tmp/other.js'],
+                	'tmp/css_home.min.css': ['tmp/css_home.css']
                 }
             }
         },
@@ -70,16 +71,64 @@ module.exports = function (grunt) {
                 	'application/views/templates/corner/assets/js/other.min.js': [
                         'tmp/public_common.min.js',
                         'tmp/other.min.js'
+						],
+                	'application/views/templates/corner/assets/css/home.min.css': [
+                        'tmp/css_home.min.css'
 						]
                 }
             }
-        }
+        },
+		cssmin: {
+		  options: {
+			mergeIntoShorthands: false,
+			roundingPrecision: -1
+		  },
+		  target: {
+			files: {
+			  'application/views/templates/corner/assets/css/css_home.css': 
+			  [
+                    'application/views/templates/corner/assets/css/lightbox.css',
+                    'application/views/templates/corner/assets/css/owl.theme.css',
+                    'application/views/templates/corner/assets/css/owl.carousel.css',
+                    'application/views/templates/corner/assets/css/jquery.bxslider.css',
+                    'application/views/templates/corner/assets/css/fonts.css',
+                    'application/views/templates/corner/assets/css/styles.css',
+                    'application/views/templates/corner/assets/css/jquery.selectbox.css',
+                    'application/views/templates/corner/assets/css/woocommerce-smallscreen.css',
+                    'application/views/templates/corner/assets/css/woocommerce.css',
+                    'application/views/templates/corner/assets/css/animate.css',
+                    'application/views/templates/corner/assets/css/slick.css',
+                    'application/views/templates/corner/assets/css/responsive.css'
+                ],
+				'application/views/templates/corner/assets/css/main.css': 
+			  [
+                    'application/views/templates/corner/assets/css/lightbox.css',
+                    'application/views/templates/corner/assets/css/owl.theme.css',
+                    'application/views/templates/corner/assets/css/owl.carousel.css',
+                    'application/views/templates/corner/assets/css/button.css',
+                    'application/views/templates/corner/assets/css/jquery.bxslider.css',
+                    'application/views/templates/corner/assets/css/fonts.css',
+                    'application/views/templates/corner/assets/css/styles.css',
+                    'application/views/templates/corner/assets/css/jquery.selectbox.css',
+                    'application/views/templates/corner/assets/css/frontend.css',                    
+                    'application/views/templates/corner/assets/css/woocommerce-smallscreen.css',
+                    'application/views/templates/corner/assets/css/woocommerce.css',
+                    'application/views/templates/corner/assets/css/animate.css',
+                    'application/views/templates/corner/assets/css/slick.css',
+                    'application/views/templates/corner/assets/css/responsive.css',
+                    'application/views/templates/corner/assets/css/my.css'
+                ]
+			}
+		  }
+		}
     });
 
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-ngmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+	 grunt.loadNpmTasks( 'grunt-compass' );
+	 grunt.loadNpmTasks('grunt-contrib-cssmin');
     
     // Default task.
     grunt.registerTask('default', [ 'ngmin', 'uglify', 'concat']);
