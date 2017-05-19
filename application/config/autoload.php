@@ -97,7 +97,9 @@ $autoload['helper'] = array(
     'getTextualPages', 
     'mb_ucfirst',
     'purchase_steps',
-    'cleanreferral'
+    'cleanreferral',
+    'generate',
+    'custom_const'
 );
 
 /*
@@ -142,4 +144,5 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array('Publicmodel','Travellermodel','Sizemodel','Productmodel','ProductDetailmodel',
-    'Commentsmodel','Colormodel','Categorymodel','Bookingmodel','Bookingdetailmodel','Bookingdetailcollection','Booking');
+    'Commentsmodel','Colormodel','Categorymodel','Bookingmodel','Bookingdetailmodel',
+    'Bookingdetailcollection','Booking');

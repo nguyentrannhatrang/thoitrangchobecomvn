@@ -62,7 +62,7 @@
                                 <li><a href="javascript:void(0);" data-toggle="modal" data-target="#modalCalculator"><i class="fa fa-calculator" aria-hidden="true"></i> Calculator</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="<?= base_url('admin/logout') ?>"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                <li><a href="<?= base_url(PATH_ADMIN.'/logout') ?>"><i class="fa fa-sign-out"></i> Logout</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -86,7 +86,7 @@
                                 <ul class="sidebar-menu">
                                     <li class="sidebar-search">
                                         <div class="input-group custom-search-form">
-                                            <form method="GET" action="<?= base_url('admin/products') ?>">
+                                            <form method="GET" action="<?= base_url(PATH_ADMIN.'/products') ?>">
                                                 <div class="input-group">
                                                     <input class="form-control" name="search_title" value="<?= isset($_GET['search_title']) ? $_GET['search_title'] : '' ?>" type="text" placeholder="Search in products...">
                                                     <span class="input-group-btn">
@@ -99,14 +99,14 @@
                                         </div>
                                     </li>
                                     <li class="header">ECOMMERCE</li>
-                                    <li><a href="<?= base_url('admin/publish') ?>" <?= urldecode(uri_string()) == 'admin/publish' ? 'class="active"' : '' ?>><i class="fa fa-edit"></i> Publish product</a></li>
-                                    <li><a href="<?= base_url('admin/products') ?>" <?= urldecode(uri_string()) == 'admin/products' ? 'class="active"' : '' ?>><i class="fa fa-files-o"></i> Products</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/publish') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/publish' ? 'class="active"' : '' ?>><i class="fa fa-edit"></i> Publish product</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/products') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/products' ? 'class="active"' : '' ?>><i class="fa fa-files-o"></i> Products</a></li>
                                     <?php if ($showBrands == 1) { ?>
-                                        <li><a href="<?= base_url('admin/brands') ?>" <?= urldecode(uri_string()) == 'admin/brands' ? 'class="active"' : '' ?>><i class="fa fa-registered"></i> Brands</a></li>
+                                        <li><a href="<?= base_url(PATH_ADMIN.'/brands') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/brands' ? 'class="active"' : '' ?>><i class="fa fa-registered"></i> Brands</a></li>
                                     <?php } ?>
-                                    <li><a href="<?= base_url('admin/shopcategories') ?>" <?= urldecode(uri_string()) == 'admin/shopcategories' ? 'class="active"' : '' ?>><i class="fa fa-list-alt"></i> Shop Categories</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/shopcategories') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/shopcategories' ? 'class="active"' : '' ?>><i class="fa fa-list-alt"></i> Shop Categories</a></li>
                                     <li>
-                                        <a href="<?= base_url('admin/orders') ?>" <?= urldecode(uri_string()) == 'admin/orders' ? 'class="active"' : '' ?>>
+                                        <a href="<?= base_url(PATH_ADMIN.'/orders') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/orders' ? 'class="active"' : '' ?>>
                                             <i class="fa fa-money" aria-hidden="true"></i> Orders 
                                             <?php if ($numNotPreviewOrders > 0) { ?>
                                                 <img src="<?= base_url('assets/imgs/exlamation-hi.png') ?>" style="position: absolute; right:10px; top:7px;" alt="">
@@ -115,8 +115,8 @@
                                     </li>
                                     <?php if (in_array('blog', $activePages)) { ?>
                                         <li class="header">BLOG</li>
-                                        <li><a href="<?= base_url('admin/blogpublish') ?>" <?= urldecode(uri_string()) == 'admin/blogpublish' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> Publish post</a></li>
-                                        <li><a href="<?= base_url('admin/blog') ?>" <?= urldecode(uri_string()) == 'admin/blog' ? 'class="active"' : '' ?>><i class="fa fa-th" aria-hidden="true"></i> Posts</a></li>
+                                        <li><a href="<?= base_url(PATH_ADMIN.'/blogpublish') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/blogpublish' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> Publish post</a></li>
+                                        <li><a href="<?= base_url(PATH_ADMIN.'/blog') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/blog' ? 'class="active"' : '' ?>><i class="fa fa-th" aria-hidden="true"></i> Posts</a></li>
                                     <?php } ?>
                                     <?php
                                     if (!empty($textualPages)) {
@@ -128,23 +128,23 @@
                                         ?>
                                         <li class="header">TEXTUAL PAGES</li>
                                         <?php foreach ($textualPages as $textualPage) { ?>
-                                            <li><a href="<?= base_url('admin/pageedit/' . $textualPage) ?>" <?= strpos(urldecode(uri_string()), $textualPage) ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> <?= strtoupper($textualPage) ?></a></li>
+                                            <li><a href="<?= base_url(PATH_ADMIN.'/pageedit/' . $textualPage) ?>" <?= strpos(urldecode(uri_string()), $textualPage) ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> <?= strtoupper($textualPage) ?></a></li>
                                             <?php
                                         }
                                     }
                                     ?>
                                     <li class="header">SETTINGS</li>
-                                    <li><a href="<?= base_url('admin/settings') ?>" <?= urldecode(uri_string()) == 'admin/settings' ? 'class="active"' : '' ?>><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
-                                    <li><a href="<?= base_url('admin/styling') ?>" <?= urldecode(uri_string()) == 'admin/styling' ? 'class="active"' : '' ?>><i class="fa fa-laptop" aria-hidden="true"></i> Styling</a></li>
-                                    <li><a href="<?= base_url('admin/templates') ?>" <?= urldecode(uri_string()) == 'admin/templates' ? 'class="active"' : '' ?>><i class="fa fa-binoculars" aria-hidden="true"></i> Templates</a></li>
-                                    <li><a href="<?= base_url('admin/titles') ?>" <?= urldecode(uri_string()) == 'admin/titles' ? 'class="active"' : '' ?>><i class="fa fa-font" aria-hidden="true"></i> Titles / Descriptions</a></li>
-                                    <li><a href="<?= base_url('admin/pages') ?>" <?= urldecode(uri_string()) == 'admin/pages' ? 'class="active"' : '' ?>><i class="fa fa-file" aria-hidden="true"></i> Active Pages</a></li>
-                                    <li><a href="<?= base_url('admin/emails') ?>" <?= urldecode(uri_string()) == 'admin/emails' ? 'class="active"' : '' ?>><i class="fa fa-envelope-o" aria-hidden="true"></i> Subscribed Emails</a></li>
-                                    <li><a href="<?= base_url('admin/history') ?>" <?= urldecode(uri_string()) == 'admin/history' ? 'class="active"' : '' ?>><i class="fa fa-history"></i> Activity History</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/settings') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/settings' ? 'class="active"' : '' ?>><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/styling') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/styling' ? 'class="active"' : '' ?>><i class="fa fa-laptop" aria-hidden="true"></i> Styling</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/templates') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/templates' ? 'class="active"' : '' ?>><i class="fa fa-binoculars" aria-hidden="true"></i> Templates</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/titles') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/titles' ? 'class="active"' : '' ?>><i class="fa fa-font" aria-hidden="true"></i> Titles / Descriptions</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/pages') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/pages' ? 'class="active"' : '' ?>><i class="fa fa-file" aria-hidden="true"></i> Active Pages</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/emails') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/emails' ? 'class="active"' : '' ?>><i class="fa fa-envelope-o" aria-hidden="true"></i> Subscribed Emails</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'n/history') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/history' ? 'class="active"' : '' ?>><i class="fa fa-history"></i> Activity History</a></li>
                                     <li class="header">ADVANCED SETTINGS</li>
-                                    <li><a href="<?= base_url('admin/languages') ?>" <?= urldecode(uri_string()) == 'admin/languages' ? 'class="active"' : '' ?>><i class="fa fa-globe"></i> Languages</a></li>
-                                    <li><a href="<?= base_url('admin/filemanager') ?>" <?= urldecode(uri_string()) == 'admin/filemanager' ? 'class="active"' : '' ?>><i class="fa fa-file-code-o"></i> File Manager</a></li>
-                                    <li><a href="<?= base_url('admin/adminusers') ?>" <?= urldecode(uri_string()) == 'admin/adminusers' ? 'class="active"' : '' ?>><i class="fa fa-user" aria-hidden="true"></i> Admin Users</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/languages') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/languages' ? 'class="active"' : '' ?>><i class="fa fa-globe"></i> Languages</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/filemanager') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/filemanager' ? 'class="active"' : '' ?>><i class="fa fa-file-code-o"></i> File Manager</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/adminusers') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/adminusers' ? 'class="active"' : '' ?>><i class="fa fa-user" aria-hidden="true"></i> Admin Users</a></li>
                                 </ul>
                             </div>
                             <div class="col-sm-9 col-md-9 col-lg-10 col-sm-offset-3 col-md-offset-3 col-lg-offset-2">

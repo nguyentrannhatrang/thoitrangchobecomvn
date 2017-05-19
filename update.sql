@@ -84,3 +84,9 @@ CREATE TABLE `comments`(
   INDEX `comments_product` (`product`),
   INDEX `comments_status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE booking ADD refNo varchar(17);
+ALTER TABLE booking ADD product_name varchar(255);
+CREATE INDEX booking_refNo_index ON booking (refNo);
+CREATE INDEX booking_user_id_index ON booking (user_id);
+CREATE INDEX booking_status_index ON booking (status);

@@ -15,6 +15,8 @@ class BookingModel extends CI_Model {
     public $message;
     public $created;
     public $updated;
+    public $refNo;
+    public $product_name;
     private $table = 'booking';
 
     public function __construct()
@@ -134,6 +136,8 @@ class BookingModel extends CI_Model {
         $obj->message = $data->message;
         $obj->created = $data->created;
         $obj->updated = $data->updated;
+        $obj->refNo = $data->refNo;
+        $obj->product_name = $data->product_name;
         return $obj;
     }
 
@@ -158,12 +162,15 @@ class BookingModel extends CI_Model {
         if(empty($dataItem)) return 0;
         $total = 0;
         $quantity = 0;
+        $productName = '';
         foreach ($dataItem as $item){
             $total +=(float) $item->total;
             $quantity +=(int) $item->quantity;
+            $productName .= ($productName?';':'').$item->product_name;
         }
         $this->total = $total;
         $this->quantity = $quantity;
+        $this->product_name = $productName;
         return $this;
     }
 
@@ -182,6 +189,8 @@ class BookingModel extends CI_Model {
         $data['message'] = $obj->message;
         $data['updated'] = $obj->updated;
         $data['created'] = $obj->created;
+        $data['refNo'] = $obj->refNo;
+        $data['product_name'] = $obj->product_name;
         return $data;
     }
 
@@ -264,5 +273,33 @@ class BookingModel extends CI_Model {
         $this->db->trans_complete();
         $this->db->trans_commit();
     }
+
+    /**
+     * @param $dataItem
+     * @return $this|int
+     */
+    public function updateStatusFromDetail($dataItem){
+        if(empty($dataItem)) return 0;
+        foreach ($dataItem as $item){
+            if($item->status == BookingDetailModel::STATUS_CONFIRM) {
+                $this->status = self::STATUS_CONFIRM;
+                break;
+            }
+            if($item->status == BookingDetailModel::STATUS_COMPLETED) {
+                $this->status = self::STATUS_COMPLETED;
+                break;
+            }
+            if($item->status == BookingDetailModel::STATUS_CANCEL) {
+                $this->status = self::STATUS_CANCEL;
+                break;
+            }
+            if($item->status == BookingDetailModel::STATUS_REQUEST) {
+                $this->status = self::STATUS_REQUEST;
+                break;
+            }
+        }
+        return $this;
+    }
+    
 
 }

@@ -56,6 +56,7 @@ class Checkout extends MY_Controller
                         $booking->status = BookingModel::STATUS_CONFIRM;
                         $booking->updateDataFromDetail($aDetails);
                         $booking->message = $message;
+                        $booking->refNo = generateBookingId('BO');
                         $bkId = $booking->insert();
                         /** @var BookingDetailModel $itemDetail */
                         foreach ($aDetails as $itemDetail){

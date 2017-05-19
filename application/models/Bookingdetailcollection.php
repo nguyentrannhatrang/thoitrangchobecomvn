@@ -10,4 +10,6 @@ class BookingDetailCollection extends CI_Model {
         parent::__construct();
     }
 
+    
+
 }
