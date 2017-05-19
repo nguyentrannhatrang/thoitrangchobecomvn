@@ -5,7 +5,6 @@
     <div class="footer-bottom">
         <div class="ak-container">
             <div class="site-info">
-
                 © 2017 Cherry Fashion
             </div><!-- .site-info -->
         </div>
@@ -14,21 +13,22 @@
 </footer><!-- #colophon -->
 </div><!-- #page -->
 <div id="ak-top"><i class="fa fa-reply"></i></div>
-<script type='text/javascript' src='<?= base_url('templatejs/jquery.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/jquery-migrate.min.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/owl.carousel.js') ?>'></script>
+<script type='text/javascript' src='<?= base_url('templatejs/other.min.js') ?>'></script>
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/jquery.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/jquery-migrate.min.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/owl.carousel.js') ?><!--'></script>-->
 <!--<script type='text/javascript' src='http://jenscornershop.com.au/wp-content/plugins/accesspress-social-icons/js/frontend.js?ver=1.6.7'></script>-->
 <!--<script type='text/javascript' src='http://jenscornershop.com.au/wp-content/plugins/accesspress-social-login-lite/js/frontend.js?ver=3.2.6'></script>-->
-<script type='text/javascript' src='<?= base_url('templatejs/jquery.bxslider.min.js') ?>'></script>
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/jquery.bxslider.min.js') ?><!--'></script>-->
 <!--<script type='text/javascript' src='http://jenscornershop.com.au/wp-content/plugins/accesspress-twitter-feed/js/frontend.js?ver=1.5.5'></script>-->
-<script type='text/javascript' src='<?= base_url('templatejs/jquery.selectbox-0.2.min.js') ?>'></script>
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/jquery.selectbox-0.2.min.js') ?><!--'></script>-->
 <!--<script type='text/javascript'>
     /* <![CDATA[ */
     var frontend_js_obj = {"default_error_message":"This field is required","ajax_url":"http:\/\/jenscornershop.com.au\/wp-admin\/admin-ajax.php","ajax_nonce":"60dd2b13e7"};
     /* ]]> */
 </script>
 <script type='text/javascript' src='http://jenscornershop.com.au/wp-content/plugins/ultimate-form-builder-lite/js/frontend.js?ver=1.3.3'></script>-->
-<script type='text/javascript' src='<?= base_url('templatejs/jquery-ui.js') ?>'></script>
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/jquery-ui.js') ?><!--'></script>-->
 <script type="text/javascript">
     jQuery(function($){
         if($('body').hasClass('rtl')){
@@ -146,7 +146,7 @@
         }
 
     })();</script><link rel='stylesheet' id='addthis_output-css'  href='http://jenscornershop.com.au/wp-content/plugins/addthis/css/output.css?ver=4.7.3' type='text/css' media='all' />-->
-<script type='text/javascript' src='<?= base_url('templatejs/lightbox.js') ?>'></script>
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/lightbox.js') ?><!--'></script>-->
 <!--<script type='text/javascript' src='http://jenscornershop.com.au/wp-content/plugins/accesspress-instagram-feed/js/isotope.pkgd.min.js?ver=2.2.0'></script>
 <script type='text/javascript' src='http://jenscornershop.com.au/wp-content/plugins/accesspress-instagram-feed/js/modernizr.custom.26633.js?ver=2.2.7'></script>
 <script type='text/javascript' src='http://jenscornershop.com.au/wp-content/plugins/accesspress-instagram-feed/js/jquery.gridrotator.js?ver=2.2.7'></script>
@@ -196,12 +196,12 @@
     /* ]]> */
 </script>
 <script type='text/javascript' src='//jenscornershop.com.au/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.0.1'></script>-->
-<script type='text/javascript' src='<?= base_url('templatejs/navigation.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/slick.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/wow.min.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/jquery.ticker.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/skip-link-focus-fix.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/custom.js') ?>'></script>
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/navigation.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/slick.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/wow.min.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/jquery.ticker.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/skip-link-focus-fix.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/custom.js') ?><!--'></script>-->
 <script type="text/javascript">
     jQuery(function($){
         $('#grid').click(function (e) {
@@ -240,10 +240,10 @@
         $('#tab-title-description').click();
         });
 </script>
-<script type='text/javascript' src='<?= base_url('templatejs/function.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/product.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/cart.js') ?>'></script>
-<script type='text/javascript' src='<?= base_url('templatejs/checkout.js') ?>'></script>
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/function.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/product.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/cart.js') ?><!--'></script>-->
+<!--<script type='text/javascript' src='--><?//= base_url('templatejs/checkout.js') ?><!--'></script>-->
 <!--<script type='text/javascript' src='http://jenscornershop.com.au/wp-includes/js/wp-embed.min.js?ver=4.7.3'></script>
 <script type='text/javascript'>
     /* <![CDATA[ */

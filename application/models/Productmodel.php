@@ -40,7 +40,7 @@ class ProductModel extends CI_Model
             'products.id, 
             products.image, 
             translations.title as name,
-            translations.description, 
+            translations.basic_description, 
             translations.price, 
             translations.old_price, 
             products.url');
@@ -117,7 +117,7 @@ class ProductModel extends CI_Model
         $this->db->where('products.id', $id);
 
         $this->db->select('products.*, translations.title as name,
-        translations.description, translations.price, translations.old_price,
+        translations.description,translations.basic_description, translations.price, translations.old_price,
         products.url, trans2.name as categorie_name');
 
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
@@ -143,6 +143,7 @@ class ProductModel extends CI_Model
         $this->db->select('products.*,
          translations.title as name,
         translations.description, 
+        translations.basic_description, 
         translations.price, 
         translations.old_price, 
         products.url, 
@@ -487,9 +488,15 @@ class ProductModel extends CI_Model
     /**
      * @return mixed
      */
-    public function getBasicDescription()
+    public function getBasicDescription($length = 0)
     {
-        return $this->basicDescription;
+        if($length<=0 || strlen($this->basicDescription) < $length)
+            return $this->basicDescription;
+
+        while ($length>0 && substr($this->basicDescription,$length,1) != ' '){
+            $length--;
+        }
+        return substr($this->basicDescription,0,$length).'...';
     }
 
     /**

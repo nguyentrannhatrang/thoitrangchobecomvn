@@ -39,10 +39,10 @@ if ($this->session->flashdata('result_publish')) {
             ?>
             <div class="form-group">
                 <label for="basic_description<?= $i ?>">Slider Description (<?= $language->name ?><img src="<?= base_url('attachments/lang_flags/' . $language->flag) ?>" alt="">)</label>
-                <textarea name="basic_description[]" id="basic_description<?= $i ?>" rows="50" class="form-control"><?= $trans_load != null && isset($trans_load[$language->abbr]['basic_description']) ? $trans_load[$language->abbr]['basic_description'] : '' ?></textarea>
-                <script>
-                    CKEDITOR.replace('basic_description<?= $i ?>');
-                </script>
+                <textarea name="basic_description[]" id="basic_description<?= $i ?>" rows="5" class="form-control"><?= $trans_load != null && isset($trans_load[$language->abbr]['basic_description']) ? $trans_load[$language->abbr]['basic_description'] : '' ?></textarea>
+                <!--<script>
+                    CKEDITOR.replace('basic_description<?/*= $i */?>');
+                </script>-->
             </div>
             <?php
             $i++;

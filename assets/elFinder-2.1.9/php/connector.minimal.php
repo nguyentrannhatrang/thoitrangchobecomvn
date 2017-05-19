@@ -48,8 +48,8 @@ $opts = array(
 	'roots' => array(
 		array(
 			'driver'        => 'LocalFileSystem',           // driver for accessing file system (REQUIRED)
-			'path'          => '../../../../../../../',                 // path to files (REQUIRED)
-			'URL'           => '../../../../../../../', // URL to files (REQUIRED)
+			'path'          => 'E:/Me/cherry/attachments/shop_images',                 // path to files (REQUIRED)
+			'URL'           => 'http://cherry.local/attachments/shop_images', // URL to files (REQUIRED)
 			'uploadDeny'    => array('all'),                // All Mimetypes not allowed to upload
 			'uploadAllow'   => array('image', 'text/plain'),// Mimetype `image` and `text/plain` allowed to upload
 			'uploadOrder'   => array('deny', 'allow'),      // allowed Mimetype `image` and `text/plain` only

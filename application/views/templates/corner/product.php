@@ -99,7 +99,7 @@
                             </span>
                         </p>
                         <div>
-                            <?= $product->getDescription() ?>
+                            <?= $product->getBasicDescription() ?>
                         </div>
                         <br/>
                         <form class="variations_form cart frm-product" id="frm-product" method="post">
