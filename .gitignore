@@ -1,2 +1,5 @@
 /attachments
 .ide
+/node_modules
+/tmp
+
