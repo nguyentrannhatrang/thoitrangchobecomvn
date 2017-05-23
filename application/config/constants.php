@@ -89,3 +89,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
  */
 defined('TEMPLATES_DIR')       OR define('TEMPLATES_DIR', './application/views/templates/'); // directory of templates
 defined('VIEWS_DIR')           OR define('VIEWS_DIR', './application/views/'); // directory of views
+defined('PATH_ADMIN')           OR define('PATH_ADMIN', 'admin'); // directory of admin
