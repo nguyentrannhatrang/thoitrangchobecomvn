@@ -198,13 +198,14 @@ class BookingModel extends CI_Model {
      * @param TravellerModel $traveller
      * @param array $aDetails
      */
-    public function insertAll(TravellerModelodel $traveller,array $aDetails = array()){
+    public function insertAll(TravellerModel $traveller,array $aDetails = array()){
         $this->db->trans_start();
         /** @var BookingModel $booking */
         $booking = $this;
         $travellerId = $traveller->insert();
         $booking->user_id = $travellerId;
         $booking->updateDataFromDetail($aDetails);
+//        $booking->updateStatusFromDetail($aDetails);
         $bkId = $booking->insert();
         $arrReduce = array();
         /** @var BookingDetailModel $itemDetail */
@@ -213,7 +214,9 @@ class BookingModel extends CI_Model {
             $itemDetail->bkId = $bkId;
             $itemDetail->insert();
             $productDetail = new ProductDetailModel();
-            $productDetail->loadByProductSize(
+            if(!BookingDetailModel::statusInstant($itemDetail->status))
+                continue;
+            $productDetail = $productDetail->loadByProductSize(
                 $itemDetail->product,
                 $itemDetail->size);
             $productDetail->quantity -= $itemDetail->quantity;
@@ -228,45 +231,48 @@ class BookingModel extends CI_Model {
     }
 
     /**
-     * @param Traveller_model $traveller
+     * @param TravellerModel $traveller
      * @param array $aDetails
      */
-    public function updateAll(Traveller_model $traveller,array $aDetails = array()){
+    public function updateAll(TravellerModel $traveller,array $aDetails = array()){
         $this->db->trans_start();
-        /** @var Booking_model $booking */
+        /** @var BookingModel $booking */
         $booking = $this;
         // load booking item
-        $itemOld = new Booking_detail_model();
-        $itemsDb = $itemOld->get_by_booking($booking->id);
+        $itemOld = new BookingDetailModel();
+        $itemsDb = $itemOld->load($booking->id);
         if(!empty($itemsDb)){
-            $productDetail = new Product_detail_model();
+            $productDetail = new ProductDetailModel();
             //rollback allotment
-            /** @var Booking_detail_model $_item */
+            /** @var BookingDetailModel $_item */
             foreach ($itemsDb as $_item){
                 $productDetailCop = clone $productDetail;
-                $productDetailCop->getObjectDetail($_item->product,$_item->color,$_item->size);
+                $productDetailCop = $productDetailCop->loadByProductSizeColor($_item->product,$_item->color,$_item->size);
                 $productDetailCop->quantity += $_item->quantity;
                 $productDetailCop->update();
                 $_item->delete();
             }
         }
         $booking->updateDataFromDetail($aDetails);
+//        $booking->updateStatusFromDetail($aDetails);
         $bkId = $booking->update();
         $arrReduce = array();
-        /** @var Booking_detail_model $itemDetail */
+        /** @var BookingDetailModel $itemDetail */
         foreach ($aDetails as $itemDetail){
             $itemDetail->id = null;
             $itemDetail->bkId = $bkId;
             $itemDetail->insert();
-            $productDetail = new Product_detail_model();
-            $productDetail->getObjectDetail(
+            $productDetail = new ProductDetailModel();
+            if(!BookingDetailModel::statusInstant($itemDetail->status))
+                continue;
+            $productDetail = $productDetail->loadByProductSizeColor(
                 $itemDetail->product,
                 $itemDetail->color,
                 $itemDetail->size);
             $productDetail->quantity -= $itemDetail->quantity;
             $arrReduce[] = $productDetail;
         }
-        /** @var Product_detail_model $item */
+        /** @var ProductDetailModel $item */
         foreach ($arrReduce as $item) {
             $item->update();
         }

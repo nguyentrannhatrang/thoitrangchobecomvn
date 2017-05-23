@@ -14,4 +14,8 @@ function getLabelStatus($status = 1)
     if($status == 3)
         return 'Completed';
 }
+function getArrayStatus()
+{
+    return array(0=>'Request',1=>'Confirmed',2=>'Canceled',3=>'Completed');
+}
 

@@ -163,4 +163,10 @@ a.orders-referral {display:block; word-break:break-all;}
     display: none;
     width: 230px;
 }
+#frm-booking .row{
+    margin: 15px 5px;
+}
+#frm-edit-item .row{
+    margin: 15px 5px;
+}
 

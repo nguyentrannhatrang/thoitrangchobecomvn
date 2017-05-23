@@ -54,6 +54,32 @@ class ProductDetailModel extends CI_Model
         }
         return $arr;
     }
+
+    /**
+     * @param string $product
+     * @param string $color
+     * @param string $size
+     * @param bool $checkAllotment
+     * @return null|ProductDetailModel
+     */
+    public function loadByProductSizeColor($product = '',$color = '',$size = '',$checkAllotment = false){
+        
+        $this->db->where('product_detail.product', $product);
+        $this->db->where('product_detail.size', $size);
+        $this->db->where('product_detail.color', $color);
+        $this->db->select(
+            'product_detail.*');
+        if($checkAllotment)
+            $this->db->where('quantity >', 0);
+        $query = $this->db->get(self::TABLE_NAME);
+        
+        if ($query !== false) {
+            foreach ($query->result_array() as $row) {
+                return $this->convertToObject($row);
+            }
+        }
+        return null;
+    }
     /**
      * @return bool
      */
@@ -146,5 +172,7 @@ class ProductDetailModel extends CI_Model
     {
         $this->quantity = $quantity;
     }
+
+    
 
 }

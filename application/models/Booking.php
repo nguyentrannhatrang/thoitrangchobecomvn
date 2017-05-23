@@ -1,6 +1,6 @@
 <?php
 class Booking extends CI_Model {
-    
+    /** @var  BookingModel  */
     public $booking;
     public $details;   
 

@@ -109,6 +109,37 @@ class ProductModel extends CI_Model
     }
 
     /**
+     * @param array $categories
+     * @param bool $checkQuantity
+     * @param int $limit
+     * @param int $start
+     * @return array
+     */
+    public function loadAll($checkQuantity = true)
+    {       
+        $this->db->select(
+            'products.id,
+            translations.title as name,
+            translations.price');
+        $this->db->join('translations', 'translations.for_id = products.id', 'left');
+        $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
+        $this->db->where('translations.type', 'product');
+        $this->db->where('visibility', 1);
+        if ($checkQuantity) {
+            $this->db->where('quantity >', 0);
+        }
+        $this->db->order_by('position', 'asc');
+        $query = $this->db->get(self::TABLE_NAME);
+        $arr = array();
+        if ($query !== false) {
+            foreach ($query->result_array() as $row) {
+                $arr[] = $this->convertToObject($row);
+            }
+        }
+        return $arr;
+    }
+
+    /**
      * @param $id
      * @return Category
      */

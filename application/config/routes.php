@@ -162,6 +162,7 @@ $route['admin/uploadOthersImages'] = "admin/ecommerce/publish/do_upload_others_i
 $route['admin/loadOthersImages'] = "admin/ecommerce/publish/loadOthersImages";
 
 $route['admin/order_edit/(:num)'] = "admin/ecommerce/orderEdit/index/$1";
+$route['admin/order_edit/(:any)'] = "admin/ecommerce/orderEdit/$1";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

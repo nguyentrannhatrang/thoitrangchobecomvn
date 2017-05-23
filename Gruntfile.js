@@ -80,7 +80,8 @@ module.exports = function (grunt) {
                         'assets/js/zxcvbn_bootstrap3.js',
                         'assets/js/pGenerator.jquery.js',
                         'assets/js/jquery.priceformat.min.js',
-                        'assets/admin/js/product.js'
+                        'assets/admin/js/product.js',
+                        'assets/admin/js/booking_item.js'
 						],
                 	'application/views/templates/corner/assets/css/home.min.css': [
                         'tmp/css_home.min.css'

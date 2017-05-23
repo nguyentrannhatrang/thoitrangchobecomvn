@@ -126,5 +126,15 @@ class BookingDetailModel extends CI_Model {
     public function generateIdNew(){
         return uniqid('new_');
     }
+    /**
+     * @param $status
+     * @return bool
+     */
+    public static function statusInstant($status){
+        $arrInstant = array(1);
+        if(in_array($status,$arrInstant))
+            return true;
+        return false;
+    }
 
 }
