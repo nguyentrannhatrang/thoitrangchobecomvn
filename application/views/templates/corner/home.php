@@ -21,7 +21,7 @@
                             <li class="span3 wow flipInY" data-wow-delay="0.2s">
                                 <div class="item-img">
                                     <a href="/product-<?=$product->url?>/" title="<?=$product->name?>">
-                                        <img width="300" height="300" src="<?= base_url('/attachments/shop_images/'.$product->image)?>" sizes="(max-width: 300px) 100vw, 300px" />
+                                        <img style="width: 275px!important;height: 275px!important;" src="<?= base_url('/attachments/shop_images/'.$product->image)?>" sizes="(max-width: 300px) 100vw, 300px" />
                                     </a>
                                 <a href="/product-<?= $product->url?>" title="<?= $product->name?>">
                                     <h3><?= $product->name?></h3>

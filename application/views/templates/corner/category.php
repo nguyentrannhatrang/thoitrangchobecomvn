@@ -97,7 +97,7 @@
                         <div class="wc-products">
                             <ul class="products">
                                 <?php foreach ($products as $index=>$product){?>
-                                <li class="<?php echo (($index % 3 == 0) ?'first':(($index % 3 == 1)?'last':''));?> post-1340 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-autumn-collection product_cat-shorts-skirts product_shipping_class-whole-post  instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
+                                <li class="<?php echo (($index % 3 == 0) ?'first':(($index % 3 == 2)?'last':''));?> post-1340 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-autumn-collection product_cat-shorts-skirts product_shipping_class-whole-post  instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
                                     <a href="/product-<?= $product->url?>" class="woocommerce-LoopProduct-link">
                                         <div class="collection_combine">
                                             <a href="/product-<?= $product->url?>" class="full-outer">
@@ -114,7 +114,6 @@
                                         <div class="collection_desc clearfix">
                                             <a href="/product-<?= $product->url?>" class="collection_title">
                                                 <h3><?= $product->name?></h3>
-<!--                                                <p class="short_desc">--><?//= $product->basicDescription?><!--</p>-->
                                             </a>
                                             <div class="price-cart">
                                                 <span class="price">
@@ -126,7 +125,7 @@
                                                 </span>
                                     </a>
                                     <div class="woocommerce-product-details__short-description">
-                                        <p><?= $product->basicDescription?></p>
+                                        <p><?= $product->getBasicDescription(200);?></p>
                                     </div>
                                     <hr />
                                 </li>

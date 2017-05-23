@@ -7,7 +7,7 @@
                         <div class="banner-text wow fadeInLeft" data-wow-delay="0.5s">
                             <h1 class="widget-title">Thông tin liên hệ</h1>
                             <div class="cta-desc_simple">
-                                <p class="text-5-desc"><strong>Email:</strong> info@jenscornershop.com.au</p>
+                                <p class="text-5-desc"><strong>Email:</strong> thoitrangchobe.store@gmail.com</p>
                             </div>
                         </div>
                         <div class="banner-btn wow fadeInRight" data-wow-delay="0.5s">
@@ -68,7 +68,7 @@
                     <div class="aps-social-icon-wrapper">
                         <div class="aps-group-horizontal">
                             <div class="aps-each-icon icon-1-1" style='margin:px;' data-aps-tooltip='Facebook' data-aps-tooltip-enabled="1" data-aps-tooltip-bg="#000" data-aps-tooltip-color="#fff">
-                                <a href="http://fb.com/jenscornershop" target="_blank" class="aps-icon-link animated aps-tooltip" data-animation-class="">
+                                <a href="http://www.facebook.com/cherryfashion.vn" target="_blank" class="aps-icon-link animated aps-tooltip" data-animation-class="">
                                     <img src="http://jenscornershop.com.au/wp-content/plugins/accesspress-social-icons/icon-sets/png/set5/facebook.png" alt="Facebook"/>
                                 </a>
                                 <span class="aps-icon-tooltip aps-icon-tooltip-bottom" style="display: none;"></span>

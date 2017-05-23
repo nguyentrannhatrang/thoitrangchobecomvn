@@ -1390,7 +1390,7 @@ HEADER TWO
 #main-slider .bx-controls .bx-controls-direction a {
     float: left;
     color: transparent;
-    background: url("/assets/images/slider-prev-next.png") no-repeat scroll 0 0;
+    /*background: url("/assets/images/slider-prev-next.png") no-repeat scroll 0 0;*/
     display: block;
     height: 78px;
     width: 40px;
@@ -1988,7 +1988,7 @@ HEADER TWO
     position: relative;
 }
 .testimonial-thumb.active:after {
-    background: url("/assets/images/testimonial-arrow.png") no-repeat scroll center center #ffffff;
+    /*background: url("/assets/images/testimonial-arrow.png") no-repeat scroll center center #ffffff;*/
     content: "";
     width: 14px;
     height: 6px;
@@ -2293,7 +2293,7 @@ HEADER TWO
     position: relative;
 }
 .tab-header li a.current:after {
-    background: url("/assets/images/tab-arrow.jpg") no-repeat scroll center center;
+    /*background: url("/assets/images/tab-arrow.jpg") no-repeat scroll center center;*/
     position: absolute;
     left: 50%;
     margin-left: -3px;
@@ -4414,7 +4414,7 @@ div.view-cart .sub-menu {
     right: 0;
     left: 50%;
     margin-left: 585px;
-    min-height: auto;
+    /*min-height: auto;*/
     height: 56px;
     content: "";
     background: #313131;
@@ -5151,7 +5151,7 @@ span.onsale:after,
 #ap-cta-video {
     background: #3d3d3d;
     margin: 40px 0px;
-    background: url(/assets/images/youtube.jpg) no-repeat;
+    /*background: url(/assets/images/youtube.jpg) no-repeat;*/
     background-size: cover;
     background-attachment: fixed;
     position: relative;
@@ -7203,4 +7203,13 @@ form.checkout input.input-text.error{
 }
 #comments .item-comment p{
     margin-bottom: 10px;
+}
+@media screen and (min-width: 768px) {
+    .products li .woocommerce-product-details__short-description{
+        height: 150px;
+    }
+    .woocommerce-page ul.products li.product.first{
+        clear: both;
+    }
+
 }
