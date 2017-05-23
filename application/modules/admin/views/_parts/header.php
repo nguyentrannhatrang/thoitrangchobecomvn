@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots" content="noindex, nofollow" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="<?= $description ?>">
         <title><?= $title ?></title>
@@ -99,8 +100,8 @@
                                         </div>
                                     </li>
                                     <li class="header">ECOMMERCE</li>
-                                    <li><a href="<?= base_url(PATH_ADMIN.'/publish') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/publish' ? 'class="active"' : '' ?>><i class="fa fa-edit"></i> Publish product</a></li>
-                                    <li><a href="<?= base_url(PATH_ADMIN.'/products') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/products' ? 'class="active"' : '' ?>><i class="fa fa-files-o"></i> Products</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/publish') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/publish' ? 'class="active"' : '' ?>><i class="fa fa-edit"></i> New product</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/products') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/products' ? 'class="active"' : '' ?>><i class="fa fa-files-o"></i> Products list</a></li>
                                     <?php if ($showBrands == 1) { ?>
                                         <li><a href="<?= base_url(PATH_ADMIN.'/brands') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/brands' ? 'class="active"' : '' ?>><i class="fa fa-registered"></i> Brands</a></li>
                                     <?php } ?>

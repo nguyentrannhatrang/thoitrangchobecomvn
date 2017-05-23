@@ -152,7 +152,7 @@ html {
     box-sizing: inherit;
 }
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
 article,aside,details,figcaption,figure,footer,header,main,nav,section {
@@ -243,7 +243,7 @@ address {
 }
 pre {
     background: #eee;
-    font-family: "Courier 10 Pitch", Courier, monospace;
+    font-family: "Open Sans",sans-serif;
     font-size: 15px;
     font-size: 1.5rem;
     line-height: 1.6;
@@ -253,7 +253,7 @@ pre {
     padding: 1.6em;
 }
 code,kbd,tt,var {
-    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-family: "Open Sans",sans-serif;
     font-size: 15px;
     font-size: 1.5rem;
 }
@@ -491,7 +491,7 @@ a {
 }
 .main-navigation ul li a {
     display: block;
-    font-family: 'Lato', sans-serif;
+    font-family: "Open Sans",sans-serif;
     text-decoration: none;
 }
 .main-navigation ul.menu > li > a {
@@ -1034,7 +1034,7 @@ body {
     float: left;
 }
 #site-branding h1.site-title {
-    font-family: "Oswald", sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 28px;
     margin: 0;
     line-height: 1.2;
@@ -1322,7 +1322,7 @@ HEADER TWO
 }
 .slider-caption .caption-title {
     color: #ffffff;
-    font-family: 'Lato', sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 50px;
     line-height: 55px;
     text-transform: capitalize;
@@ -3266,7 +3266,7 @@ Responsive grid for pages
     margin: 0px;
     padding-right: 90px;
     word-spacing: 5px;
-    font-family: lato;
+    font-family: "Open Sans",sans-serif;
     text-transform: uppercase;
 }
 .search-results header.entry-header .entry-title a::after {
@@ -3308,7 +3308,7 @@ Responsive grid for pages
     margin: 0px;
     padding-right: 90px;
     word-spacing: 5px;
-    font-family: lato;
+    font-family: "Open Sans",sans-serif;
     text-transform: uppercase;
 }
 .woocommerce.single.single-product .related.products ul.products,
@@ -3410,7 +3410,7 @@ Responsive grid for pages
     display: none;
 }
 .product-cat-desc h3 {
-    font-family: "Lato black", sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 44px;
     font-style: normal;
     letter-spacing: 0;
@@ -4585,7 +4585,7 @@ a.quick-wishlist {
     text-align: center;
 }
 .caption-content {
-    font-family: 'Lato', sans-serif;
+    font-family: "Open Sans",sans-serif;
     width: 60%;
     font-size: 17px;
     line-height: 30px;
@@ -5232,7 +5232,7 @@ span.onsale:after,
     font-weight: 400;
     height: 108px;
     overflow: hidden;
-    font-family: lato;
+    font-family: "Open Sans",sans-serif;
 }
 #ap-cta-video .cta-video .cta-wrap-right .cta-desc {
     color: #ECECEA;
@@ -5293,7 +5293,7 @@ span.onsale:after,
     text-align: left;
 }
 .cat-list-wrap .widget_accesspress_storemo .caption .widget-title {
-    font-family: 'lato';
+    font-family: "Open Sans",sans-serif;
     margin-top: 50px;
     font-size: 20px;
     line-height: 150%;
@@ -5302,7 +5302,7 @@ span.onsale:after,
     font-weight: 400;
 }
 .cat-list-wrap .widget_accesspress_storemo .caption .inner-caption {
-    font-family: Lato Black;
+    font-family: "Open Sans",sans-serif;
     font-size: 48px;
     line-height: 40px;
     color: #000000;
@@ -5313,7 +5313,7 @@ span.onsale:after,
     color: #ce4444;
 }
 .cat-list-wrap .widget_accesspress_storemo .caption .promo-btn {
-    font-family: Lato Black;
+    font-family: "Open Sans",sans-serif;
     font-size: 20px;
     line-height: 50px;
     padding: 0px 20px;
@@ -5569,7 +5569,7 @@ span.onsale:after,
 #content .page_header_wrap header>h1.entry-title,
 .woocommerce .entry-header h1.entry-title {
     color: #e24545;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
     font-weight: 700;
     font-size: 44px;
     line-height: 44px;
@@ -5578,7 +5578,7 @@ span.onsale:after,
 }
 #content .page_header_wrap #accesspress-breadcrumb,
 .woocommerce .entry-header .woocommerce-breadcrumb {
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
     font-weight: 400;
     text-transform: capitalize;
     overflow: hidden;
@@ -5959,7 +5959,7 @@ ul.products.list li.product:last-child {
     font-size: 14px;
     line-height: 22px;
     font-weight: 700;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
     margin-bottom: 0px;
     display: block;
     text-transform: uppercase;
@@ -5969,7 +5969,7 @@ ul.products.list li.product:last-child {
     font-size: 16px;
     line-height: 22px;
     font-weight: 700;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
     margin-bottom: 0px;
     text-transform: uppercase;
     white-space: nowrap;
@@ -5983,7 +5983,7 @@ ul.products.list li.product:last-child {
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
     text-transform: capitalize;
     font-style: normal;
     margin-bottom: 0px;
@@ -5993,21 +5993,21 @@ ul.products.list li.product:last-child {
     font-size: 14px;
     line-height: 24px;
     font-weight: 400;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
 }
 .blog_desc .entry-header div.content-page {
     color: #7f7e7e;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
 }
 .blog_desc .entry-content div.desc {
     color: #7f7e7e;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
     overflow: hidden;
     margin-bottom: 20px;
 }
@@ -6035,7 +6035,7 @@ ul.products.list li.product:last-child {
     font-size: 16px;
     line-height: 16px;
     font-weight: 700;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
     margin-bottom: 0px;
     display: block;
     text-transform: uppercase;
@@ -6045,7 +6045,7 @@ ul.products.list li.product:last-child {
     font-size: 26px;
     line-height: 1;
     font-weight: 700;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
     margin-bottom: 0px;
     text-transform: uppercase;
     margin: 5px 0px;
@@ -6055,7 +6055,7 @@ ul.products.list li.product:last-child {
     font-size: 14px;
     line-height: 24px;
     font-weight: 400;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
     margin-bottom: 0px;
 }
 .content-area article .entry-content p.meta-info a {
@@ -6063,14 +6063,14 @@ ul.products.list li.product:last-child {
     font-size: 14px;
     line-height: 24px;
     font-weight: 400;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
 }
 .content-area article .entry-content div.content-page {
     color: #7f7e7e;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-    font-family: 'Lato';
+    font-family: "Open Sans",sans-serif;
 }
 .content-area nav .nav-links a {
     background: #e24545 !important;
@@ -6563,7 +6563,7 @@ ul.products.list li.product hr, ul.products.grid hr {
     font-size: 48px;
 }
 .btn .promo-link-btn {
-    font-family: Lato Black;
+    font-family: "Open Sans",sans-serif;
     font-size: 20px;
     line-height: 50px;
     padding: 0px 20px;
@@ -6606,7 +6606,7 @@ ul.products.list li.product hr, ul.products.grid hr {
     text-transform: uppercase;
 }
 .style_one .promo-desc-title {
-    font-family: 'Lato', sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-weight: 700;
     font-size: 16px;
     line-height: 40px;
@@ -6623,7 +6623,7 @@ ul.products.list li.product hr, ul.products.grid hr {
     text-overflow: ellipsis;
 }
 .style_one .promo-link-btn {
-    font-family: Lato Black;
+    font-family: "Open Sans",sans-serif;
     font-size: 20px;
     line-height: 50px;
     padding: 0px 20px;
@@ -6672,7 +6672,7 @@ ul.products.list li.product hr, ul.products.grid hr {
     /*margin-left: 10px;*/
 }
 .style_two .caption .widget-title {
-    font-family: 'lato';
+    font-family: "Open Sans",sans-serif;
     margin-top: 15px;
     font-size: 20px !important;
     line-height: 150%;
@@ -6682,7 +6682,7 @@ ul.products.list li.product hr, ul.products.grid hr {
     padding-left: 0px !important;
 }
 .style_two .caption .promo-desc-title {
-    font-family: Lato Black;
+    font-family: "Open Sans",sans-serif;
     font-size: 48px;
     line-height: 40px;
     color: #000000;
@@ -6690,7 +6690,7 @@ ul.products.list li.product hr, ul.products.grid hr {
     margin: 0px;
 }
 .style_two .caption .promo-desc {
-    font-family: Lato Black;
+    font-family: "Open Sans",sans-serif;
     font-size: 48px;
     line-height: 40px;
     color: #ce4444;
@@ -6698,7 +6698,7 @@ ul.products.list li.product hr, ul.products.grid hr {
     margin: 0px;
 }
 .style_two .caption .promo-link-btn {
-    font-family: Lato Black;
+    font-family: "Open Sans",sans-serif;
     font-size: 20px;
     line-height: 50px;
     padding: 0px 20px;
