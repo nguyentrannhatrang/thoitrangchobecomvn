@@ -72,6 +72,16 @@ module.exports = function (grunt) {
                         'tmp/public_common.min.js',
                         'tmp/other.min.js'
 						],
+                	'assets/admin/js/admin_js.js': [
+                        'assets/bootstrap-select-1.12.1/js/bootstrap-select.min.js',
+                        'assets/js/bootstrap.min.js',
+                        'assets/js/bootbox.min.js',
+                        'assets/js/zxcvbn.js',
+                        'assets/js/zxcvbn_bootstrap3.js',
+                        'assets/js/pGenerator.jquery.js',
+                        'assets/js/jquery.priceformat.min.js',
+                        'assets/admin/js/product.js'
+						],
                 	'application/views/templates/corner/assets/css/home.min.css': [
                         'tmp/css_home.min.css'
 						]

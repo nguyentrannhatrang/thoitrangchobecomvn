@@ -98,7 +98,7 @@
                                         <?= $row->title ?>
                                     </td>
                                     <td>
-                                        <?= $row->price ?>
+                                        <?= number_format($row->price,0,'.',',') ?>
                                     </td>
                                     <td>
                                         <?php

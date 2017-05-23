@@ -118,7 +118,8 @@ if ($this->session->flashdata('result_publish')) {
         ?>
         <div class="form-group for-shop">
             <label>Price (<?= $language->name ?><img src="<?= base_url('attachments/lang_flags/' . $language->flag) ?>" alt="">)</label>
-            <input type="text" name="price[]" placeholder="without currency at the end" value="<?= $trans_load != null && isset($trans_load[$language->abbr]['price']) ? $trans_load[$language->abbr]['price'] : '' ?>" class="form-control">
+            <input type="text" placeholder="without currency at the end" value="<?= $trans_load != null && isset($trans_load[$language->abbr]['price']) ? $trans_load[$language->abbr]['price'] : '' ?>" class="form-control format_price">
+            <input type="hidden" name="price[]" class="product_price" value="<?= $trans_load != null && isset($trans_load[$language->abbr]['price']) ? $trans_load[$language->abbr]['price'] : '' ?>"/>
         </div>
         <div class="form-group for-shop">
             <label>Old Price (<?= $language->name ?><img src="<?= base_url('attachments/lang_flags/' . $language->flag) ?>" alt="">)</label>
@@ -282,4 +283,3 @@ if ($this->session->flashdata('result_publish')) {
         </div>
     </div>
 </div>
-<script src="/assets/admin/js/product.js"></script>
