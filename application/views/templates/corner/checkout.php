@@ -21,11 +21,7 @@
                 </div><!-- .site-branding -->
                 <div class="headertwo-wrap">
                     <!-- Cart Link -->
-                    <div class="view-cart">
-                        <a class="cart-contents wcmenucart-contents" href="/cart/" title="View your shopping cart">
-                            <i class="fa fa-shopping-cart"></i> [<span class="total-quantity">0</span> / <span class="amount">&#036;0.00</span> VND]
-                        </a>
-                    </div>
+                    <?php $this->view('templates/corner/_parts/cart');?>
                     <!-- if enabled from customizer -->
                     <div class="search-form">
                         <form method="get" class="searchform" action="#" role="search">

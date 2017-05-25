@@ -118,6 +118,7 @@ $route['admin'] = "admin/home/login";
 // ECOMMERCE GROUP
 $route['admin/publish'] = "admin/ecommerce/publish";
 $route['admin/publish/(:num)'] = "admin/ecommerce/publish/index/$1";
+$route['admin/publish/(:any)/(:num)'] = "admin/ecommerce/publish/$1/$2";
 $route['admin/removeSecondaryImage'] = "admin/ecommerce/publish/removeSecondaryImage";
 $route['admin/convertCurrency'] = "admin/ecommerce/publish/convertCurrency";
 $route['admin/products'] = "admin/ecommerce/products";

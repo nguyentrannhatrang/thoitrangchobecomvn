@@ -90,3 +90,10 @@ ALTER TABLE booking ADD product_name varchar(255);
 CREATE INDEX booking_refNo_index ON booking (refNo);
 CREATE INDEX booking_user_id_index ON booking (user_id);
 CREATE INDEX booking_status_index ON booking (status);
+
+ALTER TABLE products ADD name varchar(255);
+ALTER TABLE products ADD description longtext;
+ALTER TABLE products ADD basic_description text;
+ALTER TABLE products ADD price FLOAT ;
+ALTER TABLE products ADD old_price FLOAT ;
+CREATE INDEX products_name_index ON products (name);

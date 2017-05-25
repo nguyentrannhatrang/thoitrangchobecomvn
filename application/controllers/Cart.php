@@ -161,7 +161,7 @@ class Cart extends MY_Controller
                 if (isset($item['quantity']) && $item['quantity'] > 0)
                     $quantity += $item['quantity'];
                 if (isset($item['price']) && $item['price'] > 0)
-                    $total += $item['price'];
+                    $total += (float)$item['price'] * (int)$item['quantity'];
             }
         }
         $result['quantity'] = $quantity;

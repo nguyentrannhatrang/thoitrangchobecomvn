@@ -489,7 +489,9 @@ class ProductModel extends CI_Model
      */
     public function getPriceFormat()
     {
-        return $this->price;
+        if($this->price == 0)
+            return $this->price;
+        return number_format($this->price,0,',','.');
     }
 
     /**

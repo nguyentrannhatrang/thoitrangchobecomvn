@@ -28,11 +28,7 @@
 
                 <div class="headertwo-wrap">
                     <!-- Cart Link -->
-                    <div class="view-cart">
-                        <a class="cart-contents wcmenucart-contents" href="/cart/" title="View your shopping cart">
-                            <i class="fa fa-shopping-cart"></i> [<span class="total-quantity">0</span> / <span class="amount">&#036;0.00</span> VND]
-                        </a>
-                    </div>
+                    <?php $this->view('templates/corner/_parts/cart');?>
                     <!-- if enabled from customizer -->
                     <div class="search-form">
                         <form method="get" class="searchform" action="#" role="search">
@@ -80,7 +76,7 @@
                                                     <th class="product-name">Sản phẩm</th>
                                                     <th class="product-price">Giá</th>
                                                     <th class="product-quantity">Số lượng</th>
-                                                    <th class="product-subtotal">Giá tiền</th>
+                                                    <th class="product-subtotal">Tổng</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -100,16 +96,16 @@
                                                                 </a>
                                                             </td>
 
-                                                            <td class="product-name" data-title="Product">
+                                                            <td class="product-name" data-title="Sản phẩm">
                                                                 <a href="/product/<?= $item['link']?>"><?= $item['name']?> &ndash; <?= $item['size']?></a>
                                                             </td>
 
-                                                            <td class="product-price" data-title="Price">
+                                                            <td class="product-price" data-title="Giá">
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol"></span><?= number_format($item['price'], 2, '.', ',') ?> VND</span>
+                                                                    <span class="woocommerce-Price-currencySymbol"></span><?= number_format($item['price'], 0, '', '.') ?>VND</span>
                                                             </td>
 
-                                                            <td class="product-quantity" data-title="Quantity">
+                                                            <td class="product-quantity" data-title="Số lượng">
                                                                 <?php
                                                                     $quantityAvailable = 0;
                                                                     if(isset($quantity_available[$productId]) && isset($quantity_available[$productId][$sizeCode]))
@@ -122,9 +118,9 @@
                                                                 </div>
                                                             </td>
 
-                                                            <td class="product-subtotal" data-title="Total">
+                                                            <td class="product-subtotal" data-title="Tổng">
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol"></span><?= number_format($item['price'] * $item['quantity'], 2, '.', ',') ?> VND</span>
+                                                                    <span class="woocommerce-Price-currencySymbol"></span><?= number_format($item['price'] * $item['quantity'], 0, '', '.') ?>VND</span>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -143,7 +139,8 @@
                                                         <input type="submit" class="button" name="update_cart" value="Cập nhật" />
 
 
-                                                        <!--<input type="hidden" id="_wpnonce" name="_wpnonce" value="f35b9ee221" /><input type="hidden" name="_wp_http_referer" value="/cart/" />-->				</td>
+                                                        <!--<input type="hidden" id="_wpnonce" name="_wpnonce" value="f35b9ee221" /><input type="hidden" name="_wp_http_referer" value="/cart/" />-->
+                                                    </td>
                                                 </tr>
 
                                                 </tbody>
@@ -160,53 +157,22 @@
 
                                                     <tr class="cart-subtotal">
                                                         <th>Số tiền</th>
-                                                        <td data-title="Subtotal"><span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-currencySymbol"></span><?= number_format($summary['total'], 2, '.', ',') ?></span> VND
+                                                        <td data-title="Số tiền"><span class="woocommerce-Price-amount amount">
+                                                                <span class="woocommerce-Price-currencySymbol"></span><?= number_format($summary['total'], 0, '', '.') ?>VND</span>
                                                         </td>
                                                     </tr>
                                                     <tr class="shipping">
                                                         <th>Phí giao hàng</th>
-                                                        <td>
+                                                        <td data-title="Phí giao hàng">
                                                             <p>Tùy từng vị trí.</p>
-                                                            <!--<form class="woocommerce-shipping-calculator" action="http://jenscornershop.com.au/cart/" method="post">
-                                                                <p><a href="#" class="shipping-calculator-button">Calculate shipping</a></p>
-                                                                <section class="shipping-calculator-form" style="display:none;">
-
-                                                                    <p class="form-row form-row-wide" id="calc_shipping_country_field">
-                                                                        <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state" rel="calc_shipping_state">
-                                                                            <option value="">Select a country&hellip;</option>
-                                                                            <option value="AU">Australia</option>
-                                                                        </select>
-                                                                    </p>
-                                                                    <p class="form-row form-row-wide" id="calc_shipping_state_field">
-                                                                        <input type="hidden" name="calc_shipping_state" id="calc_shipping_state" placeholder="State / County" />
-                                                                    </p>
-                                                                    <p class="form-row form-row-wide" id="calc_shipping_postcode_field">
-                                                                        <input type="text" class="input-text" value="" placeholder="Postcode / ZIP" name="calc_shipping_postcode" id="calc_shipping_postcode" />
-                                                                    </p>
-                                                                    <p><button type="submit" name="calc_shipping" value="1" class="button">Update totals</button></p>
-
-                                                                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="f35b9ee221" />
-                                                                    <input type="hidden" name="_wp_http_referer" value="/cart/" />
-                                                                </section>
-                                                            </form>-->
-
                                                         </td>
                                                     </tr>
-                                                    <!--<script>
-                                                        jQuery(document).ready(function() {
-                                                            jQuery(".extra-flate-tool-tip").parent().css("position", "relative");
-                                                        });
-                                                    </script>-->
-
-
-
                                                     <tr class="order-total">
                                                         <th>Tổng cộng</th>
-                                                        <td data-title="Total">
+                                                        <td data-title="Tổng cộng">
                                                             <strong>
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol"></span><?= number_format($summary['total'], 2, '.', ',') ?></span>
+                                                                    <span class="woocommerce-Price-currencySymbol"></span><?= number_format($summary['total'], 0, '', '.') ?>VND</span>
                                                             </strong>
                                                         </td>
                                                     </tr>

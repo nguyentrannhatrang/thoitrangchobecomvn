@@ -32,6 +32,7 @@ module.exports = function (grunt) {
                     'application/views/templates/corner/assets/js/jquery.ticker.js',
                     'application/views/templates/corner/assets/js/skip-link-focus-fix.js',
                     'application/views/templates/corner/assets/js/custom.js',
+                    'application/views/templates/corner/assets/js/jquery.modal.min.js',
                     'application/views/templates/corner/assets/js/function.js'
                 ],
                 dest: 'tmp/public_common.js'
@@ -98,6 +99,7 @@ module.exports = function (grunt) {
 			files: {
 			  'application/views/templates/corner/assets/css/css_home.css': 
 			  [
+                  'application/views/templates/corner/assets/css/jquery.modal.min.css',
                     'application/views/templates/corner/assets/css/lightbox.css',
                     'application/views/templates/corner/assets/css/owl.theme.css',
                     'application/views/templates/corner/assets/css/owl.carousel.css',
@@ -113,6 +115,7 @@ module.exports = function (grunt) {
                 ],
 				'application/views/templates/corner/assets/css/main.css': 
 			  [
+                    'application/views/templates/corner/assets/css/jquery.modal.min.css',
                     'application/views/templates/corner/assets/css/lightbox.css',
                     'application/views/templates/corner/assets/css/owl.theme.css',
                     'application/views/templates/corner/assets/css/owl.carousel.css',

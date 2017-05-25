@@ -1,4 +1,4 @@
-
+<?php $this->view('templates/corner/_parts/cart-content');?>
 <footer id="colophon" class="site-footer" role="contentinfo">
     <?php $this->view('templates/corner/_parts/footer-menu',array('categories'=>$menu,'current_menu'=>$current_menu)); ?>
     <!-- top footer end -->

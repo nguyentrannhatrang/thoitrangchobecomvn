@@ -246,10 +246,12 @@ class BookingModel extends CI_Model {
             //rollback allotment
             /** @var BookingDetailModel $_item */
             foreach ($itemsDb as $_item){
-                $productDetailCop = clone $productDetail;
-                $productDetailCop = $productDetailCop->loadByProductSizeColor($_item->product,$_item->color,$_item->size);
-                $productDetailCop->quantity += $_item->quantity;
-                $productDetailCop->update();
+                if(BookingDetailModel::statusInstant($_item->status)){
+                    $productDetailCop = clone $productDetail;
+                    $productDetailCop = $productDetailCop->loadByProductSizeColor($_item->product,$_item->color,$_item->size);
+                    $productDetailCop->quantity += $_item->quantity;
+                    $productDetailCop->update();
+                }
                 $_item->delete();
             }
         }

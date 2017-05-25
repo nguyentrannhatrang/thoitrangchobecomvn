@@ -24,11 +24,8 @@
 
                 <div class="headertwo-wrap">
                     <!-- Cart Link -->
-                    <div class="view-cart">
-                        <a class="cart-contents wcmenucart-contents" href="/cart/" title="View your shopping cart">
-                            <i class="fa fa-shopping-cart"></i> [<span class="total-quantity">0</span> / <span class="amount">&#036;0.00</span> VND]
-                        </a>
-                    </div><!--
+                    <?php $this->view('templates/corner/_parts/cart');?>
+                    <!--
                     <a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
                         <i class="fa fa-heart"></i>
                         (0)                        
@@ -73,7 +70,7 @@
     <div class="ak-container">
         <div id="primary" class="content-area">
             <div class="content-inner clearfix">
-                <div itemscope itemtype="http://schema.org/Product" id="product-555" 
+                <div
                      class="single-img post-555 product type-product status-publish has-post-thumbnail product_cat-handmade product_cat-playsuits product_cat-newborn product_tag-playsuit product_tag-seaside product_shipping_class-whole-post first instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
 
                     <div class="img-wrap">
@@ -303,6 +300,7 @@
 </div>
 </div>
 </div>
+
  <script>
      var size_quantity = '<?php echo json_encode($sizes_data);?>';
  </script>

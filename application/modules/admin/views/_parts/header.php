@@ -100,12 +100,13 @@
                                         </div>
                                     </li>
                                     <li class="header">ECOMMERCE</li>
-                                    <li><a href="<?= base_url(PATH_ADMIN.'/publish') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/publish' ? 'class="active"' : '' ?>><i class="fa fa-edit"></i> New product</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/publish') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/publish' ? 'class="active"' : '' ?>><i class="fa fa-edit"></i> Create product</a></li>
                                     <li><a href="<?= base_url(PATH_ADMIN.'/products') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/products' ? 'class="active"' : '' ?>><i class="fa fa-files-o"></i> Products list</a></li>
                                     <?php if ($showBrands == 1) { ?>
                                         <li><a href="<?= base_url(PATH_ADMIN.'/brands') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/brands' ? 'class="active"' : '' ?>><i class="fa fa-registered"></i> Brands</a></li>
                                     <?php } ?>
                                     <li><a href="<?= base_url(PATH_ADMIN.'/shopcategories') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/shopcategories' ? 'class="active"' : '' ?>><i class="fa fa-list-alt"></i> Shop Categories</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/order_edit/0') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/order_edit' ? 'class="active"' : '' ?>><i class="fa fa-edit"></i> Create Booking</a></li>
                                     <li>
                                         <a href="<?= base_url(PATH_ADMIN.'/orders') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/orders' ? 'class="active"' : '' ?>>
                                             <i class="fa fa-money" aria-hidden="true"></i> Orders 

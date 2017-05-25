@@ -29,7 +29,7 @@
                                     <span class="price">
                                         <span class="woocommerce-Price-amount amount">
                                             <span class="woocommerce-Price-currencySymbol">
-                                            </span><?= number_format($product->price, 2, '.', ',')?> đồng</span>
+                                            </span><?= $product->getPriceFormat()?> đồng</span>
                                     </span>
                                 </a>
 <!--                                <a class="item-wishlist" href="/?add_to_wishlist=1350">Wishlist</a>-->

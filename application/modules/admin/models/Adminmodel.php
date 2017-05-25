@@ -177,23 +177,31 @@ class AdminModel extends CI_Model
         unset($post['detail_color']);
         unset($post['detail_size']);
         if ($id > 0) {
-            unset($post['title_for_url']);
+            if(isset($post['title_for_url']))
+                unset($post['title_for_url']);
             $post['time_update'] = time();
             $result = $this->db->where('id', $id)->update('products', $post);
             $this->db->where('product', $id)->delete('product_detail');
             $this->saveProductDetail($aDetails,$id);
         } else {
-            if (trim($post['title_for_url']) != '') {
-                $url_fr = except_letters($post['title_for_url']);
-            } else {
-                $url_fr = 'shop-product';
+            if(!isset($post['title_for_url'])){
+                $post['title_for_url'] = $post['name'];
+                if (trim($post['title_for_url']) != '') {
+                    $url_fr = except_letters($post['title_for_url']);
+                } else {
+                    $url_fr = 'shop-product';
+                }
+                $url_fr = str_replace(' ', '_', $url_fr . '_' . $post['id']);
+            }else{
+                $url_fr = $post['title_for_url'];
             }
+
             unset($post['title_for_url']);
             $this->db->select_max('id');
             $query = $this->db->get('products');
             $rr = $query->row_array();
             $post['id'] = $rr['id'] + 1;
-            $post['url'] = str_replace(' ', '_', $url_fr . '_' . $post['id']);
+            $post['url'] = $url_fr;
             $post['time'] = time();
             unset($post['id']);
             $result = $this->db->insert('products', $post);

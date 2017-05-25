@@ -85,11 +85,7 @@
 
                 <div class="headertwo-wrap">
                     <!-- Cart Link -->
-                    <div class="view-cart">
-                        <a class="cart-contents wcmenucart-contents" href="http://jenscornershop.com.au/cart/" title="View your shopping cart">
-                            <i class="fa fa-shopping-cart"></i> [ <span class="total-quantity">0</span> / <span class="amount">&#036;0.00</span> ]
-                        </a>
-                    </div>   
+                    <?php $this->view('templates/corner/_parts/cart');?>
                     <!--<a class="quick-wishlist" href="http://jenscornershop.com.au/wishlist/" title="Wishlist">
                         <i class="fa fa-heart"></i>
                         (0)                        

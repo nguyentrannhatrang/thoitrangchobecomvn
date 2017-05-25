@@ -11,6 +11,15 @@ if (!defined('BASEPATH')) {
 class Publish extends ADMIN_Controller
 {
 
+    /**
+     * Publish constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('ProductModel');
+    }
+
     public function index($id = 0)
     {
         $this->login_check();
@@ -48,9 +57,10 @@ class Publish extends ADMIN_Controller
                 'old_price' => $_POST['old_price']
             );
             $flipped = array_flip($_POST['translations']);
-            $_POST['title_for_url'] = $_POST['title'][$flipped[MY_DEFAULT_LANGUAGE_ABBR]];
-            unset($_POST['translations'], $_POST['title'], $_POST['basic_description'], $_POST['description'], $_POST['price'], $_POST['old_price']); //remove for product
-            $result = $this->AdminModel->setProduct($_POST, $id);
+            //$_POST['title_for_url'] = $_POST['title'][$flipped[MY_DEFAULT_LANGUAGE_ABBR]];
+//            unset($_POST['translations'], $_POST['title'], $_POST['basic_description'], $_POST['description'], $_POST['price'], $_POST['old_price']); //remove for product
+            unset($_POST['translations']); //remove for product
+            $result = $this->AdminModel->setProduct($this->createDataProduct($_POST), $id);
             if ($result !== false) {
                 $this->AdminModel->setProductTranslation($translations, $result, $is_update); // send to translation table
                 $this->session->set_flashdata('result_publish', 'product is published!');
@@ -78,6 +88,7 @@ class Publish extends ADMIN_Controller
         $head['description'] = '!';
         $head['keywords'] = '';
         $data['id'] = $id;
+        $data['product_id'] = $id;
         $data['trans_load'] = $trans_load;
         
         $data['languages'] = $this->AdminModel->getLanguages();
@@ -91,6 +102,34 @@ class Publish extends ADMIN_Controller
         $this->load->view('ecommerce/publish', $data);
         $this->load->view('_parts/footer');
         $this->saveHistory('Go to publish product');
+    }
+
+    protected function createDataProduct($data){
+        unset($data['translations']);
+        $data['name'] = $data['title'];
+        unset($data['title']);
+        $fieldString = array('name','description','basic_description','price','old_price');
+        foreach ($data as $key=>&$value){
+            if(!in_array($key,$fieldString)) continue;
+            if(is_array($value) && isset($value[0]))
+                $value = $value[0];
+
+        }
+        return $data;
+        /*return array(
+            'folder'=>$_POST['folder'],
+            'name'=>isset($_POST['title']) && $_POST['title'][0]?$_POST['title'][0]:'',
+            'basic_description'=>isset($_POST['basic_description']) && $_POST['basic_description'][0]?$_POST['basic_description'][0]:'',
+            'description'=>isset($_POST['description']) && $_POST['description'][0]?$_POST['description'][0]:'',
+            'price'=>isset($_POST['price']) && $_POST['price'][0]?(float)$_POST['price'][0]:null,
+            'old_price'=>isset($_POST['old_price']) && $_POST['old_price'][0]?(float)$_POST['old_price'][0]:null,
+            'quantity'=>isset($_POST['quantity'])?(int)$_POST['quantity']:0,
+            'shop_categorie'=>isset($_POST['shop_categorie'])?$_POST['shop_categorie']:0,
+            'in_slider'=>isset($_POST['in_slider'])?$_POST['in_slider']:'0',
+            'show_home'=>isset($_POST['show_home'])?$_POST['show_home']:'0',
+            'position'=>isset($_POST['position'])?$_POST['position']:'0',
+            'product_url'=>isset($_POST['product_url'])?$_POST['product_url']:''
+        );*/
     }
 
     /*
@@ -191,6 +230,24 @@ class Publish extends ADMIN_Controller
             $this->saveHistory('Convert currency from ' . $from . ' to ' . $to . ' with amount  ' . $amount);
             echo round($converted, 2);
         }
+    }
+
+
+    public function checkUrlUnique($id){
+        $url = isset($_GET['product_url'])?$_GET['product_url']:'';
+        if(empty($url)) {
+            echo json_encode(array('result' => 1));
+            return ;
+        }
+
+        $productModel = new ProductModel();
+        /** @var ProductModel $product */
+        $product = $productModel->getProductByUrl($url);
+        if($product->id !== '' && (int)$product->id != $id){
+            echo json_encode(array('result'=>0));
+            return ;
+        }
+        echo json_encode(array('result'=>1));
     }
 
 }

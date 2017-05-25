@@ -18,6 +18,7 @@ if ($this->session->flashdata('result_publish')) {
     <?php
 }
 ?>
+<input type="hidden" id="product_id" value="<?= $product_id ?>">
 <form method="POST" action="" enctype="multipart/form-data">
     <input type="hidden" value="<?= isset($_POST['folder']) ? $_POST['folder'] : $timeNow ?>" name="folder">
     <?php foreach ($languages->result() as $language) { ?>
@@ -30,6 +31,10 @@ if ($this->session->flashdata('result_publish')) {
         <?php
     } $i = 0;
     ?>
+    <div class="form-group">
+        <label>Url</label>
+        <input type="text" <?php echo ($product_id)?'readonly':'' ?> name="title_for_url" id="title_for_url" value="<?= @$_POST['url']?>" class="form-control">
+    </div>
     <div class="form-group">
         <a href="javascript:void(0);" class="btn btn-default" id="showSliderDescrption">Show Slider Description <span class="glyphicon glyphicon-circle-arrow-down"></span></a>
     </div>
