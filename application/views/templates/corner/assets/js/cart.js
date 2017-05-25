@@ -21,7 +21,7 @@ jQuery(function($){
             success:  function(data) {
                 if(data !== 'undefined'){
                     if(data.summary !== 'undefined'){
-                        fill_data_cart(data.data,data.summary);
+                        fill_data_cart(data.data,data.summary,true);
                         $('.view-cart a.cart-contents span.total-quantity').text(data.summary.quantity);
                         $('.view-cart a.cart-contents span.amount').text(NTNT.format_price(data.summary.total));
                     }
