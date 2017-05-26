@@ -101,5 +101,6 @@
         $('#tab-title-description').click();
         });
 </script>
-<!--wp_footer--></body>
+<!--wp_footer-->
+</body>
 </html>

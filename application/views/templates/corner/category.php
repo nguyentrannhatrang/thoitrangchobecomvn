@@ -1,4 +1,15 @@
+<style>
+    @media screen and (min-width: 768px) {
+        .woocommerce-page ul.products li.product.first{
+            clear: both;
+        }
+        .inner #breadcrumb{
+            margin-left: 90px;;
+        }
+    }
+</style>
 <body class="archive tax-product_cat term-newborn term-116 woocommerce woocommerce-page apwidget_title ">
+<?php $this->view('templates/corner/_parts/plugin-js');?>
 <div id="page" class="hfeed site">
 
     <header id="mastheads" class="site-header headertwo" role="banner">
@@ -56,35 +67,23 @@
 
     </header><!-- #masthead -->
     <div id="content" class="site-content">
-        <header id="title_bread_wrap" class="entry-header" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
-            <div class="ak-container">
-                <h1 class="entry-title ak-container"><?=$current_categorie->getName() ?></h1>
-                <div class="woocommerce-breadcrumb accesspress-breadcrumb" >
-                    <a href="/">Trang chủ</a>&nbsp;
-                    <?php if($current_categorie->getSubFor() && isset($menu[$current_categorie->getSubFor()])){
-                    $categorieParent = $menu[$current_categorie->getSubFor()]; ?>
-                    <a href="/category-<?= $categorieParent->getUrlName() ?>/"><?= $categorieParent->getName() ?></a>&nbsp;
-                    <?php }?>
-                    <span><?=$current_categorie->getName() ?></span>
-                </div>
-            </div>
+        <header id="title_bread_wrap" class="entry-header cherry-banner" style="background:url('/assets/images/logo-cherry.png') no-repeat center; background-size: cover;">
+            
         </header>
         <div class="inner">
+            <div id="breadcrumb">
+                <a href="/">Trang chủ</a> >
+                <?php if($current_categorie->getSubFor() && isset($menu[$current_categorie->getSubFor()])){
+                    $categorieParent = $menu[$current_categorie->getSubFor()]; ?>
+                    <a href="/category-<?= $categorieParent->getUrlName() ?>/"><?= $categorieParent->getName() ?></a> >
+                <?php }?>
+                <span><?=$current_categorie->getName() ?></span>
+            </div>
             <div class="ak-container left-sidebar">
                 <div id="primary" class="content-area clearfix">
                     <div class="content-inner">
                         <p class="woocommerce-result-count">
                             Có <span class="total-products"><?= count($products) ?> sản phẩm</span></p>
-                        <!--<form class="woocommerce-ordering" method="get">
-                            <select name="orderby" class="orderby">
-                                <option value="menu_order"  selected='selected'>Default sorting</option>
-                                <option value="popularity" >Sort by popularity</option>
-                                <option value="rating" >Sort by average rating</option>
-                                <option value="date" >Sort by newness</option>
-                                <option value="price" >Sort by price: low to high</option>
-                                <option value="price-desc" >Sort by price: high to low</option>
-                            </select>
-                        </form>-->
                         <nav class="gridlist-toggle"><a href="#" id="grid" title="Grid view">
                                 <span class="dashicons dashicons-grid-view"></span> <em>Grid view</em></a>
                             <a href="#" id="list" title="List view">
@@ -115,10 +114,7 @@
                                                 <span class="price">
                                                     <span class="woocommerce-Price-amount amount">
                                                         <span class="woocommerce-Price-currencySymbol"></span><?= $product->price?></span>
-                                                    <!--<span class="woocommerce-Price-amount amount">
-                                                        <span class="woocommerce-Price-currencySymbol"></span><?/*= $product->priceOld*/?>
-                                                    </span>-->
-                                                </span>
+                                                    </span>
                                     </a>
                                     <div class="woocommerce-product-details__short-description">
                                         <p><?= $product->getBasicDescription(200);?></p>
@@ -135,30 +131,6 @@
                     <!-- #secondary -->
                     <div id="woocommerce_product_search-3" class="widget woocommerce widget_product_search widget-count-3">
                     </div>
-                    <!--<div id="woocommerce_price_filter-2" class="widget woocommerce widget_price_filter widget-count-3">
-                        <span class="widget-title">Filter by price</span>
-                        <form method="get" action="http://jenscornershop.com.au/product-category/handmade/autumn-collection/">
-                            <div class="price_slider_wrapper">
-                                <div class="price_slider" style="display:none;"></div>
-                                <div class="price_slider_amount">
-                                    <div class="left" style="width: 40%">
-                                        <input type="text" id="min_price" name="min_price" value="" data-min="8" placeholder="Min price" />
-                                    </div>
-                                    <div class="left" style="width: 40%">
-                                        <input type="text" id="max_price" name="max_price" value="" data-max="45" placeholder="Max price" />
-                                    </div>
-                                    <div class="left">
-                                        <button type="submit" class="button">Filter</button>
-                                    </div>
-                                    <div class="price_label" style="display:none;">
-                                        Price: <span class="from"></span> &mdash; <span class="to"></span>
-                                    </div>
-
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>-->
                     <div id="woocommerce_product_categories-3" class="widget woocommerce widget_product_categories widget-count-3">
                         <span class="widget-title">Danh mục sản phẩm</span>
                         <ul class="product-categories">

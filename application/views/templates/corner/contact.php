@@ -1,4 +1,5 @@
 <body class="page-template-default page page-id-6 woocommerce-checkout woocommerce-page apwidget_title ">
+<?php $this->view('templates/corner/_parts/plugin-js');?>
 <div id="page" class="hfeed site">
 
     <header id="mastheads" class="site-header headertwo" role="banner">
@@ -38,22 +39,17 @@
         <?php $this->view('templates/corner/_parts/menu',array('categories'=>$menu,'current_menu'=>$current_menu)); ?>
     </header><!-- #masthead -->
 
-    <div id="content" class="site-content"><div class="page_header_wrap clearfix" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
+    <div id="content" class="site-content"><div class="page_header_wrap clearfix cherry-banner" style="background:url('/assets/images/logo-cherry.png') no-repeat center; background-size: cover;">
             <?php if ($this->session->flashdata('error')) { ?>
                 <div class="message error" style="display:block">
                     <p><?= $this->session->flashdata('error') ?></p>
                 </div>
             <?php } ?>
-            <div class="ak-container">
-                <header class="entry-header">
-                    <h2 class="entry-title">Liên hệ</h2>
-                </header><!-- .entry-header -->
-                <div id="accesspress-breadcrumb">
-                    <a href="http://thoitrangchobe.com.vn">Trang chủ</a>  <span class="current">Liên hệ</span>
-                </div>
-            </div>
         </div>
         <div class="inner">
+            <div id="breadcrumb">
+                <a href="http://thoitrangchobe.com.vn">Trang chủ</a> > <span class="current">Liên hệ</span>
+            </div>
             <main id="main" class="site-main clearfix no-sidebar">
                 <p class="text-5-desc"><strong>Email:</strong> info@jenscornershop.com.au</p>
                 <p class="text-5-desc"><strong>Email:</strong> info@jenscornershop.com.au</p>

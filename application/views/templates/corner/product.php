@@ -1,4 +1,5 @@
 <body class="product-template-default single single-product postid-555 woocommerce woocommerce-page apwidget_title ">
+<?php $this->view('templates/corner/_parts/plugin-js');?>
 <div id="page" class="hfeed site">
 
     <header id="mastheads" class="site-header headertwo" role="banner">
@@ -53,20 +54,19 @@
 
     </header><!-- #masthead -->
     <div id="content" class="site-content">
-        <header id="title_bread_wrap" class="entry-header" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
-            <div class="ak-container">
-                <h1 class="entry-title ak-container"><?=$current_categorie->getName() ?></h1>
-                <div class="woocommerce-breadcrumb accesspress-breadcrumb" >
-                    <a href="http://thoitrangchobe.com.vn">Trang chủ</a>&nbsp;
-                    <?php if($current_categorie->getSubFor() && isset($menu[$current_categorie->getSubFor()])){
-                        $categorieParent = $menu[$current_categorie->getSubFor()]; ?>
-                        <a href="/category-<?= $categorieParent->getUrlName() ?>/"><?= $categorieParent->getName() ?></a>&nbsp;
-                    <?php }?>
-                    <span><?=$current_categorie->getName() ?></span>
-                </div>
-            </div>
+        <header id="title_bread_wrap" class="entry-header cherry-banner" style="background:url('/assets/images/logo-cherry.png') no-repeat center; background-size: cover;">
+            
         </header>
 <div class="inner">
+    <div id="breadcrumb">
+        <a href="http://thoitrangchobe.com.vn">Trang chủ</a> >
+        <?php if($current_categorie->getSubFor() && isset($menu[$current_categorie->getSubFor()])){
+            $categorieParent = $menu[$current_categorie->getSubFor()]; ?>
+            <a href="/category-<?= $categorieParent->getUrlName() ?>/"><?= $categorieParent->getName() ?></a> > 
+        <?php }?>
+        <a href="/category-<?= $current_categorie->getUrlName() ?>/"><?=$current_categorie->getName() ?></a> >
+        <span><?= $product->getName() ?></span>
+    </div>
     <div class="ak-container">
         <div id="primary" class="content-area">
             <div class="content-inner clearfix">

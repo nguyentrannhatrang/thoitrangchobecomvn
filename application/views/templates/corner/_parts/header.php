@@ -56,6 +56,8 @@
     <meta name="msapplication-TileImage" content="http://jenscornershop.com.au/wp-content/uploads/2016/11/logo.png" />
 </head>
 <body class="home page-template page-template-template-home page-template-template-home-php page page-id-21 apwidget_title ">
+
+<?php $this->view('templates/corner/_parts/plugin-js');?>
 <div id="page" class="hfeed site">
 
     <header id="mastheads" class="site-header headertwo" role="banner">
@@ -90,11 +92,11 @@
                         <i class="fa fa-heart"></i>
                         (0)                        
                     </a>-->
-                    <div class="login-woocommerce">
+                    <!--<div class="login-woocommerce">
                         <a href="#" class="account">
                             Đăng nhập                        
                         </a>
-                    </div>
+                    </div>-->
                     <!-- if enabled from customizer -->
                     <div class="search-form">
                         <form method="get" class="searchform" action="http://thoitrangchobe.com.vn/" role="search">

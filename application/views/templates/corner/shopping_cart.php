@@ -46,18 +46,14 @@
         <?php $this->view('templates/corner/_parts/menu',array('categories'=>$menu,'current_menu'=>$current_menu)); ?><!--Home Navigation-->
 
     </header><!-- #masthead -->
-    <div id="content" class="site-content"><div class="page_header_wrap clearfix" style="background:url('http://jenscornershop.com.au/wp-content/themes/accesspress-store/images/about-us-bg.jpg') no-repeat center; background-size: cover;">
-            <div class="ak-container">
-                <header class="entry-header">
-                    <h2 class="entry-title">Giỏ hàng</h2>
-                </header><!-- .entry-header -->
-                <div id="accesspress-breadcrumb">
-                    <a href="http://thoitrangchobe.com.vn">Trang chủ</a>
-                    <span class="current">Giỏ hàng</span>
-                </div>
-            </div>
+    <div id="content" class="site-content">
+        <div class="page_header_wrap clearfix cherry-banner" style="background:url('/assets/images/logo-cherry.png') no-repeat center; background-size: cover;">
+
         </div>
         <div class="inner">
+            <div id="breadcrumb">
+                <a href="http://thoitrangchobe.com.vn">Trang chủ</a> > <span class="current">Giỏ hàng</span>
+            </div>
             <main id="main" class="site-main clearfix no-sidebar">
                 <div id="primary" class="content-area">
                     <article id="post-5" class="post-5 page type-page status-publish hentry">

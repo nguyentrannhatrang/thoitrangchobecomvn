@@ -71,6 +71,7 @@ jQuery(function($){
     }
     function fill_data_cart(data,summary,showPopup) {
         var showPopup = showPopup || false;
+        $('#popup_add_to_cart .content').empty();
         var has_cart = false;
         if(typeof data !=='undefined' && data){
             var html = $('#row_in_cart').html();
