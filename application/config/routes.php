@@ -55,6 +55,7 @@ $route['default_controller'] = 'home';
 $route['category-(:any)'] = 'category/index/$1';
 $route['product-(:any)'] = 'product/index/$1';
 $route['thankyou/(:num)'] = 'thankyou/index/$1';
+$route['search'] = 'search/index';
 
 
 // Load default conrtoller when have only currency from multilanguage

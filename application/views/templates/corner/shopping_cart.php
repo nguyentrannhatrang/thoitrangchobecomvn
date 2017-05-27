@@ -31,9 +31,9 @@
                     <?php $this->view('templates/corner/_parts/cart');?>
                     <!-- if enabled from customizer -->
                     <div class="search-form">
-                        <form method="get" class="searchform" action="#" role="search">
+                        <form method="get" class="searchform" action="/search" role="search">
                             <input type="text" name="s" value="" class="search-field" placeholder="Tìm kiếm" />
-                            <input type="hidden" name="post_type" value="product">
+<!--                            <input type="hidden" name="post_type" value="product">-->
                             <button type="submit" class="searchsubmit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>

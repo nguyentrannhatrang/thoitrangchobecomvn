@@ -23,7 +23,7 @@
                                     <li id="categorie-<?= $categoty->id?>"
                                         class="menu-item <?php if(isset($current_menu['categorie-'.$categoty->id])) echo 'current_page_item';?>"><a href="/category-<?=$categoty->urlName?>"><?=$categoty->name ?></a></li>
                                     <?php }?>
-                                    <li id="faqs" class="menu-item <?php if(isset($current_menu['faqs'])) echo 'current_page_item';?>"><a href="#">Tin tức</a></li>
+                                    <li id="blog" class="menu-item <?php if(isset($current_menu['blog'])) echo 'current_page_item';?>"><a href="/blog">Tin tức</a></li>
                                     <li id="aboutus" class="menu-item <?php if(isset($current_menu['aboutus'])) echo 'current_page_item';?>"><a href="/about/">Giới thiệu</a></li>
                                     <li id="contacts" class="menu-item <?php if(isset($current_menu['contacts'])) echo 'current_page_item';?>"><a href="/contact/">Liên hệ</a></li>
                                 </ul>

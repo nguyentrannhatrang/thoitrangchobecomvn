@@ -46,8 +46,9 @@
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://jenscornershop.com.au/wp-includes/wlwmanifest.xml" />
     <meta name="generator" content="WordPress 4.7.3" />
     <meta name="generator" content="WooCommerce 3.0.1" />
-    <link rel='shortlink' href='http://jenscornershop.com.au/' />
-    <style>html body{background:none;}</style>		<style type="text/css">
+    <link rel='shortlink' href='http://thoitrangchobe.com.vn/' />
+    <style>html body{background:none;}</style>
+    <style type="text/css">
     </style>
     <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
     <link rel="icon" href="http://jenscornershop.com.au/wp-content/uploads/2016/11/logo-150x150.png" sizes="32x32" />
@@ -99,9 +100,9 @@
                     </div>-->
                     <!-- if enabled from customizer -->
                     <div class="search-form">
-                        <form method="get" class="searchform" action="http://thoitrangchobe.com.vn/" role="search">
+                        <form method="get" class="searchform" action="/search" role="search">
                             <input type="text" name="s" value="" class="search-field" placeholder="Tìm kiếm" />
-                            <input type="hidden" name="post_type" value="product">
+<!--                            <input type="hidden" name="post_type" value="product">-->
                             <button type="submit" class="searchsubmit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>

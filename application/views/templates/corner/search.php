@@ -71,14 +71,6 @@
             
         </header>
         <div class="inner">
-            <div id="breadcrumb">
-                <a href="/">Trang chủ</a> >
-                <?php if($current_categorie->getSubFor() && isset($menu[$current_categorie->getSubFor()])){
-                    $categorieParent = $menu[$current_categorie->getSubFor()]; ?>
-                    <a href="/category-<?= $categorieParent->getUrlName() ?>/"><?= $categorieParent->getName() ?></a> >
-                <?php }?>
-                <span><?=$current_categorie->getName() ?></span>
-            </div>
             <div class="ak-container left-sidebar">
                 <div id="primary" class="content-area clearfix">
                     <div class="content-inner">

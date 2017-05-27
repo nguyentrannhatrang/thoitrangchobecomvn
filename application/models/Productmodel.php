@@ -140,6 +140,51 @@ class ProductModel extends CI_Model
     }
 
     /**
+     * @param array $categories
+     * @param bool $checkQuantity
+     * @param int $limit
+     * @param int $start
+     * @return array
+     */
+    public function search($productName = '',$separate = false, $checkQuantity = true)
+    {
+        $this->db->select(
+            'products.id,
+            products.image, 
+            products.quantity, 
+            translations.title as name,
+            translations.description,
+            translations.basic_description,
+             translations.price,
+              translations.old_price,
+               products.url');
+        $this->db->join('translations', 'translations.for_id = products.id', 'left');
+        $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
+        $this->db->where('translations.type', 'product');
+        $this->db->where('visibility', 1);
+        $this->db->like('translations.title', $productName);
+        if($separate){
+            $aSearch = explode(' ',$productName);
+            foreach ($aSearch as $search){
+                if(empty($aSearch)) continue;
+                $this->db->or_like('translations.title', $search);
+            }
+        }
+        if ($checkQuantity) {
+            $this->db->where('quantity >', 0);
+        }
+        $this->db->order_by('position', 'asc');
+        $query = $this->db->get(self::TABLE_NAME);
+        $arr = array();
+        if ($query !== false) {
+            foreach ($query->result_array() as $row) {
+                $arr[] = $this->convertToObject($row);
+            }
+        }
+        return $arr;
+    }
+
+    /**
      * @param $id
      * @return Category
      */

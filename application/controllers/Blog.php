@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Blog extends MY_Controller
 {
 
-    private $num_rows = 20;
-
+    private $num_rows = 1;
+    protected  $arhives= false;
     public function __construct()
     {
         parent::__construct();
@@ -14,8 +14,7 @@ class Blog extends MY_Controller
             show_404();
         }
         $this->load->helper(array('pagination'));
-        $this->load->Model('admin/AdminModel');
-        $this->arhives = $this->Publicmodel->getArchives();
+        $this->load->model('PostModel');
     }
 
     public function index($page = 0)
@@ -23,10 +22,10 @@ class Blog extends MY_Controller
         $data = array();
         $head = array();
         $arrSeo = $this->Publicmodel->getSeo('page_blog');
-        $head['title'] = @$arrSeo['title'];
-        $head['description'] = @$arrSeo['description'];
-        $head['keywords'] = str_replace(" ", ",", $head['title']);
-        if (isset($_GET['find'])) {
+        //$head['title'] = @$arrSeo['title'];
+        //$head['description'] = @$arrSeo['description'];
+        //$head['keywords'] = str_replace(" ", ",", $head['title']);
+        /*if (isset($_GET['find'])) {
             $find = $_GET['find'];
         } else {
             $find = null;
@@ -35,13 +34,16 @@ class Blog extends MY_Controller
             $month = $_GET;
         } else {
             $month = null;
-        }
-        $data['posts'] = $this->Publicmodel->getPosts($this->num_rows, $page, $find, $month);
+        }*/
+        $head['title_page'] = 'Tin Tức';
+        $postModel = new PostModel();
+        $data['posts'] = $postModel->getPosts($this->num_rows, $page);
         $data['archives'] = $this->getBlogArchiveHtml();
         $data['bestSellers'] = $this->Publicmodel->getbestSellers();
-        $rowscount = $this->AdminModel->postsCount($find);
+        $rowscount = $this->AdminModel->postsCount();
         $data['links_pagination'] = pagination('blog', $rowscount, $this->num_rows);
-        $this->render('blog', $head, $data);
+        $data['right_menu'] = $this->getLeftMenu();
+        $this->render2('blog', $head, $data);
     }
 
     public function viewPost($id)
@@ -51,15 +53,18 @@ class Blog extends MY_Controller
         }
         $data = array();
         $head = array();
-        $data['article'] = $this->Publicmodel->getOnePost($id);
+        $postModel = new PostModel();
+        $data['article'] = $postModel->getOnePost($id);
         if ($data['article'] == null) {
             show_404();
         }
+        $data['right_menu'] = $this->getLeftMenu();
         $data['archives'] = $this->getBlogArchiveHtml();
-        $head['title'] = $data['article']['title'];
-        $head['description'] = url_title(character_limiter(strip_tags($data['article']['description']), 130));
-        $head['keywords'] = str_replace(" ", ",", $data['article']['title']);
-        $this->render('view_blog_post', $head, $data);
+        $head['title'] = $data['article']->getTitle();
+        $head['description'] = url_title(character_limiter(strip_tags($data['article']->getDescription()), 130));
+        $head['keywords'] = str_replace(" ", ",", $data['article']->getTitle());
+        $head['title_page'] = $data['article']->getTitle();
+        $this->render2('view_blog_post', $head, $data);
     }
 
     private function getBlogArchiveHtml()
