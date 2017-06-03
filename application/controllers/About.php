@@ -9,11 +9,12 @@ class About extends MY_Controller
 
     public function __construct()
     {
-        parent::__construct();
         $this->load->model('BookingDetailModel');
         $this->load->model('BookingModel');
         $this->load->model('Booking');
         $this->load->model('SizeModel');
+        $this->load->model('CategoryModel');
+        parent::__construct();
     }
 
     public function index($bkId = '')
