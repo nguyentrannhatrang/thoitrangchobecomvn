@@ -6,6 +6,12 @@ jQuery(function($){
     });
     $('#quantity').change(function () {
         var total = parseInt($(this).val()) * parseFloat($('#product_price').val());
+        if(total > 0)
+            $('.total-price').removeClass('hide');
+        else{
+            if(!$('.total-price').hasClass('hide'))
+                $('.total-price').addClass('hide');
+        }
         $('#total-price').text(NTNT.format_price(total));
     });
 

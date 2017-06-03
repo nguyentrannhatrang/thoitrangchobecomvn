@@ -8,9 +8,14 @@
         <div class="label"><strong>Tổng tiền</strong></div>
         <div class="total price"><span></span></div>
     </div>
-    <div class="inform-action right">
-        <a href="/cart" class="go-to-cart">Giỏ hàng</a>
-        <a href="/checkout" class="go-to-checkout">Đặt hàng</a>
+    <div class="inform-action">
+        <div>
+            <a href="/cart" class="go-to-cart">Giỏ hàng</a>
+        </div>
+        <div>
+            <a href="/checkout" class="go-to-checkout">Đặt hàng</a>
+        </div>
+
     </div>
     <div style="display: none" id="row_in_cart">
         <div class="inform-content">

@@ -12,9 +12,9 @@
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Thời trang cho bé" />
-    <meta property="og:description" content="Thời trang cho bé" />
+    <meta property="og:description" content="Thời trang cho bé, đầm bé gái, đầm bé gái 3 tuổi, đầm bé gái 4 tuổi, đầm bé gái 5 tuổi, đầm bé gái 6 tuổi" />
     <meta property="og:url" content="http://thoitrangchobe.com.vn/" />
-    <meta name="keywords" content="Thời trang cho bé" />
+    <meta name="keywords" content="Thời trang cho bé, đầm bé gái, đầm bé gái 3 tuổi, đầm bé gái 4 tuổi, đầm bé gái 5 tuổi, đầm bé gái 6 tuổi" />
     <link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//s.w.org' />

@@ -7244,6 +7244,21 @@ form.checkout input.input-text.error{
         width: 100%;
         padding: 0px 0.5%;
     }
+    div.inform-action{
+        text-align: center;
+        vertical-align: middle;
+    }
+    div.inform-action div{
+        margin: 15px 5px;
+        clear: both;
+        display: block;
+    }
+    .modal div.inform-action div a{
+        padding: 10px 30px;
+    }
+    .slick-slide img{
+        margin: auto;
+    }
 }
 .modal .inform-content{
     clear: both;
@@ -7263,7 +7278,12 @@ form.checkout input.input-text.error{
         width: 1140px;
         margin: 0px auto 5px;
     }
-
+    div.inform-action div{
+        float: left;
+    }
+    div.inform-action{
+        float: right;
+    }
 }
 .modal .price{
     text-align: right;
@@ -7273,4 +7293,7 @@ form.checkout input.input-text.error{
 }
 #top-footer li.page_item{
     list-style: none;
+}
+.hide{
+    display: none;
 }

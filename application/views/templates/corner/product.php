@@ -81,7 +81,7 @@
                             <div class="thumbnails columns-3 images-slick">
                                 <?php foreach ($others_image as $other) {?>
                                 <div class="item-image">
-                                    <img width="600" height="600"
+                                    <img style="max-width: 150px"
                                          src="<?= $other?>"/>
                                 </div>
                                 <?php }?>
@@ -132,7 +132,7 @@
                                     <button type="button" id="add_to_cart" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
                                     
                                 </div>
-                                <div class="total-price">
+                                <div class="total-price hide">
                                     <span>Tổng tiền: </span>
                                     <span class="price" id="total-price"></span> đồng
                                 </div>

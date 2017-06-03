@@ -1535,9 +1535,9 @@
         left:0;
         right:inherit;
     }
-    #ak-top{
+    /*#ak-top{
         display: none;
-    }
+    }*/
     .comment-form p label{
         width:100%;
     }

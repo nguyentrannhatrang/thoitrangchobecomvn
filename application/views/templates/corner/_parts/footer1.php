@@ -14,10 +14,10 @@
 </div><!-- #page -->
 <div id="ak-top"><i class="fa fa-reply"></i></div>
 
-<script type="text/javascript">
-    <?php echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/application/views/templates/corner/assets/js/other.min.js'); ?>
-</script>
-<!--<script type='text/javascript' src='--><?//= base_url('templatejs/other.min.js') ?><!--'></script>-->
+<!--<script type="text/javascript">
+    <?php /*echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/application/views/templates/corner/assets/js/other.min.js'); */?>
+</script>-->
+<script type='text/javascript' src='<?= base_url('templatejs/other.min.js') ?>'></script>
 <script type="text/javascript">
     jQuery(function($){
         if($('body').hasClass('rtl')){
@@ -58,7 +58,7 @@
             slidesToShow: 3,
             slidesToScroll: 1
         });
-        $('.item-image').click(function () {
+        $(document).on('click','.item-image',function () {
             $('#main-image img').attr('src',$(this).find('img').attr('src'));
         });
     });
