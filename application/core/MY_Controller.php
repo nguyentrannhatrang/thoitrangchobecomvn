@@ -68,9 +68,12 @@ class MY_Controller extends MX_Controller
         $head['current_menu'] = array($view=>true);
         $vars = $this->loadVars();
         $this->load->vars($vars);
-        $this->load->view($this->template . '_parts/header1', $head);
+        $sufix = '1';
+        if(strpos($this->template,'\\ua\\'))
+            $sufix ='';
+        $this->load->view($this->template . '_parts/header'.$sufix, $head);
         $this->load->view($this->template . $view, $data);
-        $this->load->view($this->template . '_parts/footer1', $footer);
+        $this->load->view($this->template . '_parts/footer'.$sufix, $footer);
     }
 
     /*
