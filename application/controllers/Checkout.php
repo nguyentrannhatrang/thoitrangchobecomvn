@@ -89,13 +89,13 @@ class Checkout extends MY_Controller
             //redirect to thankyou
         }
 
-        $dataCart = $this->session->userdata('shopping_cart');
+        /*$dataCart = $this->session->userdata('shopping_cart');
         if(is_null($dataCart)) {
             redirect($this->config->item('base_url'));
         }
         $data['data_carts'] = $dataCart;
         $data['summary'] = $this->totalQuantityPrice();
-        $head['title_page'] = 'Đặt hàng';
+        $head['title_page'] = 'Đặt hàng';*/
         $this->render2('checkout', $head, $data);
     }
 

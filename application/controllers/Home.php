@@ -52,6 +52,7 @@ class Home extends MY_Controller
         //$data['sliderProducts'] = $this->Publicmodel->getSliderProducts();
         //$data['products'] = $this->Publicmodel->getProducts($this->num_rows, $page, $_GET);
         $data['products'] = $this->getProductShowHome();
+        $data['products_slider'] = $this->getProductShowSlider();
         //$rowscount = $this->Publicmodel->productsCount($_GET);
         //$data['shippingOrder'] = $this->AdminModel->getValueStore('shippingOrder');
         //$data['showOutOfStock'] = $this->AdminModel->getValueStore('outOfStock');
@@ -61,6 +62,14 @@ class Home extends MY_Controller
         $this->render('home', $head, $data);
     }
 
+    /**
+     * @return array
+     */
+    protected function getProductShowSlider(){
+        /** @var ProductModel $productModel */
+        $productModel = $this->ProductModel;
+        return $productModel->loadSlider();
+    }
     /**
      * @return array
      */
@@ -75,6 +84,7 @@ class Home extends MY_Controller
                 $topCategories[$category->id] = [];
                 $topCategories[$category->id]['name'] = $category->name;
                 $topCategories[$category->id]['value'] = array();
+                $topCategories[$category->id]['url'] = $category->urlName;
             }
                 
             if($category->subFor)
@@ -84,7 +94,7 @@ class Home extends MY_Controller
             if(empty($topCategory['value'])) continue;
             $topCategory['value'][] = $key;
             $data = $this->ProductModel->loadByCategorieTop($topCategory['value']);
-            $list[$key] = array('name'=>$topCategory['name'],'data'=>$data);
+            $list[$key] = array('name'=>$topCategory['name'],'data'=>$data,'url'=>$topCategory['url']);
         }
         return $list;
     }
