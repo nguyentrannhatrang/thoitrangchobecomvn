@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('templatecss/photoswipe.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('templatecss/default-skin.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('templatecss/style.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('templatecss/jquery.modal.min.css') ?>">
     <!-- e-detail-->
 
     <!--[if IE]><link rel="stylesheet" type="text/css" href="http://www.urbanadventures.com/css/ieonly-urbanadventures.css"><![endif]-->
@@ -41,6 +42,8 @@
     <meta itemprop="image" content="http://www.urbanadventures.comhttps://media-cdn.urbanadventures.com/data/0/dest_0/c-fakepath-krakow-1-980x400.jpg">
     <script type="text/javascript" src="//cdn.optimizely.com/js/3837813493.js"></script>
     <script type="text/javascript" src="<?= base_url('templatejs/home.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('templatejs/cart.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('templatejs/jquery.modal.min.js') ?>"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#subscribe-news-home').click(function(event) {

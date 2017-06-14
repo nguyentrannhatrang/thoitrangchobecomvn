@@ -24,9 +24,11 @@ class Product extends MY_Controller
         $head['title'] = @$arrSeo['title'];
         $head['description'] = @$arrSeo['description'];
         $head['keywords'] = str_replace(" ", ",", $head['title']);
-        $data['right_menu'] = $this->getLeftMenu();
+        /** @var ProductModel $productModel */
+        $productModel = $this->ProductModel;
+        //$data['right_menu'] = $this->getLeftMenu();
         /** @var ProductModel $product */
-        $product = $this->ProductModel->getProductByUrl($url);
+        $product = $productModel->getProductByUrl($url);
         $data['product'] = $product;
         $head['title_page'] = $product->getName();
         $data['others_image'] = $this->loadOthersImages($product->getFolder());
@@ -36,8 +38,8 @@ class Product extends MY_Controller
         $data['sizes_data'] = $aSize;
         $data['count_reviews'] = $this->CommentsModel->countByProduct($product->getId());
         $data['current_categorie'] = $this->CategoryModel->getById($product->shopCategorie);
-        $data['relation_products'] = $this->ProductModel->getProducts(array($product->shopCategorie),true,10);
-        $this->render2('product', $head, $data);
+        $data['relation_products'] = $productModel->getProducts(array($product->shopCategorie),true,3,0,$product->getId());
+        $this->renderUa('product', $head, $data);
     }
 
     /**
@@ -64,7 +66,7 @@ class Product extends MY_Controller
     {
         $aResult = array();
         if ($folder != null) {
-            $dir = 'attachments' . DIRECTORY_SEPARATOR . 'shop_images' . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR;
+            $dir = 'attachments/shop_images/'  . $folder . '/';
             if (is_dir($dir)) {
                 if ($dh = opendir($dir)) {
                     while (($file = readdir($dh)) !== false) {

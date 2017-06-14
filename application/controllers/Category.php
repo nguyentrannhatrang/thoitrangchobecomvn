@@ -21,7 +21,7 @@ class Category extends MY_Controller
 //        $head['description'] = @$arrSeo['description'];
 //        $head['keywords'] = str_replace(" ", ",", $head['title']);
         $data['products'] = $this->getListProduct($category);
-        $data['left_menu'] = $this->getLeftMenu();
+        //$data['left_menu'] = $this->getLeftMenu();
         $data['current_categorie'] = $this->CategoryModel->getByUrl($category);
         $head['title_page'] = $data['current_categorie']->getName();
         $this->renderUa('category', $head, $data);

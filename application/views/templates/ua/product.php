@@ -10,21 +10,24 @@
                 <div class="combo reversed">
                     <div class="combo-first">
                         <div class="tour-title font-carto-gothic-regular">
-                            <p>This is Aperitivo!</p>
+                            <p><?= $product->getName() ?></p>
                         </div>
                         <div class="tour-location font-open-sans">
-                            <p>Cinque Terre, Italy</p>
+                            <p><?= $product->getPriceFormat() ?> đồng</p>
 
 
                         </div>
                     </div>
                     <div class="combo-last">
                         <!--start price mobile-->
-                        <p class="from-price">From USD 88.49</p>
+                        <p class="from-price"><?= $product->getPriceFormat() ?> đồng</p>
                         <!--meta(content="#{tour.currency}", itemprop="priceCurrency")-->
                         <!--meta(content="#{tour.price2}", itemprop="price")-->
                         <!--end price mobile-->
-                        <div class="submit-button"><a href="Cinque-Terre-tour-this-is-aperitivo" class="wide button palm--hidden">Book Now</a><a href="/mobile/Cinque-Terre-tour-this-is-aperitivo" class="wide button large--hidden">Book Now</a></div>
+                        <div class="submit-button">
+                            <a href="Cinque-Terre-tour-this-is-aperitivo" class="wide button palm--hidden">Book Now</a>
+                            <a href="/mobile/Cinque-Terre-tour-this-is-aperitivo" class="wide button large--hidden">Book Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -33,67 +36,54 @@
                 <!--reserve now button-->
             </div>
         </div>
-        <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-12-lead.jpg')" class="tour-booking">
+        <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>')" class="tour-booking">
             <div class="grid large--show">
                 <div class="grid__item two-thirds lap--one-third"></div>
                 <div class="grid__item one-third lap--two-thirds">
                     <div class="booking">
                         <div class="booking-header">
                             <div class="tour-title font-carto-gothic-regular">
-                                <p>This is Aperitivo!</p>
+                                <p><?= $product->getName() ?></p>
                             </div>
                             <div class="tour-location font-open-sans">
-                                <p>Cinque Terre, Italy</p>
-
-
+                                <p><?= $product->getPriceFormat() ?> đồng</p>
                             </div>
                         </div>
+                        <div class="description">
+                            <?= $product->getBasicDescription() ?>
+                        </div>
                         <div class="book-now">
-                            <div id="datepicker" class="calendar"></div>
-                            <div class="date-selector-legend spacer"><span class="selection">Select day</span><span class="unavailable">Not Available</span></div>
-                            <form name="frmBooking" id="frmBooking" action="" method="post">
+                            <form name="frm-product" id="frm-product" action="" method="post">
+                                <input type="hidden" name="product_id" id="product_id" value="<?= $product->getId() ?>">
+                                <input type="hidden" name="product_price" id="product_price" value="<?= $product->getPrice() ?>">
                                 <div class="time-selector">
-                                    <p>Departure time</p>
-                                    <select id="departure-time" class="depart form-select">
-                                        <option value="1434">6.30 PM</option><option value="1884">5.30 PM</option>
-                                    </select><span class="depart">&nbsp;</span>
-                                    <input type="hidden" name="departure-time" class="depart">
+                                    <p>Size</p>
+                                    <select id="pa_size" name="size" class="depart form-select">
+                                        <option value="">Chọn kích cỡ</option>
+                                        <?php foreach ($sizes_data as $size){?>
+                                            <option value="<?= $size['code']?>" ><?= $size['name']?></option>
+                                        <?php }?>
+                                    </select><br/>
+                                    <span class="error" id="error_pa_size"></span>
                                 </div>
-                                <div class="people-selector">
-                                    <div class="adults">
-                                        <p>Adult</p>
-                                        <select id="no-adults" name="no-adults" class="form-select"></select>
-                                        <p class="align-center">
-                                            <span id="price-adults-currency" class="price-currency">USD</span><span id="price-adults">88.49</span>
-                                        </p>
+                                <div class="time-selector">
+                                    <p>Số lượng</p>
+                                    <div class="quantity">
+                                        <input type="number" class="qty" step="1" min="0" max="0" id="quantity" name="quantity" value="0" />
+                                        <br/>
+                                        <span class="error" id="error_quantity"></span>
                                     </div>
-                                    <div class="children">
-                                        <p>Child</p>
-                                        <select id="no-children" name="no-children"  class="form-select"></select>
-                                        <!--s-child-policy-->
-                                        <p class="align-center">
-                                            <span id="price-children-currency" class="price-currency">USD</span><span id="price-children">88.49</span>
-                                        </p>
-                                        <!--e-child-policy-->
-                                    </div>
+                                </div>
+                                <div class="total-price hide">
+                                    <span>Tổng tiền: </span>
+                                    <span class="price" id="total-price"></span> đồng
+                                </div>
+                                <div class="submit-button">
+                                    <a id="add_to_cart" href="#" class="wide button">Thêm Vào Giỏ</a>
+                                </div>
 
-                                </div>
-                                <div class="submit-button"><a id="submitBooking" href="javascript:void(0)" class="wide button">Book Now</a></div>
-                                <input type="hidden" name="departure_date" id="departure_date">
-                                <input type="hidden" id="promo_code" name="promo_code" value="">
-                                <input type="hidden" name="act" value="SubmitBooking">
-                                <!--TRIP_CODE=ITCQA-->
                             </form>
-                            <div class="call-to-action">
-                                <input type="hidden" name="tour-id" id="tour-id" value="1156">
-                                <input type="hidden" name="currencyrate" id="currencyrate" value="1">
-                                <input type="hidden" name="Price" id="Price" value="79.00">
-                                <input type="hidden" name="ExPrice" id="ExPrice" value="88.49">
-                                <input type="hidden" name="ChildPrice" id="ChildPrice" value="79.00">
-                                <input type="hidden" name="ExChildPrice" id="ExChildPrice" value="88.49">
-                                <input type="hidden" name="ChildPolicy" id="ChildPolicy" value="1"><a href="javascript:checkoutTour();" id="CGbuttonSubmit" class="call-to-action-link">Give as gift</a>
-                            </div>
-                            <!--reserve now button-->
+
                         </div>
                     </div>
                 </div>
@@ -103,7 +93,45 @@
 
         </div>
         <div class="accordion-container tour-accordion">
-            <div id="nav-section1" class="accordion">TOUR SNAPSHOT</div>
+
+            <div id="nav-section1" class="accordion">HÌNH ẢNH</div>
+            <div class="container mobile-tour-container">
+                <ul class="accordion-item">
+                    <li>
+                        <div class="photo-gallery">
+                            <div class="photo-gallery-row">
+                                <div class="current-photo">
+                                    <?php foreach ($others_image as $index=>$other) {?>
+                                    <img id="img_<?= $index ?>" src="<?= $other ?>"   alt="<?= $product->getName() ?>, thoitrangchobe"  />
+                                    <?php } ?>
+                                </div>
+                                <div class="gallery-tiles">
+                                    <div class="gallery-offset">
+                                        <?php foreach ($others_image as $index=>$other) {?>
+                                        <div style="background-image: url('<?= $other ?>');" rel="<?= $other ?>" id="img_<?= $index ?>" class="gallery-tile"></div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                                <div class="carousel mobile-tour-carousel pictures">
+                                    <ul class="bxslider-carousel">
+                                        <?php foreach ($others_image as $index=>$other) {?>
+                                        <li>
+                                            <div style="background-image: url('<?= $other ?>');" rel="<?= $other ?>" id="img_<?= $index ?>" class="carousel-image">
+                                                <a href="<?= $other ?>" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe">
+                                                    <img src="<?= $other ?>" style="display:none">
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <?php } ?>
+                                    </ul>
+                                    <div class="carousel-outside"><i id="slider-prev"></i><i id="slider-next"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="nav-section2" class="accordion">TOUR SNAPSHOT</div>
             <div class="container">
                 <ul class="accordion-item">
 
@@ -142,7 +170,7 @@
                     <!--e-actionaid-->
                 </ul>
             </div>
-            <div id="nav-section2" class="accordion">FULL ITINERARY</div>
+            <div id="nav-section3" class="accordion">FULL ITINERARY</div>
             <div class="container">
                 <ul class="accordion-item">
                     <li class="itinerary-container"><p>Your Cinque Terre tour will start out in the new part of Monterosso village, where there’s plenty of coastline and little rocky beaches to see. We’ll walk to the end of this area and check out the ancient statue on the rocks, called “the Giant of Monterosso.” </p>
@@ -178,7 +206,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="nav-section3" class="accordion">REVIEWS</div>
+            <div id="nav-section4" class="accordion">REVIEWS</div>
             <div class="container">
                 <div class="rating-header">
                     <div class="grid">
@@ -297,134 +325,27 @@
 
                 </ul>
             </div>
-            <div id="nav-section4" class="accordion">PHOTO GALLERY</div>
-            <div class="container mobile-tour-container">
-                <ul class="accordion-item">
-                    <li>
-                        <div class="photo-gallery">
-                            <div class="photo-gallery-row">
-                                <div class="current-photo">
-                                    <img id="img_1" src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-12-lead.jpg"   alt="This is Aperitivo tour, Cinque Terre tour"  />
-                                    <img id="img_2" src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-4.jpg"   alt="This is Aperitivo tour, Cinque Terre tour"  />
-                                    <img id="img_3" src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-7.jpg"   alt="This is Aperitivo tour, Cinque Terre tour"  />
-                                    <img id="img_4" src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-15.jpg"   alt="This is Aperitivo tour, Cinque Terre tour"  />
-                                    <img id="img_5" src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-17.jpg"   alt="This is Aperitivo tour, Cinque Terre tour"  />
-                                    <img id="img_6" src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-22.jpg"   alt="This is Aperitivo tour, Cinque Terre tour"  />
-                                    <img id="img_7" src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-23.jpg"   alt="This is Aperitivo tour, Cinque Terre tour"  />
-                                    <img id="img_8" src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-24.jpg"   alt="This is Aperitivo tour, Cinque Terre tour"  />
-
-                                </div>
-                                <div class="gallery-tiles">
-                                    <div class="gallery-offset">
-
-                                        <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-12-lead.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-12-lead.jpg" id="img_1" class="gallery-tile"></div>
-
-                                        <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-4.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-4.jpg" id="img_2" class="gallery-tile"></div>
-
-                                        <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-7.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-7.jpg" id="img_3" class="gallery-tile"></div>
-
-                                        <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-15.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-15.jpg" id="img_4" class="gallery-tile"></div>
-
-                                        <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-17.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-17.jpg" id="img_5" class="gallery-tile"></div>
-
-                                        <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-22.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-22.jpg" id="img_6" class="gallery-tile"></div>
-
-                                        <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-23.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-23.jpg" id="img_7" class="gallery-tile"></div>
-
-                                        <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-24.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-24.jpg" id="img_8" class="gallery-tile"></div>
-
-                                    </div>
-                                </div>
-                                <div class="carousel mobile-tour-carousel pictures">
-                                    <ul class="bxslider-carousel">
-
-                                        <li>
-                                            <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-12-lead.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-12-lead.jpg" id="img_1" class="carousel-image"><a href="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-12-lead.jpg" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe"><img src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-12-lead.jpg" style="display:none"></a></div>
-                                        </li>
-
-                                        <li>
-                                            <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-4.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-4.jpg" id="img_2" class="carousel-image"><a href="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-4.jpg" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe"><img src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-4.jpg" style="display:none"></a></div>
-                                        </li>
-
-                                        <li>
-                                            <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-7.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-7.jpg" id="img_3" class="carousel-image"><a href="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-7.jpg" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe"><img src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-7.jpg" style="display:none"></a></div>
-                                        </li>
-
-                                        <li>
-                                            <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-15.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-15.jpg" id="img_4" class="carousel-image"><a href="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-15.jpg" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe"><img src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-15.jpg" style="display:none"></a></div>
-                                        </li>
-
-                                        <li>
-                                            <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-17.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-17.jpg" id="img_5" class="carousel-image"><a href="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-17.jpg" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe"><img src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-17.jpg" style="display:none"></a></div>
-                                        </li>
-
-                                        <li>
-                                            <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-22.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-22.jpg" id="img_6" class="carousel-image"><a href="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-22.jpg" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe"><img src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-22.jpg" style="display:none"></a></div>
-                                        </li>
-
-                                        <li>
-                                            <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-23.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-23.jpg" id="img_7" class="carousel-image"><a href="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-23.jpg" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe"><img src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-23.jpg" style="display:none"></a></div>
-                                        </li>
-
-                                        <li>
-                                            <div style="background-image: url('https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-24.jpg');" rel="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-24.jpg" id="img_8" class="carousel-image"><a href="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-24.jpg" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe"><img src="https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-24.jpg" style="display:none"></a></div>
-                                        </li>
-
-                                    </ul>
-                                    <div class="carousel-outside"><i id="slider-prev"></i><i id="slider-next"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!--start instagram link-->
-                    <li>
-                        <div class="call-to-action gallery-call-to-action"><a href="http://www.instagram.com/cinqueterreurbanadventures" target="_blank" class="call-to-action-link">Check out the latest from Cinque Terre on Instagram</a></div>
-                    </li>
-                    <!--end instagram link-->
-                </ul>
-            </div>
-        </div>
-        <div class="share-icons">
-            <div class="grid grid--narrow">
-                <div class="grid__item one-fifth palm--one-quarter"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.urbanadventures.com%2FCinque-Terre-tour-this-is-aperitivo&amp;display=popup" class="fbshare"><img src="/assets/images/ua/social-facebook.png" class="share-social-icon"></a>
-                </div>
-                <div class="grid__item one-fifth palm--one-quarter"><a href="https://twitter.com/share?url=http%3A%2F%2Fwww.urbanadventures.com%2FCinque-Terre-tour-this-is-aperitivo&amp;text=I%E2%80%99m+putting+this+%40urbanadventures+tour+on+my+travel+wish+list.+Who%E2%80%99s+in%3F%21+%23localsknow+" class="tweet"><img src="/assets/images/ua/social-tweet.png" class="share-social-icon"></a>
-                </div>
-                <div class="grid__item one-fifth palm--one-quarter"><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.urbanadventures.com%2FCinque-Terre-tour-this-is-aperitivo" class="gplus"><img src="/assets/images/ua/social-gplus.png" class="share-social-icon"></a>
-                </div>
-                <div class="grid__item one-fifth palm--one-quarter"><a href="https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.urbanadventures.com%2FCinque-Terre-tour-this-is-aperitivo&amp;media=https%3A%2F%2Fmedia-cdn.urbanadventures.com%2Fdata%2F254%2Ftour_1156%2Fc-fakepath-12-lead.jpg&amp;description=I%27m+putting+this+Urban+Adventures+tour+on+my+travel+wish+list.+Who%27s+in%3F%21+Let%27s+go+local.+%23UrbanAdventures" data-pin-do="buttonPin" data-pin-config="above" class="pinit"><img src="/assets/images/ua/social-pinit.png" class="share-social-icon"></a>
-                </div>
-                <div class="grid__item one-fifth palm--hidden"><a id="btnSendThisPage" href="#" data-name="This is Aperitivo!" data-uri="/Cinque-Terre-tour-this-is-aperitivo" data-type="1" data-message="Hey! I've got the inside scoop for your next trip. Check out this awesome tour with Urban Adventures!"><img src="/assets/images/ua/social-email.png" class="share-social-icon"></a>
-                    <div id="send-this-page"></div>
-                </div>
-            </div>
         </div>
         <!--start other tours-->
         <div class="other-tours">
-            <h3>YOU MAY ALSO LIKE</h3>
+            <h3>Có thể bạn thích</h3>
             <div class="grid">
-
-                <div class="grid__item one-third palm--one-whole spacer"><a href="Cinque-Terre-tour-tasting-cinque-terre" class="tour-tile">
-                        <!--.large.new.ribbon-->
-                        <div style="background-image: url(https://media-cdn.urbanadventures.com/data/254/tour_1157/xm-c-fakepath-20160614_171511.jpg);" class="tour-tile-image"></div>
+                <?php
+                /**
+                 * @var ProductModel  $_product
+                 */
+                foreach ($relation_products as $index=>$_product){?>
+                <div class="grid__item one-third palm--one-whole spacer">
+                    <a href="/product-<?=$_product->getUrl() ?>" class="tour-tile">
+                        <div style="background-image: url(<?= base_url('/attachments/shop_images/'.$_product->getImage()) ?>);" class="tour-tile-image"></div>
                         <div class="tour-tile-info">
-                            <h5 class="tour-tile-title">Tasting Cinque Terre</h5><span class="tour-tile-location">Cinque Terre, Italy</span><span class="icon icon-encircled-right-arrow"></span>
-                        </div></a></div>
-
-                <div class="grid__item one-third palm--one-whole spacer"><a href="Cinque-Terre-tour-cinque-terre-hike-bite" class="tour-tile">
-                        <!--.large.new.ribbon-->
-                        <div style="background-image: url(https://media-cdn.urbanadventures.com/data/254/tour_1158/xm-c-fakepath-1-lead.jpg);" class="tour-tile-image"></div>
-                        <div class="tour-tile-info">
-                            <h5 class="tour-tile-title">Cinque Terre Hike & Bite</h5><span class="tour-tile-location">Cinque Terre, Italy</span><span class="icon icon-encircled-right-arrow"></span>
-                        </div></a></div>
-
-                <div class="grid__item one-third palm--one-whole spacer"><a href="Genoa-tour-ancient-tastes-of-genoa" class="tour-tile">
-                        <!--.large.new.ribbon-->
-                        <div style="background-image: url(https://media-cdn.urbanadventures.com/data/279/tour_1382/xm-c-fakepath-5.jpg);" class="tour-tile-image"></div>
-                        <div class="tour-tile-info">
-                            <h5 class="tour-tile-title">Ancient Tastes of Genoa</h5><span class="tour-tile-location">Genoa, Italy</span><span class="icon icon-encircled-right-arrow"></span>
-                        </div></a></div>
-
+                            <h5 class="tour-tile-title"><?= $_product->getName() ?></h5>
+                            <span class="tour-info-tile-price"><?= $_product->getPriceFormat()?> đồng</span>
+                            <span class="icon icon-encircled-right-arrow"></span>
+                        </div>
+                    </a>
+                </div>
+                <?php } ?>
             </div>
         </div>
         <!--end other tour-->
@@ -489,3 +410,12 @@
     </div>
     <?php $this->view('templates/ua/_parts/footer-menu',array()); ?>
 </div>
+<script type="text/javascript">
+    var error = 0;
+    var isPopup = false;
+    var size_quantity = '<?php echo json_encode($sizes_data);?>';
+
+</script>
+<script src="<?= base_url('templatejs/function.js') ?>" type="text/javascript"></script>
+<script src="<?= base_url('templatejs/product.js') ?>" type="text/javascript"></script>
+<script src="<?= base_url('templatejs/cart.js') ?>" type="text/javascript"></script>

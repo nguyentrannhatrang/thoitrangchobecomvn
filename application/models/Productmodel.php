@@ -108,7 +108,7 @@ class ProductModel extends CI_Model
      * @param int $start
      * @return array
      */
-    public function getProducts(array $categories = array(),$checkQuantity = true,$limit = 20,$start = 0)
+    public function getProducts(array $categories = array(),$checkQuantity = true,$limit = 20,$start = 0,$notId = null)
     {
         if ($limit !== null && $start !== null) {
             $this->db->limit($limit, $start);
@@ -130,6 +130,9 @@ class ProductModel extends CI_Model
         $this->db->where_in('shop_categorie', $categories);
         if ($checkQuantity) {
             $this->db->where('quantity >', 0);
+        }
+        if(!empty($notId)){
+            $this->db->where('products.id <>', $notId);
         }
         $this->db->order_by('position', 'asc');
         $query = $this->db->get(self::TABLE_NAME);

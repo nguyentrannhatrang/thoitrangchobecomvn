@@ -1,4 +1,4 @@
-
+<?php $this->view('templates/ua/_parts/cart-content');?>
 <div id="overlay-two" class="overlay"></div>
 <div id="log-in-modal" class="modal"><a href="#" class="close-modal close-action">X</a>
     <div class="modal-header align-center">

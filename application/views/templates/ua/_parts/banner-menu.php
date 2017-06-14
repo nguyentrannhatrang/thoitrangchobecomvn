@@ -12,8 +12,7 @@
                     <form id="frm-currency" name="frm-currency" method="post" action="" class="currency">
                         <ul class="right-menue-list">
                             <!--s-my-cart-->
-                            <li class="right-menue-item"><a href="/my-cart">(1)</a></li>
-                            <li class="right-menue-item"><a href="/my-cart">My Cart</a></li>
+                            <?php $this->view('templates/ua/_parts/cart');?>
 <!--                            <li class="right-menue-item">|</li>-->
                             <!--e-my-cart-->
 

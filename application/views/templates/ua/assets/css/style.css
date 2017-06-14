@@ -15,3 +15,91 @@ div.tour-info-tile-description div.more-info{
     right: 8px;
     position: absolute;
 }
+.description{
+    margin: 7px;
+}
+.total-price{
+    margin-bottom: 10px;
+}
+
+.modal .inform-action a{
+    background:#ff66cc;
+    border-radius: 10px;
+    color: #fff;
+    margin: 5px;
+    padding: 10px;
+}
+@media screen and (max-width: 676px) {
+    .modal .inform-content .product-name,
+    .modal .inform-content .product-price,
+    .modal .inform-total .label,
+    .modal .inform-total .total{
+        width: 100%;
+    }
+    #main .woocommerce .cart-collaterals .cart_totals,#main  .woocommerce-page .cart-collaterals .cart_totals{
+        width: 100%;
+    }
+    #breadcrumb{
+        margin: 0px auto 5px;
+        width: 100%;
+        padding: 0px 0.5%;
+    }
+    div.inform-action{
+        text-align: center;
+        vertical-align: middle;
+    }
+    div.inform-action div{
+        margin: 15px 5px;
+        clear: both;
+        display: block;
+        padding: 10px;
+    }
+    .modal div.inform-action div a{
+        padding: 10px 30px;
+    }
+    .slick-slide img{
+        margin: auto;
+    }
+}
+.modal .inform-content{
+    clear: both;
+    /*border-bottom:groove;*/
+    margin: 15px 4px;
+}
+@media screen and (min-width: 676px) {
+    .modal .inform-content .product-name,
+    .modal .inform-content .product-price,
+    .modal .inform-total .label,
+    .modal .inform-total .total{
+        width: 50%;
+        float: left;
+    }
+    .modal .inform-total{
+        margin-top: 15px;
+    }
+    #breadcrumb{
+        width: 1140px;
+        margin: 0px auto 5px;
+    }
+    div.inform-action div{
+        float: left;
+    }
+    div.inform-action{
+        float: right;
+        margin-top: 25px;
+    }
+    #popup_add_to_cart .product-price{
+        width: 60%;
+        float: left;
+    }
+    #popup_add_to_cart .product-image{
+        width: 40%;
+        float: left;
+    }
+    #popup_add_to_cart .product-image img{
+        width: 100px;
+    }
+}
+.modal .price{
+    text-align: right;
+}
