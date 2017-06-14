@@ -2,3 +2,16 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.capitalize {
+    text-transform: capitalize;
+}
+div.tour-info-price-and-more{
+    bottom: 7px;
+    right: 10px;
+    position: absolute;
+}
+div.tour-info-tile-description div.more-info{
+    bottom: 9px;
+    right: 8px;
+    position: absolute;
+}

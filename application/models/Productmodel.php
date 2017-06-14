@@ -619,5 +619,16 @@ class ProductModel extends CI_Model
         $this->basicDescription = $basicDescription;
     }
 
+    public function getNameLimit($length = 50)
+    {
+        if($length<=0 || strlen($this->name) < $length)
+            return $this->name;
+
+        while ($length>0 && substr($this->name,$length,1) != ' '){
+            $length--;
+        }
+        return substr($this->name,0,$length).'...';
+    }
+
 
 }

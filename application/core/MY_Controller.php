@@ -76,6 +76,27 @@ class MY_Controller extends MX_Controller
         $this->load->view($this->template . '_parts/footer'.$sufix, $footer);
     }
 
+
+
+    /*
+     * Render page from controller
+     * it loads header and footer auto
+     */
+
+    public function renderUa($view, $head, $data = null, $footer = null)
+    {
+        //$head['cartItems'] = $this->shoppingcart->getCartItems();
+        //$head['sumOfItems'] = $this->shoppingcart->sumValues;
+        $head['menu'] = $this->getListMenu();
+        $head['current_menu'] = array($view=>true);
+        $data['top_menu'] = $this->getLeftMenu();
+        $vars = $this->loadVars();
+        $this->load->vars($vars);
+        $this->load->view($this->template . '_parts/header', $head);
+        $this->load->view($this->template . $view, $data);
+        $this->load->view($this->template . '_parts/footer', $footer);
+    }
+
     /*
      * Load variables from values-store
      * texts, social media links, logos, etc.
@@ -231,4 +252,6 @@ class MY_Controller extends MX_Controller
         }
         return $result;
     }
+
+
 }

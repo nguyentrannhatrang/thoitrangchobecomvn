@@ -39,7 +39,13 @@
                     <div class="urban-adventures"><a href="/"><img src="http://www.urbanadventures.com/images/en/UA-primary_no-tag_REV.png" alt="Urban Adventures Logo" class="urban-adventures-branding"><span class="tagline font-carto-gothic-regular">Best. Day. Ever.</span></a></div>
                 </div>
                 <div class="grid__item one-third">
-                    <div class="social-media"><a target="_blank" href="http://www.facebook.com/urbanadventures" class="icon icon-facebook"></a><a target="_blank" href="http://twitter.com/urbanadventures" class="icon icon-twitter"></a><a target="_blank" href="https://plus.google.com/101395910973874706269" class="icon icon-google-plus"></a><a target="_blank" href="http://www.pinterest.com/UrbanAdventures" class="icon icon-pinterest"></a><a target="_blank" href="http://instagram.com/urbanadventures" class="icon icon-instagram"></a></div>
+                    <div class="social-media">
+                        <a target="_blank" href="http://www.facebook.com/cherryfashion.vn" class="icon icon-facebook"></a>
+                        <a target="_blank" href="http://twitter.com/urbanadventures" class="icon icon-twitter"></a>
+                        <a target="_blank" href="https://plus.google.com/101395910973874706269" class="icon icon-google-plus"></a>
+                        <a target="_blank" href="http://www.pinterest.com/UrbanAdventures" class="icon icon-pinterest"></a>
+                        <a target="_blank" href="http://instagram.com/urbanadventures" class="icon icon-instagram"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,36 +56,24 @@
                 <div class="grid__item desk--one-whole">
                     <div class="nav-links-container">
                         <ul class="nav-links">
-                            <li class="nav-link-element"><a id="destinations_nav" href="javascript:void(0)" class="nav-link-anchor">DESTINATIONS<i class="icon icon-down-arrow"></i></a>
-                                <div class="nav-slider-container">
-                                    <div class="box-shadow-container">
-                                        <dl class="subnav-section">
-                                            <dd role="menuitem"><a href="/country?cn=Albania&amp;s-country=514">Albania</a>
-                                            </dd>
-                                            <dd role="menuitem"><a href="/country?cn=Argentina&amp;s-country=282">Argentina</a>
-                                            </dd>
-                                        </dl>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-link-element"><a id="featured_nav" href="javascript:void(0)" class="nav-link-anchor">FEATURED TOURS<i class="icon icon-down-arrow"></i></a>
+                            <?php foreach ($top_menu as $item){?>
+                            <li class="nav-link-element"><a id="featured_nav<?= $item['info']['url'] ?>" href="/category-<?= $item['info']['url'] ?>" class="nav-link-anchor"><?= $item['info']['name'] ?><i class="icon icon-down-arrow"></i></a>
+                                <?php if(!empty($item['children'])){ ?>
                                 <div class="nav-dropdown-container">
                                     <div class="nav-dropdown">
                                         <dl class="subnav-section">
-                                            <dd class="nav-dropdown-element"><a href="/food" class="nav-dropdown-anchor">Food tours</a></dd>
-                                            <dd class="nav-dropdown-element"><a href="/wine-and-drink" class="nav-dropdown-anchor">Drink tours</a></dd>
-                                            <dd class="nav-dropdown-element"><a href="/private-tours" class="nav-dropdown-anchor">Private tours</a></dd>
-                                        </dl>
-                                        <dl class="subnav-section">
-                                            <dd class="nav-dropdown-element"><a href="/new-tours" class="nav-dropdown-anchor more-featured">New tours</a></dd>
-                                            <dd class="nav-dropdown-element"><a href="/localsontap" class="nav-dropdown-anchor more-featured">Locals on Tap</a></dd>
+                                            <?php foreach ($item['children'] as $child){ ?>
+                                            <dd class="nav-dropdown-element"><a href="/category-<?= $child['url'] ?>" class="nav-dropdown-anchor"><?= $child['name'] ?></a></dd>
+                                            <?php } ?>
                                         </dl>
                                     </div>
                                 </div>
+                                <?php } ?>
                             </li>
-                            <li class="nav-link-element"><a href="/about-us" class="nav-link-anchor">ABOUT US</a></li>
-                            <li class="nav-link-element"><a href="/contact-us" class="nav-link-anchor">CONTACT US</a></li>
-                            <li class="nav-link-element"><a href="/blog/" class="nav-link-anchor">BLOG</a></li>
+                            <?php } ?>
+                            <li class="nav-link-element"><a href="/about" class="nav-link-anchor">Giới thiệu</a></li>
+                            <li class="nav-link-element"><a href="/contact" class="nav-link-anchor">Liên hệ</a></li>
+                            <li class="nav-link-element"><a href="/blog" class="nav-link-anchor">Blog</a></li>
                         </ul>
                     </div>
                 </div>

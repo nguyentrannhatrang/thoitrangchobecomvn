@@ -5,7 +5,7 @@
     </div></a>
 <div class="site-footer palm--hidden">
     <div class="site-wrapper">
-        <div class="news-letter-sign-up">
+        <!--<div class="news-letter-sign-up">
             <form id="frm-subscribe" action="/subscribe" name="frm-subscribe">
                 <p>Sign up for our newsletter & get $10 off your first tour</p>
                 <div class="news-letter-sign-up-form">
@@ -14,27 +14,23 @@
                     <input id="subscribe-news" type="submit" value="OK">
                 </div>
             </form>
-        </div>
+        </div>-->
         <div class="multi-column-footer grid">
+            <?php foreach ($top_menu as $item){?>
             <div class="column grid__item one-fifth">
-                <p>DESTINATIONS</p>
+                <p class="capitalize"><a href="/category-<?= $item['info']['url'] ?>"><?= $item['info']['name'] ?></a></p>
+                <?php if(!empty($item['children'])){ ?>
                 <ul>
-                    <li><a href='http://www.urbanadventures.com/tours-in-africa'>Africa</a></li><li><a href='http://www.urbanadventures.com/tours-in-asia'>Asia</a></li><li><a href='http://www.urbanadventures.com/tours-in-caribbean'>Caribbean</a></li><li><a href='http://www.urbanadventures.com/tours-in-central-america'>Central America</a></li><li><a href='http://www.urbanadventures.com/tours-in-europe'>Europe</a></li><li><a href='http://www.urbanadventures.com/tours-in-middle-east'>Middle East</a></li><li><a href='http://www.urbanadventures.com/tours-in-north-america'>North America</a></li><li><a href='http://www.urbanadventures.com/tours-in-oceania'>Oceania</a></li><li><a href='http://www.urbanadventures.com/tours-in-south-america'>South America</a></li>
+                    <?php foreach ($item['children'] as $child){ ?>
+                    <li>
+                        <a href="/category-<?= $child['url'] ?>"><?= $child['name'] ?></a>
+                    </li>
+                    <?php } ?>
                 </ul>
+            <?php } ?>
             </div>
-            <div class="column grid__item one-fifth">
-                <p>FEATURED TOURS</p>
-                <ul>
-                    <li><a href="/staff-picks">Staff Picks</a></li>
-                    <li><a href="/new-tours">New Tours</a></li>
-                    <li><a href="/best-sellers">Best Sellers</a></li>
-                    <li><a href="/pop-up-tours">Pop-Up Tours</a></li>
-                    <li><a href="/in-focus">In Focus</a></li>
-                    <li><a href="/localsontap">Locals on Tap</a></li>
-                    <li><a href="/giftcert">Gift Certificates</a></li>
-                </ul>
-            </div>
-            <div class="column grid__item one-fifth">
+            <?php } ?>
+            <!--<div class="column grid__item one-fifth">
                 <p>GET INSPIRED</p>
                 <ul>
                     <li><a href="http://www.urbanadventures.com/blog/category/features/24-hours-in">24 Hours In... Guides</a></li>
@@ -55,26 +51,33 @@
                     <li><a href="/terms-of-use">Terms &amp; Conditions</a></li>
                     <li><a href="/privacy-statement">Privacy Policy</a></li>
                 </ul>
+            </div>-->
+            <div class="column grid__item one-fifth">
+                <p>THÔNG TIN LIÊN HỆ</p>
+                <ul>
+                    <li><strong>Email:</strong><br/> thoitrangchobe.store@gmail.com</li>
+                    <li><strong>Số điện thoại:</strong><br/> <a href="tel:0969188827">0969188827</a></li>
+                    <li><strong>Địa chỉ:</strong><br/> 269/12B11 Bà Hom P.13 Q.6 TP.HCM</li>
+                    <li><strong>Facebook:</strong><br/> <a target="_blank" href="https://facebook.com/cherryfashion.vn">facebook.com/cherryfashion.vn</a></li>
+                </ul>
             </div>
             <div class="column grid__item one-fifth">
-                <p>CONNECT WITH US</p>
-                <ul>
-                    <li><a href="/contact-us">Contact Urban Adventures</a></li>
-                    <li><a href="/contact-us#local-offices">Contact a Local Partner</a></li>
-                    <li><a href="/become-a-partner">Become a Local Partner</a></li>
-                    <li><a href="/affiliates">Become an Affiliate</a></li>
-                    <li><a href="/agents">Become an Agent</a></li>
-                    <li><a href="http://agent.urbanadventures.com/">Agent Log In</a></li>
-                    <li><a href="/traveller_corner">Provide Feedback</a></li>
-                    <li><a href="/traveller_corner">Traveller Log In</a></li>
-                </ul>
+                <p>MẠNG XÃ HỘI</p>
+                <div class="aps-social-icon-wrapper">
+                    <div class="aps-group-horizontal">
+                        <div class="fb-follow" data-href="https://www.facebook.com/cherryfashion.vn/" data-layout="standard" data-size="small" data-show-faces="true"></div>
+                        <!--                            <div class="fb-like" data-href="https://www.facebook.com/cherryfashion.vn/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>-->
+                        <div class="fb-page" data-href="https://www.facebook.com/cherryfashion.vn/" data-tabs="timeline" data-width="320" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cherryfashion.vn/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cherryfashion.vn/">Cherry fashion - Thời trang thiết kế cho bé</a></blockquote></div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
 </div>
 <div class="site-footer-mobile large--hidden">
     <div class="site-wrapper narrow">
-        <div class="news-letter-sign-up-mobile">
+        <!--<div class="news-letter-sign-up-mobile">
             <p>Sign up for our newsletter & get $10 off your first tour</p>
             <div class="news-letter-sign-up-form-mobile combo reversed full">
                 <form id="frm-subscribe-mobile" action="/subscribe" name="frm-subscribe">
@@ -87,7 +90,13 @@
                     </div>
                 </form>
             </div>
+        </div>-->
+        <div class="social-media">
+            <a href="http://www.facebook.com/cherryfashion.vn" class="icon icon-facebook"></a>
+            <a href="http://twitter.com/urbanadventures" class="icon icon-twitter"></a>
+            <a href="http://www.pinterest.com/UrbanAdventures" class="icon icon-pinterest"></a>
+            <a href="http://instagram.com/urbanadventures" class="icon icon-instagram"></a>
+            <a href="/subscribe" class="icon icon-newsletter"></a>
         </div>
-        <div class="social-media"><a href="http://www.facebook.com/urbanadventures" class="icon icon-facebook"></a><a href="http://twitter.com/urbanadventures" class="icon icon-twitter"></a><a href="http://www.pinterest.com/UrbanAdventures" class="icon icon-pinterest"></a><a href="http://instagram.com/urbanadventures" class="icon icon-instagram"></a><a href="/subscribe" class="icon icon-newsletter"></a></div>
     </div>
 </div>

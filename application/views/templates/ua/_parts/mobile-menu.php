@@ -12,27 +12,21 @@
         </form>
     </div>
     <ul class="site-navigation-links">
-        <li class="navigation-link"><a href="#" class="link large">Destinations</a>
+        <?php foreach ($top_menu as $item){?>
+        <li class="navigation-link"><a href="/category-<?= $item['info']['url'] ?>" class="link large"><?= $item['info']['name'] ?></a>
+            <?php if(!empty($item['children'])){ ?>
             <ul class="nested-link-group">
+                <?php foreach ($item['children'] as $child){ ?>
                 <li class="nested-link">
-                    <a href="/country?cn=Albania&amp;s-country=514" class="link">Albania</a>
-                    <a href="/country?cn=Argentina&amp;s-country=282" class="link">Argentina</a>
-                    <a href="/country?cn=Australia&amp;s-country=236" class="link">Australia</a>
-                    <a href="/country?cn=Austria&amp;s-country=533" class="link">Austria</a>
-                    <a href="/country?cn=Bangladesh&amp;s-country=528" class="link">Bangladesh</a>
-                    <a href="/country?cn=Bolivia&amp;s-country=502" class="link">Bolivia</a>
-
+                    <a href="/category-<?= $child['url'] ?>" class="link"><?= $child['name'] ?></a>
                 </li>
+                <?php } ?>
             </ul>
+            <?php } ?>
         </li>
-        <li class="navigation-link"><a href="#" class="link large">Featured Tours</a>
-            <ul class="nested-link-group">
-                <li class="nested-link"><a href="/food" class="link">Food tours</a><a href="/active" class="link">Active tours</a><a href="/beer" class="link">Beer tours</a><a href="/wine-and-drink" class="link">Drink tours</a><a href="/private-tours" class="link">Private tours</a><a href="/new-tours" class="link">New tours</a><a href="/staff-picks" class="link">Staff picks</a><a href="/best-sellers" class="link">Best sellers</a><a href="/pop-up-tours" class="link">Pop-Up tours</a><a href="/in-focus" class="link">In Focus</a><a href="/localsontap" class="link">Locals on Tap</a></li>
-            </ul>
-        </li>
-        <li class="navigation-link"><a href="/giftcert" class="link large">Gift Certificates</a></li>
-        <li class="navigation-link"><a href="/about-us" class="link large">About Us</a></li>
-        <li class="navigation-link"><a href="/contact-us" class="link large">Contact Us</a></li>
-        <li class="navigation-link"><a href="/blog/" class="link large">Blog</a></li>
+        <?php } ?>
+        <li class="navigation-link"><a href="/about" class="link large">Giới thiệu</a></li>
+        <li class="navigation-link"><a href="/contact" class="link large">Liên hệ</a></li>
+        <li class="navigation-link"><a href="/blog" class="link large">Blog</a></li>
     </ul>
 </div>
