@@ -80,7 +80,7 @@ jQuery(function($){
                     $.each(aSize,function (size,data_cart) {
                         var row = html;
                         row = row.replace('{{name-size}}',data_cart.name + ' - ' +data_cart.size,row);
-                        row = row.replace('{{src}}',data_cart.image,row);
+                        row = row.replace('{{src}}','src="/attachments/shop_images/' + data_cart.image + '"',row);
                         row = row.replace('{{price-unit}}',NTNT.format_price(data_cart.price),row);
                         row = row.replace('{{quantity}}',data_cart.quantity,row);
                         row = row.replace('{{price}}',NTNT.format_price(data_cart.quantity*data_cart.price),row);
@@ -91,7 +91,7 @@ jQuery(function($){
             })
         }
         if(summary && typeof summary.total !== 'undefined'){
-            $('#popup_add_to_cart .inform-total .total span').text(NTNT.format_price(summary.total)+'VND');
+            $('#popup_add_to_cart .inform-total .total span').text(NTNT.format_price(summary.total)+' đồng');
         }
         if(summary && typeof summary.quantity !== 'undefined'){
             $('#popup_add_to_cart span.total-quantity').text(summary.quantity);

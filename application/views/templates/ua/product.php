@@ -131,194 +131,69 @@
                     </li>
                 </ul>
             </div>
-            <div id="nav-section2" class="accordion">TOUR SNAPSHOT</div>
+            <div id="nav-section2" class="accordion">MÔ TẢ SẢN PHẨM</div>
             <div class="container">
-                <ul class="accordion-item">
-
-                    <!--s-snapshot  -->
-                    <li id="snapshot_tour" class="snapshot_tour">
-                        <h4>Tour snapshot</h4><p>Great views, great food, great wine, and great stories — this tour has it all! Get a taste for both old and new Monterosso on this walking tour, before digging into authentic <em>aperitivo</em> at a traditional local cafe.</p>
-                    </li>
-                    <!--e-snapshot-->
-                    <li id="hightlight_tour">
-                        <h4>Highlights</h4><ul>
-                            <li>Participate in traditional <em>aperitivo</em> at a local cafe</li>
-                            <li>Sample local food, paired with local wine</li>
-                            <li>Explore on foot both the old and new towns of Monterosso</li>
-                            <li>Get spectacular views of the coastline and coloured houses of the village</li>
-                            <li>Learn the history and traditions of Monterosso, directly from the local people</li>
-                        </ul>
-                    </li>
-                    <!--s-inclusion1-->
-                    <p>Inclusions: Local English-speaking guide, food and drink tastings (samples may vary depending on the season and what’s freshly available, but expect treats like bruschetta, olives, focaccia, pesto, anchovies, and cheese, along with two wines or soft drinks per person).</p>
-                    <!--e-inclusion1-->
-                    <!--s-exclusion1-->
-                    <p>Exclusions: Additional food and drinks, souvenirs and items of a personal nature, tips/gratuities for your guide.</p>
-                    <!--e-exclusion1-->
-                    <li>
-                        <h4>Schedule details</h4>
-                        <ul class="unordered-list">
-                            <li>Duration: 2 hours</li>
-                            <li class="pickup-location">Meeting point: <p>Monterosso train station on platform 1, just outside the tourist information office</p></li>
-                            <li class="pickup-time">Starting time: 5.30 PM, 6.30 PM</li>
-                            <li class="dropoff-location">Ending point: <p>Monterosso Old Town</p></li>
-                        </ul>
-                    </li>
-
-
-                    <!--s-actionaid--><a href="https://www.urbanadventures.com/action-aid"><img src="https://media-cdn.urbanadventures.com/images/en/ActionAid-Tour-Page-banner.jpg" class="hero-photo padding-10"></a>
-                    <!--e-actionaid-->
-                </ul>
+                <?= $product->getDescription()?>
             </div>
-            <div id="nav-section3" class="accordion">FULL ITINERARY</div>
-            <div class="container">
-                <ul class="accordion-item">
-                    <li class="itinerary-container"><p>Your Cinque Terre tour will start out in the new part of Monterosso village, where there’s plenty of coastline and little rocky beaches to see. We’ll walk to the end of this area and check out the ancient statue on the rocks, called “the Giant of Monterosso.” </p>
-                        <p>From there, we’ll continue to a spot that overlooks the Mediterranean Sea and the coast of Cinque Terre. Trust us, there are beautiful views to be found here! From this point, we’ll continue along a short path that takes us down to the old area of Monterosso. We’ll walk through the narrow streets where the houses are brightly coloured, and take a look at the old Genoese gothic church. Then, finally, we’ll grab a seat to enjoy our <em>aperitivo</em>! </p>
-                        <p>We’ll settle into a traditional cafe, where you can experience the best bites of local food, and sip wine produced in Cinque Terre. While enjoying all the traditional flavours, the owner will share the local secrets behind what we're eating and drinking, as well as a few good stories about Monterosso.</p></li>
-                    <li>
-                        <h4>Additional information</h4>
-                        <!--s-inclusion-->
-                        <p>Inclusions: Local English-speaking guide, food and drink tastings (samples may vary depending on the season and what’s freshly available, but expect treats like bruschetta, olives, focaccia, pesto, anchovies, and cheese, along with two wines or soft drinks per person).</p>
-                        <!--e-inclusion-->
-                        <!--s-exclusion-->
-                        <p>Exclusions: Additional food and drinks, souvenirs and items of a personal nature, tips/gratuities for your guide.</p>
-                        <!--e-exclusion-->
-                        <!--s-dress_standard-->
-                        <p>Dress standard: Please wear comfortable shoes for walking. You will need to have your knees and shoulders covered to enter the church.</p>
-                        <!--e-dress_standard-->
-                        <!--s-yourtrip-->
-                        <p>Your Trip: For your Urban Adventure you will be in a small group of a maximum of 12 people.</p>
-                        <!--e-yourtrip-->
-                        <!--s-confirmation-->
-                        <p>Confirmation of booking: If you have your voucher, your booking is confirmed. We'll see you at the start point. Get in touch if you have any concerns or require more information via the email address or phone number (business hours only) on your voucher.</p>
-                        <!--e-confirmation-->
-
-
-                        <!--s-child_policy-->
-                        <p>Child Policy: This is a child-friendly tour. Children between the ages of 6 and 11 inclusively are permitted on this tour at the rate listed above. Please select ‘child’ above when booking. Children under the age of 6 are permitted to join this tour free of charge. Please inform us at the time of booking if you’ll be bringing a child under the age of 6. You can do so in the special request box on the checkout page.</p>
-                        <!--e-child_policy-->
-                    </li>
-
-                    <li>
-                        <h4>Local contact</h4>
-                        <p>Office phone number: <a href="tel:+39 338 884 7405">+39 338 884 7405</a> <br/> Email address: info@cinqueterreurbanadventures.com</p>
-                    </li>
-                </ul>
-            </div>
-            <div id="nav-section4" class="accordion">REVIEWS</div>
+            <div id="nav-section3" class="accordion">ĐÁNH GIÁ</div>
             <div class="container">
                 <div class="rating-header">
                     <div class="grid">
                         <div class="grid__item one-half palm--one-whole">
-                            <div class="traveller-rating">
-                                <h4>Traveller rating</h4>
-                                <div class="traveller-rating-items">
-                                    <div class="traveller-rating-item">
-                                        <div class="item-title">
-                                            <p>Excellent</p>
-                                        </div>
-                                        <div class="item-progress">
-                                            <div class="progress-bar">
-                                                <div style="width: 0%" class="progress-value"></div>
-                                            </div>
-                                        </div>
-                                        <div class="item-value">
-                                            <p>(0)</p>
-                                        </div>
+                            <div class="traveller-comment">
+                                <form action="http://thoitrangchobe.com.vn" method="post" id="commentform" class="comment-form" novalidate>
+                                    <p class="error" id="review_error"></p>
+                                    <p class="mesage-success" id="review_success"></p>
+                                    <div class="row">
+                                        <p class="comment-form-author"><label for="author">Họ tên <span class="required">*</span></label>
+                                            <input id="author" name="author" type="text" value="" size="30" aria-required="true" required />
+                                        </p>
                                     </div>
-                                    <div class="traveller-rating-item">
-                                        <div class="item-title">
-                                            <p>Very good</p>
-                                        </div>
-                                        <div class="item-progress">
-                                            <div class="progress-bar">
-                                                <div style="width: 0%" class="progress-value"></div>
-                                            </div>
-                                        </div>
-                                        <div class="item-value">
-                                            <p>(0)</p>
-                                        </div>
+
+                                    <div class="row">
+                                        <p class="comment-form-email">
+                                            <label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" aria-required="true" required />
+                                        </p>
                                     </div>
-                                    <div class="traveller-rating-item">
-                                        <div class="item-title">
-                                            <p>Average</p>
-                                        </div>
-                                        <div class="item-progress">
-                                            <div class="progress-bar">
-                                                <div style="width: 0%" class="progress-value"></div>
-                                            </div>
-                                        </div>
-                                        <div class="item-value">
-                                            <p>(0)</p>
-                                        </div>
+                                    <div class="row">
+                                        <p class="comment-form-comment">
+                                            <label for="comment">Ý kiến của bạn <span class="required">*</span></label>
+                                            <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
+                                        </p>
+                                        <br/>
                                     </div>
-                                    <div class="traveller-rating-item">
-                                        <div class="item-title">
-                                            <p>Poor</p>
-                                        </div>
-                                        <div class="item-progress">
-                                            <div class="progress-bar">
-                                                <div style="width: 0%" class="progress-value"></div>
-                                            </div>
-                                        </div>
-                                        <div class="item-value">
-                                            <p>(0)</p>
-                                        </div>
+                                    <div class="row">
+                                        <p class="form-submit">
+                                            <input name="submit-review" type="submit" id="submit" class="submit" value="Submit" />
+                                        </p>
                                     </div>
-                                    <div class="traveller-rating-item">
-                                        <div class="item-title">
-                                            <p>Terrible</p>
-                                        </div>
-                                        <div class="item-progress">
-                                            <div class="progress-bar">
-                                                <div style="width: 0%" class="progress-value"></div>
-                                            </div>
-                                        </div>
-                                        <div class="item-value">
-                                            <p>(0)</p>
-                                        </div>
-                                    </div>
-                                </div>
+
+
+                                </form>
                             </div>
                         </div>
                         <div class="grid__item one-half palm--one-whole">
-                            <div class="rating-summary">
-                                <h4>Rating summary</h4>
-                                <div class="rating-summary-items">
-                                    <div class="rating-summary-item">
-                                        <div class="item-title">
-                                            <p>Overall experience</p>
-                                        </div>
+                            <div class="traveller-comment-content">
+                                <div id="comments">
+                                    <h2 class="woocommerce-Reviews-title">Đánh giá</h2>
 
-                                    </div>
-                                    <div class="rating-summary-item">
-                                        <div class="item-title">
-                                            <p>Guide</p>
-                                        </div>
+                                    <?php if($count_reviews == 0){ ?>
+                                        <p class="woocommerce-noreviews">There are no reviews yet.</p>
+                                    <?php } ?>
 
+                                </div>
+                                <div id="template-comment-view" style="display: none;">
+                                    <div class="item-comment">
+                                        <p> {{comment}}</p>
+                                        <strong>{{name}} ({{email}})</strong>
                                     </div>
-                                    <div class="rating-summary-item">
-                                        <div class="item-title">
-                                            <p>Local learning</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="rating-summary-item">
-                                        <div class="item-title">
-                                            <p>Responsible travel</p>
-                                        </div>
-
-                                    </div>
-                                    <div class="rating-summary-item">
-                                        <div class="item-title">
-                                            <p>Met expectations</p>
-                                        </div>
-
-                                    </div>
+                                </div>
+                                <div>
+                                    <a href="#" id="load_more">Hiển thị thêm</a>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <ul class="accordion-item">

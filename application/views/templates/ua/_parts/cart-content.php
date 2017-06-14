@@ -31,7 +31,7 @@
     <div style="display: none" id="row_in_cart">
         <div class="inform-content">
             <div class="product-image">
-                <img src="<?= base_url('/attachments/shop_images/')?>{{src}}" />
+                <img {{src}} />
             </div>
             <div class="product-price price">
                 <h5>{{name-size}}</h5>
