@@ -16,7 +16,7 @@ CREATE TABLE `product_detail` (
   `size` varchar(10) NOT NULL,
   `quantity` int(5) NOT NULL,
   PRIMARY KEY (`product`,`color`,`size`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE products ADD show_home TINYINT(1);
 ALTER TABLE shop_categories ADD url_name VARCHAR(100);
@@ -32,7 +32,7 @@ CREATE TABLE `traveller`(
   PRIMARY KEY (`id`),
   INDEX `traveller_email_index` (`email`),
   INDEX `traveller_phone_index` (`phone`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
   CREATE TABLE `booking`(
@@ -48,7 +48,7 @@ CREATE TABLE `traveller`(
   PRIMARY KEY (`id`),
   INDEX `booking_user_id_index` (`user_id`),
   INDEX `booking_status_index` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `booking_detail`(
   `id` int(11) NOT NULL AUTO_INCREMENT ,
@@ -68,7 +68,7 @@ CREATE TABLE `booking_detail`(
   PRIMARY KEY (`id`),
   INDEX `booking_detail_bkId_index` (`bkId`),
   INDEX `booking_detail_status_index` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `comments`(
   `id` int(11) NOT NULL AUTO_INCREMENT ,
@@ -83,7 +83,7 @@ CREATE TABLE `comments`(
   INDEX `comments_email` (`email`),
   INDEX `comments_product` (`product`),
   INDEX `comments_status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE booking ADD refNo varchar(17);
 ALTER TABLE booking ADD product_name varchar(255);

@@ -35,7 +35,7 @@
             </div>
             <div class="product-price price">
                 <h5>{{name-size}}</h5>
-                <p>{{price-unit}} đồng x {{quantity}} cái</p>
+                <p>{{price-unit}} đồng x {{quantity}} sản phẩm</p>
                 <strong>{{price}} đồng</strong>
             </div>
         </div>

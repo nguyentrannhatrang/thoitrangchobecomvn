@@ -15,6 +15,7 @@ class Thankyou extends MY_Controller
         $this->load->model('BookingModel');
         $this->load->model('Booking');
         $this->load->model('SizeModel');
+        $this->load->model('TravellerModel');
     }
 
     public function index($bkId = '')
@@ -23,12 +24,18 @@ class Thankyou extends MY_Controller
         $head = array();
         unset($_SESSION['shopping_cart']);
         @delete_cookie('shopping_cart');
-        $this->Booking->load($bkId);
-        $data['booking'] = $this->Booking;
+        /** @var Booking $bookingModel */
+        $bookingModel = $this->Booking;
+        $bookingModel->load($bkId);
+        $data['booking'] = $bookingModel;
+        /** @var TravellerModel $travellerModel */
+        $travellerModel = $this->TravellerModel;
+
+        $data['traveller'] = $travellerModel->getById($bookingModel->booking->user_id);
         $data['listSize'] = $this->SizeModel->loadArray();
         $head['title_page'] = 'Thankyou';
-        $this->send();
-        $this->render2('thankyou', $head, $data);
+        //$this->send();
+        $this->renderUa('thankyou', $head, $data);
     }
 
     public function send(){

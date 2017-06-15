@@ -85,11 +85,18 @@ div.tour-info-tile-description div.more-info{
     .book-now div.time-selector input{
         width: 100%;
     }
-    .split-block > div.grid{
+    .split-block > div.grid,
+    .booking-item > div.grid{
         border-bottom: solid 1px #0C1021;
     }
-    .split-block > div.grid:last-child{
+    .split-block > div.grid:last-child,
+    .booking-item > div.grid:last-child{
         border-bottom: none;
+    }
+    .booking-item .grid .booking-item-image{
+        height: 280px;
+        padding: 15px;
+        margin-bottom: 20px;
     }
 }
 .modal .inform-content{
@@ -212,10 +219,14 @@ div.tour-info-tile-description div.more-info{
     display: inline-block;
     margin-right: 5px;
 }
-.split-block > div.grid{
+.split-block > div.grid,
+.booking-item > div.grid{
     margin-bottom: 15px;
     padding-bottom: 10px;
 }
 .hand-pointer{
     cursor: hand;
+}
+form.checkout input.error{
+    border:1px solid red !important;
 }

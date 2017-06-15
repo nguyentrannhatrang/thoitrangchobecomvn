@@ -1,4 +1,7 @@
 jQuery(function($){
+    $('#btnBack').click(function (e) {
+        location.href = '/cart';
+    });
     $('#place_order').click(function (e) {
         e.preventDefault();
         //check valid        
@@ -10,12 +13,20 @@ jQuery(function($){
 
     function check_valid(form) {
         var valid = true;
+        var element = '';
         $('#'+form +' .require').each(function () {
-            if($(this).val() == ''){
+            if($(this).val() === ''){
                 valid = false;
                 $(this).addClass('error');
             }
+            if(element === '')
+                element = $(this).attr('id');
         });
+        if(element !== ''){
+            $('html, body').animate({
+                scrollTop: $("#" + element).offset().top - 50
+            }, 200);
+        }
         return valid;
     }
 })
