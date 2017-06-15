@@ -44,6 +44,7 @@
     <script type="text/javascript" src="<?= base_url('templatejs/home.js') ?>"></script>
     <script type="text/javascript" src="<?= base_url('templatejs/cart.js') ?>"></script>
     <script type="text/javascript" src="<?= base_url('templatejs/jquery.modal.min.js') ?>"></script>
+    <script src="<?= base_url('templatejs/function.js') ?>" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#subscribe-news-home').click(function(event) {

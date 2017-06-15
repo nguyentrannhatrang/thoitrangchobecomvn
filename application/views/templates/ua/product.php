@@ -12,11 +12,7 @@
                         <div class="tour-title font-carto-gothic-regular">
                             <p><?= $product->getName() ?></p>
                         </div>
-                        <div class="tour-location font-open-sans">
-                            <p><?= $product->getPriceFormat() ?> đồng</p>
 
-
-                        </div>
                     </div>
                     <div class="combo-last">
                         <!--start price mobile-->
@@ -24,16 +20,17 @@
                         <!--meta(content="#{tour.currency}", itemprop="priceCurrency")-->
                         <!--meta(content="#{tour.price2}", itemprop="price")-->
                         <!--end price mobile-->
-                        <div class="submit-button">
+
+                        <!--<div class="submit-button">
                             <a href="Cinque-Terre-tour-this-is-aperitivo" class="wide button palm--hidden">Book Now</a>
                             <a href="/mobile/Cinque-Terre-tour-this-is-aperitivo" class="wide button large--hidden">Book Now</a>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
-            </div>
-            <div class="mobile-tour-info">
-                <p>Office phone number: <a href="tel:+39 338 884 7405">+39 338 884 7405</a></p>
-                <!--reserve now button-->
+                <div class="mobile-tour-info">
+                    <?= $product->getBasicDescription() ?>
+                </div>
+
             </div>
         </div>
         <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>')" class="tour-booking">
@@ -89,6 +86,40 @@
                 </div>
             </div>
         </div>
+        <div class="mobile-booking-header palm--show">
+            <div class="book-now">
+                <form name="frm-product" id="frm-product" action="" method="post">
+                    <input type="hidden" name="product_id" id="product_id" value="<?= $product->getId() ?>">
+                    <input type="hidden" name="product_price" id="product_price" value="<?= $product->getPrice() ?>">
+                    <div class="time-selector">
+                        <p>Size</p>
+                        <select id="pa_size" name="size" class="depart form-select">
+                            <option value="">Chọn kích cỡ</option>
+                            <?php foreach ($sizes_data as $size){?>
+                                <option value="<?= $size['code']?>" ><?= $size['name']?></option>
+                            <?php }?>
+                        </select><br/>
+                        <span class="error" id="error_pa_size"></span>
+                    </div>
+                    <div class="time-selector">
+                        <p>Số lượng</p>
+                        <div class="quantity">
+                            <input type="number" class="qty" step="1" min="0" max="0" id="quantity" name="quantity" value="0" />
+                            <br/>
+                            <span class="error" id="error_quantity"></span>
+                        </div>
+                    </div>
+                    <div class="total-price hide">
+                        <span>Tổng tiền: </span>
+                        <span class="price" id="total-price"></span> đồng
+                    </div>
+                    <div class="submit-button">
+                        <a id="add_to_cart" href="#" class="wide button">Thêm Vào Giỏ</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
         <div class="grid grid--narrow">
 
         </div>
@@ -140,7 +171,7 @@
                 <div class="rating-header">
                     <div class="grid">
                         <div class="grid__item one-half palm--one-whole">
-                            <div class="traveller-comment">
+                            <div class="">
                                 <form action="http://thoitrangchobe.com.vn" method="post" id="commentform" class="comment-form" novalidate>
                                     <p class="error" id="review_error"></p>
                                     <p class="mesage-success" id="review_success"></p>
@@ -172,20 +203,39 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="grid__item one-half palm--one-whole">
+                    </div>
+                    <div class="grid">
+                        <div class="grid__item palm--one-whole">
                             <div class="traveller-comment-content">
                                 <div id="comments">
-                                    <h2 class="woocommerce-Reviews-title">Đánh giá</h2>
-
+                                    <input id="number_review" type="hidden" value="<?= $count_reviews ?>" />
                                     <?php if($count_reviews == 0){ ?>
                                         <p class="woocommerce-noreviews">There are no reviews yet.</p>
                                     <?php } ?>
 
                                 </div>
-                                <div id="template-comment-view" style="display: none;">
+                                <!--<div id="template-comment-view" style="display: none;">
                                     <div class="item-comment">
                                         <p> {{comment}}</p>
                                         <strong>{{name}} ({{email}})</strong>
+                                    </div>
+                                </div>-->
+                                <div id="template-comment-view" style="display: none;">
+                                    <div class="media clearfix">
+                                        <div class="media-left">
+                                            <a href="javascript:;">
+                                                <img src="/assets/images/ua/no-avatar.png">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading"> {{name}}  </h4>
+                                            {{comment}}
+                                            <div class="trg-botcmm clearfix">
+                                                <div class="left">
+                                                    <span class="comment-date">{{time}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>
@@ -193,7 +243,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <ul class="accordion-item">
@@ -202,6 +251,7 @@
             </div>
         </div>
         <!--start other tours-->
+        <?php if(!empty($relation_products)){ ?>
         <div class="other-tours">
             <h3>Có thể bạn thích</h3>
             <div class="grid">
@@ -223,6 +273,7 @@
                 <?php } ?>
             </div>
         </div>
+        <?php } ?>
         <!--end other tour-->
         <!-- start photoswipe-->
         <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
@@ -291,6 +342,6 @@
     var size_quantity = '<?php echo json_encode($sizes_data);?>';
 
 </script>
-<script src="<?= base_url('templatejs/function.js') ?>" type="text/javascript"></script>
+
 <script src="<?= base_url('templatejs/product.js') ?>" type="text/javascript"></script>
-<script src="<?= base_url('templatejs/cart.js') ?>" type="text/javascript"></script>
+<!--<script src="--><?//= base_url('templatejs/cart.js') ?><!--" type="text/javascript"></script>-->

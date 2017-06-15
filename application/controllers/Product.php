@@ -119,8 +119,38 @@ class Product extends MY_Controller
     public function loadComment($product,$page){
         $limit = 10;
         $start = ($page-1)*$limit;
-        $data = $this->CommentsModel->getByProductArray($product,$limit,$start);
+        /** @var CommentsModel $commentModel */
+        $commentModel = $this->CommentsModel;
+        $data = $commentModel->getByProductArray($product,$limit,$start);
+        foreach ($data as &$_data){
+            if(isset($_data['created'])){
+                $ago = time() - $_data['created'];
+                if($ago < 86400){
+                    $_data['created'] = $this->getStringTime($ago);
+                }else
+                    $_data['created'] = 'Ngày '.date('d').' Tháng '.date('m').' Năm '.date('Y');
+            }
+        }
         echo json_encode(array('count'=>count($data),'data'=>$data));
+    }
+
+    /**
+     * @param $time
+     * @return string
+     */
+    protected function getStringTime($time){
+        $hour = floor($time/3600);
+        $time -= $hour*3600;
+        $minute = floor($time/60);
+        $time -= $minute*60;
+        $str = '';
+        if($hour)
+            $str = $hour .' giờ ';
+        if($minute)
+            $str .= $minute .' phút ';
+        if(empty($str))
+            $str = $time .' giây';
+        return $str .' trước';
     }
 
 }

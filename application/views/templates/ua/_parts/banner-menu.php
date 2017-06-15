@@ -4,7 +4,7 @@
             <div class="grid">
                 <div class="search-nav grid__item one-half palm--one-whole">
                     <form id="search-header" action="/search" method="get"><i class="icon icon-search"></i>
-                        <input type="text" name="q" placeholder="Search for an adventure..." class="tour-query">
+                        <input type="text" name="s" placeholder="Tên sản phẩm" class="tour-query">
                         <input type="submit" style="display:none">
                     </form>
                 </div>
@@ -90,7 +90,10 @@
 
                     <!--s-login-->
 <!--                    <a href="" data-attribute="log-in-modal" class="icon icon-user open-modal"></a>-->
-                    <!--e-login--><a href="/my-cart"><i class="icon icon-cart">               </i></a>
+                    <!--e-login-->
+                    <a href="/cart">
+                        <i class="icon icon-cart"></i>
+                    </a>
                 </div>
                 <!--<div class="grid__item one-third">
                     <form id="frm-currency2" name="frm-currency2" method="post" action="" class="currency">

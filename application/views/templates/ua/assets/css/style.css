@@ -16,7 +16,7 @@ div.tour-info-tile-description div.more-info{
     position: absolute;
 }
 .description{
-    margin: 7px;
+    padding: 10px 20px;
 }
 .total-price{
     margin-bottom: 10px;
@@ -80,6 +80,16 @@ div.tour-info-tile-description div.more-info{
     }
     .row{
         text-align: center;
+    }
+    .book-now div.time-selector select,
+    .book-now div.time-selector input{
+        width: 100%;
+    }
+    .split-block > div.grid{
+        border-bottom: solid 1px #0C1021;
+    }
+    .split-block > div.grid:last-child{
+        border-bottom: none;
     }
 }
 .modal .inform-content{
@@ -166,4 +176,46 @@ div.tour-info-tile-description div.more-info{
         border-right: 1px solid #000000;
         padding-right: 7px;
     }
+}
+
+.media{
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 5px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+.media .media-left{
+    float: left;
+}
+.media-left, .media-right, .media-body{
+    display: table-cell;
+    vertical-align: top;
+
+}
+.media-left, .media > .pull-left{
+    padding-right: 10px;
+}
+.media .media-body .media-heading{
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 5px;
+
+}
+.trg-botcmm{
+    margin: 5px 0;
+    color: #828282;
+}
+.left{
+    float: left;
+}
+.trg-botcmm > .left > span{
+    display: inline-block;
+    margin-right: 5px;
+}
+.split-block > div.grid{
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+.hand-pointer{
+    cursor: hand;
 }

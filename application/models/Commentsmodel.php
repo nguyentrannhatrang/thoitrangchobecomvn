@@ -100,7 +100,12 @@ class CommentsModel extends CI_Model {
         $result = array();
         if($data){
             foreach ($data as $_data){
-                $result[] = array('name'=>$_data->name,'message'=>$_data->message,'email'=>$_data->email);
+                $result[] = array(
+                    'name'=>$_data->name,
+                    'message'=>$_data->message,
+                    'email'=>$_data->email,
+                    'created'=>$_data->created
+                );
             }
         }
         return $result;

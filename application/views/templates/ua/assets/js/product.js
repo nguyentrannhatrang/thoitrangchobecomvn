@@ -98,7 +98,7 @@ jQuery(function($){
                         var template = $('#template-comment-view').html();
                         template = template.replace("{{name}}", value.name);
                         template = template.replace("{{comment}}", value.message);
-                        template = template.replace("{{email}}", value.email);
+                        template = template.replace("{{time}}", value.created);
                         $('#comments').append(template);
                     });
                     page++;

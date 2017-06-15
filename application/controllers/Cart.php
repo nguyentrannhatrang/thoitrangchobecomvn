@@ -32,13 +32,25 @@ class Cart extends MY_Controller
         //$head['keywords'] = str_replace(" ", ",", $head['title']);
 
         $dataCart = $this->session->userdata('shopping_cart');
-        if(is_null($dataCart)) $dataCart = array();
+        $data['top_sell_products'] = array();
+        if(empty($dataCart)) {
+            $dataCart = array();
+            $data['top_sell_products'] =  $this->topProduct();
+        }
         $data['data_carts'] = $dataCart;
         $data['quantity_available'] = $this->getQuantityAvailable();
         $data['summary'] = $this->totalQuantityPrice();
         $head['title_page'] = 'Giỏ hàng';
-        $this->render2('shopping_cart', $head, $data);
 
+        $this->renderUa('shopping_cart', $head, $data);
+
+    }
+
+    protected function topProduct(){
+
+        /** @var ProductModel $productModel */
+        $productModel = $this->ProductModel;
+        return $productModel->loadTopSell();
     }
 
     /**
@@ -168,6 +180,33 @@ class Cart extends MY_Controller
         $result['total'] = $total;
         return $result;
     }
+
+    /**
+     *
+     */
+    public function removeItem(){
+        try{
+            $dataCart = $this->session->userdata('shopping_cart');
+            if(is_null($dataCart)) $dataCart = array();
+            $productId = isset($_GET['product'])?$_GET['product']:'';
+            $size = isset($_GET['size'])?$_GET['size']:'';
+            if($productId && $size) {
+
+                if (isset($dataCart[$productId]) &&
+                    isset($dataCart[$productId][$size])
+                ) {
+                    unset($dataCart[$productId][$size]);
+                    if(empty($dataCart[$productId]))
+                        unset($dataCart[$productId]);
+                }
+                $this->session->set_userdata('shopping_cart',$dataCart);
+            }
+            echo json_encode(array('result'=>1));
+        }catch (\Exception $e){
+            echo json_encode(array('result'=>0));
+        }
+    }
+
     
 
 }
