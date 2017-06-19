@@ -34,6 +34,7 @@ class Thankyou extends MY_Controller
         $data['traveller'] = $travellerModel->getById($bookingModel->booking->user_id);
         $data['listSize'] = $this->SizeModel->loadArray();
         $head['title_page'] = 'Thankyou';
+        $head['page_name'] = 'thankyou';
         //$this->send();
         $this->renderUa('thankyou', $head, $data);
     }

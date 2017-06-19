@@ -43,7 +43,8 @@ class Blog extends MY_Controller
         $rowscount = $this->AdminModel->postsCount();
         $data['links_pagination'] = pagination('blog', $rowscount, $this->num_rows);
         $data['right_menu'] = $this->getLeftMenu();
-        $this->render2('blog', $head, $data);
+        //$head['page_name'] = 'blog';
+        $this->renderUa('blog', $head, $data);
     }
 
     public function viewPost($id)
@@ -64,7 +65,7 @@ class Blog extends MY_Controller
         $head['description'] = url_title(character_limiter(strip_tags($data['article']->getDescription()), 130));
         $head['keywords'] = str_replace(" ", ",", $data['article']->getTitle());
         $head['title_page'] = $data['article']->getTitle();
-        $this->render2('view_blog_post', $head, $data);
+        $this->renderUa('view_blog_post', $head, $data);
     }
 
     private function getBlogArchiveHtml()

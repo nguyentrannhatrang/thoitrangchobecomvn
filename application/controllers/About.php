@@ -22,7 +22,8 @@ class About extends MY_Controller
         $data = array();
         $head = array();
         $head['title_page'] = 'Giới thiệu';
-        $this->render2('about', $head, $data);
+        //$head['page_name'] = 'about';
+        $this->renderUa('about', $head, $data);
     }
 
     

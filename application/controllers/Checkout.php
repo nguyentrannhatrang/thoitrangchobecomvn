@@ -96,6 +96,7 @@ class Checkout extends MY_Controller
         $data['data_carts'] = $dataCart;
         $data['summary'] = $this->totalQuantityPrice();
         $head['title_page'] = 'Đặt hàng';
+        $head['page_name'] = 'checkout';
         $this->renderUa('checkout', $head, $data);
     }
 

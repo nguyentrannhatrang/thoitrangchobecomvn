@@ -230,3 +230,30 @@ div.tour-info-tile-description div.more-info{
 form.checkout input.error{
     border:1px solid red !important;
 }
+.blog-page ul li,
+.contact-page ul li{
+    list-style-type:none;
+}
+.blog-page ul li i.fa-angle-double-right{
+    color: red;
+}
+.blog-page ul li .date-time{
+    font-size: 14px;
+}
+.blog-page .content-title{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.contact-page ul li a{
+    color: inherit;
+}
+.blog-detail-page .left-col-archive{
+    margin-bottom: 15px;
+}
+.blog-detail-page .title h4{
+    color: #0044cc;
+    font-size: 22px;
+}
+.blog-detail-page .blog-preview-time{
+    font-size: 14px;
+}

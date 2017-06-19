@@ -41,6 +41,7 @@ class Cart extends MY_Controller
         $data['quantity_available'] = $this->getQuantityAvailable();
         $data['summary'] = $this->totalQuantityPrice();
         $head['title_page'] = 'Giỏ hàng';
+        $head['page_name'] = 'cart';
 
         $this->renderUa('shopping_cart', $head, $data);
 

@@ -21,6 +21,7 @@ class Search extends MY_Controller
         $data['products'] = $this->getListProduct($search);
         //$data['left_menu'] = $this->getLeftMenu();
         $head['title_page'] = 'Tìm kiếm';
+        $head['page_name'] = 'search';
         $this->renderUa('search', $head, $data);
     }
 

@@ -21,9 +21,9 @@ class Home extends MY_Controller
         $data = array();
         $head = array();
         $arrSeo = $this->Publicmodel->getSeo('page_home');
-        $head['title'] = @$arrSeo['title'];
-        $head['description'] = @$arrSeo['description'];
-        $head['keywords'] = str_replace(" ", ",", $head['title']);
+        //$head['title'] = @$arrSeo['title'];
+        //$head['description'] = @$arrSeo['description'];
+        //$head['keywords'] = str_replace(" ", ",", $head['title']);
         //$all_categories = $this->Publicmodel->getShopCategories();
 
         /*
@@ -59,6 +59,7 @@ class Home extends MY_Controller
         //$data['showBrands'] = $this->AdminModel->getValueStore('showBrands');
         //$data['brands'] = $this->AdminModel->getBrands();
         //$data['links_pagination'] = pagination('home', $rowscount, $this->num_rows);
+        $head['page_name'] = 'home';
         $this->renderUa('home', $head, $data);
     }
 

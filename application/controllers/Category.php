@@ -24,6 +24,7 @@ class Category extends MY_Controller
         //$data['left_menu'] = $this->getLeftMenu();
         $data['current_categorie'] = $this->CategoryModel->getByUrl($category);
         $head['title_page'] = $data['current_categorie']->getName();
+        $head['page_name'] = 'category';
         $this->renderUa('category', $head, $data);
     }
 

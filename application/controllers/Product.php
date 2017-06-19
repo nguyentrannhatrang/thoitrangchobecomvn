@@ -39,6 +39,8 @@ class Product extends MY_Controller
         $data['count_reviews'] = $this->CommentsModel->countByProduct($product->getId());
         $data['current_categorie'] = $this->CategoryModel->getById($product->shopCategorie);
         $data['relation_products'] = $productModel->getProducts(array($product->shopCategorie),true,3,0,$product->getId());
+        $head['page_name'] = 'product';
+        $head['product_name'] = $product->getName();
         $this->renderUa('product', $head, $data);
     }
 
