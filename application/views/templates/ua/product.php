@@ -343,5 +343,5 @@
 
 </script>
 
-<script src="<?= base_url('templatejs/product.js') ?>" type="text/javascript"></script>
+<!--<script src="--><?//= base_url('templatejs/product.js') ?><!--" type="text/javascript"></script>-->
 <!--<script src="--><?//= base_url('templatejs/cart.js') ?><!--" type="text/javascript"></script>-->

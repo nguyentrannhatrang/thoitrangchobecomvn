@@ -14,6 +14,13 @@
     <?php }else{ ?>
         <?php $this->view('templates/ua/_parts/head-home',array()); ?>
     <?php } ?>
+    <?php if(isset($page_name) && $page_name !=' product'){ ?>
+    <style type="text/css">
+            <?php
+            echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/application/views/templates/ua/assets/css/home.css');
+            ?>
+        </style>
+    <?php } ?>
 
     <!-- End Visual Website Optimizer Asynchronous Code -->
 </head>

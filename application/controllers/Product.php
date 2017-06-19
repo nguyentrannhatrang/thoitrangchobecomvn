@@ -41,7 +41,8 @@ class Product extends MY_Controller
         $data['relation_products'] = $productModel->getProducts(array($product->shopCategorie),true,3,0,$product->getId());
         $head['page_name'] = 'product';
         $head['product_name'] = $product->getName();
-        $this->renderUa('product', $head, $data);
+        $footer = array('page_name'=>$head['page_name']);
+        $this->renderUa('product', $head, $data,$footer);
     }
 
     /**

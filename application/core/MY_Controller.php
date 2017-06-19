@@ -85,6 +85,8 @@ class MY_Controller extends MX_Controller
 
     public function renderUa($view, $head, $data = null, $footer = null)
     {
+        if(empty($footer))
+            $footer = array();
         //$head['cartItems'] = $this->shoppingcart->getCartItems();
         //$head['sumOfItems'] = $this->shoppingcart->sumValues;
         $head['menu'] = $this->getListMenu();

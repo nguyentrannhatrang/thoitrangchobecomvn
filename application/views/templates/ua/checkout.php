@@ -129,4 +129,3 @@
     </div>
     <?php $this->view('templates/ua/_parts/footer-menu',array()); ?>
 </div>
-<script src="<?= base_url('templatejs/checkout.js') ?>" type="text/javascript"></script>

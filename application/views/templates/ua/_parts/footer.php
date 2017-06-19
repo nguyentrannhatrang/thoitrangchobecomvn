@@ -170,5 +170,10 @@
         </div>
     </div>
 </div>-->
+<?php if(isset($page_name)){ ?>
+    <script type="text/javascript" src="<?= base_url('templatejs/'.$page_name.'.min.js') ?>"></script>
+<?php }else {?>
+    <script type="text/javascript" src="<?= base_url('templatejs/home.min.js') ?>"></script>
+<?php } ?>
 </body>
 </html>
