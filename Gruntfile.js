@@ -183,6 +183,7 @@ module.exports = function (grunt) {
                         'application/views/templates/ua/assets/css/thoitrangchobe.css',
                         'application/views/templates/ua/assets/css/font-awesome.min.css',
                         'application/views/templates/ua/assets/css/jquery.modal.min.css',
+                        'application/views/templates/ua/assets/css/font.google.css',
                         'application/views/templates/ua/assets/css/style.css'
                     ],
                 'application/views/templates/ua/assets/css/product.css':
@@ -191,6 +192,7 @@ module.exports = function (grunt) {
                         'application/views/templates/ua/assets/css/thoitrangchobe.css',
                         'application/views/templates/ua/assets/css/font-awesome.min.css',
                         'application/views/templates/ua/assets/css/jquery.modal.min.css',
+                        'application/views/templates/ua/assets/css/font.google.css',
                         'application/views/templates/ua/assets/css/photoswipe.css',
                         'application/views/templates/ua/assets/css/default-skin.css',
                         'application/views/templates/ua/assets/css/style.css'
