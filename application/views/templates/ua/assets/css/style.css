@@ -257,3 +257,8 @@ form.checkout input.error{
 .blog-detail-page .blog-preview-time{
     font-size: 14px;
 }
+.sp-price{
+    font-size: 120%;
+    font-weight: bold;
+
+}

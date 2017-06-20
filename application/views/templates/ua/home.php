@@ -57,11 +57,11 @@
                                 <div class="large ribbon-class ribbon"></div>
                                 <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-tile-image"></div>
                                 <div class="tour-tile-info">
-                                    <h5 class="tour-tile-title"><?=$product->name?></h5>
+                                    <h5 class="tour-tile-title"><?=$product->getNameLimit(50)?></h5>
                                     <span>
 
-                                        <span class="tour-tile-location"><?= $product->getBasicDescription(100)?></span><br/>
-                                    <span class="tour-tile-location"><?= $product->getPriceFormat()?> đồng</span>
+                                        <span class="tour-tile-location"><?= $product->getBasicDescription(60)?></span><br/>
+                                    <span class="tour-tile-location sp-price"><?= $product->getPriceFormat()?> đồng</span>
                                     </span>
                                     <span class="icon icon-encircled-right-arrow"></span>
                                 </div>

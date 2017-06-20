@@ -34,7 +34,7 @@
 
 
                                             <!--s-price-->
-                                            <div class="tour-info-price-and-more"><span class="tour-info-tile-price"><?= $product->getPriceFormat()?> đồng</span></div>
+                                            <div class="tour-info-price-and-more"><span class="tour-info-tile-price sp-price"><?= $product->getPriceFormat()?> đồng</span></div>
                                             <!--e-price-->
                                         </div>
                                         <div class="tour-info-tile-description palm--hidden">
