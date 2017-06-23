@@ -98,6 +98,9 @@ div.tour-info-tile-description div.more-info{
         padding: 15px;
         margin-bottom: 20px;
     }
+    #cfacebook{
+        display: none !important;
+    }
 }
 .modal .inform-content{
     clear: both;

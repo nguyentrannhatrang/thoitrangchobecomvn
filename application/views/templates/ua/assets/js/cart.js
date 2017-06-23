@@ -112,4 +112,11 @@ jQuery(function($){
         if(has_cart && showPopup)
             show_popup_cart();
     }
+
+
+    $(document).ready(function () {
+        $(".chat_fb").click(function() {
+            $('.fchat').toggle('slow');
+        });
+    });
 })
