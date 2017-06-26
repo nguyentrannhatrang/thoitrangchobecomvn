@@ -172,7 +172,7 @@
 </div>-->
 
 <!-- chat face -->
-<div id="fb-root"></div>
+<!--<div id="fb-root"></div>
 
 <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -190,7 +190,7 @@
         <div class="fb-page" data-tabs="messages" data-href="https://www.facebook.com/cherryfashion.vn" data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
     </div>
 </div>
-<!-- chat face -->
+--><!-- chat face -->
 <?php if(isset($page_name)){ ?>
     <script defer type="text/javascript" src="<?= base_url('templatejs/'.$page_name.'.min.js') ?>"></script>
 <?php }else {?>

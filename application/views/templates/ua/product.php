@@ -88,33 +88,33 @@
         </div>
         <div class="mobile-booking-header palm--show">
             <div class="book-now">
-                <form name="frm-product" id="frm-product" action="" method="post">
+                <form name="frm-product" id="frm-product-mobile" action="" method="post">
                     <input type="hidden" name="product_id" id="product_id" value="<?= $product->getId() ?>">
-                    <input type="hidden" name="product_price" id="product_price" value="<?= $product->getPrice() ?>">
+                    <input type="hidden" name="product_price" id="product_price_mobile" value="<?= $product->getPrice() ?>">
                     <div class="time-selector">
                         <p>Size</p>
-                        <select id="pa_size" name="size" class="depart form-select">
+                        <select id="pa_size_mobile" name="size" class="depart form-select">
                             <option value="">Chọn kích cỡ</option>
                             <?php foreach ($sizes_data as $size){?>
                                 <option value="<?= $size['code']?>" ><?= $size['name']?></option>
                             <?php }?>
                         </select><br/>
-                        <span class="error" id="error_pa_size"></span>
+                        <span class="error" id="error_pa_size_mobile"></span>
                     </div>
                     <div class="time-selector">
                         <p>Số lượng</p>
                         <div class="quantity">
-                            <input type="number" class="qty" step="1" min="0" max="0" id="quantity" name="quantity" value="0" />
+                            <input type="number" class="qty" step="1" min="0" max="0" id="quantity_mobile" name="quantity" value="0" />
                             <br/>
-                            <span class="error" id="error_quantity"></span>
+                            <span class="error" id="error_quantity_mobile"></span>
                         </div>
                     </div>
                     <div class="total-price hide">
                         <span>Tổng tiền: </span>
-                        <span class="price" id="total-price"></span> đồng
+                        <span class="price" id="total-price-mobile"></span> đồng
                     </div>
                     <div class="submit-button">
-                        <a id="add_to_cart" href="#" class="wide button">Thêm Vào Giỏ</a>
+                        <a id="add_to_cart_mobile" href="#" class="wide button">Thêm Vào Giỏ</a>
                     </div>
 
                 </form>

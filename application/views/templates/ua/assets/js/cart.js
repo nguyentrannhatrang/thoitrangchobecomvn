@@ -1,5 +1,8 @@
 jQuery(function($){
     getCart();
+    /*$(document).click(function () {
+        show_popup_cart();
+    });*/
     $('#add_to_cart').click(function (e) {
         e.preventDefault();
         $('#error_pa_size').text('');
@@ -18,6 +21,38 @@ jQuery(function($){
             url: '/cart/addCart',
             dataType: 'json',
             data: $('#frm-product').serialize(),
+            success:  function(data) {
+                if(data !== 'undefined'){
+                    if(data.summary !== 'undefined'){
+                        fill_data_cart(data.data,data.summary,true);
+                        $('#shopping-cart span.total-quantity').text(data.summary.quantity);
+                    }
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+            }
+        };
+        $.ajax(option);
+    });
+    $('#add_to_cart_mobile').click(function (e) {
+        e.preventDefault();
+        $('#error_pa_size_mobile').text('');
+        $('#error_quantity_mobile').text('');
+        // var form = $(this).parent('.frm-product');
+        if(!$('#frm-product-mobile #pa_size_mobile').val()){
+            $('#error_pa_size_mobile').text('Chọn kích cỡ');
+            return;
+        }
+        if(!$('#frm-product-mobile #quantity_mobile').val()){
+            $('#error_quantity_mobile').text('Chọn số lượng');
+            return;
+        }
+        var option = {
+            type: 'POST',
+            url: '/cart/addCart',
+            dataType: 'json',
+            data: $('#frm-product-mobile').serialize(),
             success:  function(data) {
                 if(data !== 'undefined'){
                     if(data.summary !== 'undefined'){
@@ -109,8 +144,12 @@ jQuery(function($){
         if(summary && typeof summary.quantity !== 'undefined'){
             $('#popup_add_to_cart span.total-quantity').text(summary.quantity);
         }
-        if(has_cart && showPopup)
+        $('#quantity_mobile').val(0);
+        $('#quantity').val(0);
+        if(has_cart && showPopup){
             show_popup_cart();
+        }
+
     }
 
 

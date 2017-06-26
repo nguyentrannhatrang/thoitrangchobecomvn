@@ -1,14 +1,20 @@
 jQuery(document).ready(function () {
 
 
-jQuery(function($){
+//jQuery(function($){
 
     var page = 1;
-    $('#pa_size').change(function () {
+    $(document).on('change','#pa_size',function () {
         change_size();
         $('#quantity').change();
+
     });
-    $('#quantity').change(function () {
+    $(document).on('change','#pa_size_mobile',function () {
+        change_size_mobile();
+        $('#quantity_mobile').change();
+
+    });
+    $(document).on('change','#quantity',function () {
         var total = parseInt($(this).val()) * parseFloat($('#product_price').val());
         if(total > 0)
             $('.total-price').removeClass('hide');
@@ -18,15 +24,31 @@ jQuery(function($){
         }
         $('#total-price').text(NTNT.format_price(total));
     });
+    $(document).on('change','#quantity_mobile',function () {
+        var total = parseInt($(this).val()) * parseFloat($('#product_price_mobile').val());
+        if(total > 0)
+            $('.total-price-mobile').removeClass('hide');
+        else{
+            if(!$('.total-price-mobile').hasClass('hide'))
+                $('.total-price-mobile').addClass('hide');
+        }
+        $('#total-price-mobile').text(NTNT.format_price(total));
+    });
 
-
-    function change_size() {
-        var size_change = $('#pa_size').val();
+    function change_size_mobile() {
+        change_size(true);
+    }
+    function change_size(is_mobile) {
+        var is_mobile = is_mobile || false;
+        var mobile = '';
+        if(is_mobile)
+            mobile = '_mobile';
+        var size_change = $('#pa_size' + mobile).val();
         if(!size_change){
-            $('#quantity').attr('min',0);
-            $('#quantity').attr('max',0);
-            $('#quantity').val(0);
-            $('#out_stock').text('');
+            $('#quantity' + mobile).attr('min',0);
+            $('#quantity' + mobile).attr('max',0);
+            $('#quantity' + mobile).val(0);
+            $('#out_stock' + mobile).text('');
             return ;
         }
         var quantity = 0;
@@ -40,18 +62,18 @@ jQuery(function($){
                 }
             });           
         }
-        $('#quantity').attr('min',0);
-        $('#quantity').attr('max',quantity);
+        $('#quantity' + mobile).attr('min',0);
+        $('#quantity' + mobile).attr('max',quantity);
         if(quantity >0) {
-            $('#quantity').val(1);
-            $('#out_stock').text('');
+            $('#quantity' + mobile).val(1);
+            $('#out_stock' + mobile).text('');
         }
         else {
-            $('#quantity').val(0);
-            $('#out_stock').text('Đã hết hàng');
+            $('#quantity' + mobile).val(0);
+            $('#out_stock' + mobile).text('Đã hết hàng');
         }
     }
-    $('#submit').click(function (e) {
+    $(document).on('click','#submit',function (e) {
         e.preventDefault();
         $('#review_error').text('');
         //check valid
@@ -183,5 +205,5 @@ jQuery(function($){
         });
     }
 
-})
+//})
 });

@@ -10,7 +10,7 @@ class Checkout extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper(array('currency_convertor'));
+        $this->load->helper(array('currency_convertor','generate'));
         $this->load->library('email');
         $this->load->model('CategoryModel');
         $this->load->model('ProductModel');

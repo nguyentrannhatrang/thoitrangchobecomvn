@@ -111,7 +111,7 @@
         <div class="site-wrapper">
             <div class="grid">
                 <div class="grid__item one--whole">
-                    <div class="urban-adventures"><a href="/"><img src="http://www.urbanadventures.com/images/en/UA-primary_no-tag_REV.png" alt="Urban Adventures Logo" class="urban-adventures-branding"></a><span class="urban-adventures-tagline font-carto-gothic-regular">Best. Day. Ever.</span></div>
+                    <div class="urban-adventures"><a href="/"><img src="/assets/images/ua/logo.png" alt="Urban Adventures Logo" class="urban-adventures-branding"></a><span class="urban-adventures-tagline font-carto-gothic-regular">Best. Day. Ever.</span></div>
                 </div>
             </div>
         </div>
