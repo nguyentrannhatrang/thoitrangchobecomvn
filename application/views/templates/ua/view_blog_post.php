@@ -26,7 +26,7 @@
                                             <?= date('M d, y', $article->getTime()) ?>
             </span>             <?php if($article->getImage()){ ?>
                                             <div class="thumbnail blog-detail-thumb">
-                                                <img src="<?= base_url('attachments/blog_images/' . $article->getImage()) ?>" alt="<?= $article->getTitle() ?>">
+                                                <img src="<?= base_url('attachments/blog_images/' . $article->getImage()) ?>" alt="<?= $article->getTitle() ?>" title="<?= $article->getTitle() ?>">
                                             </div>
                                         <?php } ?>
                                         <div class="blog-description">

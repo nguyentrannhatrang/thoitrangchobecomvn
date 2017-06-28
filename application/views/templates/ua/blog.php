@@ -19,7 +19,7 @@
                         <ul>
                             <li>
                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                <a href="<?= '/blog/' . $post->getUrl() ?>">
+                                <a href="<?= '/blog/' . $post->getUrl() ?>"  title="<?= $post->getTitle()?>">
                                     <?= character_limiter($post->getTitle(), 85) ?>
                                 </a> -
                                 <span class="date-time">

@@ -133,7 +133,7 @@
                             <div class="photo-gallery-row">
                                 <div class="current-photo">
                                     <?php foreach ($others_image as $index=>$other) {?>
-                                    <img id="img_<?= $index ?>" src="<?= $other ?>"   alt="<?= $product->getName() ?>, thoitrangchobe"  />
+                                    <img id="img_<?= $index ?>" src="<?= $other ?>" title="<?= $product->getName()?>"  alt="<?= $product->getName() ?>, thoitrangchobe"  />
                                     <?php } ?>
                                 </div>
                                 <div class="gallery-tiles">
@@ -148,8 +148,8 @@
                                         <?php foreach ($others_image as $index=>$other) {?>
                                         <li>
                                             <div style="background-image: url('<?= $other ?>');" rel="<?= $other ?>" id="img_<?= $index ?>" class="carousel-image">
-                                                <a href="<?= $other ?>" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe">
-                                                    <img src="<?= $other ?>" style="display:none">
+                                                <a href="<?= $other ?>" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe" title="<?= $product->getName()?>" >
+                                                    <img src="<?= $other ?>" style="display:none" title="<?= $product->getName()?>" alt="<?= $product->getName()?>" >
                                                 </a>
                                             </div>
                                         </li>
@@ -224,7 +224,7 @@
                                     <div class="media clearfix">
                                         <div class="media-left">
                                             <a href="javascript:;">
-                                                <img src="/assets/images/ua/no-avatar.png">
+                                                <img title="<?= $product->getName()?>" alt="<?= $product->getName()?>"  src="/assets/images/ua/no-avatar.png">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -261,7 +261,7 @@
                  */
                 foreach ($relation_products as $index=>$_product){?>
                 <div class="grid__item one-third palm--one-whole spacer">
-                    <a href="/product-<?=$_product->getUrl() ?>" class="tour-tile">
+                    <a href="/product-<?=$_product->getUrl() ?>" class="tour-tile" title="<?= $_product->getName()?>" >
                         <div style="background-image: url(<?= base_url('/attachments/shop_images/'.$_product->getImage()) ?>);" class="tour-tile-image"></div>
                         <div class="tour-tile-info">
                             <h5 class="tour-tile-title"><?= $_product->getName() ?></h5>

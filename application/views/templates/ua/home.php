@@ -53,7 +53,7 @@
                             if($index>4) break;
                             ?>
                         <div class="grid__item <?php echo ($index==3?'two-thirds':'one-third') ?> palm--one-whole spacer ">
-                            <a href="/product-<?=$product->url?>/" class="tour-tile thumb-sx<?php echo ($index==3?'2':'') ?>">
+                            <a href="/product-<?=$product->url?>/" title="<?=$product->getName()?>"  class="tour-tile thumb-sx<?php echo ($index==3?'2':'') ?>">
                                 <div class="large ribbon-class ribbon"></div>
                                 <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-tile-image"></div>
                                 <div class="tour-tile-info">

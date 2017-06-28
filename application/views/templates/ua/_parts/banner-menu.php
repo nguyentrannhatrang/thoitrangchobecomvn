@@ -35,7 +35,11 @@
         <div class="site-wrapper">
             <div class="grid">
                 <div class="grid__item two-thirds">
-                    <div class="urban-adventures"><a href="/"><img src="/assets/images/ua/logo.png" alt="Urban Adventures Logo" class="urban-adventures-branding"><span class="tagline font-carto-gothic-regular">Best. Day. Ever.</span></a></div>
+                    <div class="urban-adventures"><a href="/">
+                            <img src="/assets/images/ua/logo.png" alt="Thời trang cho bé, Đầm bé gái" title="Thời trang cho bé, Đầm bé gái" class="urban-adventures-branding">
+                            <span class="tagline font-carto-gothic-regular">Handmade</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="grid__item one-third">
                     <div class="social-media">
