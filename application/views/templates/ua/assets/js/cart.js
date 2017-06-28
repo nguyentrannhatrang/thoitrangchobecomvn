@@ -22,8 +22,15 @@ jQuery(function($){
             dataType: 'json',
             data: $('#frm-product').serialize(),
             success:  function(data) {
+                $('#quantity_mobile').val(0);
+                $('#quantity').val(0);
+                $('#pa_size_mobile').val('');
+                $('#pa_size').val('');
                 if(data !== 'undefined'){
                     if(data.summary !== 'undefined'){
+                        if(typeof data_cart !== 'undefined'){
+                            data_cart = data.data;
+                        }
                         fill_data_cart(data.data,data.summary,true);
                         $('#shopping-cart span.total-quantity').text(data.summary.quantity);
                     }
@@ -54,8 +61,15 @@ jQuery(function($){
             dataType: 'json',
             data: $('#frm-product-mobile').serialize(),
             success:  function(data) {
+                $('#quantity_mobile').val(0);
+                $('#quantity').val(0);
+                $('#pa_size_mobile').val('');
+                $('#pa_size').val('');
                 if(data !== 'undefined'){
                     if(data.summary !== 'undefined'){
+                        if(typeof data_cart !== 'undefined'){
+                            data_cart = data.data;
+                        }
                         fill_data_cart(data.data,data.summary,true);
                         $('#shopping-cart span.total-quantity').text(data.summary.quantity);
                     }
@@ -95,6 +109,9 @@ jQuery(function($){
             success:  function(data) {
                 if(data !== 'undefined'){
                     if(data.summary !== 'undefined'){
+                        if(typeof data_cart !== 'undefined'){
+                            data_cart = data.data;
+                        }
                         fill_data_cart(data.data,data.summary);
                         $('#shopping-cart span.total-quantity').text(data.summary.quantity);
                         //$('.view-cart a.cart-contents span.amount').text(NTNT.format_price(data.summary.total));
@@ -144,8 +161,6 @@ jQuery(function($){
         if(summary && typeof summary.quantity !== 'undefined'){
             $('#popup_add_to_cart span.total-quantity').text(summary.quantity);
         }
-        $('#quantity_mobile').val(0);
-        $('#quantity').val(0);
         if(has_cart && showPopup){
             show_popup_cart();
         }

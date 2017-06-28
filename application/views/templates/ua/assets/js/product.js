@@ -62,6 +62,10 @@ jQuery(document).ready(function () {
                 }
             });           
         }
+        //get quantity in cart
+        var quantity_booked = get_quantity_in_cart($('#product_id').val(),size_change);
+        quantity = quantity - quantity_booked;
+        if(quantity <0) quantity = 0;
         $('#quantity' + mobile).attr('min',0);
         $('#quantity' + mobile).attr('max',quantity);
         if(quantity >0) {
@@ -72,6 +76,31 @@ jQuery(document).ready(function () {
             $('#quantity' + mobile).val(0);
             $('#out_stock' + mobile).text('Đã hết hàng');
         }
+    }
+
+    /**
+     *
+     * @param product
+     * @param size_id
+     * @returns {number}
+     */
+    function get_quantity_in_cart(product,size_id){
+        var result = 0;
+        if(typeof data_cart !== 'undefined' && data_cart !== ''){
+            $.each(data_cart,function (id,aSize) {
+                if(id == product){
+                    if(aSize){
+                        $.each(aSize,function (size,data_size) {
+                            if(size == size_id){
+                                result = data_size.quantity;
+                                return false;
+                            }
+                        })
+                    }
+                }
+            });
+        }
+        return result;
     }
     $(document).on('click','#submit',function (e) {
         e.preventDefault();

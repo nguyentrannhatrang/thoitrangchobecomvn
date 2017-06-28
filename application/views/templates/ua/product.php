@@ -340,7 +340,7 @@
     var error = 0;
     var isPopup = false;
     var size_quantity = '<?php echo json_encode($sizes_data);?>';
-
+    var data_cart = '';
 </script>
 
 <!--<script src="--><?//= base_url('templatejs/product.js') ?><!--" type="text/javascript"></script>-->

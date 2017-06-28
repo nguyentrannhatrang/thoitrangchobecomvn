@@ -93,10 +93,10 @@
         </div>-->
         <div class="social-media">
             <a href="http://www.facebook.com/cherryfashion.vn" class="icon icon-facebook"></a>
-            <a href="http://twitter.com/urbanadventures" class="icon icon-twitter"></a>
+            <!--<a href="http://twitter.com/urbanadventures" class="icon icon-twitter"></a>
             <a href="http://www.pinterest.com/UrbanAdventures" class="icon icon-pinterest"></a>
             <a href="http://instagram.com/urbanadventures" class="icon icon-instagram"></a>
-            <a href="/subscribe" class="icon icon-newsletter"></a>
+            <a href="/subscribe" class="icon icon-newsletter"></a>-->
         </div>
     </div>
 </div>

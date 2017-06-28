@@ -40,10 +40,10 @@
                 <div class="grid__item one-third">
                     <div class="social-media">
                         <a target="_blank" href="http://www.facebook.com/cherryfashion.vn" class="icon icon-facebook"></a>
-                        <a target="_blank" href="http://twitter.com/urbanadventures" class="icon icon-twitter"></a>
+                        <!--<a target="_blank" href="http://twitter.com/urbanadventures" class="icon icon-twitter"></a>
                         <a target="_blank" href="https://plus.google.com/101395910973874706269" class="icon icon-google-plus"></a>
                         <a target="_blank" href="http://www.pinterest.com/UrbanAdventures" class="icon icon-pinterest"></a>
-                        <a target="_blank" href="http://instagram.com/urbanadventures" class="icon icon-instagram"></a>
+                        <a target="_blank" href="http://instagram.com/urbanadventures" class="icon icon-instagram"></a>-->
                     </div>
                 </div>
             </div>
