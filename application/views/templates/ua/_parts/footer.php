@@ -191,7 +191,7 @@
     </div>
 </div>
 --><!-- chat face -->
-<?php if(isset($page_name)){ ?>
+<?php if(isset($page_name) && ($page_name == 'checkout' || $page_name == 'product')){ ?>
     <script defer type="text/javascript" src="<?= base_url('templatejs/'.$page_name.'.min.js') ?>"></script>
 <?php }else {?>
     <script defer  type="text/javascript" src="<?= base_url('templatejs/home.min.js') ?>"></script>

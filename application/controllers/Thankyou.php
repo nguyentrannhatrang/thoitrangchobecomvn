@@ -19,7 +19,7 @@ class Thankyou extends MY_Controller
     }
 
     public function index($bkId = '')
-    {
+    {$this->send();die;
         $data = array();
         $head = array();
         unset($_SESSION['shopping_cart']);
@@ -35,7 +35,7 @@ class Thankyou extends MY_Controller
         $data['listSize'] = $this->SizeModel->loadArray();
         $head['title_page'] = 'Thankyou';
         $head['page_name'] = 'thankyou';
-        //$this->send();
+        $this->send();
         $this->renderUa('thankyou', $head, $data);
     }
 

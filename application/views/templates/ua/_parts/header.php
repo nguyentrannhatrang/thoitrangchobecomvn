@@ -14,7 +14,7 @@
     <?php }else{ ?>
         <?php $this->view('templates/ua/_parts/head-home',array()); ?>
     <?php } ?>
-    <?php if(isset($page_name) && $page_name !=' product'){ ?>
+    <?php if((isset($page_name) && $page_name !=' product') || !isset($page_name)){ ?>
     <style type="text/css">
             <?php
             echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/application/views/templates/ua/assets/css/home.css');

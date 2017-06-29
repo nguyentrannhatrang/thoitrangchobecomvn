@@ -560,11 +560,18 @@ $config['proxy_ips'] = '';
  */
 $config['template'] = 'corner';
 
-$config['setting_email']=array('protocol' => 'smtp',
+/*$config['setting_email']=array('protocol' => 'smtp',
     'smtp_host' => 'ssl://smtp.googlemail.com',
     'smtp_port' => 465,
     'smtp_user' => 'tadidinguyentrang@gmail.com',
     'smtp_pass' => 'ntnt123456',
+    'mailtype' => 'html',
+    'charset' => 'utf-8');*/
+$config['setting_email']=array('protocol' => 'smtp',
+    'smtp_host' => 'tls://mail.thoitrangchobe.com.vn',
+    'smtp_port' => 25,
+    'smtp_user' => 'admin@thoitrangchobe.com.vn',
+    'smtp_pass' => 'Emailntnt1987',
     'mailtype' => 'html',
     'charset' => 'utf-8');
 
