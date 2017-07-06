@@ -97,3 +97,6 @@ ALTER TABLE products ADD basic_description text;
 ALTER TABLE products ADD price FLOAT ;
 ALTER TABLE products ADD old_price FLOAT ;
 CREATE INDEX products_name_index ON products (name);
+
+
+ALTER TABLE sizes ADD plus_price float;

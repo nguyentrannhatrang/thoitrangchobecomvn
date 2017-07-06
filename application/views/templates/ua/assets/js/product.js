@@ -14,8 +14,21 @@ jQuery(document).ready(function () {
         $('#quantity_mobile').change();
 
     });
+    function plus_price_by_size(size_current){
+        var result = 0;
+        if(typeof size_price !== 'undefined'){
+            var details = jQuery.parseJSON(size_price);
+            $.each(details,function(size,price){
+                if(size_current == size){
+                    result = price;
+                }
+            });
+        }
+        return result;
+    }
     $(document).on('change','#quantity',function () {
         var total = parseInt($(this).val()) * parseFloat($('#product_price').val());
+        total +=plus_price_by_size($('#pa_size').val());
         if(total > 0)
             $('.total-price').removeClass('hide');
         else{
@@ -26,6 +39,7 @@ jQuery(document).ready(function () {
     });
     $(document).on('change','#quantity_mobile',function () {
         var total = parseInt($(this).val()) * parseFloat($('#product_price_mobile').val());
+        total +=plus_price_by_size($('#pa_size_mobile').val());
         if(total > 0)
             $('.total-price-mobile').removeClass('hide');
         else{

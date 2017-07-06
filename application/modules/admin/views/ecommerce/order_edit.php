@@ -86,6 +86,18 @@
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label>Additional</label>
+                            </div>
+                            <div class="col-lg-10">
+                                    <textarea name="message" id="message"  cols="70" rows="3"><?= ltrim($booking->message);?>
+                                    </textarea>
+                            </div>
+                        </div>
                     </div>
                 </form>
                 <div class="row">

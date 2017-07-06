@@ -78,10 +78,5 @@
             <!--end featured-->
         </div>
     </div>
-    <div style="text-align: center">
-        <a href="http://www.intrepidtravel.com">
-            <!--s-banner-home--><img src="http://www.urbanadventures.com/data/banner/banner_home_1117955836.jpg">
-            <!--e-banner-home--></a>
-    </div>
     <?php $this->view('templates/ua/_parts/footer-menu',array()); ?>
 </div>

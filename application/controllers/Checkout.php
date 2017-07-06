@@ -105,11 +105,16 @@ class Checkout extends MY_Controller
         $total = 0;
         $arrReduce = array();
         $aDetails = array();
+        $listSize = $this->SizeModel->loadPrice();
+
         foreach ($dataCart as $productId=>$arrSize){
             foreach ($arrSize as $sizeId=>$item) {
                 if(!is_array($item)) continue;
                 $product_db = $this->ProductModel->getProductById($productId);
-                $product_total = $product_db->price * intval($item['quantity']);
+                $price = $product_db->price;
+                if(isset($listSize[$sizeId]))
+                    $price +=(float)$listSize[$sizeId];
+                $product_total = $price * intval($item['quantity']);
                 //$content .= $product_db->name . ' x ' . $item['quantity'] . ' = ' . $product_total . " Lei \n";
                 $total += $product_total;
                 /** @var ProductDetailModel $productDetail */
@@ -136,7 +141,7 @@ class Checkout extends MY_Controller
                 $modelDetail->product_name = $product_db->name;
                 $modelDetail->quantity = $item['quantity'];
                 $modelDetail->product = $productId;
-                $modelDetail->price = $product_db->price;
+                $modelDetail->price = $price;
                 $modelDetail->total = $product_total;
                 $modelDetail->status = BookingDetailModel::STATUS_CONFIRM;
                 $aDetails[] = $modelDetail;

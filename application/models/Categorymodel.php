@@ -20,7 +20,7 @@ class CategoryModel extends CI_Model
         $this->db->select('shop_categories.sub_for, shop_categories.id, translations.name,shop_categories.url_name');
         $this->db->where('abbr', MY_LANGUAGE_ABBR);
         $this->db->where('type', 'shop_categorie');
-        $this->db->order_by('position', 'asc');
+        $this->db->order_by('shop_categories.sub_for', 'desc');
         $this->db->join('shop_categories', 'shop_categories.id = translations.for_id', 'INNER');
         $query = $this->db->get('translations');
         $arr = array();

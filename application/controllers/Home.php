@@ -75,29 +75,35 @@ class Home extends MY_Controller
      * @return array
      */
     protected function getProductShowHome(){
-        $list = array();
-        $topCategories = array();
-        /** @var CategoryModel[]  $categories */
-        $categories = $this->CategoryModel->loadAll();
-        /** @var CategoryModel $category */
-        foreach ($categories as $category){
-            if(!$category->subFor && !isset($topCategories[$category->id])){
-                $topCategories[$category->id] = [];
-                $topCategories[$category->id]['name'] = $category->name;
-                $topCategories[$category->id]['value'] = array();
-                $topCategories[$category->id]['url'] = $category->urlName;
+        try{
+            $list = array();
+            $topCategories = array();
+            /** @var CategoryModel[]  $categories */
+            $categories = $this->CategoryModel->loadAll();
+            /** @var CategoryModel $category */
+            foreach ($categories as $category){
+                if(!$category->subFor && (!isset($topCategories[$category->id]) || !isset($topCategories[$category->id]['name']) )){
+                    if(!isset($topCategories[$category->id]))
+                        $topCategories[$category->id] = [];
+                    $topCategories[$category->id]['name'] = $category->name;
+                    if(!isset($topCategories[$category->id]['value']))
+                        $topCategories[$category->id]['value'] = array();
+                    $topCategories[$category->id]['url'] = $category->urlName;
+                }
+
+                if($category->subFor)
+                    $topCategories[$category->subFor]['value'][] = $category->id;
             }
-                
-            if($category->subFor)
-                $topCategories[$category->subFor]['value'][] = $category->id;
+            foreach ($topCategories as $key=>$topCategory) {
+                if(empty($topCategory['value'])) continue;
+                $topCategory['value'][] = $key;
+                $data = $this->ProductModel->loadByCategorieTop($topCategory['value']);
+                $list[$key] = array('name'=>$topCategory['name'],'data'=>$data,'url'=>$topCategory['url']);
+            }
+            return $list;
+        }catch (\Exception $e){
+
         }
-        foreach ($topCategories as $key=>$topCategory) {
-            if(empty($topCategory['value'])) continue;
-            $topCategory['value'][] = $key;
-            $data = $this->ProductModel->loadByCategorieTop($topCategory['value']);
-            $list[$key] = array('name'=>$topCategory['name'],'data'=>$data,'url'=>$topCategory['url']);
-        }
-        return $list;
     }
 
     /*

@@ -32,10 +32,20 @@ class Product extends MY_Controller
         $data['product'] = $product;
         $head['title_page'] = $product->getName();
         $data['others_image'] = $this->loadOthersImages($product->getFolder());
-        $listSize = $this->SizeModel->loadArray();
+        $listSizePrice = $this->SizeModel->loadArrayWithPrice();
+        $listSize = array();
+        $listSizeForPrice = array();
+        foreach ($listSizePrice as $id=>$aSize){
+            $listSize[$id] = $aSize['name'];
+        }
+        asort($listSize);
+        foreach ($listSizePrice as $id=>$aSize){
+            $listSizeForPrice[$id] = $aSize['price'];
+        }
         $productDetails = $this->ProductDetailModel->loadByProduct($product->id);
         $aSize = $this->getSizes($productDetails,$listSize);
         $data['sizes_data'] = $aSize;
+        $data['sizes_data_price'] = $listSizeForPrice;
         $data['count_reviews'] = $this->CommentsModel->countByProduct($product->getId());
         $data['current_categorie'] = $this->CategoryModel->getById($product->shopCategorie);
         $data['relation_products'] = $productModel->getProducts(array($product->shopCategorie),true,3,0,$product->getId());

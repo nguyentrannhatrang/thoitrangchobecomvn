@@ -172,6 +172,7 @@ class OrderEdit extends ADMIN_Controller
             $traveller->phone = isset($_POST['customer_phone'])?$_POST['customer_phone']:'';
             $traveller->address = isset($_POST['customer_address'])?$_POST['customer_address']:'';
             $booking->status = isset($_POST['booking_status'])?(int)$_POST['booking_status']:0;
+            $booking->message = isset($_POST['message'])?$_POST['message']:'';
             $booking->updateAll($traveller,$items);
         } elseif (!empty($_POST)) {//add new
             $traveller = new TravellerModel();
@@ -184,6 +185,7 @@ class OrderEdit extends ADMIN_Controller
             $booking = $this->session->userdata('booking');
             $booking = unserialize($booking);
             $booking->status = isset($_POST['booking_status'])?(int)$_POST['booking_status']:0;
+            $booking->message = isset($_POST['message'])?$_POST['message']:'';
             $booking->insertAll($traveller,$items);
 
 
