@@ -10,11 +10,13 @@ class Blog extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Postmodel');
+        parent::__construct();
         if (!in_array('blog', $this->nonDynPages)) {
             show_404();
         }
         $this->load->helper(array('pagination'));
-        $this->load->model('PostModel');
+
     }
 
     public function index($page = 0)
