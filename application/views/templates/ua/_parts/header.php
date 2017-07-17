@@ -9,6 +9,7 @@
     <meta itemprop="og:image" content="http://www.urbanadventures.comhttps://media-cdn.urbanadventures.com/data/0/dest_0/c-fakepath-krakow-1-980x400.jpg">
     <meta itemprop="image" content="http://www.urbanadventures.comhttps://media-cdn.urbanadventures.com/data/0/dest_0/c-fakepath-krakow-1-980x400.jpg">
 -->
+    <link rel="stylesheet" type="text/css" href="<?= base_url('templatecss/home.css') ?>">
     <?php if(isset($page_name)){ ?>
         <?php $this->view('templates/ua/_parts/head-'.$page_name,array()); ?>
     <?php }else{ ?>
