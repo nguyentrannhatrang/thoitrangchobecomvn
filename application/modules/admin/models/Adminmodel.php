@@ -177,6 +177,8 @@ class AdminModel extends CI_Model
         unset($post['detail_color']);
         unset($post['detail_size']);
         if ($id > 0) {
+            if(isset($post['title_for_url']) && $post['title_for_url'])
+                $post['url'] = $post['title_for_url'];
             if(isset($post['title_for_url']))
                 unset($post['title_for_url']);
             $post['time_update'] = time();

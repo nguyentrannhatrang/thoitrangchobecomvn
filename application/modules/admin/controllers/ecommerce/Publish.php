@@ -32,6 +32,8 @@ class Publish extends ADMIN_Controller
         if (isset($_POST['submit'])) {
             if ($id > 0) {
                 $is_update = true;
+                if(!$this->isUrlUnique($id,$_POST['title_for_url']))
+                    unset($_POST['title_for_url']);
             }
             unset($_POST['submit']);
             $config['upload_path'] = './attachments/shop_images/';
@@ -232,6 +234,19 @@ class Publish extends ADMIN_Controller
         }
     }
 
+    protected function isUrlUnique($id,$url){
+        if(empty($url)) {
+            return false;
+        }
+
+        $productModel = new ProductModel();
+        /** @var ProductModel $product */
+        $product = $productModel->getProductByUrl($url);
+        if($product->id !== '' && (int)$product->id != $id){
+            return false;
+        }
+        return true;
+    }
 
     public function checkUrlUnique($id){
         $url = isset($_GET['product_url'])?$_GET['product_url']:'';

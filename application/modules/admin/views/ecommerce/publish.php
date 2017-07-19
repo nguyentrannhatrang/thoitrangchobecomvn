@@ -33,7 +33,7 @@ if ($this->session->flashdata('result_publish')) {
     ?>
     <div class="form-group">
         <label>Url</label>
-        <input type="text" <?php echo ($product_id)?'readonly':'' ?> name="title_for_url" id="title_for_url" value="<?= @$_POST['url']?>" class="form-control">
+        <input type="text" <?php /*echo ($product_id)?'readonly':'' */?> name="title_for_url" id="title_for_url" value="<?= @$_POST['url']?>" class="form-control">
     </div>
     <div class="form-group">
         <a href="javascript:void(0);" class="btn btn-default" id="showSliderDescrption">Show Slider Description <span class="glyphicon glyphicon-circle-arrow-down"></span></a>
@@ -214,7 +214,7 @@ if ($this->session->flashdata('result_publish')) {
     <div class="form-group for-shop">
         <button type="button" value="" id="btn-add-detail">Add Detail</button>
     </div>
-    <button type="submit" name="submit" class="btn btn-lg btn-default">Publish</button>
+    <button type="submit" name="submit" class="btn btn-lg btn-default">Save</button>
     <?php if ($this->uri->segment(3) !== null) { ?>
         <a href="<?= base_url('admin/products') ?>" class="btn btn-lg btn-default">Cancel</a>
     <?php } ?>
