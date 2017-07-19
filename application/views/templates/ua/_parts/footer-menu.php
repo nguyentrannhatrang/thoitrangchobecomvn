@@ -1,7 +1,7 @@
 
 <a href="#" class="palm--show">
     <div class="back-to-top">
-        <p>BACK TO TOP</p>
+        <p>ĐẦU TRANG</p>
     </div></a>
 <div class="site-footer palm--hidden">
     <div class="site-wrapper">
