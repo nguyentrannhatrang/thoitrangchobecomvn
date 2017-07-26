@@ -104,14 +104,16 @@ class OrderEdit extends ADMIN_Controller
                 foreach ($items as &$item) {
                     if($item->id == $itemId){
                         $item->product = $product;
-                        $item->product_name = $this->getProductName($product);
+                        /** @var  $productModel */
+                        $productModel = $this->getProduct($product);
+                        $item->product_name = $productModel->getName();
                         //set product name
                         $item->color = $color;
                         $item->size = $size;
                         $item->quantity = $quantity;
                         $item->status = $status;
-                        $item->price = $price;
-                        $item->total = (float)$price * (int) $quantity;
+                        $item->price = $productModel->getPrice();
+                        $item->total = (float)$price;
                         break;
                     }
                 }
@@ -120,14 +122,16 @@ class OrderEdit extends ADMIN_Controller
                 $detail = new BookingDetailModel();
                 $detail->id = $detail->generateIdNew();
                 $detail->product = $product;
-                $detail->product_name = $this->getProductName($product);
+                /** @var  $productModel */
+                $productModel = $this->getProduct($product);
+                $detail->product_name = $productModel->getName();
                 //set product name
                 $detail->color = $color;
                 $detail->size = $size;
                 $detail->quantity = $quantity;
                 $detail->status = $status;
-                $detail->price = $price;
-                $detail->total = (float)$price * (int) $quantity;
+                $detail->price = $productModel->getPrice();
+                $detail->total = (float)$price;
                 $items[] = $detail;
             }
         }
@@ -155,6 +159,17 @@ class OrderEdit extends ADMIN_Controller
         $product = new ProductModel();
         $product = $product->getProductById($productId);
         return $product->getName();
+    }
+
+    /**
+     * @param $productId
+     * @return ProductModel
+     */
+    private function getProduct($productId){
+        /** @var ProductModel $product */
+        $product = new ProductModel();
+        $product = $product->getProductById($productId);
+        return $product;
     }
 
     public function save()

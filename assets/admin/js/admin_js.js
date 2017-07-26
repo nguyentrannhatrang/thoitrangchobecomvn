@@ -436,8 +436,16 @@ function edit(bkId) {
                     $('#quantity').val(data.quantity);
                 if(typeof data.status != 'undefined' && data.status)
                     $('#status').val(data.status);
-                // if(typeof data.price != 'undefined' && data.price)
-                    // $('#price').autoNumeric('set',data.price);
+                 if(typeof data.total != 'undefined' && data.total) {
+                     $('#price').val(data.total);
+                     $('#price-org').val(data.total);
+                     $('#price').priceFormat({
+                         prefix: '',
+                         suffix: 'VND',
+                         thousandsSeparator: ',',
+                         centsLimit:0
+                     });
+                 }
             }
 
         },

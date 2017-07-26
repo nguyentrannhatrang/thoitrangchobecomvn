@@ -33,7 +33,7 @@ class ProductModel extends CI_Model
      * @return array
      */
     public function loadByCategorieTop($categories ,$limit = 10){
-        
+        $this->db->cache_on();
         $this->db->where_in('products.shop_categorie', $categories);
 
         $this->db->select(
@@ -72,7 +72,7 @@ class ProductModel extends CI_Model
      * @return array
      */
     public function loadSlider($limit = 10){
-
+        $this->db->cache_on();
         $this->db->select(
             'products.id, 
             products.image, 
@@ -110,6 +110,7 @@ class ProductModel extends CI_Model
      */
     public function getProducts(array $categories = array(),$checkQuantity = true,$limit = 20,$start = 0,$notId = null)
     {
+        $this->db->cache_on();
         if ($limit !== null && $start !== null) {
             $this->db->limit($limit, $start);
         }
@@ -153,7 +154,8 @@ class ProductModel extends CI_Model
      * @return array
      */
     public function loadAll($checkQuantity = true)
-    {       
+    {
+        $this->db->cache_on();
         $this->db->select(
             'products.id,
             translations.title as name,
@@ -223,10 +225,11 @@ class ProductModel extends CI_Model
 
     /**
      * @param $id
-     * @return Category
+     * @return ProductModel
      */
     public function getProductById($id)
     {
+        $this->db->cache_on();
         $this->db->where('products.id', $id);
 
         $this->db->select('products.*, translations.title as name,
@@ -246,11 +249,12 @@ class ProductModel extends CI_Model
     }
 
     /**
-     * @param $id
-     * @return Category
+     * @param $url
+     * @return ProductModel
      */
     public function getProductByUrl($url)
     {
+        $this->db->cache_on();
         $this->db->where('products.url', $url);
 
         $this->db->select('products.*,
@@ -276,7 +280,7 @@ class ProductModel extends CI_Model
 
     /**
      * @param $arr
-     * @return Category
+     * @return ProductModel
      */
     public function convertToObject($arr){
         $product = new ProductModel();

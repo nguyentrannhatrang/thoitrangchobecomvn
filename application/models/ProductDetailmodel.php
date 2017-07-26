@@ -18,7 +18,7 @@ class ProductDetailModel extends CI_Model
      * @return array
      */
     public function loadByProduct($product = '',$checkAllotment = false){
-        
+        $this->db->cache_on();
         $this->db->where('product_detail.product', $product);
         $this->db->select(
             'product_detail.*');
@@ -38,7 +38,7 @@ class ProductDetailModel extends CI_Model
      * @return array
      */
     public function loadByProductSize($product = '',$size = '',$checkAllotment = false){
-        
+        $this->db->cache_on();
         $this->db->where('product_detail.product', $product);
         $this->db->where('product_detail.size', $size);
         $this->db->select(
@@ -63,7 +63,7 @@ class ProductDetailModel extends CI_Model
      * @return null|ProductDetailModel
      */
     public function loadByProductSizeColor($product = '',$color = '',$size = '',$checkAllotment = false){
-        
+        $this->db->cache_on();
         $this->db->where('product_detail.product', $product);
         $this->db->where('product_detail.size', $size);
         $this->db->where('product_detail.color', $color);
@@ -85,12 +85,14 @@ class ProductDetailModel extends CI_Model
      */
     public function insert()
     {
+        $this->db->cache_delete_all();
         $insert = $this->db->insert(self::TABLE_NAME, $this);
         return (boolean) $insert;
     }
 
     public function update()
     {
+        $this->db->cache_delete_all();
         $this->db->where(array('product'=>$this->product,'size'=>$this->size));
         $update = $this->db->update(self::TABLE_NAME, $this);
         return (boolean) $update;

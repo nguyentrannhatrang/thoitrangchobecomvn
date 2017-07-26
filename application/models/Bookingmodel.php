@@ -219,6 +219,7 @@ class BookingModel extends CI_Model {
             $productDetail = $productDetail->loadByProductSize(
                 $itemDetail->product,
                 $itemDetail->size);
+            $productDetail = current($productDetail);
             $productDetail->quantity -= $itemDetail->quantity;
             $arrReduce[] = $productDetail;
         }
@@ -258,6 +259,7 @@ class BookingModel extends CI_Model {
         $booking->updateDataFromDetail($aDetails);
 //        $booking->updateStatusFromDetail($aDetails);
         $bkId = $booking->update();
+        $bkId = $booking->getId();
         $arrReduce = array();
         /** @var BookingDetailModel $itemDetail */
         foreach ($aDetails as $itemDetail){
@@ -307,6 +309,182 @@ class BookingModel extends CI_Model {
             }
         }
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * @param mixed $user_id
+     */
+    public function setUserId($user_id)
+    {
+        $this->user_id = $user_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPayment()
+    {
+        return $this->payment;
+    }
+
+    /**
+     * @param mixed $payment
+     */
+    public function setPayment($payment)
+    {
+        $this->payment = $payment;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param mixed $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * @param mixed $total
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * @param mixed $message
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param mixed $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param mixed $updated
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRefNo()
+    {
+        return $this->refNo;
+    }
+
+    /**
+     * @param mixed $refNo
+     */
+    public function setRefNo($refNo)
+    {
+        $this->refNo = $refNo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductName()
+    {
+        return $this->product_name;
+    }
+
+    /**
+     * @param mixed $product_name
+     */
+    public function setProductName($product_name)
+    {
+        $this->product_name = $product_name;
     }
     
 

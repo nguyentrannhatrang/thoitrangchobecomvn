@@ -111,6 +111,17 @@ module.exports = function (grunt) {
                 	'application/views/templates/corner/assets/css/home.min.css': [
                         'tmp/css_home.min.css'
 						]*/
+                    'assets/admin/js/admin_js.js': [
+                        'assets/bootstrap-select-1.12.1/js/bootstrap-select.min.js',
+                        'assets/js/bootstrap.min.js',
+                        'assets/js/bootbox.min.js',
+                        'assets/js/zxcvbn.js',
+                        'assets/js/zxcvbn_bootstrap3.js',
+                        'assets/js/pGenerator.jquery.js',
+                        'assets/js/jquery.priceformat.min.js',
+                        'assets/admin/js/product.js',
+                        'assets/admin/js/booking_item.js'
+                    ],
                     'application/views/templates/ua/assets/js/home.min.js': [
                         'application/views/templates/ua/assets/js/vendor.min.js',
                         'application/views/templates/ua/assets/js/thoitrangchobe.min.js',

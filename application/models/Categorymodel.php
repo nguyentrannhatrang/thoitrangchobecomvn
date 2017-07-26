@@ -14,6 +14,32 @@ class CategoryModel extends CI_Model
     public $name;
 
     /**
+     * CategoryModel constructor.
+     * @param $id
+     * @param $subFor
+     * @param $position
+     * @param $urlName
+     * @param $name
+     */
+    public function __construct(
+        $id = '',
+        $subFor = '',
+        $position = '',
+        $urlName = '',
+        $name = '')
+    {
+        $this->id = $id;
+        $this->subFor = $subFor;
+        $this->position = $position;
+        $this->urlName = $urlName;
+        $this->name = $name;
+        parent::__construct();
+        $this->db->cache_on();
+
+    }
+
+
+    /**
      * @return array
      */
     public function loadAll(){
