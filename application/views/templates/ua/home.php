@@ -12,7 +12,7 @@
             <div class="hero-image">
                 <div class="grid">
                     <div class="grid__item one-whole palm--hidden">
-                        <img src="https://media-cdn.urbanadventures.com/data/0/dest_0/c-fakepath-krakow-1-980x400.jpg">
+                        <img width="980px" height="400px" src="/assets/images/ua/banner.png">
                     </div>
                     <form id="home_search" action="/search" method="get">
                         <div class="hero-call-to-action">

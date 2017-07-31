@@ -8,7 +8,7 @@
             <div class="grid">
                 <div class="grid__item one-whole">
                     <!--start hero-->
-                    <div class="hero"><img src="https://media-cdn.urbanadventures.com/data/254/tour_1157/c-fakepath-20160614_171511.jpg" class="hero-photo"></div>
+                    <div class="hero"><img src="/assets/images/ua/banner.png" class="hero-photo"></div>
                     <!--end hero-->
                     <div class="location-blurb spacer">
                         <!-- s-dest-title -->
