@@ -12,7 +12,7 @@
             <div class="hero-image">
                 <div class="grid">
                     <div class="grid__item one-whole palm--hidden">
-                        <img width="980px" height="400px" src="/assets/images/ua/banner.png">
+                        <img width="980px" height="400px" title="Thời trang cho bé" alt="Đầm bé gái, Thời trang cho bé" src="/assets/images/ua/banner.png">
                     </div>
                     <form id="home_search" action="/search" method="get">
                         <div class="hero-call-to-action">

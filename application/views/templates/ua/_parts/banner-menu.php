@@ -36,7 +36,7 @@
             <div class="grid">
                 <div class="grid__item two-thirds">
                     <div class="urban-adventures"><a href="/">
-                            <img width="70px" height="70px" src="/assets/images/ua/logo.png" alt="Thời trang cho bé, Đầm bé gái" title="Thời trang cho bé, Đầm bé gái" class="urban-adventures-branding">
+                            <img width="70px" height="70px" src="/assets/images/ua/logo.png" title="Cherry fashion" alt="Cherry fashion" class="urban-adventures-branding">
                             <span class="tagline font-carto-gothic-regular">Handmade</span>
                         </a>
                     </div>
@@ -115,7 +115,7 @@
         <div class="site-wrapper">
             <div class="grid">
                 <div class="grid__item one--whole">
-                    <div class="urban-adventures"><a href="/"><img  width="40px" height="40px" src="/assets/images/ua/logo.png" alt="Urban Adventures Logo" class="urban-adventures-branding"></a><span class="urban-adventures-tagline font-carto-gothic-regular">Handmade.</span></div>
+                    <div class="urban-adventures"><a href="/"><img  width="40px" height="40px" src="/assets/images/ua/logo.png" title="Cherry fashion" alt="Cherry fashion" class="urban-adventures-branding"></a><span class="urban-adventures-tagline font-carto-gothic-regular">Handmade.</span></div>
                 </div>
             </div>
         </div>
