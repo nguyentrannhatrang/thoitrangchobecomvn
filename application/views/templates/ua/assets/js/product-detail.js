@@ -102,7 +102,7 @@ $(document).ready(function() {
         arguments[0].preventDefault();
     });
 
-    $('a.pinit').click(function () {
+    /*$('a.pinit').click(function () {
         var win = window.open('about:blank', '', popupCfg);
 
         var tpl = '<a href="https://www.pinterest.com/pin/create/button/'+
@@ -122,8 +122,8 @@ $(document).ready(function() {
          ' data-pin-hover="true" src="https://assets.pinterest.com/js/pinit.js"></script>';
          win.document.write(s);
          */
-        arguments[0].preventDefault();
-    });
+        /*arguments[0].preventDefault();
+    });*/
 
     // Create Alm Object
     new Whl.UA.Alm(alm.almUrl, alm.allotment, alm.childPolicy, alm.startDate, tour_gmin, tour_gmax, tour_type);

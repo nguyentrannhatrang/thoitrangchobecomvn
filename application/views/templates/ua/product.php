@@ -311,7 +311,7 @@
         </div>
         <!--end photoswipe-->
         <div id="fb-root"></div>
-        <script language="javascript" type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
+        <!--<script language="javascript" type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
         <script type="text/javascript">
             FB.api(
                 '/',
@@ -330,7 +330,7 @@
                 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=745779065559164facebookAppId";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-        </script>
+        </script>-->
         <!--.fb-share-button(data-href="#{tour.image_full}" data-layout="button")
         -->
     </div>
