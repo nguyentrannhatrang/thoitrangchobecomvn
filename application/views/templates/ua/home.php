@@ -1,7 +1,7 @@
 
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
-<div id="main" class="site-content">
+<div id="main" class="site-content home-page">
     <?php $this->view('templates/ua/_parts/banner-menu',array()); ?>
     <div class="site-wrapper hyperlink">
         <div class="site-header-mobile palm--show">
@@ -42,8 +42,8 @@
                         <li class="tab"><a href="#featured<?= $key ?>"><?= $arrData['name']?></a></li>
                     <?php } ?>
                 </ul>
-                <?php foreach ($products as $key=>$arrData){ ?>
-                <section id="featured<?php echo $key ?>" class="site-section palm--hidden">
+                <?php $first =true; foreach ($products as $key=>$arrData){ ?>
+                <section id="featured<?php echo $key ?>" class="site-section palm--hidden <?php echo $first?'active':''; $first = false; ?>">
                     <header class="site-section-header palm--hidden">
                         <h3><a href="/category-<?= $arrData['url']?>" class="action-with-chevron"><?= $arrData['name']?></a></h3>
                     </header>

@@ -57,6 +57,13 @@ $(document).ready(function() {
     // Add events for getting more detail content
     Whl.getMore();
     $("#cont_right .menu_emb ul>li:first").css('background', 'none');
+    $('.home-page .sections .tab').click(function () {
+        var element = $(this).find('a').attr('href');
+        if(element){
+            $('.sections section.site-section').removeClass('active');
+            $(element).addClass('active');
+        }
+    })
 });
 
 function ShowPrices(){

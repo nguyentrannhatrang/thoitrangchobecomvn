@@ -171,6 +171,6 @@ jQuery(function($){
     $(document).ready(function () {
         $(".chat_fb").click(function() {
             $('.fchat').toggle('slow');
-        });
+        });        
     });
 })
