@@ -24,11 +24,11 @@ jQuery(document).ready(function () {
                 }
             });
         }
-        return result;
+        return parseInt(result);
     }
     $(document).on('change','#quantity',function () {
-        var total = parseInt($(this).val()) * parseFloat($('#product_price').val());
-        total +=plus_price_by_size($('#pa_size').val());
+        //var total = parseInt($(this).val()) * parseFloat($('#product_price').val());
+        var total =plus_price_by_size($('#pa_size').val());
         if(total > 0)
             $('.total-price').removeClass('hide');
         else{
@@ -38,8 +38,8 @@ jQuery(document).ready(function () {
         $('#total-price').text(NTNT.format_price(total));
     });
     $(document).on('change','#quantity_mobile',function () {
-        var total = parseInt($(this).val()) * parseFloat($('#product_price_mobile').val());
-        total +=plus_price_by_size($('#pa_size_mobile').val());
+        //var total = parseInt($(this).val()) * parseFloat($('#product_price_mobile').val());
+        var total =plus_price_by_size($('#pa_size_mobile').val());
         if(total > 0)
             $('.total-price-mobile').removeClass('hide');
         else{

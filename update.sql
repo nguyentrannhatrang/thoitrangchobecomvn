@@ -100,3 +100,6 @@ CREATE INDEX products_name_index ON products (name);
 
 
 ALTER TABLE sizes ADD plus_price float;
+
+
+ALTER TABLE product_detail ADD price FLOAT;

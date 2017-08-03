@@ -177,15 +177,17 @@ class AdminModel extends CI_Model
 
     public function setProduct($post, $id = 0)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $aDetails = array(
             'detail_quantity'=>isset($post['detail_quantity'])?$post['detail_quantity']:'',
             'detail_color'=>isset($post['detail_color'])?$post['detail_color']:'',
             'detail_size'=>isset($post['detail_size'])?$post['detail_size']:'',
+            'detail_price'=>isset($post['detail_price'])?$post['detail_price']:0,
         );
         unset($post['detail_quantity']);
         unset($post['detail_color']);
         unset($post['detail_size']);
+        unset($post['detail_price']);
         if ($id > 0) {
             if(isset($post['title_for_url']) && $post['title_for_url'])
                 $post['url'] = $post['title_for_url'];
@@ -232,7 +234,7 @@ class AdminModel extends CI_Model
 
     public function setPage($name)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $name = strtolower($name);
         $name = str_replace(' ', '-', $name);
         $this->db->insert('active_pages', array('name' => $name, 'enabled' => 1));
@@ -249,7 +251,7 @@ class AdminModel extends CI_Model
 
     public function deletePage($id)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('id', $id);
         $this->db->delete('active_pages');
 
@@ -260,7 +262,7 @@ class AdminModel extends CI_Model
 
     public function setProductTranslation($post, $id, $is_update)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $i = 0;
         $current_trans = $this->getTranslations($id, 'product');
         foreach ($post['abbr'] as $abbr) {
@@ -323,7 +325,7 @@ class AdminModel extends CI_Model
 
     public function setShopCategorie($post)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->insert('shop_categories', array('sub_for' => $post['sub_for'],'url_name' => $post['category_url']));
         $id = $this->db->insert_id();
 
@@ -342,7 +344,7 @@ class AdminModel extends CI_Model
 
     public function editShopCategorieSub($post)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         if ($post['editSubId'] != $post['newSubIs']) {
             $this->db->where('id', $post['editSubId']);
             $result = $this->db->update('shop_categories', array(
@@ -356,7 +358,7 @@ class AdminModel extends CI_Model
 
     public function deleteShopCategorie($id)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('for_id', $id);
         $this->db->where('type', 'shop_categorie');
         $this->db->delete('translations');
@@ -447,7 +449,7 @@ class AdminModel extends CI_Model
 
     public function deleteproduct($id)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->deleteTranslations($id, 'product');
         $this->db->where('id', $id);
         $result = $this->db->delete('products');
@@ -484,7 +486,7 @@ class AdminModel extends CI_Model
 
     private function deleteTranslations($id, $type)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('for_id', $id);
         $this->db->where('type', $type);
         $this->db->delete('translations');
@@ -508,7 +510,7 @@ class AdminModel extends CI_Model
 
     public function setBlogTranslations($post, $id, $is_update)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $i = 0;
         $current_trans = $this->getTranslations($id, 'blog');
         foreach ($post['abbr'] as $abbr) {
@@ -537,7 +539,7 @@ class AdminModel extends CI_Model
 
     public function setEditPageTranslations($post, $id)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $i = 0;
         foreach ($post['abbr'] as $abbr) {
             $arr = array(
@@ -551,7 +553,7 @@ class AdminModel extends CI_Model
 
     public function productStatusChange($id, $to_status)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('id', $id);
         $result = $this->db->update('products', array('visibility' => $to_status));
         return $result;
@@ -559,7 +561,7 @@ class AdminModel extends CI_Model
 
     public function changeOrderStatus($id, $to_status)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('id', $id);
         $this->db->select('processed');
         $result1 = $this->db->get('orders');
@@ -579,7 +581,7 @@ class AdminModel extends CI_Model
 
     private function manageQuantitiesAndProcurement($id, $to_status, $current)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         if (($to_status == 0 || $to_status == 2) && $current == 1) {
             $operator = '+';
             $operator_pro = '-';
@@ -603,7 +605,7 @@ class AdminModel extends CI_Model
 
     public function changePass($new_pass, $username)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('username', $username);
         $result = $this->db->update('users', array('password' => md5($new_pass)));
         return $result;
@@ -671,7 +673,7 @@ class AdminModel extends CI_Model
 
     public function setPost($post, $id)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         if ($id > 0) {
             return $id;
         } else {
@@ -727,7 +729,7 @@ class AdminModel extends CI_Model
 
     public function deletePost($id)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('id', $id)->delete('blog_posts');
         $this->db->where('for_id', $id)->where('type', 'blog')->delete('translations');
     }
@@ -740,7 +742,7 @@ class AdminModel extends CI_Model
 
     public function setValueStore($key, $value)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('thekey', $key);
         $query = $this->db->get('value_store');
         if ($query->num_rows() > 0) {
@@ -864,7 +866,7 @@ class AdminModel extends CI_Model
 
     public function editShopCategorie($post)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('abbr', $post['abbr']);
         $this->db->where('for_id', $post['for_id']);
         $this->db->where('type', $post['type']);
@@ -896,7 +898,7 @@ class AdminModel extends CI_Model
 
     public function editShopCategoriePosition($post)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('id', $post['editid']);
         $result = $this->db->update('shop_categories', array(
             'position' => $post['new_pos']
@@ -905,7 +907,7 @@ class AdminModel extends CI_Model
 
     public function editShopCategorieUrl($post)
     {
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         $this->db->where('id', $post['editid']);
         $result = $this->db->update('shop_categories', array(
             'url_name' => $post['new_pos']
@@ -924,26 +926,31 @@ class AdminModel extends CI_Model
     }
 
     protected function saveProductDetail($post,$id){
-        $this->db->cache_delete_all();
+        //$this->db->cache_delete_all();
         if(!isset($post['detail_quantity']) || !is_array($post['detail_quantity']) || empty($post['detail_quantity']))
             return;
         if(!isset($post['detail_color']) || !is_array($post['detail_color']) || empty($post['detail_color']))
             return;
         if(!isset($post['detail_size']) || !is_array($post['detail_size']) || empty($post['detail_size']))
             return;
+        if(!isset($post['detail_price']) || !is_array($post['detail_price']) || empty($post['detail_price']))
+            return;
         $aColor = $post['detail_color'];
         $aSize = $post['detail_size'];
+        $aPrice = $post['detail_price'];
         foreach ($post['detail_quantity'] as $index=>$quantity){
             if(!$quantity) continue;
             $color = isset($aColor[$index])?$aColor[$index]:'';
             $size = isset($aSize[$index])?$aSize[$index]:'';
+            $price = isset($aPrice[$index])?$aPrice[$index]:0;
             if(!$size || !$color) continue;
             $this->db->insert('product_detail',
                 array(
                     'product' => $id,
                     'color' => $color,
                     'size' => $size,
-                    'quantity' => (int)$quantity
+                    'quantity' => (int)$quantity,
+                    'price' => (float)$price
                 ));
         }
     }

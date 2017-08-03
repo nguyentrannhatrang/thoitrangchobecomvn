@@ -166,6 +166,20 @@ if ($this->session->flashdata('result_publish')) {
     <div class="form-group for-shop">
         <a class="btn btn-default btn-xs" data-target="#modalConvertor" data-toggle="modal" href="javascript:void(0)">Convert currency <span class="glyphicon glyphicon-euro"></span></a>
     </div>
+    <div class="form-group for-shop row">
+        <div class="col-lg-3">
+           Màu
+        </div>
+        <div class="col-lg-3">
+            Size
+        </div>
+        <div class="col-lg-3">
+            Số lượng
+        </div>
+        <div class="col-lg-3">
+            Giá
+        </div>
+    </div>
     <?php if($details) {?>
         <?php foreach ($details->result() as $details) { ?>
             <div class="form-group for-shop row">
@@ -185,6 +199,10 @@ if ($this->session->flashdata('result_publish')) {
                 </div>
                 <div class="col-lg-3">
                     <input name="detail_quantity[]" value="<?php echo $details->quantity; ?>" />
+                </div>
+                <div class="col-lg-3">
+                    <input class="format_price_detail" value="<?php echo $details->price; ?>" />
+                    <input name="detail_price[]" class="detail_price" type="hidden" value="<?php echo $details->price; ?>" />
                 </div>
             </div>
         <?php }?>
@@ -208,6 +226,10 @@ if ($this->session->flashdata('result_publish')) {
             </div>
             <div class="col-lg-3">
                 <input name="detail_quantity[]" value="" />
+            </div>
+            <div class="col-lg-3">
+                <input class="format_price_detail" value="" />
+                <input name="detail_price[]" type="hidden" class="detail_price" value="" />
             </div>
         </div>
     </div>

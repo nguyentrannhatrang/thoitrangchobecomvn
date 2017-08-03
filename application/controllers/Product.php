@@ -35,6 +35,14 @@ class Product extends MY_Controller
         $listSizePrice = $this->SizeModel->loadArrayWithPrice();
         $listSize = array();
         $listSizeForPrice = array();
+
+        $productDetails = $this->ProductDetailModel->loadByProduct($product->id);
+        /** @var ProductDetailModel $valueDetail */
+        foreach ($productDetails as $valueDetail){
+            if($valueDetail->getSize() && isset($listSizePrice[$valueDetail->getSize()])){
+                $listSizePrice[$valueDetail->getSize()]['price'] = $valueDetail->getPrice();
+            }
+        }
         foreach ($listSizePrice as $id=>$aSize){
             $listSize[$id] = $aSize['name'];
         }
@@ -42,7 +50,7 @@ class Product extends MY_Controller
         foreach ($listSizePrice as $id=>$aSize){
             $listSizeForPrice[$id] = $aSize['price'];
         }
-        $productDetails = $this->ProductDetailModel->loadByProduct($product->id);
+
         $aSize = $this->getSizes($productDetails,$listSize);
         $data['sizes_data'] = $aSize;
         $data['sizes_data_price'] = $listSizeForPrice;

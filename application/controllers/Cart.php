@@ -132,11 +132,14 @@ class Cart extends MY_Controller
                 $linkProduct = '/product-'.$product->getUrl();
                 $listSize = $this->SizeModel->loadArrayWithPrice();
                 $dataSize = $listSize[$size];
+                //get product detal
+                /** @var ProductDetailModel $productDetail */
+                $productDetail = $this->ProductDetailModel->loadByProductSizeColor($productId,'',$size);
                 $itemCart = [
                     'size'=>$dataSize['name'],
                     'quantity'=>(int)$quantity,
                     'name'=>$productName,
-                    'price'=>(float)$price + (float)$dataSize['price'],
+                    'price'=>$productDetail?(float)$productDetail->getPrice():(float)$price,
                     'image'=>$image,
                     'link'=>$linkProduct
                 ];

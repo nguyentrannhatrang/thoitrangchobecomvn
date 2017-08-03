@@ -34,7 +34,7 @@ class CategoryModel extends CI_Model
         $this->urlName = $urlName;
         $this->name = $name;
         parent::__construct();
-        $this->db->cache_on();
+        //$this->db->cache_on();
 
     }
 
