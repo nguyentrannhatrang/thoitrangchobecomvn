@@ -939,7 +939,7 @@ class AdminModel extends CI_Model
         $aSize = $post['detail_size'];
         $aPrice = $post['detail_price'];
         foreach ($post['detail_quantity'] as $index=>$quantity){
-            if(!$quantity) continue;
+            if($quantity == '') continue;
             $color = isset($aColor[$index])?$aColor[$index]:'';
             $size = isset($aSize[$index])?$aSize[$index]:'';
             $price = isset($aPrice[$index])?$aPrice[$index]:0;

@@ -139,8 +139,8 @@ class OrderEdit extends ADMIN_Controller
         $this->session->set_userdata('booking_item',serialize($items));
         $this->session->set_userdata('booking',serialize($booking));
         $itemsArr = array();
-        foreach ($items as $item){
-            $itemsArr[] =  $bookingDetailModel->convertToArray($item);
+        foreach ($items as $_item){
+            $itemsArr[] =  $bookingDetailModel->convertToArray($_item);
         }
         $bookingModel = new BookingModel();
         echo json_encode(array('result'=>1,

@@ -138,7 +138,7 @@
                     <td>
                         <br>
 
-                        <p style="xt-align:right;font-family:Arial,Helvetica,sans-serif;font-size:11px;margin:0;padding:0;line-height:18px;color:#444;font-weight:bold">
+                        <p style="text-align:right;font-family:Arial,Helvetica,sans-serif;font-size:11px;margin:0;padding:0;line-height:18px;color:#444;font-weight:bold">
                             Một lần nữa Cherry Store cảm ơn quý khách.<br>
                         </p>
 
