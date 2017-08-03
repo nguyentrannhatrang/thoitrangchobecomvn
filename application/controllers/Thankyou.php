@@ -36,7 +36,8 @@ class Thankyou extends MY_Controller
         $data['listSize'] = $listSize;
         $head['title_page'] = 'Thankyou';
         $head['page_name'] = 'thankyou';
-        $this->send($bookingModel,$traveller,$listSize);
+        if($bookingModel->booking->getSent() != 1)
+            $this->send($bookingModel,$traveller,$listSize);
         $this->renderUa('thankyou', $head, $data);
     }
 
@@ -51,7 +52,7 @@ class Thankyou extends MY_Controller
         //  $message = 'Type your gmail message here'; // use this line to send text email.
         // load view file called "welcome_message" in to a $message variable as a html string.
         try{
-            $message = $this->load->view($this->template . 'email\confirm','',true);
+            $message = $this->load->view($this->template . 'email/confirm','',true);
             $message = $this->fillDataTraveller($message,$traveller);
             $message = $this->fillDataSystem($message);
             $message = $this->fillDataBooking($message,$booking,$listSize);
@@ -71,7 +72,9 @@ class Thankyou extends MY_Controller
                 show_error($this->email->print_debugger());
             } else {
                 // Show success notification or other things here
-                echo 'Success to send email';
+               // echo 'Success to send email';
+                $oBooking = new BookingModel();
+                $oBooking->updateSent($booking->booking->getId());
             }
         }catch (\Exception $e){
             echo $e->getMessage();

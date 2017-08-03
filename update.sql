@@ -103,3 +103,4 @@ ALTER TABLE sizes ADD plus_price float;
 
 
 ALTER TABLE product_detail ADD price FLOAT;
+ALTER TABLE booking ADD sent INT(2);

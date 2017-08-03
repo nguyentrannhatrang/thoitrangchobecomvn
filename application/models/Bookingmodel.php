@@ -17,6 +17,7 @@ class BookingModel extends CI_Model {
     public $updated;
     public $refNo;
     public $product_name;
+    public $sent;
     private $table = 'booking';
 
     public function __construct()
@@ -138,6 +139,7 @@ class BookingModel extends CI_Model {
         $obj->updated = $data->updated;
         $obj->refNo = $data->refNo;
         $obj->product_name = $data->product_name;
+        $obj->sent = $data->sent;
         return $obj;
     }
 
@@ -190,6 +192,7 @@ class BookingModel extends CI_Model {
         $data['updated'] = $obj->updated;
         $data['created'] = $obj->created;
         $data['refNo'] = $obj->refNo;
+        $data['sent'] = $obj->sent;
         $data['product_name'] = $obj->product_name;
         return $data;
     }
@@ -310,6 +313,16 @@ class BookingModel extends CI_Model {
         }
         return $this;
     }
+
+    /**
+     * @param $id
+     * @return $this
+     */
+    public function updateSent($id){
+        $this->db->query('UPDATE booking SET sent = 1  WHERE id = ' . $id);
+        return $this;
+    }
+
 
     /**
      * @return mixed
@@ -485,6 +498,22 @@ class BookingModel extends CI_Model {
     public function setProductName($product_name)
     {
         $this->product_name = $product_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSent()
+    {
+        return $this->sent;
+    }
+
+    /**
+     * @param mixed $sent
+     */
+    public function setSent($sent)
+    {
+        $this->sent = $sent;
     }
     
 
