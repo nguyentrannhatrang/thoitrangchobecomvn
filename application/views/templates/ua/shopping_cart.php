@@ -24,7 +24,7 @@
                                     <div class="split-block-bio">
                                         <div class="grid">
                                             <div class="grid__item three-quarters palm--one-whole">
-                                                <h5><a href="/product/<?= $item['link']?>"><?= $item['name']?></a></h5><br>
+                                                <h5 class="item-product-name"><a href="/product/<?= $item['link']?>"><?= $item['name']?></a></h5><br>
                                                 <div>Size: <?= $item['size']?></div>
                                                 <div>Đơn giá: <?= number_format($item['price'], 0, '', '.') ?> đồng</div>
                                                 <div class="date">Số lượng: <?= $item['quantity']?> sản phẩm</div><br>

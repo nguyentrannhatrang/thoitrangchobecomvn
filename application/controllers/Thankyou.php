@@ -16,6 +16,7 @@ class Thankyou extends MY_Controller
         $this->load->model('Booking');
         $this->load->model('SizeModel');
         $this->load->model('TravellerModel');
+        $this->load->model('ProductModel');
     }
 
     public function index($bkId = '')
@@ -34,11 +35,46 @@ class Thankyou extends MY_Controller
         $listSize = $this->SizeModel->loadArray();
         $data['traveller'] = $traveller;
         $data['listSize'] = $listSize;
+        $data['data_item'] = $this->getDataProductItems($bookingModel->details,$listSize);
         $head['title_page'] = 'Thankyou';
         $head['page_name'] = 'thankyou';
         if($bookingModel->booking->getSent() != 1)
             $this->send($bookingModel,$traveller,$listSize);
         $this->renderUa('thankyou', $head, $data);
+    }
+
+    /**
+     * @param array $items
+     * @param array $listSize
+     * @return array
+     * @throws Exception
+     */
+    protected function getDataProductItems(array $items = array(),array $listSize = array()){
+        try{
+            $result = array();
+            if(count($items) == 0) return array();
+            $product = new ProductModel();
+            $cacheProduct = array();
+            /** @var BookingDetailModel $item */
+            foreach ($items as $item){
+                if(!isset($cacheProduct[$item->getProduct()]))
+                    $objProduct = $product->getProductById($item->getProduct());
+                else
+                    $objProduct = $cacheProduct[$item->getProduct()];
+                if(empty($objProduct)) continue;
+                if(!isset($cacheProduct[$item->getProduct()]))
+                    $cacheProduct[$item->getProduct()] = $objProduct;
+                $result[] = array('name'=>$item->getProductName(),
+                    'quantity'=>$item->getQuantity(),'price'=>$item->getPrice(),
+                    'total'=>$item->getTotal(),
+                    'size'=>isset($listSize[$item->getSize()])?$listSize[$item->getSize()]:$item->getSize(),
+                    'url'=>$objProduct->getUrl(),
+                    'image'=>$objProduct->getImage());
+            }
+            return $result;
+        }catch (\Exception $e){
+            throw $e;
+        }
     }
 
     public function send(Booking $booking,TravellerModel $traveller,array $listSize = array()){

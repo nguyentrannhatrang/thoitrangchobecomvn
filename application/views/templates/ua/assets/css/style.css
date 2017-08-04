@@ -270,3 +270,6 @@ form.checkout input.error{
     font-weight: bold;
 
 }
+.item-product-name{
+    font-weight: 600;
+}
