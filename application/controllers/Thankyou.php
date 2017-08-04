@@ -46,6 +46,7 @@ class Thankyou extends MY_Controller
         $emailConfig = $this->config->item('setting_email');
         // Set your email information
         $from = $this->config->item('email_from');
+        $reply = $this->config->item('email_reply');
 
         $to = array($traveller->getEmail());
         $subject = 'Xác nhận đơn hàng #'.$booking->booking->getRefNo();
@@ -63,6 +64,8 @@ class Thankyou extends MY_Controller
             $this->email->set_newline("\r\n");
             // Set email preferences
             $this->email->from($from['email'], $from['name']);
+            $this->email->reply_to($reply['email'], $reply['name']);
+            $this->email->bcc($reply['email'], $reply['name']);
             $this->email->to($to);
             $this->email->subject($subject);
             $this->email->message($message);

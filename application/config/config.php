@@ -577,4 +577,6 @@ $config['setting_email']=array('protocol' => 'smtp',
 
 $config['email_from']=array('email' => 'tadidinguyentrang@gmail.com',
     'name' => 'ntnt');
+$config['email_reply']=array('email' => 'nguyentrannhatrang@gmail.com',
+    'name' => 'nguyen trang');
     
