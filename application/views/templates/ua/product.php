@@ -57,9 +57,11 @@
                                     <p>Size</p>
                                     <select id="pa_size" name="size" class="depart form-select">
                                         <option value="">Chọn kích cỡ</option>
-                                        <?php foreach ($sizes_data as $size){?>
-                                            <option value="<?= $size['code']?>" ><?= $size['name']?></option>
-                                        <?php }?>
+                                        <?php $first = true; foreach ($sizes_data as $size){?>
+                                            <option value="<?= $size['code']?>" <?php echo $first?'selected':''; ?> ><?= $size['name']?></option>
+                                        <?php
+                                            $first = false;
+                                        }?>
                                     </select><br/>
                                     <span class="error" id="error_pa_size"></span>
                                 </div>
@@ -95,9 +97,9 @@
                         <p>Size</p>
                         <select id="pa_size_mobile" name="size" class="depart form-select">
                             <option value="">Chọn kích cỡ</option>
-                            <?php foreach ($sizes_data as $size){?>
-                                <option value="<?= $size['code']?>" ><?= $size['name']?></option>
-                            <?php }?>
+                            <?php $first = true; foreach ($sizes_data as $size){?>
+                                <option value="<?= $size['code']?>" <?php echo $first?'selected':''; ?>><?= $size['name']?></option>
+                            <?php $first = false; }?>
                         </select><br/>
                         <span class="error" id="error_pa_size_mobile"></span>
                     </div>

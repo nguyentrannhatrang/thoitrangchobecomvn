@@ -95,11 +95,33 @@ class Publish extends ADMIN_Controller
         
         $data['languages'] = $this->AdminModel->getLanguages();
         $data['colors'] = $this->AdminModel->getColors();
-        $data['sizes'] = $this->AdminModel->getSizes();
+        $listSize = $this->AdminModel->getSizes();
+        $aSizes = array();
+        foreach ($listSize->result() as $size) {
+            $aSizes[$size->code] = $size->name;
+        }
+        uksort($aSizes,function ($a,$b){
+            if(filter_var($a, FILTER_SANITIZE_NUMBER_INT) > filter_var($b, FILTER_SANITIZE_NUMBER_INT))
+                return 1;
+            else
+                return -1;
+        });
+        $data['sizes'] = $aSizes;
         $data['shop_categories'] = $this->AdminModel->getShopCategories();
         $data['brands'] = $this->AdminModel->getBrands();
         $data['otherImgs'] = $this->loadOthersImages();
-        $data['details'] = $this->AdminModel->getProductDetailByProduct($id);
+        $details = $this->AdminModel->getProductDetailByProduct($id);
+        $listDetail = array();
+        foreach ($details->result() as $details) {
+            $listDetail[] = $details;
+        }
+        usort($listDetail,function ($a,$b){
+            if(filter_var($a->size, FILTER_SANITIZE_NUMBER_INT) > filter_var($b->size, FILTER_SANITIZE_NUMBER_INT))
+                return 1;
+            else
+                return -1;
+        });
+        $data['details'] = $listDetail ;
         $this->load->view('_parts/header', $head);
         $this->load->view('ecommerce/publish', $data);
         $this->load->view('_parts/footer');

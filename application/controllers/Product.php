@@ -76,6 +76,12 @@ class Product extends MY_Controller
                 'quantity'=>$detail->quantity,
                 'code'=>$detail->size);
         }
+        uksort($result,function ($a,$b){
+            if(filter_var($a, FILTER_SANITIZE_NUMBER_INT) > filter_var($b, FILTER_SANITIZE_NUMBER_INT))
+                return 1;
+            else
+                return -1;
+        });
         return $result;
     }
 

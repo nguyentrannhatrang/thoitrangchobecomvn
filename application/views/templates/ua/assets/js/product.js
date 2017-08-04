@@ -247,6 +247,7 @@ jQuery(document).ready(function () {
 
         });
     }
-
+    $('#pa_size').change();
+    $('#pa_size_mobile').change();
 //})
 });

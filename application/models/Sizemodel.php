@@ -51,7 +51,13 @@ class SizeModel extends CI_Model
         foreach ($arr as $item){
             $result[$item->code] = $item->name;
         }
-        asort($result);
+        //asort($result);
+        uksort($result,function ($a,$b){
+           if(filter_var($a, FILTER_SANITIZE_NUMBER_INT) > filter_var($b, FILTER_SANITIZE_NUMBER_INT))
+                return 1;
+           else
+               return -1;
+        });
         return $result;
     }
     /**

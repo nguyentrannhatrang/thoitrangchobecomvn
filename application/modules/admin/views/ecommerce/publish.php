@@ -181,28 +181,28 @@ if ($this->session->flashdata('result_publish')) {
         </div>
     </div>
     <?php if($details) {?>
-        <?php foreach ($details->result() as $details) { ?>
+        <?php foreach ($details as $detail) { ?>
             <div class="form-group for-shop row">
                 <div class="col-lg-3">
                     <select name="detail_color[]">
                         <?php foreach ($colors->result() as $color) { ?>
-                            <option value="<?php echo $color->code; ?>" <?php echo ($details->color ==$color->code?'selected':'' ) ?>><?php echo $color->name; ?></option>
+                            <option value="<?php echo $color->code; ?>" <?php echo ($detail->color ==$color->code?'selected':'' ) ?>><?php echo $color->name; ?></option>
                         <?php }?>
                     </select>
                 </div>
                 <div class="col-lg-3">
                     <select name="detail_size[]">
-                        <?php foreach ($sizes->result() as $size) { ?>
-                            <option value="<?php echo $size->code; ?>" <?php echo ($details->size ==$size->code?'selected':'' ) ?>><?php echo $size->name; ?></option>
+                        <?php foreach ($sizes as $sizeCode=>$sizeName) { ?>
+                            <option value="<?php echo $sizeCode; ?>" <?php echo ($detail->size == $sizeCode?'selected':'' ) ?>><?php echo $sizeName; ?></option>
                         <?php }?>
                     </select>
                 </div>
                 <div class="col-lg-3">
-                    <input name="detail_quantity[]" value="<?php echo $details->quantity; ?>" />
+                    <input name="detail_quantity[]" value="<?php echo $detail->quantity; ?>" />
                 </div>
                 <div class="col-lg-3">
-                    <input class="format_price_detail" value="<?php echo $details->price; ?>" />
-                    <input name="detail_price[]" class="detail_price" type="hidden" value="<?php echo $details->price; ?>" />
+                    <input class="format_price_detail" value="<?php echo $detail->price; ?>" />
+                    <input name="detail_price[]" class="detail_price" type="hidden" value="<?php echo $detail->price; ?>" />
                 </div>
             </div>
         <?php }?>
@@ -219,8 +219,8 @@ if ($this->session->flashdata('result_publish')) {
             </div>
             <div class="col-lg-3">
                 <select name="detail_size[]">
-                    <?php foreach ($sizes->result() as $size) { ?>
-                        <option value="<?php echo $size->code; ?>"><?php echo $size->name; ?></option>
+                    <?php foreach ($sizes as $sizeCode=>$sizeName) { ?>
+                        <option value="<?php echo $sizeCode; ?>"><?php echo $sizeName; ?></option>
                     <?php }?>
                 </select>
             </div>
