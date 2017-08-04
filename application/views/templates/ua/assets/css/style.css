@@ -191,6 +191,24 @@ div.tour-info-tile-description div.more-info{
         padding-right: 7px;
     }
     h1{font-size: 30px;}
+    .booking .book-now .time-selector select{
+        width: 130px;
+    }
+    .booking .book-now .time-selector #quantity{
+        width: 100px;
+        height: 33px;
+    }
+    .percent45{
+        width: 45%;
+        float: left;
+    }
+    .percent45-right{
+        width: 45%;
+        float: right;
+    }
+    .booking{
+        min-height: 650px;
+    }
 }
 
 .media{

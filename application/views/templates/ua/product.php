@@ -54,26 +54,29 @@
                                 <input type="hidden" name="product_id" id="product_id" value="<?= $product->getId() ?>">
                                 <input type="hidden" name="product_price" id="product_price" value="<?= $product->getPrice() ?>">
                                 <div class="time-selector">
-                                    <p>Size</p>
-                                    <select id="pa_size" name="size" class="depart form-select">
-                                        <option value="">Chọn kích cỡ</option>
-                                        <?php $first = true; foreach ($sizes_data as $size){?>
-                                            <option value="<?= $size['code']?>" <?php echo $first?'selected':''; ?> ><?= $size['name']?></option>
-                                        <?php
-                                            $first = false;
-                                        }?>
-                                    </select><br/>
-                                    <span class="error" id="error_pa_size"></span>
-                                </div>
-                                <div class="time-selector">
-                                    <p>Số lượng</p>
-                                    <div class="quantity">
-                                        <input type="number" class="qty" step="1" min="0" max="0" id="quantity" name="quantity" value="0" />
-                                        <br/>
-                                        <span class="error" id="error_quantity"></span>
+                                    <div class="percent45">
+                                        <p>Size</p>
+                                        <select id="pa_size" name="size" class="depart form-select">
+                                            <option value="">Chọn kích cỡ</option>
+                                            <?php $first = true; foreach ($sizes_data as $size){?>
+                                                <option value="<?= $size['code']?>" <?php echo $first?'selected':''; ?> ><?= $size['name']?></option>
+                                                <?php
+                                                $first = false;
+                                            }?>
+                                        </select><br/>
+                                        <span class="error" id="error_pa_size"></span>
                                     </div>
-                                </div>
-                                <div class="total-price hide">
+                                    <div class="percent45-right">
+                                        <p>Số lượng</p>
+                                        <div class="quantity">
+                                            <input type="number" class="qty" step="1" min="0" max="0" id="quantity" name="quantity" value="0" />
+                                            <br/>
+                                            <span class="error" id="error_quantity"></span>
+                                        </div>
+                                    </div>
+                                </div>                            
+                                <br style="margin-bottom: 15px;"/>
+                                <div style="clear: both;" class="total-price hide">
                                     <span>Tổng tiền: </span>
                                     <span class="price" id="total-price"></span> đồng
                                 </div>
@@ -134,12 +137,14 @@
                         <div class="photo-gallery">
                             <div class="photo-gallery-row">
                                 <div class="current-photo">
+                                    <img id="img_main" src="<?= base_url('/attachments/shop_images/'.$product->image) ?>" title="<?= $product->getName()?>"  alt="<?= $product->getName() ?>, thoitrangchobe"  />
                                     <?php foreach ($others_image as $index=>$other) {?>
                                     <img id="img_<?= $index ?>" src="<?= $other ?>" title="<?= $product->getName()?>"  alt="<?= $product->getName() ?>, thoitrangchobe"  />
                                     <?php } ?>
                                 </div>
                                 <div class="gallery-tiles">
                                     <div class="gallery-offset">
+                                        <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image) ?>');" rel="<?= base_url('/attachments/shop_images/'.$product->image) ?>" id="img_main" class="gallery-tile"></div>
                                         <?php foreach ($others_image as $index=>$other) {?>
                                         <div style="background-image: url('<?= $other ?>');" rel="<?= $other ?>" id="img_<?= $index ?>" class="gallery-tile"></div>
                                         <?php } ?>
@@ -147,6 +152,13 @@
                                 </div>
                                 <div class="carousel mobile-tour-carousel pictures">
                                     <ul class="bxslider-carousel">
+                                        <li>
+                                            <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image) ?>');" rel="<?= base_url('/attachments/shop_images/'.$product->image) ?>" id="img_main" class="carousel-image">
+                                                <a href="<?= base_url('/attachments/shop_images/'.$product->image) ?>" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe" title="<?= $product->getName()?>" >
+                                                    <img src="<?= base_url('/attachments/shop_images/'.$product->image) ?>" style="display:none" title="<?= $product->getName()?>" alt="<?= $product->getName()?>" >
+                                                </a>
+                                            </div>
+                                        </li>
                                         <?php foreach ($others_image as $index=>$other) {?>
                                         <li>
                                             <div style="background-image: url('<?= $other ?>');" rel="<?= $other ?>" id="img_<?= $index ?>" class="carousel-image">

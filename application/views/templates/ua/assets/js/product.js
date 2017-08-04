@@ -35,6 +35,7 @@ jQuery(document).ready(function () {
             if(!$('.total-price').hasClass('hide'))
                 $('.total-price').addClass('hide');
         }
+        total = total*$(this).val();
         $('#total-price').text(NTNT.format_price(total));
     });
     $(document).on('change','#quantity_mobile',function () {
@@ -46,6 +47,7 @@ jQuery(document).ready(function () {
             if(!$('.total-price-mobile').hasClass('hide'))
                 $('.total-price-mobile').addClass('hide');
         }
+        total = total*$(this).val();
         $('#total-price-mobile').text(NTNT.format_price(total));
     });
 
