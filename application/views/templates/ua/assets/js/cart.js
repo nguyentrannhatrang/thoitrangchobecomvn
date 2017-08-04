@@ -171,6 +171,12 @@ jQuery(function($){
     $(document).ready(function () {
         $(".chat_fb").click(function() {
             $('.fchat').toggle('slow');
-        });        
+        });
+        $( "#txt-search" ).autocomplete({
+            source: availableTags
+        });
+        $('#btn-search').click(function () {
+            $('#search-header').submit();
+        });
     });
 })

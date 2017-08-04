@@ -268,7 +268,6 @@
                         <div class="tour-tile-info">
                             <h5 class="tour-tile-title"><?= $_product->getName() ?></h5>
                             <span class="tour-info-tile-price"><?= $_product->getPriceFormat()?> đồng</span>
-                            <span class="icon icon-encircled-right-arrow"></span>
                         </div>
                     </a>
                 </div>

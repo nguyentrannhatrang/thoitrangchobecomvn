@@ -3,9 +3,8 @@
         <div class="site-wrapper">
             <div class="grid">
                 <div class="search-nav grid__item one-half palm--one-whole">
-                    <form id="search-header" action="/search" method="get"><i class="icon icon-search"></i>
-                        <input type="text" name="s" placeholder="Tên sản phẩm" class="tour-query">
-                        <input type="submit" style="display:none">
+                    <form id="search-header" action="/search" method="get"><i class="icon icon-search" id="btn-search"></i>
+                        <input type="text" name="s" id="txt-search" placeholder="Tên sản phẩm" class="tour-query">
                     </form>
                 </div>
                 <div class="right-menue grid__item one-half palm--one-whole">

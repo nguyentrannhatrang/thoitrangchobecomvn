@@ -14,12 +14,12 @@
                     <div class="grid__item one-whole palm--hidden">
                         <img width="980px" height="400px" title="Thời trang cho bé" alt="Đầm bé gái, Thời trang cho bé" src="/assets/images/ua/banner.png">
                     </div>
-                    <form id="home_search" action="/search" method="get">
+                    <!--<form id="home_search" action="/search" method="get">
                         <div class="hero-call-to-action">
                             <input type="submit" value="Tìm"><span>
                     <input type="text" name="s" placeholder="Tên sản phẩm" class="field dest-query"></span>
                         </div>
-                    </form>
+                    </form>-->
                 </div>
             </div>
             <div class="carousel palm--hidden hidden show-slider">
@@ -63,7 +63,6 @@
                                         <span class="tour-tile-location"><?= $product->getBasicDescription(60)?></span><br/>
                                     <span class="tour-tile-location sp-price"><?= $product->getPriceFormat()?> đồng</span>
                                     </span>
-                                    <span class="icon icon-encircled-right-arrow"></span>
                                 </div>
                             </a>
                         </div>
@@ -80,3 +79,4 @@
     </div>
     <?php $this->view('templates/ua/_parts/footer-menu',array()); ?>
 </div>
+

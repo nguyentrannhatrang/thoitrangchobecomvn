@@ -37,7 +37,6 @@
                                             </p>
                                             <div class="more-info">
                                                 <a href="/product-<?= $product->url?>">
-                                                    <i class="icon icon-encircled-right-arrow palm--hidden"></i>
                                                 </a>
                                             </div>
                                         </div>

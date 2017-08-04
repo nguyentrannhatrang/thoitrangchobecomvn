@@ -12,6 +12,7 @@ class MY_Controller extends MX_Controller
         parent::__construct();
         $this->load->model('AdminModel');
         $this->load->model('CategoryModel');
+        $this->load->model('ProductModel');
         $this->getActivePages();
         $this->checkForPostRequests();
         $this->setReferrer();
@@ -76,6 +77,27 @@ class MY_Controller extends MX_Controller
         $this->load->view($this->template . '_parts/footer'.$sufix, $footer);
     }
 
+    /**
+     * @return string
+     * @throws Exception
+     */
+    protected function getAllProduct(){
+        try{
+            $result = array();
+            $product = new ProductModel();
+            $list = $product->loadAll(false);
+            /** @var ProductModel $item */
+            foreach ($list as $item){
+                $result[] = $item->getName();
+            }
+            if(!empty($result))
+                return '"'.implode('","',$result).'"';
+            return '';
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
 
 
     /*
@@ -92,6 +114,7 @@ class MY_Controller extends MX_Controller
         $head['menu'] = $this->getListMenu();
         $head['current_menu'] = array($view=>true);
         $data['top_menu'] = $this->getLeftMenu();
+        $data['listProductName'] = $this->getAllProduct();
         $vars = $this->loadVars();
         $this->load->vars($vars);
         $this->load->view($this->template . '_parts/header', $head);

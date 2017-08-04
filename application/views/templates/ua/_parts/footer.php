@@ -24,5 +24,14 @@
 <?php }else {?>
     <script defer  type="text/javascript" src="<?= base_url('templatejs/home.min.js') ?>"></script>
 <?php } ?>
+<script>
+    <?php if(isset($listProductName)){?>
+    var availableTags = [
+    <?= $listProductName ?>
+    ];
+    <?php } else {?>
+    var availableTags = [];
+    <?php } ?>
+</script>
 </body>
 </html>
