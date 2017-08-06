@@ -137,7 +137,10 @@ class GenerateData
             return null;
         }
     }
-    
+
+    /**
+     * 
+     */
     public function listProductSlider(){
         try{
             /** @var ProductModel $productModel */
@@ -146,6 +149,35 @@ class GenerateData
             file_put_contents(FOLDER_ROOT.'/'.FOLDER_DATA.'/product/slider.json',json_encode($data));
         }catch (\Exception $e){
             
+        }
+    }
+
+    /**
+     * @return array|mixed|null
+     */
+    public function loadArrayWithPrice(){
+        try{
+
+            $this->CI->load->model('SizeModel');
+            $data = $this->listSize();
+            if(is_null($data)){
+                $sizeModel = new SizeModel();
+                $data = $sizeModel->loadArrayWithPrice();
+                file_put_contents(FOLDER_ROOT.'/'.FOLDER_DATA.'/product/size.json',json_encode($data));
+            }
+            return $data;            
+            
+        }catch (\Exception $e){
+            return null;
+        }
+    }
+    
+    protected function listSize(){
+        try{
+            $sizes = @file_get_contents(FOLDER_ROOT.'/'.FOLDER_DATA.'/product/size.json');
+            return json_decode($sizes,true);
+        }catch (\Exception $e){
+            return null;
         }
     }
     

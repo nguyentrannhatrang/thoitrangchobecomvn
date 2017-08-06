@@ -32,7 +32,9 @@ class Product extends MY_Controller
         $data['product'] = $product;
         $head['title_page'] = $product->getName();
         $data['others_image'] = $this->loadOthersImages($product->getFolder());
-        $listSizePrice = $this->SizeModel->loadArrayWithPrice();
+        $generate = new GenerateData();
+        $listSizePrice = $generate->loadArrayWithPrice();
+        //$listSizePrice = $this->SizeModel->loadArrayWithPrice();
         $listSize = array();
         $listSizeForPrice = array();
 
