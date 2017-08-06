@@ -209,6 +209,9 @@ div.tour-info-tile-description div.more-info{
     .booking{
         min-height: 650px;
     }
+    .booking .booking-header{
+        background: #df3a6b;
+    }
 }
 
 .media{
@@ -342,4 +345,7 @@ form.checkout input.error{
 }
 .ui-helper-hidden-accessible{
     display: none !important;
+}
+#main .accordion{
+    background: #df3a6b;
 }
