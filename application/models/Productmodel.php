@@ -71,7 +71,7 @@ class ProductModel extends CI_Model
      * @param int $limit
      * @return array
      */
-    public function loadSlider($limit = 10){
+    public function loadSlider($limit = 10,$isArray = false){
         //$this->db->cache_on();
         $this->db->select(
             'products.id, 
@@ -95,7 +95,10 @@ class ProductModel extends CI_Model
         $arr = array();
         if ($query !== false) {
             foreach ($query->result_array() as $row) {
-                $arr[] = $this->convertToObject($row);
+                if($isArray)
+                    $arr[] = $row;
+                else
+                    $arr[] = $this->convertToObject($row);
             }
         }
         return $arr;

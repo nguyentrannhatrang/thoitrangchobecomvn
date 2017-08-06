@@ -67,9 +67,14 @@ class Home extends MY_Controller
      * @return array
      */
     protected function getProductShowSlider(){
-        /** @var ProductModel $productModel */
-        $productModel = $this->ProductModel;
-        return $productModel->loadSlider();
+        $generate = new GenerateData();
+        $result = $generate->loadProductSlider();
+        if(is_null($result)){
+            /** @var ProductModel $productModel */
+            $productModel = $this->ProductModel;
+            $result = $productModel->loadSlider();
+        }
+        return $result;
     }
     /**
      * @return array

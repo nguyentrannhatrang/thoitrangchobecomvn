@@ -75,6 +75,7 @@ class Publish extends ADMIN_Controller
                 //generate product
                 $generate = new GenerateData();
                 $generate->listProducts();
+                $generate->listProductSlider();
                 if (isset($_SESSION['filter']) && $id > 0) {
                     $get = '';
                     foreach ($_SESSION['filter'] as $key => $value) {

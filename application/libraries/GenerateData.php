@@ -116,4 +116,37 @@ class GenerateData
         }
         return $result;
     }
+
+    /**
+     * @return array|null
+     */
+    public function loadProductSlider(){
+        try{
+            $result = array();
+            $data = @file_get_contents(FOLDER_ROOT.'/'.FOLDER_DATA.'/product/slider.json');
+            if($data){
+                /** @var ProductModel $productModel */
+                $productModel = new ProductModel();
+                $data = json_decode($data,true);
+                foreach ($data as $item){
+                    $result[] = $productModel->convertToObject($item);
+                }
+            }
+            return $result;
+        }catch (\Exception $e){
+            return null;
+        }
+    }
+    
+    public function listProductSlider(){
+        try{
+            /** @var ProductModel $productModel */
+            $productModel = new ProductModel();
+            $data =  $productModel->loadSlider(10,true);
+            file_put_contents(FOLDER_ROOT.'/'.FOLDER_DATA.'/product/slider.json',json_encode($data));
+        }catch (\Exception $e){
+            
+        }
+    }
+    
 }
