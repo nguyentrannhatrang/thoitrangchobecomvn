@@ -31,6 +31,7 @@ class ShopCategories extends ADMIN_Controller
             if ($result == true) {
                 $this->saveHistory('Home Categorie id - ' . $_GET['delete']);
                 $this->session->set_flashdata('result_delete', 'Shop Categorie is deleted!');
+                $this->generateCategories();
             } else {
                 $this->session->set_flashdata('result_delete', 'Problem with Shop Categorie delete!');
             }
@@ -41,6 +42,7 @@ class ShopCategories extends ADMIN_Controller
             if ($result === true) {
                 $this->session->set_flashdata('result_add', 'Shop categorie is added!');
                 $this->saveHistory('Added shop categorie');
+                $this->generateCategories();
             } else {
                 $this->session->set_flashdata('result_add', 'Problem with Shop categorie add!');
             }
@@ -51,6 +53,7 @@ class ShopCategories extends ADMIN_Controller
             if ($result === true) {
                 $this->session->set_flashdata('result_add', 'Subcategory changed!');
                 $this->saveHistory('Change subcategory for category id - ' . $_POST['editSubId']);
+                $this->generateCategories();
             } else {
                 $this->session->set_flashdata('result_add', 'Problem with Shop category change!');
             }
@@ -71,6 +74,7 @@ class ShopCategories extends ADMIN_Controller
         $this->login_check();
         $result = $this->AdminModel->editShopCategorie($_POST);
         $this->saveHistory('Edit shop categorie to ' . $_POST['name']);
+        $this->generateCategories();
     }
 
     /*
@@ -93,6 +97,19 @@ class ShopCategories extends ADMIN_Controller
         $this->login_check();
         $result = $this->AdminModel->editShopCategorieUrl($_POST);
         $this->saveHistory('Edit shop categorie url ' . $_POST['name']);
+    }
+
+    /**
+     *
+     */
+    protected function generateCategories(){
+        //generate categories
+        try{
+            $generate = new GenerateData();
+            $generate->listCategories();
+        }catch (\Exception $e){
+
+        }
     }
 
 }

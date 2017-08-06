@@ -18,6 +18,7 @@ class Publish extends ADMIN_Controller
     {
         parent::__construct();
         $this->load->model('ProductModel');
+        $this->load->library('GenerateData');
     }
 
     public function index($id = 0)
@@ -71,6 +72,9 @@ class Publish extends ADMIN_Controller
                 } else {
                     $this->saveHistory('Success updated product');
                 }
+                //generate product
+                $generate = new GenerateData();
+                $generate->listProducts();
                 if (isset($_SESSION['filter']) && $id > 0) {
                     $get = '';
                     foreach ($_SESSION['filter'] as $key => $value) {

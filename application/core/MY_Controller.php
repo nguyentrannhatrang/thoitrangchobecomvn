@@ -13,6 +13,7 @@ class MY_Controller extends MX_Controller
         $this->load->model('AdminModel');
         $this->load->model('CategoryModel');
         $this->load->model('ProductModel');
+        $this->load->library('GenerateData');
         $this->getActivePages();
         $this->checkForPostRequests();
         $this->setReferrer();
@@ -83,12 +84,16 @@ class MY_Controller extends MX_Controller
      */
     protected function getAllProduct(){
         try{
-            $result = array();
-            $product = new ProductModel();
-            $list = $product->loadAll(false);
-            /** @var ProductModel $item */
-            foreach ($list as $item){
-                $result[] = $item->getName();
+            $generate = new GenerateData();
+            $result = $generate->loadListProducts();
+            if(is_null($result)){
+                $result = array();
+                $product = new ProductModel();
+                $list = $product->loadAll(false);
+                /** @var ProductModel $item */
+                foreach ($list as $item){
+                    $result[] = $item->getName();
+                }
             }
             if(!empty($result))
                 return '"'.implode('","',$result).'"';
@@ -111,7 +116,7 @@ class MY_Controller extends MX_Controller
             $footer = array();
         //$head['cartItems'] = $this->shoppingcart->getCartItems();
         //$head['sumOfItems'] = $this->shoppingcart->sumValues;
-        $head['menu'] = $this->getListMenu();
+        //$head['menu'] = $this->getListMenu();
         $head['current_menu'] = array($view=>true);
         $data['top_menu'] = $this->getLeftMenu();
         $data['listProductName'] = $this->getAllProduct();
@@ -255,26 +260,31 @@ class MY_Controller extends MX_Controller
      * @return array
      */
     protected function getLeftMenu(){
-        $result=array();
-        $aCategories = $this->CategoryModel->loadAll();
-        /** @var CategoryModel $category */
-        foreach ($aCategories as $category){
-            if(empty($category->subFor)){
-                if(!isset($result[$category->id]))
-                    $result[$category->id] = array();
-                $result[$category->id]['info'] = array('name' => $category->name, 'url' => $category->urlName);
-                if(!isset($result[$category->id]['children']))
-                    $result[$category->id]['children'] = array();
-                continue;
-            }
-            if(!empty($category->subFor)){
-                if(!isset($result[$category->subFor])){
-                    $result[$category->subFor] = array('info' => array());
-                    $result[$category->subFor]['children'] = array();
+        $generate = new GenerateData();
+        $result = $generate->loadListCategories();
+        if(is_null($result)){
+            $result=array();
+            $aCategories = $this->CategoryModel->loadAll();
+            /** @var CategoryModel $category */
+            foreach ($aCategories as $category){
+                if(empty($category->subFor)){
+                    if(!isset($result[$category->id]))
+                        $result[$category->id] = array();
+                    $result[$category->id]['info'] = array('name' => $category->name, 'url' => $category->urlName);
+                    if(!isset($result[$category->id]['children']))
+                        $result[$category->id]['children'] = array();
+                    continue;
                 }
-                $result[$category->subFor]['children'][] = array('name' => $category->name, 'url' => $category->urlName);
+                if(!empty($category->subFor)){
+                    if(!isset($result[$category->subFor])){
+                        $result[$category->subFor] = array('info' => array());
+                        $result[$category->subFor]['children'] = array();
+                    }
+                    $result[$category->subFor]['children'][] = array('name' => $category->name, 'url' => $category->urlName);
+                }
             }
         }
+
         return $result;
     }
 
