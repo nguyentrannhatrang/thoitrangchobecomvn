@@ -9,6 +9,20 @@ jQuery(document).ready(function () {
         $('#quantity').change();
 
     });
+    $(document).on('change','#quantity',function (e) {
+        if($(this).val() > $(this).attr('max')){
+            e.preventDefault();
+            $(this).val($(this).attr('max'));
+            $(this).change();
+        }
+    });
+    $(document).on('change','#quantity_mobile',function (e) {
+        if($(this).val() > $(this).attr('max')){
+            e.preventDefault();
+            $(this).val($(this).attr('max'));
+            $(this).change();
+        }
+    });
     $(document).on('change','#pa_size_mobile',function () {
         change_size_mobile();
         $('#quantity_mobile').change();
