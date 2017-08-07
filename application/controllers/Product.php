@@ -38,7 +38,7 @@ class Product extends MY_Controller
         $listSize = array();
         $listSizeForPrice = array();
 
-        $productDetails = $this->ProductDetailModel->loadByProduct($product->id);
+        $productDetails = $this->ProductDetailModel->loadByProduct($product->id,true);
         /** @var ProductDetailModel $valueDetail */
         foreach ($productDetails as $valueDetail){
             if($valueDetail->getSize() && isset($listSizePrice[$valueDetail->getSize()])){
