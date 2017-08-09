@@ -275,7 +275,7 @@
                  */
                 foreach ($relation_products as $index=>$_product){?>
                 <div class="grid__item one-third palm--one-whole spacer">
-                    <a href="/product-<?=$_product->getUrl() ?>" class="tour-tile" title="<?= $_product->getName()?>" >
+                    <a href="/category-<?= $product->urlCategory ?>/<?=$_product->getUrl() ?>" class="tour-tile" title="<?= $_product->getName()?>" >
                         <div style="background-image: url(<?= base_url('/attachments/shop_images/'.$_product->getImage()) ?>);" class="tour-tile-image"></div>
                         <div class="tour-tile-info">
                             <h5 class="tour-tile-title"><?= $_product->getName() ?></h5>

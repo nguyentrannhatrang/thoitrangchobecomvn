@@ -19,6 +19,18 @@
     <?php } ?>
 
     <!-- End Visual Website Optimizer Asynchronous Code -->
+    <script type="application/ld+json">
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "Thời Trang Cho Bé",
+      "url": "http://thoitrangchobe.com.vn/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://thoitrangchobe.com.vn/search?q={q}",
+        "query-input": "required name=q"
+      },
+      "description": "Đầm bé gái vải cotton mịn, mát mẻ."
+</script>
 </head>
 <body>
 <!-- Google Analytics -->

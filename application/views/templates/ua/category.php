@@ -26,8 +26,8 @@
                                 <div class="grid__item one-third palm--one-whole spacer">
                                     <div class="tour-info-tile">
                                         <div class=" ribbon"></div>
-                                        <a href="/product-<?= $product->url?>" style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-info-tile-image" title="<?= $product->getName()?>"></a>
-                                        <div class="tour-info-tile-info"><a href="/product-<?= $product->url?>" class="tour-info-tile-title"><?= $product->getNameLimit(150)?></a>
+                                        <a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-info-tile-image" title="<?= $product->getName()?>"></a>
+                                        <div class="tour-info-tile-info"><a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" class="tour-info-tile-title"><?= $product->getNameLimit(150)?></a>
 <!--                                            <div class="location">--><!--</div>-->
 
 
@@ -40,7 +40,7 @@
                                                 <?= $product->getBasicDescription(200);?>
                                             </p>
                                             <div class="more-info">
-                                                <a href="/product-<?= $product->url?>">
+                                                <a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>">
                                                 </a>
                                             </div>
                                         </div>

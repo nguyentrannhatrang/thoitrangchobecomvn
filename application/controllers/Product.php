@@ -16,7 +16,7 @@ class Product extends MY_Controller
         $this->load->model('CommentsModel');
     }
 
-    public function index($url = '')
+    public function index($category = '',$url = '')
     {
         $data = array();
         $head = array();

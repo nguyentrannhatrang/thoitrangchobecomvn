@@ -52,8 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 $route['default_controller'] = 'home';
 
+
 $route['category-(:any)'] = 'category/index/$1';
-$route['product-(:any)'] = 'product/index/$1';
+$route['category-(:any)/(:any)'] = 'product/index/$1/$2';
 $route['thankyou/(:num)'] = 'thankyou/index/$1';
 $route['search'] = 'search/index';
 

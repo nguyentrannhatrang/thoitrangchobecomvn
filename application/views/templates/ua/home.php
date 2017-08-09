@@ -27,7 +27,7 @@
                     <?php
                     /** @var ProductModel $product */
                     foreach ($products_slider as $product){ ?>
-                    <li><a href="/product-<?=$product->url?>/" target="_blank">
+                    <li><a href="/category-<?= $product->urlCategory ?>/<?=$product->url?>/" target="_blank">
                             <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="carousel-image"></div>
                             <h2 class="carousel-title"></h2></a>
                     </li>
@@ -53,7 +53,7 @@
                             if($index>4) break;
                             ?>
                         <div class="grid__item <?php echo ($index==3?'two-thirds':'one-third') ?> palm--one-whole spacer ">
-                            <a href="/product-<?=$product->url?>/" title="<?=$product->getName()?>"  class="tour-tile thumb-sx<?php echo ($index==3?'2':'') ?>">
+                            <a href="/category-<?= $product->urlCategory ?>/<?=$product->url?>/" title="<?=$product->getName()?>"  class="tour-tile thumb-sx<?php echo ($index==3?'2':'') ?>">
                                 <div class="large ribbon-class ribbon"></div>
                                 <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-tile-image"></div>
                                 <div class="tour-tile-info">

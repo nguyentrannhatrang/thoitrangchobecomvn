@@ -129,7 +129,7 @@ class Cart extends MY_Controller
                 $productName = $product->getName();
                 $price = $product->getPrice();
                 $image = $product->getImage();
-                $linkProduct = '/product-'.$product->getUrl();
+                $linkProduct = '/category-'.$product->getUrlCategory(). '/'.$product->getUrl();
                 $generate = new GenerateData();
                 $listSize = $generate->loadArrayWithPrice();
                 $dataSize = $listSize[$size];
