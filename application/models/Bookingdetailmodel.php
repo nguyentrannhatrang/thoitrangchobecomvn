@@ -131,7 +131,7 @@ class BookingDetailModel extends CI_Model {
      * @return bool
      */
     public static function statusInstant($status){
-        $arrInstant = array(1);
+        $arrInstant = array(1,3);
         if(in_array($status,$arrInstant))
             return true;
         return false;

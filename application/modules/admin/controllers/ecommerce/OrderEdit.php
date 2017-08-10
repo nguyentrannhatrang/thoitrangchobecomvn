@@ -199,6 +199,7 @@ class OrderEdit extends ADMIN_Controller
             $items = unserialize($items);
             $booking = $this->session->userdata('booking');
             $booking = unserialize($booking);
+            $booking->refNo = generateBookingId('OF');
             $booking->status = isset($_POST['booking_status'])?(int)$_POST['booking_status']:0;
             $booking->message = isset($_POST['message'])?$_POST['message']:'';
             $booking->insertAll($traveller,$items);
