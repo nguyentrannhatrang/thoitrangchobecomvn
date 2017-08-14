@@ -16,8 +16,9 @@
                             <li><strong>Facebook:</strong><br/> <a target="_blank" href="https://facebook.com/cherryfashion.vn">facebook.com/cherryfashion.vn</a></li>
                         </ul>
                     </div>
+                    <br/>
                     <div class="map" id="map">
-
+                        <div id="googleMap" style="width: 100%; height: 350px;">Google Map</div>
                     </div>
 
                 </div>
@@ -26,19 +27,3 @@
     </div>
     <?php $this->view('templates/ua/_parts/footer-menu',array()); ?>
 </div>
-<script>
-    function initMap() {
-        var uluru = {lat: 10.7557431, lng: 106.6254287};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: uluru
-        });
-        var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-        });
-    }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSOZFXJu7gd1yWU4nLxqWolbn6d__-n8Q&callback=initMap">
-</script>

@@ -363,5 +363,10 @@ div.sold-out{
 }
 div.sold-out img{
     width: 70px;
-
+}
+#map{
+    margin-top: 15px;
+}
+.contact-page ul{
+    padding-left: 0;
 }

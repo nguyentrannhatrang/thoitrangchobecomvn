@@ -23,7 +23,7 @@ class Contact extends MY_Controller
         $data = array();
         $head = array();
         $head['title_page'] = 'Liên hệ';
-        //$head['page_name'] = 'contact';
+        $head['page_name'] = 'contact';
         $this->renderUa('contact', $head, $data);
     }
 
