@@ -64,11 +64,12 @@ class Thankyou extends MY_Controller
                 if(empty($objProduct)) continue;
                 if(!isset($cacheProduct[$item->getProduct()]))
                     $cacheProduct[$item->getProduct()] = $objProduct;
+                $linkProduct = '/category-'.$objProduct->getUrlCategory(). '/'.$objProduct->getUrl();
                 $result[] = array('name'=>$item->getProductName(),
                     'quantity'=>$item->getQuantity(),'price'=>$item->getPrice(),
                     'total'=>$item->getTotal(),
                     'size'=>isset($listSize[$item->getSize()])?$listSize[$item->getSize()]:$item->getSize(),
-                    'url'=>$objProduct->getUrl(),
+                    'url'=>$linkProduct,
                     'image'=>$objProduct->getImage());
             }
             return $result;

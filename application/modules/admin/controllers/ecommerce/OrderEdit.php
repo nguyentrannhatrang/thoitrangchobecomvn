@@ -188,6 +188,7 @@ class OrderEdit extends ADMIN_Controller
             $traveller->address = isset($_POST['customer_address'])?$_POST['customer_address']:'';
             $booking->status = isset($_POST['booking_status'])?(int)$_POST['booking_status']:0;
             $booking->message = isset($_POST['message'])?$_POST['message']:'';
+            $booking->setSent(1);
             $booking->updateAll($traveller,$items);
         } elseif (!empty($_POST)) {//add new
             $traveller = new TravellerModel();
@@ -202,9 +203,8 @@ class OrderEdit extends ADMIN_Controller
             $booking->refNo = generateBookingId('OF');
             $booking->status = isset($_POST['booking_status'])?(int)$_POST['booking_status']:0;
             $booking->message = isset($_POST['message'])?$_POST['message']:'';
+            $booking->setSent(1);
             $booking->insertAll($traveller,$items);
-
-
         }
 
         echo json_encode(array('result'=>1,

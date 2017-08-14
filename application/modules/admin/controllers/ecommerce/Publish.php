@@ -65,6 +65,8 @@ class Publish extends ADMIN_Controller
             unset($_POST['translations']); //remove for product
             $result = $this->AdminModel->setProduct($this->createDataProduct($_POST), $id);
             if ($result !== false) {
+                $productModel = new ProductModel();
+                $productModel->updateQuantityProduct($result);
                 $this->AdminModel->setProductTranslation($translations, $result, $is_update); // send to translation table
                 $this->session->set_flashdata('result_publish', 'product is published!');
                 if ($id == 0) {

@@ -69,6 +69,14 @@ class Checkout extends MY_Controller
                         }
                         $this->db->trans_complete();
                         $this->db->trans_commit();
+                        $aProduct = array();
+                        $productModel = new ProductModel();
+                        /** @var BookingDetailModel $itemDetail */
+                        foreach ($aDetails as $itemDetail){
+                            if(in_array($itemDetail->product,$aProduct)) continue;
+                            $productModel->updateQuantityProduct($itemDetail->product);
+                            $aProduct[] = $itemDetail->product;
+                        }
                         //send mail
                         //$this->send();
                         redirect($this->config->item('base_url').'thankyou/'.$bkId);

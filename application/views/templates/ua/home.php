@@ -56,6 +56,9 @@
                             <a href="/category-<?= $product->urlCategory ?>/<?=$product->url?>/" title="<?=$product->getName()?>"  class="tour-tile thumb-sx<?php echo ($index==3?'2':'') ?>">
                                 <div class="large ribbon-class ribbon"></div>
                                 <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-tile-image"></div>
+                                <?php if($product->getQuantity() <1 ) {?>
+                                    <div class="sold-out"><img src="/assets/images/ua/het-hang.png"></div>
+                                <?php } ?>
                                 <div class="tour-tile-info">
                                     <h5 class="tour-tile-title"><?=$product->getNameLimit(50)?></h5>
                                     <span>

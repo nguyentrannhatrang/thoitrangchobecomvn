@@ -26,7 +26,12 @@
                                 <div class="grid__item one-third palm--one-whole spacer">
                                     <div class="tour-info-tile">
                                         <div class=" ribbon"></div>
-                                        <a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-info-tile-image" title="<?= $product->getName()?>"></a>
+                                        <a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-info-tile-image" title="<?= $product->getName()?>">
+                                            <?php if($product->getQuantity() < 1 ) {?>
+                                                <div class="sold-out"><img src="/assets/images/ua/het-hang.png"></div>
+                                            <?php } ?>
+                                        </a>
+
                                         <div class="tour-info-tile-info"><a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" class="tour-info-tile-title"><?= $product->getNameLimit(150)?></a>
 <!--                                            <div class="location">--><!--</div>-->
 

@@ -23,7 +23,7 @@
                                             <div class="grid__item seven-tenths palm--one-whole">
                                                 <div class="combo reversed">
                                                     <div class="combo-first">
-                                                        <h5><?= $item['name']?></h5>
+                                                        <h5 class="item-product-name"><a href="<?= $item['link']?>"><?= $item['name']?></a></h5>
                                                         <div>Size: <?= $item['size']?></div>
                                                         <div>Đơn giá: <?= number_format($item['price'], 0, '', '.') ?> đồng</div>
                                                         <div>Số lượng: <?= $item['quantity']?> sản phẩm</div>
@@ -112,7 +112,7 @@
                                                 <label for="uxTermCheck"></label>
                                             </div>
                                         </div>
-                                        <div class="combo-last"><a id="terms_conditions" href="javascript:void(0)" class="terms-and-conditions small-spacer">Terms & Conditions of Booking, Payment, and Cancellations</a></div>
+                                        <div class="combo-last"><a id="terms_conditions" href="javascript:void(0)" class="terms-and-conditions small-spacer">Chấp nhận các điều khoản mua hàng</a></div>
                                     </div>
                                 </div>
                             </div>

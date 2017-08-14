@@ -232,6 +232,15 @@ class BookingModel extends CI_Model {
         }
         $this->db->trans_complete();
         $this->db->trans_commit();
+        $aProduct = array();
+        $productModel = new ProductModel();
+        /** @var BookingDetailModel $itemDetail */
+        foreach ($aDetails as $itemDetail){
+            if(in_array($itemDetail->product,$aProduct)) continue;
+            $productModel->updateQuantityProduct($itemDetail->product);
+            $aProduct[] = $itemDetail->product;
+        }
+
     }
 
     /**
@@ -285,6 +294,14 @@ class BookingModel extends CI_Model {
         }
         $this->db->trans_complete();
         $this->db->trans_commit();
+        $aProduct = array();
+        $productModel = new ProductModel();
+        /** @var BookingDetailModel $itemDetail */
+        foreach ($aDetails as $itemDetail){
+            if(in_array($itemDetail->product,$aProduct)) continue;
+            $productModel->updateQuantityProduct($itemDetail->product);
+            $aProduct[] = $itemDetail->product;
+        }
     }
 
     /**

@@ -40,6 +40,7 @@ class ProductModel extends CI_Model
         $this->db->select(
             'products.id, 
             products.image, 
+            products.quantity, 
             translations.title as name,
             translations.basic_description, 
             translations.price, 
@@ -58,7 +59,7 @@ class ProductModel extends CI_Model
 
         $this->db->where('visibility', 1);
         $this->db->where('show_home', 1);
-        $this->db->where('quantity >', 0);
+        //$this->db->where('quantity >', 0);
         $this->db->order_by('products.position', 'asc');
         $query = $this->db->get(self::TABLE_NAME);
         $arr = array();
@@ -704,6 +705,27 @@ class ProductModel extends CI_Model
             }
         }
         return $arr;
+    }
+
+    /**
+     * @param $productId
+     */
+    public function updateQuantityProduct($productId){
+        try{
+            $productDetail = new ProductDetailModel();
+            $listDetail = $productDetail->loadByProduct($productId);
+            $quantity = 0;
+            if($listDetail){
+                /** @var ProductDetailModel $item */
+                foreach ($listDetail as $item){
+                    $quantity +=$item->getQuantity();
+                }
+            }
+            $this->db->query('UPDATE products SET quantity=' . $quantity . ' WHERE id = ' . $productId);
+        }catch (\Exception $e){
+
+        }
+
     }
 
 

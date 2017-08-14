@@ -349,3 +349,19 @@ form.checkout input.error{
 #main .accordion{
     background: #df3a6b;
 }
+a{
+    text-decoration: none !important;
+}
+a.remove-item-product{
+    color: #A9A9A9;
+}
+div.sold-out{
+    position: absolute;
+    top: 230px;
+    right: 0;
+
+}
+div.sold-out img{
+    width: 70px;
+
+}
