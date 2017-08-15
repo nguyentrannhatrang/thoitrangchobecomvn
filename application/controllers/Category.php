@@ -34,7 +34,7 @@ class Category extends MY_Controller
      */
     protected function getListProduct($categorie){
         $aCategories = $this->CategoryModel->getIdByUrl($categorie);
-        return $this->ProductModel->getProducts($aCategories);
+        return $this->ProductModel->getProducts($aCategories,false);
         
     }
 
