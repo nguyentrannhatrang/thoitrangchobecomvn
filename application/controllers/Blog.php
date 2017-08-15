@@ -70,6 +70,27 @@ class Blog extends MY_Controller
         $this->renderUa('view_blog_post', $head, $data);
     }
 
+    public function postDetail($url)
+    {
+        if (is_null($url)) {
+            show_404();
+        }
+        $data = array();
+        $head = array();
+        $postModel = new PostModel();
+        $data['article'] = $postModel->getOnePostByUrl($url);
+        if ($data['article'] == null) {
+            show_404();
+        }
+        $data['right_menu'] = $this->getLeftMenu();
+        $data['archives'] = $this->getBlogArchiveHtml();
+        $head['title'] = $data['article']->getTitle();
+        $head['description'] = url_title(character_limiter(strip_tags($data['article']->getDescription()), 130));
+        $head['keywords'] = str_replace(" ", ",", $data['article']->getTitle());
+        $head['title_page'] = $data['article']->getTitle();
+        $this->renderUa('view_blog_post', $head, $data);
+    }
+
     private function getBlogArchiveHtml()
     {
         $html = '

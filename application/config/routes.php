@@ -100,6 +100,7 @@ $route['shop-product_(:num)'] = "home/viewProduct/$3";
 $route['blog/(:num)'] = "blog/index/$1";
 $route['blog/(:any)_(:num)'] = "blog/viewPost/$2";
 $route['(\w{2})/blog/(:any)_(:num)'] = "blog/viewPost/$3";
+$route['blog/(:any)'] = "blog/postDetail/$1";
 
 // Shopping cart page
 $route['shopping-cart'] = "ShoppingCartPage";

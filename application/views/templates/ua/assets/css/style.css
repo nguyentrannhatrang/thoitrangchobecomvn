@@ -381,3 +381,14 @@ div.sold-out img{
     top: -7px;
     font-size: 30px;
 }
+.blog-detail-page h4.post-title{
+    color: #df3a6b;
+    font-size: 25px;
+}
+.blog-detail-page .blog-preview-time{
+    color: #A9A9A9;
+}
+.blog-detail-page .blog-detail-thumb,
+.blog-detail-page .blog-description{
+    margin-top: 15px;
+}

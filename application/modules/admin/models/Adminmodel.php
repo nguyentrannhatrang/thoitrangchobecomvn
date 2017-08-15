@@ -675,6 +675,11 @@ class AdminModel extends CI_Model
     {
         //$this->db->cache_delete_all();
         if ($id > 0) {
+            if(isset($post['url']) && $post['url']){
+                $arr = array('url'=>$post['url']);
+                $this->db->where('id', $id);
+                $this->db->update('blog_posts', $arr);
+            }
             return $id;
         } else {
             $post['time'] = time();

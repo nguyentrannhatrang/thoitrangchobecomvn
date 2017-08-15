@@ -16,11 +16,15 @@ class BlogPublish extends ADMIN_Controller
         $this->login_check();
         $trans_load = null;
         $is_update = false;
+        $url = null;
         if ($id > 0)
             $is_update = true;
         if ($id > 0 && $_POST == null) {
             $_POST = $this->AdminModel->getOnePost($id);
             $trans_load = $this->AdminModel->getTranslations($id, 'blog');
+            $blogDetail = $this->AdminModel->getOnePost($id);
+            if($blogDetail && isset($blogDetail['url']))
+                $url = $blogDetail['url'];
         }
         if (isset($_POST['submit'])) {
             unset($_POST['submit']);
@@ -62,6 +66,7 @@ class BlogPublish extends ADMIN_Controller
         $head['keywords'] = '';
         $data['languages'] = $this->AdminModel->getLanguages();
         $data['trans_load'] = $trans_load;
+        $data['url_post'] = $url;
         $this->load->view('_parts/header', $head);
         $this->load->view('blog/blogpublish', $data);
         $this->load->view('_parts/footer');

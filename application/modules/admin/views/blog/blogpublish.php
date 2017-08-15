@@ -24,7 +24,13 @@
 				<label>Title (<?= $language->name ?><img src="<?= base_url('attachments/lang_flags/'.$language->flag) ?>" alt="">)</label>
 				<input type="text" name="title[]" value="<?= $trans_load != null && isset($trans_load[$language->abbr]['title']) ? $trans_load[$language->abbr]['title'] : '' ?>" class="form-control">
 			</div>
-			<?php } $i=0; foreach ($languages->result() as $language) { ?>
+			<?php }?>
+            <div class="form-group">
+                <label>Url </label>
+                <input type="text" name="url" value="<?= $url_post != null ? $url_post : '' ?>" class="form-control">
+            </div>
+            <?php $i=0; foreach ($languages->result() as $language) { ?>
+
 			<div class="form-group">
 			<label for="description<?=$i?>">Description (<?= $language->name ?><img src="<?= base_url('attachments/lang_flags/'.$language->flag) ?>" alt="">)</label>
 			<textarea name="description[]" id="description<?=$i?>" rows="50" class="form-control"><?= $trans_load != null && isset($trans_load[$language->abbr]['description']) ? $trans_load[$language->abbr]['description'] : '' ?></textarea>
