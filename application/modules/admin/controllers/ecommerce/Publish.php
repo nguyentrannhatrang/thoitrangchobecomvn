@@ -119,9 +119,12 @@ class Publish extends ADMIN_Controller
         $data['otherImgs'] = $this->loadOthersImages();
         $details = $this->AdminModel->getProductDetailByProduct($id);
         $listDetail = array();
-        foreach ($details->result() as $details) {
-            $listDetail[] = $details;
+        if($details){
+            foreach ($details->result() as $details) {
+                $listDetail[] = $details;
+            }
         }
+
         usort($listDetail,function ($a,$b){
             if(filter_var($a->size, FILTER_SANITIZE_NUMBER_INT) > filter_var($b->size, FILTER_SANITIZE_NUMBER_INT))
                 return 1;
