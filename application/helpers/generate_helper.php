@@ -35,3 +35,10 @@ function PartitionString($strStart,$strEnd,$strContent)
     return $arrStr;
 }
 
+function generateFormatDate($time){
+    $day = date('d',$time);
+    $month = date('m',$time);
+    $year = date('Y',$time);
+    return 'Ngày '.$day.'-'.(int)$month.'-'.$year;
+}
+

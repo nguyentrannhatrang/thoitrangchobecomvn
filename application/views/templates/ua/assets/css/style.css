@@ -370,3 +370,14 @@ div.sold-out img{
 .contact-page ul{
     padding-left: 0;
 }
+.blog-page ul li::before {
+    color: #df3a6b;
+    content: '\2022';
+    display: block;
+    position: relative;
+    max-width: 0;
+    max-height: 0;
+    left: -14px;
+    top: -7px;
+    font-size: 30px;
+}

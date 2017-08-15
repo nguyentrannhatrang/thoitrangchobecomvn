@@ -24,7 +24,7 @@
                                 </a> -
                                 <span class="date-time">
                                     <i class="fa fa-clock-o"></i>
-                                    <?= date('M d, y', $post->getTime()) ?>
+                                    <?= generateFormatDate($post->getTime()) ?>
                                 </span>
                             </li>
                         </ul>
