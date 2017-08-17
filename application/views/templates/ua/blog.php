@@ -16,7 +16,7 @@
                         /** @var PostModel $post */
                         foreach ($posts as $post) {
                             ?>
-                        <ul>
+                        <ul class="list-blogs">
                             <li>
                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                                 <a href="<?= '/blog/' . $post->getUrl() ?>"  title="<?= $post->getTitle()?>">

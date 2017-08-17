@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Blog extends MY_Controller
 {
 
-    private $num_rows = 1;
+    private $num_rows = 20;
     protected  $arhives= false;
     public function __construct()
     {
