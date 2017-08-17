@@ -63,7 +63,7 @@
                                     <h5 class="tour-tile-title"><?=$product->getNameLimit(50)?></h5>
                                     <span>
 
-                                        <span class="tour-tile-location"><?= $product->getBasicDescription(60)?></span><br/>
+<!--                                        <span class="tour-tile-location">--><?//= $product->getBasicDescription(60)?><!--</span><br/>-->
                                     <span class="tour-tile-location sp-price"><?= $product->getPriceFormat()?> đồng</span>
                                     </span>
                                 </div>

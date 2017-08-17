@@ -392,3 +392,10 @@ div.sold-out img{
 .blog-detail-page .blog-description{
     margin-top: 15px;
 }
+a.tour-info-tile-title,
+p.tmain-name-title,
+h5.tour-info-tile-title,
+h5.tour-tile-title
+{
+    text-transform: capitalize;
+}

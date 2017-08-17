@@ -40,7 +40,7 @@
                     <div class="booking">
                         <div class="booking-header">
                             <div class="tour-title font-carto-gothic-regular">
-                                <p><?= $product->getName() ?></p>
+                                <p class="main-name-title"><?= $product->getName() ?></p>
                             </div>
                             <div class="tour-location font-open-sans">
                                 <p><?= $product->getPriceFormat() ?> đồng</p>
