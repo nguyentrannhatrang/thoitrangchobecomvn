@@ -677,6 +677,8 @@ class AdminModel extends CI_Model
         if ($id > 0) {
             if(isset($post['url']) && $post['url']){
                 $arr = array('url'=>$post['url']);
+                if(isset($post['image']) && $post['image'])
+                    $arr['image'] = $post['image'];
                 $this->db->where('id', $id);
                 $this->db->update('blog_posts', $arr);
             }
