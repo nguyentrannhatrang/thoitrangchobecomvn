@@ -23,7 +23,7 @@ div.tour-info-tile-description div.more-info{
 }
 
 .modal .inform-action a{
-    background:#ff66cc;
+    background:#df3a6b;
     border-radius: 10px;
     color: #fff;
     margin: 5px;
@@ -393,9 +393,10 @@ div.sold-out img{
     margin-top: 15px;
 }
 a.tour-info-tile-title,
-p.tmain-name-title,
+p.main-name-title,
 h5.tour-info-tile-title,
-h5.tour-tile-title
+h5.tour-tile-title,
+.item-product-name
 {
     text-transform: capitalize;
 }
