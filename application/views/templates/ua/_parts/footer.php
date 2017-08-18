@@ -19,6 +19,55 @@
     </div>
 </div>
 --><!-- chat face -->
+<br style="clear: both"/>
+<div id="chat-box-message">
+    <a class="button-toggle right" href="#">
+        Inbox chúng tôi
+        <span class="icon-support"></span>
+    </a>
+    <div class="chat-main" style="display: none;">
+        <div class="fb-page"
+             data-href="https://www.facebook.com/cherryfashion.vn/"
+             data-tabs="messages"
+             data-width="400"
+             data-height="300"
+             data-small-header="true">
+            <div class="fb-xfbml-parse-ignore">
+                <blockquote></blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '434363263629006',
+            xfbml      : true,
+            version    : 'v2.6'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<!--
+<div class="fb-page"
+     data-href="https://www.facebook.com/nguyentrannhatrang1987/"
+     data-tabs="messages"
+     data-width="400"
+     data-height="300"
+     data-small-header="true">
+    <div class="fb-xfbml-parse-ignore">
+        <blockquote></blockquote>
+    </div>
+</div>
+-->
+
 <?php if(isset($page_name) && ($page_name == 'checkout' || $page_name == 'product')){ ?>
     <script defer type="text/javascript" src="<?= base_url('templatejs/'.$page_name.'.min.js') ?>"></script>
 <?php }else {?>

@@ -178,5 +178,9 @@ jQuery(function($){
         $('#btn-search').click(function () {
             $('#search-header').submit();
         });
+        $("#chat-box-message a.button-toggle").click(function (e) {
+            e.preventDefault();
+            $("#chat-box-message .chat-main").toggle();
+        })
     });
 })

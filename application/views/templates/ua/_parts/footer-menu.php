@@ -33,9 +33,22 @@
                 <p>MẠNG XÃ HỘI</p>
                 <div class="aps-social-icon-wrapper">
                     <div class="aps-group-horizontal">
-                        <div class="fb-follow" data-href="https://www.facebook.com/cherryfashion.vn/" data-layout="standard" data-size="small" data-show-faces="true"></div>
+                        <div class="fb-follow" data-href="https://www.facebook.com/cherryfashion.vn" data-width="320" data-height="100" data-layout="box_count" data-size="small" data-show-faces="true"></div>
+                        <div class="fb-messengermessageus"
+                             messenger_app_id="434363263629006"
+                             page_id="1754154044896831"
+                             color="blue"
+                             size="standard" >
+                        </div>
                         <!--                            <div class="fb-like" data-href="https://www.facebook.com/cherryfashion.vn/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>-->
-                        <div class="fb-page" data-href="https://www.facebook.com/cherryfashion.vn/" data-tabs="timeline" data-width="320" data-height="70" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cherryfashion.vn/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cherryfashion.vn/">Cherry fashion - Thời trang thiết kế cho bé</a></blockquote></div>
+                        <div class="fb-page" data-href="https://www.facebook.com/cherryfashion.vn/"
+                             data-tabs="timeline" data-width="320" data-height="70" data-small-header="false"
+                             data-adapt-container-width="true" data-hide-cover="false"
+                             data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/cherryfashion.vn/" class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/cherryfashion.vn/">Cherry fashion - Thời trang thiết kế cho bé</a>
+                            </blockquote>
+                        </div>
                     </div>
 
                 </div>

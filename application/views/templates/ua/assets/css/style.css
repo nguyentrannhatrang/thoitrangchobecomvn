@@ -105,6 +105,39 @@ div.tour-info-tile-description div.more-info{
     .split-block-photo{
         min-height: 60px;
     }
+
+    #chat-box-message{
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 5px;
+        width: 60%;
+        max-height: 60%;
+        z-index: 98;
+        clear: both;
+        float: right;
+    }
+    #chat-box-message .button-toggle {
+        display: inline-block;
+        height: 2.375rem;
+        line-height: 2.375rem;
+        border-radius: .375rem .375rem 0 0;
+        -webkit-box-shadow: 0 -1px 1px #ababab;
+        -moz-box-shadow: 0 -1px 1px #ababab;
+        box-shadow: 0 -1px 1px #ababab;
+        -webkit-box-shadow: 0 -1px 1px #ababab;
+        -moz-box-shadow: 0 -1px 1px #ababab;
+        box-shadow: 0 -1px 1px #ababab;
+        background-color: #df3a6b;
+        margin: 0 .25rem 0 0;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        padding: 0 1.125rem;
+        color: #fff;
+        float: right;
+    }
 }
 .modal .inform-content{
     clear: both;
@@ -211,6 +244,34 @@ div.tour-info-tile-description div.more-info{
     }
     .booking .booking-header{
         background: #df3a6b;
+    }
+
+    #chat-box-message{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 400px;
+    }
+    #chat-box-message .button-toggle {
+        display: inline-block;
+        height: 2.375rem;
+        line-height: 2.375rem;
+        border-radius: .375rem .375rem 0 0;
+        -webkit-box-shadow: 0 -1px 1px #ababab;
+        -moz-box-shadow: 0 -1px 1px #ababab;
+        box-shadow: 0 -1px 1px #ababab;
+        -webkit-box-shadow: 0 -1px 1px #ababab;
+        -moz-box-shadow: 0 -1px 1px #ababab;
+        box-shadow: 0 -1px 1px #ababab;
+        background-color: #df3a6b;
+        margin: 0 .25rem 0 0;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        padding: 0 1.125rem;
+        color: #fff;
+        float: right;
     }
 }
 
