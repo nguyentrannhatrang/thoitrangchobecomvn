@@ -19,7 +19,13 @@
                             Ba Mẹ có thể đưa bé đến <a href="https://www.facebook.com/cherryfashion.vn">Cherry Store</a> để bé cùng ba mẹ có thể lựa chọn hoặc đặt hàng những mẫu thiết kế mới nhất tại:
                         </p>
                         <p>
-                            - Địa chỉ : 269/12B11, Bà Hom, Phường 13, Quận 6, TP.HCM - Điện thoại: <a href="tel:+84969188827">0969 188 827</a> hoặc truy cập trang website <a href="http://thoitrangchobe.com.vn">http://thoitrangchobe.com.vn</a>  hoặc <a href="http://cherryfahion.vn">http://cherryfahion.vn</a>
+                            - Địa chỉ : 269/12B11, Bà Hom, Phường 13, Quận 6, TP.HCM
+                        </p>
+                        <p>
+                            - Điện thoại: <a href="tel:+84969188827">0969 188 827</a>
+                        </p>
+                        <p>
+                           - Hoặc truy cập trang website <a href="http://thoitrangchobe.com.vn">http://thoitrangchobe.com.vn</a>  hoặc <a href="http://cherryfahion.vn">http://cherryfahion.vn</a>
                         </p>
                         <p>
                             Chúc ba mẹ luôn tự hào về thiên thần nhỏ của mình!

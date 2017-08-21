@@ -120,6 +120,8 @@
                                         <li><a href="<?= base_url(PATH_ADMIN.'/blogpublish') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/blogpublish' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> Publish post</a></li>
                                         <li><a href="<?= base_url(PATH_ADMIN.'/blog') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/blog' ? 'class="active"' : '' ?>><i class="fa fa-th" aria-hidden="true"></i> Posts</a></li>
                                     <?php } ?>
+                                    <li class="header">COMMENTS</li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/comment') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/comment' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> Comments</a></li>
                                     <?php
                                     if (!empty($textualPages)) {
                                         foreach ($nonDynPages as $nonDynPage) {

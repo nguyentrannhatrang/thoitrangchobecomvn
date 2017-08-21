@@ -143,6 +143,7 @@ $route['admin/blogpublish'] = "admin/blog/BlogPublish";
 $route['admin/blogpublish/(:num)'] = "admin/blog/BlogPublish/index/$1";
 $route['admin/blog'] = "admin/blog/blog";
 $route['admin/blog/(:num)'] = "admin/blog/blog/index/$1";
+$route['admin/comment'] = "admin/comment/comment";
 // SETTINGS GROUP
 $route['admin/settings'] = "admin/settings/settings";
 $route['admin/styling'] = "admin/settings/styling";

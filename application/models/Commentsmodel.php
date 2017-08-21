@@ -262,6 +262,37 @@ class CommentsModel extends CI_Model {
         $this->created = $created;
     }
 
+    /**
+     * @param int $limit
+     * @param int $start
+     * @return array
+     */
+    public function loadTop($limit = 10, $start = 0)
+    {
+        $this->db->where('status' , self::ACTIVE);
+        $this->db->order_by('created','desc');
+        $this->db->limit($limit, $start);
+        $query = $this->db->get($this->table);
+        $arr = array();
+        if ($query !== false) {
+            foreach ($query->result_array() as $row) {
+                $arr[] = $this->convertToObject($row);
+            }
+        }
+        return $arr;
+    }
+
+    public function convertToObject($obj){
+        $comment = new CommentsModel();
+        $comment->setId(isset($obj['id'])?$obj['id']:'');
+        $comment->setEmail(isset($obj['email'])?$obj['email']:'');
+        $comment->setCreated(isset($obj['created'])?$obj['created']:'');
+        $comment->setStatus(isset($obj['status'])?$obj['status']:'');
+        $comment->setMessage(isset($obj['message'])?$obj['message']:'');
+        $comment->setProduct(isset($obj['product'])?$obj['product']:'');
+        $comment->setName(isset($obj['name'])?$obj['name']:'');
+        return $comment;
+    }
 
 
 }
