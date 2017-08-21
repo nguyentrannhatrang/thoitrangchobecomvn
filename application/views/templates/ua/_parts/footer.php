@@ -19,7 +19,6 @@
     </div>
 </div>
 --><!-- chat face -->
-<br style="clear: both"/>
 <div id="chat-box-message">
     <a class="button-toggle right" href="#">
         Inbox chúng tôi
