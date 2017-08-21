@@ -57,6 +57,8 @@ $route['category-(:any)'] = 'category/index/$1';
 $route['category-(:any)/(:any)'] = 'product/index/$1/$2';
 $route['thankyou/(:num)'] = 'thankyou/index/$1';
 $route['search'] = 'search/index';
+$route['gioi-thieu'] = 'about/index';
+$route['lien-he'] = 'contact/index';
 
 
 // Load default conrtoller when have only currency from multilanguage

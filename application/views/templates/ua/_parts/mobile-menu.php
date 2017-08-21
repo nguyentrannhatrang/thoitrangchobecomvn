@@ -25,8 +25,8 @@
             <?php } ?>
         </li>
         <?php } ?>
-        <li class="navigation-link"><a href="/about" class="link large">Giới thiệu</a></li>
-        <li class="navigation-link"><a href="/contact" class="link large">Liên hệ</a></li>
+        <li class="navigation-link"><a href="/gioi-thieu" class="link large">Giới thiệu</a></li>
+        <li class="navigation-link"><a href="/lien-he" class="link large">Liên hệ</a></li>
         <li class="navigation-link"><a href="/blog" class="link large">Blog</a></li>
     </ul>
 </div>

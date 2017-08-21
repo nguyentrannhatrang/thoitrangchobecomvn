@@ -57,8 +57,8 @@
                                 <?php } ?>
                             </li>
                             <?php } ?>
-                            <li class="nav-link-element"><a href="/about" class="nav-link-anchor">Giới thiệu</a></li>
-                            <li class="nav-link-element"><a href="/contact" class="nav-link-anchor">Liên hệ</a></li>
+                            <li class="nav-link-element"><a href="/gioi-thieu" class="nav-link-anchor">Giới thiệu</a></li>
+                            <li class="nav-link-element"><a href="/lien-he" class="nav-link-anchor">Liên hệ</a></li>
                             <li class="nav-link-element"><a href="/blog" class="nav-link-anchor">Blog</a></li>
                         </ul>
                     </div>

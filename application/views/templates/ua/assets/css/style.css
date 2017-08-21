@@ -465,3 +465,21 @@ h5.tour-tile-title,
 ul.list-blogs li{
     margin-bottom: 8px;
 }
+.center{
+    text-align: center;
+}
+.main-color{
+    color: #df3a6b;
+}
+.gioi-thieu p{
+    line-height: 1.5;
+    /*text-align: justify;*/
+}
+.gioi-thieu h1{
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.gioi-thieu a{
+    color: #df3a6b;
+}
