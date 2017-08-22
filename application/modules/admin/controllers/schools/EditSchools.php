@@ -55,6 +55,7 @@ class EditSchools  extends ADMIN_Controller
             $schoolsModel->setUrl(isset($_POST['url'])?$_POST['url']:'');
             $schoolsModel->setAddress(isset($_POST['address'])?$_POST['address']:'');
             $schoolsModel->setDistrict(isset($_POST['district'])?$_POST['district']:'');
+            $schoolsModel->setPhone(isset($_POST['phone'])?$_POST['phone']:'');
             //$schoolsModel->set(isset($_POST['district'])?$_POST['district']:'');
             if($schoolsModel->getId())
                 $result = $schoolsModel->update();

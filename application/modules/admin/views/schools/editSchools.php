@@ -48,6 +48,10 @@
                 <input type="text" name="address" value="<?= $schools->getAddress() ?>" class="form-control">
             </div>
             <div class="form-group">
+                <label>Phone </label>
+                <input type="text" name="phone" value="<?= $schools->getPhone() ?>" class="form-control">
+            </div>
+            <div class="form-group">
                 <label for="description">Description </label>
                 <textarea name="description" id="description" rows="50" class="form-control"><?= $schools->getDescription() ?></textarea>
                 <script>

@@ -17,6 +17,7 @@ class SchoolsModel extends CI_Model {
     public $international;
     public $standard;
     public $url;
+    public $phone;
 
     public function insert()
     {
@@ -110,6 +111,7 @@ class SchoolsModel extends CI_Model {
         $obj->international = $data->international;
         $obj->standard = $data->standard;
         $obj->url = $data->url;
+        $obj->phone = $data->phone;
         return $obj;
     }
     /**
@@ -127,6 +129,7 @@ class SchoolsModel extends CI_Model {
         $obj->international = isset($data['international'])?$data['international']:0;
         $obj->standard = isset($data['standard'])?$data['standard']:0;
         $obj->url = isset($data['url'])?$data['url']:'';
+        $obj->phone = isset($data['phone'])?$data['phone']:'';
         return $obj;
     }
 
@@ -272,6 +275,22 @@ class SchoolsModel extends CI_Model {
     public function setUrl($url)
     {
         $this->url = $url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
     }
 
 
