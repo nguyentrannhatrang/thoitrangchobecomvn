@@ -59,6 +59,8 @@ $route['thankyou/(:num)'] = 'thankyou/index/$1';
 $route['search'] = 'search/index';
 $route['gioi-thieu'] = 'about/index';
 $route['lien-he'] = 'contact/index';
+$route['truong-mam-non'] = 'schools/index';
+$route['truong-mam-non/(:any)'] = 'schools/load/$1';
 
 
 // Load default conrtoller when have only currency from multilanguage
@@ -172,5 +174,14 @@ $route['admin/order_edit/(:num)'] = "admin/ecommerce/orderEdit/index/$1";
 $route['admin/order_edit/(:any)'] = "admin/ecommerce/orderEdit/$1";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+/// SCHOOLS
+///
+/// $route['admin/blogpublish'] = "admin/blog/BlogPublish";
+$route['admin/editschools'] = "admin/schools/EditSchools/index/0";
+$route['admin/editschools/(:num)'] = "admin/schools/EditSchools/index/$1";
+$route['admin/schools'] = "admin/schools/schools";
+$route['admin/schoolssave'] = "admin/schools/EditSchools/save";
+$route['admin/schools/(:num)'] = "admin/schools/schools/index/$1";
+
 
 

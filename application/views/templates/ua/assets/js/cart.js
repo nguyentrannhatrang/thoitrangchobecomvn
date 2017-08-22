@@ -182,5 +182,9 @@ jQuery(function($){
             e.preventDefault();
             $("#chat-box-message .chat-main").toggle();
         })
+        $("#district").change(function (e) {
+            e.preventDefault();
+            $("#frm-search-schools").submit();
+        })
     });
 })

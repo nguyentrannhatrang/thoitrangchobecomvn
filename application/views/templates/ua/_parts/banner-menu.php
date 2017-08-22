@@ -60,6 +60,7 @@
                             <li class="nav-link-element"><a href="/gioi-thieu" class="nav-link-anchor">Giới thiệu</a></li>
                             <li class="nav-link-element"><a href="/lien-he" class="nav-link-anchor">Liên hệ</a></li>
                             <li class="nav-link-element"><a href="/blog" class="nav-link-anchor">Blog</a></li>
+                            <li class="nav-link-element"><a href="/truong-mam-non" class="nav-link-anchor">Trường Mầm Non</a></li>
                         </ul>
                     </div>
                 </div>

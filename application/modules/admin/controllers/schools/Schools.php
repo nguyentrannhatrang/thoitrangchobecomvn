@@ -1,21 +1,20 @@
 <?php
-
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 /**
  * Created by PhpStorm.
  * User: ntnt
  * Date: 8/21/2017
- * Time: 3:39 PM
+ * Time: 4:18 PM
  */
-if (!defined('BASEPATH')) {
-    exit('No direct script access allowed');
-}
-class Comment  extends ADMIN_Controller
+class Schools  extends ADMIN_Controller
 {
-    private $num_rows = 10;
-
     public function index($page = 0)
     {
-        $this->load->model('CommentsModel');
+        $this->load->model('SchoolsModel');
+        $this->load->model('DistrictModel');
+        $this->load->model('ProvinceModel');
         $this->login_check();
         /*if (isset($_GET['delete'])) {
             $this->AdminModel->deletePost($_GET['delete']);
@@ -23,7 +22,7 @@ class Comment  extends ADMIN_Controller
         }*/
         $data = array();
         $head = array();
-        $head['title'] = 'Administration - Top Comments';
+        $head['title'] = 'Administration - Top Schools';
         $head['description'] = '!';
         $head['keywords'] = '';
 
@@ -35,16 +34,16 @@ class Comment  extends ADMIN_Controller
         }*/
         $search = null;
         $data = array();
-        $commentModel = new CommentsModel();
+        $schoolsModel = new SchoolsModel();
         //$rowscount = $this->AdminModel->postsCount($search);
 
-        $data['posts'] = $commentModel->loadTop();
+        $data['schools'] = $schoolsModel->loadTop();
         $data['links_pagination'] = '';//pagination('admin/blog', $rowscount, $this->num_rows, 3);
         $data['page'] = $page;
 
         $this->load->view('_parts/header', $head);
-        $this->load->view('comment/comments', $data);
+        $this->load->view('schools/schools', $data);
         $this->load->view('_parts/footer');
-        $this->saveHistory('Go to Comments');
+        $this->saveHistory('Go to Schools');
     }
 }

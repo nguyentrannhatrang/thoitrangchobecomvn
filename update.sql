@@ -104,3 +104,37 @@ ALTER TABLE sizes ADD plus_price float;
 
 ALTER TABLE product_detail ADD price FLOAT;
 ALTER TABLE booking ADD sent INT(2);
+
+
+////schools
+CREATE TABLE `province`(
+  `id` VARCHAR (11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `district`(
+  `id` VARCHAR (11) NOT NULL,
+  `province` VARCHAR(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `schools`(
+  `id` int(11) NOT NULL AUTO_INCREMENT ,
+  `district` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NULL,
+  `phone` varchar(255) NULL,
+  `description` longtext NULL,
+  `international` int(1) NULL DEFAULT 0,
+  `standard` int(1) NULL DEFAULT 0,
+  `url` VARCHAR (255) NOT NULL,
+  `created` int(10) NOT NULL,
+  `updated` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `schools_name` (`name`),
+  INDEX `schools_international` (`international`),
+  INDEX `schools_standard` (`standard`),
+  INDEX `schools_url` (`url`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

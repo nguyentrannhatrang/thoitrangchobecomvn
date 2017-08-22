@@ -122,6 +122,9 @@
                                     <?php } ?>
                                     <li class="header">COMMENTS</li>
                                     <li><a href="<?= base_url(PATH_ADMIN.'/comment') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/comment' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> Comments</a></li>
+                                    <li class="header">SCHOOLS</li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/schools') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/schools' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> Schools</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/editschools') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/editschools' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> New Schools</a></li>
                                     <?php
                                     if (!empty($textualPages)) {
                                         foreach ($nonDynPages as $nonDynPage) {
