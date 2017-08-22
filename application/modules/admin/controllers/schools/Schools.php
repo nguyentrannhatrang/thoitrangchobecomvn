@@ -10,6 +10,7 @@ if (!defined('BASEPATH')) {
  */
 class Schools  extends ADMIN_Controller
 {
+    private $numPage = 10;
     public function index($page = 0)
     {
         $this->load->model('SchoolsModel');
@@ -32,12 +33,13 @@ class Schools  extends ADMIN_Controller
         } else {
             $search = null;
         }*/
+        $page = $page?$page :1;
         $search = null;
         $data = array();
         $schoolsModel = new SchoolsModel();
         //$rowscount = $this->AdminModel->postsCount($search);
 
-        $data['schools'] = $schoolsModel->loadTop();
+        $data['schools'] = $schoolsModel->loadTop($this->numPage,($page-1)*$this->numPage);
         $data['links_pagination'] = '';//pagination('admin/blog', $rowscount, $this->num_rows, 3);
         $data['page'] = $page;
 

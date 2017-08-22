@@ -25,7 +25,7 @@
 <?php
 if (!empty($schools)) {
     ?>
-    <h1><?= !isset($_GET['search']) ? $page == 0 ? '' : 'Page: ' . floor($page / 20 + 1) : '' ?></h1>
+    <h1><?= !isset($_GET['search']) ? $page == 0 ? '' : 'Page: ' . $page : '' ?></h1>
     <div class="row">
 
             <div class="col-sm-12 col-md-12">
