@@ -60,7 +60,18 @@
                             <li class="nav-link-element"><a href="/gioi-thieu" class="nav-link-anchor">Giới thiệu</a></li>
                             <li class="nav-link-element"><a href="/lien-he" class="nav-link-anchor">Liên hệ</a></li>
                             <li class="nav-link-element"><a href="/blog" class="nav-link-anchor">Blog</a></li>
-                            <li class="nav-link-element"><a href="/truong-mam-non" class="nav-link-anchor">Trường Mầm Non</a></li>
+                            <li class="nav-link-element">
+                                <a href="#" class="nav-link-anchor">Tiện ích
+                                    <i class="icon icon-down-arrow"></i>
+                                </a>
+                                <div class="nav-dropdown-container">
+                                    <div class="nav-dropdown">
+                                        <dl class="subnav-section">
+                                            <dd class="nav-dropdown-element"><a href="/truong-mam-non" class="nav-dropdown-anchor">Trường Mầm Non</a></dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
