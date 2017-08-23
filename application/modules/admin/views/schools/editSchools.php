@@ -35,7 +35,7 @@
                 <label>District </label>
                 <select name="district" id="district" class="form-control">
                     <?php foreach ($listDistrict as $district){ ?>
-                        <option value="<?= $district['id'] ?>"><?= $district['name'] ?></option>
+                        <option value="<?= $district['id'] ?>" <?php echo $district['id']==$schools->getDistrict()?'selected':'' ?>><?= $district['name'] ?></option>
                     <?php } ?>
                 </select>
             </div>
