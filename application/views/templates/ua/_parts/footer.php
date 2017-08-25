@@ -19,7 +19,7 @@
     </div>
 </div>
 --><!-- chat face -->
-<div id="chat-box-message">
+<!--<div id="chat-box-message">
     <a class="button-toggle right" href="#">
         Inbox chúng tôi
         <span class="icon-support"></span>
@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <script>
     window.fbAsyncInit = function() {
         FB.init({
@@ -81,5 +81,6 @@
     var availableTags = [];
     <?php } ?>
 </script>
+<script src="https://uhchat.net/code.php?f=7d04a7"></script>
 </body>
 </html>

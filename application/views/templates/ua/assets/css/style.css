@@ -117,6 +117,9 @@ div.tour-info-tile-description div.more-info{
         clear: both;
         float: right;
     }
+    #uhchat{
+        display: none !important;
+    }
     #chat-box-message .button-toggle {
         display: inline-block;
         height: 2.375rem;
