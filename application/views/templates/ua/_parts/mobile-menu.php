@@ -5,14 +5,14 @@
             <div class="combo full">
                 <div class="combo-first"><i class="icon icon-search"></i></div>
                 <div class="combo-last">
-                    <input type="text" name="q" placeholder="Search for an adventure..." class="tour-query">
+                    <input type="text" name="q" placeholder="Tên sản phẩm" class="tour-query">
                     <input id="search-top-submit" type="submit" style="display:none;">
                 </div>
             </div>
         </form>
     </div>
     <ul class="site-navigation-links">
-        <li class="nav-link-element"><a href="/" class="nav-link-anchor">Trang Chủ</a></li>
+        <li class="navigation-link"><a href="/" class="link large">Trang Chủ</a></li>
         <?php foreach ($top_menu as $item){?>
         <li class="navigation-link"><a href="/category-<?= $item['info']['url'] ?>" class="link large"><?= $item['info']['name'] ?></a>
             <?php if(!empty($item['children'])){ ?>

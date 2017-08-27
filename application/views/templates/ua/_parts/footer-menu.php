@@ -24,9 +24,9 @@
                 <p>THÔNG TIN LIÊN HỆ</p>
                 <ul>
                     <li><strong>Email:</strong><br/> thoitrangchobe.store@gmail.com</li>
-                    <li><strong>Số điện thoại:</strong><br/> <a href="tel:0969188827">0969188827</a></li>
+                    <li><strong>Số điện thoại:</strong> <a href="tel:0969188827">0969188827</a></li>
                     <li><strong>Địa chỉ:</strong><br/> 269/12B11 Bà Hom P.13 Q.6 TP.HCM</li>
-                    <li><strong>Facebook:</strong><br/> <a target="_blank" href="https://facebook.com/cherryfashion.vn">facebook.com/cherryfashion.vn</a></li>
+                    <li><strong>Fanpage:</strong> <a target="_blank" href="https://fb.com/cherryfashion.vn">fb.com/cherryfashion.vn</a></li>
                 </ul>
             </div>
             <div class="column grid__item one-fifth">
@@ -42,7 +42,7 @@
                         </div>
                         <!--                            <div class="fb-like" data-href="https://www.facebook.com/cherryfashion.vn/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>-->
                         <div class="fb-page" data-href="https://www.facebook.com/cherryfashion.vn/"
-                             data-tabs="timeline" data-width="320" data-height="70" data-small-header="false"
+                             data-tabs="timeline" data-width="250" data-height="50" data-small-header="false"
                              data-adapt-container-width="true" data-hide-cover="false"
                              data-show-facepile="true">
                             <blockquote cite="https://www.facebook.com/cherryfashion.vn/" class="fb-xfbml-parse-ignore">

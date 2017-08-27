@@ -146,6 +146,9 @@ div.tour-info-tile-description div.more-info{
         border-color:#df3a6b ;
         color: #fff;
     }
+    div.site-navigation-mobile .site-navigation-search input,div.site-navigation-mobile .site-navigation-search .icon-search{
+        background-color:#df3a6b;
+    }
 }
 /* end max width */
 .modal .inform-content{
@@ -295,13 +298,13 @@ div.tour-info-tile-description div.more-info{
         background-color: #df3a6b;
     }
     div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element ul.nav-dropdown a.nav-dropdown-anchor{
-        border-color: #df3a6b;
+        border: none;
     }
     div.site-header div.sub-nav .nav-links-container ul.nav-links li.nav-link-element ul.nav-dropdown li.nav-dropdown-element a.nav-dropdown-anchor:hover{
         background-color:#df3a6b;
     }
     div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element .nav-dropdown-container .nav-dropdown{
-        border-color: #df3a6b;
+        border: none;
     }
     div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element .nav-dropdown-container .nav-dropdown .subnav-section .nav-dropdown-element:hover{
         background-color:#df3a6b
@@ -311,6 +314,30 @@ div.tour-info-tile-description div.more-info{
     }
     div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element .nav-dropdown-container .nav-dropdown .subnav-section:first-child{
         border: none;
+    }
+    .cart_amount{
+        background: #df3a6b;
+        color: #fff;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        display: block;
+        text-align: center;
+        border-radius: 50%;
+        float: right;
+    }
+    .gio-hang{
+       padding: 10px 7px 7px 10px;
+        border-radius: 5px;
+        position: relative;
+    }
+    div.site-header .top-nav .right-menue .right-menue-list li.right-menue-item a i{
+        padding-left: 5px;
+        padding-right: 5px;
+        vertical-align: middle;
+    }
+    a.nav-link-anchor{
+        text-transform: capitalize;
     }
 }
 /** end min-width */
@@ -532,4 +559,10 @@ ul.list-blogs li{
 }
 h3.steps-heading .step-number{
     background-color: #df3a6b;
+}
+div.site-header .top-nav, div.site-header-mobile .top-nav,div.site-footer, div.site-footer-mobile{
+    background-color: #07ad1a;
+}
+div.site-header .logos .social-media .icon{
+    color: #3b5998;
 }
