@@ -31,15 +31,15 @@
                                             <div class="tour-info-price-and-more"><span class="tour-info-tile-price"><?= $product->getPriceFormat()?> đồng</span></div>
                                             <!--e-price-->
                                         </div>
-                                        <div class="tour-info-tile-description palm--hidden">
+                                        <!--<div class="tour-info-tile-description palm--hidden">
                                             <p class="bio">
-                                                <?= $product->getBasicDescription(200);?>
+                                                <?/*= $product->getBasicDescription(200);*/?>
                                             </p>
                                             <div class="more-info">
-                                                <a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>">
+                                                <a href="/category-<?/*= $product->urlCategory */?>/<?/*= $product->url*/?>">
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                                 <?php } ?>

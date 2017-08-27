@@ -42,6 +42,7 @@
                 <div class="grid__item desk--one-whole">
                     <div class="nav-links-container">
                         <ul class="nav-links">
+                            <li class="nav-link-element"><a href="/" class="nav-link-anchor">Trang Chủ</a></li>
                             <?php foreach ($top_menu as $item){?>
                             <li class="nav-link-element"><a id="featured_nav<?= $item['info']['url'] ?>" href="/category-<?= $item['info']['url'] ?>" class="nav-link-anchor"><?= $item['info']['name'] ?><i class="icon icon-down-arrow"></i></a>
                                 <?php if(!empty($item['children'])){ ?>
@@ -57,8 +58,8 @@
                                 <?php } ?>
                             </li>
                             <?php } ?>
-                            <li class="nav-link-element"><a href="/gioi-thieu" class="nav-link-anchor">Giới thiệu</a></li>
-                            <li class="nav-link-element"><a href="/lien-he" class="nav-link-anchor">Liên hệ</a></li>
+                            <li class="nav-link-element"><a href="/gioi-thieu" class="nav-link-anchor">Giới Thiệu</a></li>
+                            <li class="nav-link-element"><a href="/lien-he" class="nav-link-anchor">Liên Hệ</a></li>
                             <li class="nav-link-element"><a href="/blog" class="nav-link-anchor">Blog</a></li>
                             <li class="nav-link-element">
                                 <a href="#" class="nav-link-anchor">Tiện ích

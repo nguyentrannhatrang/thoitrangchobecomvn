@@ -33,9 +33,9 @@
 
             </div>
         </div>
-        <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>')" class="tour-booking">
-            <div class="grid large--show">
-                <div class="grid__item two-thirds lap--one-third"></div>
+        <div  class="tour-booking large--show">
+            <div class="grid large--show product-main-image-page">
+                <div class="grid__item two-thirds lap--one-third" style="background-repeat: no-repeat;height: 100%;background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>')"></div>
                 <div class="grid__item one-third lap--two-thirds">
                     <div class="booking">
                         <div class="booking-header">
@@ -90,6 +90,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="tour-booking palm--show"
+            style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>')">
+
         </div>
         <div class="mobile-booking-header palm--show">
             <div class="book-now">

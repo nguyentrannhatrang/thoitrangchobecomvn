@@ -52,7 +52,7 @@ class Home extends MY_Controller
         //$data['sliderProducts'] = $this->Publicmodel->getSliderProducts();
         //$data['products'] = $this->Publicmodel->getProducts($this->num_rows, $page, $_GET);
         $data['products'] = $this->getProductShowHome();
-        $data['products_slider'] = $this->getProductShowSlider();
+        //$data['products_slider'] = $this->getProductShowSlider();
         //$rowscount = $this->Publicmodel->productsCount($_GET);
         //$data['shippingOrder'] = $this->AdminModel->getValueStore('shippingOrder');
         //$data['showOutOfStock'] = $this->AdminModel->getValueStore('outOfStock');
@@ -102,7 +102,7 @@ class Home extends MY_Controller
             foreach ($topCategories as $key=>$topCategory) {
                 if(empty($topCategory['value'])) continue;
                 $topCategory['value'][] = $key;
-                $data = $this->ProductModel->loadByCategorieTop($topCategory['value']);
+                $data = $this->ProductModel->loadByCategorieTop($topCategory['value'],12);
                 $list[$key] = array('name'=>$topCategory['name'],'data'=>$data,'url'=>$topCategory['url']);
             }
             return $list;

@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <div id="booking-step-4" class="booking-step">
-                    <div class="grid">
+                    <!--<div class="grid">
                         <div class="grid__item eleven-twelfths palm--one-whole">
                             <h3 class="steps-heading spacer"><span class="step-number">3</span>Điều khoản và điều kiện</h3>
                             <div class="grid spacer">
@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="grid--center">
                         <input id="btnBack" type="button" value="Về giỏ hàng">
                         <input id="place_order" type="submit" value="Đặt hàng">

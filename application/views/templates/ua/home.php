@@ -9,33 +9,28 @@
             </div>
         </div>
         <div class="home-page">
-            <div class="hero-image">
+            <!--<div class="hero-image">
                 <div class="grid">
                     <div class="grid__item one-whole palm--hidden">
                         <img width="980px" height="400px" title="Thời trang cho bé" alt="Đầm bé gái, Thời trang cho bé" src="/assets/images/ua/banner.png">
-                    </div>
-                    <!--<form id="home_search" action="/search" method="get">
-                        <div class="hero-call-to-action">
-                            <input type="submit" value="Tìm"><span>
-                    <input type="text" name="s" placeholder="Tên sản phẩm" class="field dest-query"></span>
-                        </div>
-                    </form>-->
+                    </div>                    
                 </div>
-            </div>
-            <div class="carousel palm--hidden hidden show-slider">
+            </div>-->
+            <!--<div class="carousel palm--hidden hidden show-slider">
                 <ul class="bxslider-carousel">
                     <?php
-                    /** @var ProductModel $product */
-                    foreach ($products_slider as $product){ ?>
-                    <li><a href="/category-<?= $product->urlCategory ?>/<?=$product->url?>/" target="_blank">
-                            <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="carousel-image"></div>
+/*                    /** @var ProductModel $product */
+                    /*foreach ($products_slider as $product){ */?>
+                    <li><a href="/category-<?/*= $product->urlCategory */?>/<?/*=$product->url*/?>/" target="_blank">
+                            <div style="background-image: url('<?/*= base_url('/attachments/shop_images/'.$product->image)*/?>');" class="carousel-image"></div>
                             <h2 class="carousel-title"></h2></a>
                     </li>
-                    <?php } ?>
+                    <?php /*} */?>
                 </ul>
                 <i id="slider-prev" class="slider-prev"></i><i id="slider-next" class="slider-next"></i>
-            </div>
+            </div>-->
             <!--start featured-->
+            <br/>
             <div class="sections">
                 <ul class="site-section-tabs palm--show">
                     <?php foreach ($products as $key=>$arrData){ ?>
@@ -50,9 +45,9 @@
                     <div class="grid">
                         <!--s-new-tour-home-->
                         <?php foreach ($arrData['data'] as $index=>$product) {
-                            if($index>4) break;
+                            //if($index>4) break;
                             ?>
-                        <div class="grid__item <?php echo ($index==3?'two-thirds':'one-third') ?> palm--one-whole spacer ">
+                        <div class="grid__item one-third<?php /*echo ($index==3?'two-thirds':'one-third') */?> palm--one-whole spacer ">
                             <a href="/category-<?= $product->urlCategory ?>/<?=$product->url?>/" title="<?=$product->getName()?>"  class="tour-tile thumb-sx<?php echo ($index==3?'2':'') ?>">
                                 <div class="large ribbon-class ribbon"></div>
                                 <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-tile-image"></div>

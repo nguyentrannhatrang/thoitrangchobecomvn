@@ -141,7 +141,13 @@ div.tour-info-tile-description div.more-info{
         color: #fff;
         float: right;
     }
+    .home-page ul.site-section-tabs li.tab a.active{
+        background-color:#df3a6b;
+        border-color:#df3a6b ;
+        color: #fff;
+    }
 }
+/* end max width */
 .modal .inform-content{
     clear: both;
     border-bottom:groove;
@@ -276,7 +282,38 @@ div.tour-info-tile-description div.more-info{
         color: #fff;
         float: right;
     }
+    .sections .action-with-chevron::after{
+        content: '';
+    }
+    .sections .action-with-chevron{
+        color: #df3a6b;
+    }
+    .tour-info-tile .tour-info-tile-description{
+        border-color:#df3a6b ;
+    }
+    div.site-header div.sub-nav .nav-links-container ul.nav-links li.nav-link-element:hover a.nav-link-anchor{
+        background-color: #df3a6b;
+    }
+    div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element ul.nav-dropdown a.nav-dropdown-anchor{
+        border-color: #df3a6b;
+    }
+    div.site-header div.sub-nav .nav-links-container ul.nav-links li.nav-link-element ul.nav-dropdown li.nav-dropdown-element a.nav-dropdown-anchor:hover{
+        background-color:#df3a6b;
+    }
+    div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element .nav-dropdown-container .nav-dropdown{
+        border-color: #df3a6b;
+    }
+    div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element .nav-dropdown-container .nav-dropdown .subnav-section .nav-dropdown-element:hover{
+        background-color:#df3a6b
+    }
+    .product-main-image-page{
+        height: 500px;
+    }
+    div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element .nav-dropdown-container .nav-dropdown .subnav-section:first-child{
+        border: none;
+    }
 }
+/** end min-width */
 
 .media{
     border-bottom: 1px solid #ececec;
@@ -492,4 +529,7 @@ ul.list-blogs li{
 }
 .schools-item span{
     color: #A9A9A9;
+}
+h3.steps-heading .step-number{
+    background-color: #df3a6b;
 }

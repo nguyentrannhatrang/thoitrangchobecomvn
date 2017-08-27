@@ -12,6 +12,7 @@
         </form>
     </div>
     <ul class="site-navigation-links">
+        <li class="nav-link-element"><a href="/" class="nav-link-anchor">Trang Chủ</a></li>
         <?php foreach ($top_menu as $item){?>
         <li class="navigation-link"><a href="/category-<?= $item['info']['url'] ?>" class="link large"><?= $item['info']['name'] ?></a>
             <?php if(!empty($item['children'])){ ?>
@@ -25,8 +26,8 @@
             <?php } ?>
         </li>
         <?php } ?>
-        <li class="navigation-link"><a href="/gioi-thieu" class="link large">Giới thiệu</a></li>
-        <li class="navigation-link"><a href="/lien-he" class="link large">Liên hệ</a></li>
+        <li class="navigation-link"><a href="/gioi-thieu" class="link large">Giới Thiệu</a></li>
+        <li class="navigation-link"><a href="/lien-he" class="link large">Liên Hệ</a></li>
         <li class="navigation-link"><a href="/blog" class="link large">Blog</a></li>
         <li class="navigation-link">
             <a href="#" class="link large">Tiện ích</a>
