@@ -151,6 +151,7 @@ div.tour-info-tile-description div.more-info{
     }
     .pswp__img {
         height: auto !important;
+        max-height: 100% !important;
         width: 100% !important;
     }
 }
