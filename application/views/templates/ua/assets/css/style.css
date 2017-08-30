@@ -117,7 +117,7 @@ div.tour-info-tile-description div.more-info{
         clear: both;
         float: right;
     }
-    #uhchat{
+    #uhchatmobile,#uhchat{
         display: none !important;
     }
     #chat-box-message .button-toggle {
@@ -148,6 +148,10 @@ div.tour-info-tile-description div.more-info{
     }
     div.site-navigation-mobile .site-navigation-search input,div.site-navigation-mobile .site-navigation-search .icon-search{
         background-color:#df3a6b;
+    }
+    .pswp__img {
+        height: auto !important;
+        width: 100% !important;
     }
 }
 /* end max width */
@@ -251,13 +255,17 @@ div.tour-info-tile-description div.more-info{
         width: 45%;
         float: right;
     }
-    .booking{
+    /*.booking{
         min-height: 650px;
-    }
+    }*/
     .booking .booking-header{
         background: #df3a6b;
     }
-
+    .submit-button .button, .submit-button input[type="button"],.submit-button input[type="submit"]{
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+    }
     #chat-box-message{
         position: fixed;
         bottom: 0;
@@ -309,8 +317,12 @@ div.tour-info-tile-description div.more-info{
     div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element .nav-dropdown-container .nav-dropdown .subnav-section .nav-dropdown-element:hover{
         background-color:#df3a6b
     }
-    .product-main-image-page{
-        height: 500px;
+    .product-main-image-page, .product-main-image-page .bkg-image{
+        min-height: 500px;
+    }
+    .product-main-image-page .booking{
+        border: 1px solid #df3a6b ;
+        border-top: none;
     }
     div.site-header .sub-nav .nav-links-container ul.nav-links li.nav-link-element .nav-dropdown-container .nav-dropdown .subnav-section:first-child{
         border: none;
