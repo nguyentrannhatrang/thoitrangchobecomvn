@@ -111,6 +111,12 @@ jQuery(function($){
                     if(data.summary !== 'undefined'){
                         if(typeof data_cart !== 'undefined'){
                             data_cart = data.data;
+                            if($('#pa_size').length){
+                                $('#pa_size').change();
+                            }
+                            if($('#pa_size_mobile').length){
+                                $('#pa_size_mobile').change();
+                            }
                         }
                         fill_data_cart(data.data,data.summary);
                         $('#shopping-cart span.total-quantity').text(data.summary.quantity);

@@ -10,7 +10,7 @@
     </div>
     <div class="inform-action">
         <div>
-            <a href="/cart" class="go-to-cart">Giỏ hàng</a>
+            <a href="/cart" class="go-to-cart">Xem giỏ hàng</a>
         </div>
         <div>
             <a href="/checkout" class="go-to-checkout">Đặt hàng</a>
