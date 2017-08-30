@@ -567,6 +567,9 @@ ul.list-blogs li{
     color: #df3a6b;
     line-height: 1.5;
 }
+.color-pink, .fa-info-circle::before{
+    color: #df3a6b;
+}
 .schools-item span{
     color: #A9A9A9;
 }

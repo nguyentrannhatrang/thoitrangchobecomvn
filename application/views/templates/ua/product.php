@@ -85,6 +85,9 @@
                                 <div class="submit-button">
                                     <a id="add_to_cart" href="#" class="wide button">Thêm Vào Giỏ</a>
                                 </div>
+                                <div>
+                                    <a href="#"  class="color-pink info-size"><i class="fa fa-info-circle" aria-hidden="true"></i> Hướng dẫn chọn size</a>
+                                </div>
 
                             </form>
 
@@ -126,6 +129,9 @@
                     </div>
                     <div class="submit-button">
                         <a id="add_to_cart_mobile" href="#" class="wide button">Thêm Vào Giỏ</a>
+                    </div>
+                    <div>
+                        <a href="#"  class="color-pink info-size"><i class="fa fa-info-circle" aria-hidden="true"></i> Hướng dẫn chọn size</a>
                     </div>
 
                 </form>
@@ -362,6 +368,10 @@
     var size_price = '<?php echo json_encode($sizes_data_price);?>';
     var data_cart = '';
 </script>
-
+<div id="popup_info_size" style="display:none" class="">
+    <div class="content">
+        <img src="/assets/images/ua/dam-cherry-size.png">
+    </div>
+</div>
 <!--<script src="--><?//= base_url('templatejs/product.js') ?><!--" type="text/javascript"></script>-->
 <!--<script src="--><?//= base_url('templatejs/cart.js') ?><!--" type="text/javascript"></script>-->

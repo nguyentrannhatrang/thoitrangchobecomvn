@@ -12,7 +12,7 @@ jQuery(function($){
             $('#error_pa_size').text('Chọn kích cỡ');
             return;
         }
-        if(!$('#frm-product #quantity').val()){
+        if($('#frm-product #quantity').val() <=0){
             $('#error_quantity').text('Chọn số lượng');
             return;
         }
@@ -51,7 +51,7 @@ jQuery(function($){
             $('#error_pa_size_mobile').text('Chọn kích cỡ');
             return;
         }
-        if(!$('#frm-product-mobile #quantity_mobile').val()){
+        if($('#frm-product-mobile #quantity_mobile').val() <=0){
             $('#error_quantity_mobile').text('Chọn số lượng');
             return;
         }

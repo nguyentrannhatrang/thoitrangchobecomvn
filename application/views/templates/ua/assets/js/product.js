@@ -265,5 +265,10 @@ jQuery(document).ready(function () {
     }
     $('#pa_size').change();
     $('#pa_size_mobile').change();
+
+    $(document).on('click','.info-size',function (e) {
+        e.preventDefault();
+        $('#popup_info_size').modal();
+    });
 //})
 });
