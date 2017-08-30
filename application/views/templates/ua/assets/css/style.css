@@ -262,7 +262,7 @@ div.tour-info-tile-description div.more-info{
     .booking .booking-header{
         background: #df3a6b;
     }
-    .submit-button .button, .submit-button input[type="button"],.submit-button input[type="submit"]{
+    .tour-booking .submit-button .button, .tour-booking .submit-button input[type="button"],.tour-booking .submit-button input[type="submit"]{
         padding-left: 0;
         padding-right: 0;
         margin: 0;
