@@ -1,4 +1,3 @@
-
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
 <div id="main" class="site-content">
@@ -20,7 +19,6 @@
                                     }?>
                                 </select>
                             </form>
-
                         </div>
                     </div>
                     <br>
@@ -35,7 +33,6 @@
                             <?php } ?>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>

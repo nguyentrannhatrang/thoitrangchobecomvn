@@ -1,4 +1,3 @@
-
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
 <div id="main" class="site-content">
@@ -37,7 +36,6 @@
                                             </div>
                                         </div>
                                         <div class="cart-tour-info">
-
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +49,6 @@
                         <div class="grid__item three-quarters">
                             <div class="sub-total">
                                 <p class="title">Tổng tiền: <span class="price"><?= number_format($summary['total'], 0, '', '.') ?> đồng</span></p>
-                                <!--                            <p class="conditions">Prices above include all applicable taxes and service charges</p>-->
                             </div>
                         </div>
                     </div>

@@ -50,7 +50,6 @@
                             </blockquote>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

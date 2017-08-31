@@ -1,5 +1,3 @@
-
-
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
 <div id="main" class="site-content">
@@ -12,25 +10,14 @@
                         <div class="tour-title font-carto-gothic-regular">
                             <p><?= $product->getName() ?></p>
                         </div>
-
                     </div>
                     <div class="combo-last">
-                        <!--start price mobile-->
                         <p class="from-price"><?= $product->getPriceFormat() ?> đồng</p>
-                        <!--meta(content="#{tour.currency}", itemprop="priceCurrency")-->
-                        <!--meta(content="#{tour.price2}", itemprop="price")-->
-                        <!--end price mobile-->
-
-                        <!--<div class="submit-button">
-                            <a href="Cinque-Terre-tour-this-is-aperitivo" class="wide button palm--hidden">Book Now</a>
-                            <a href="/mobile/Cinque-Terre-tour-this-is-aperitivo" class="wide button large--hidden">Book Now</a>
-                        </div>-->
                     </div>
                 </div>
                 <div class="mobile-tour-info">
                     <?= $product->getBasicDescription() ?>
                 </div>
-
             </div>
         </div>
         <div  class="tour-booking large--show">
@@ -88,9 +75,7 @@
                                 <div>
                                     <a href="#"  class="color-pink info-size"><i class="fa fa-info-circle" aria-hidden="true"></i> Hướng dẫn chọn size</a>
                                 </div>
-
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -98,7 +83,6 @@
         </div>
         <div class="tour-booking palm--show"
             style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>')">
-
         </div>
         <div class="mobile-booking-header palm--show">
             <div class="book-now">
@@ -133,15 +117,12 @@
                     <div>
                         <a href="#"  class="color-pink info-size"><i class="fa fa-info-circle" aria-hidden="true"></i> Hướng dẫn chọn size</a>
                     </div>
-
                 </form>
             </div>
         </div>
         <div class="grid grid--narrow">
-
         </div>
         <div class="accordion-container tour-accordion">
-
             <div id="nav-section1" class="accordion">HÌNH ẢNH</div>
             <div class="container mobile-tour-container">
                 <ul class="accordion-item">
@@ -206,7 +187,6 @@
                                             <input id="author" name="author" type="text" value="" size="30" aria-required="true" required />
                                         </p>
                                     </div>
-
                                     <div class="row">
                                         <p class="comment-form-email">
                                             <label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" aria-required="true" required />
@@ -224,8 +204,6 @@
                                             <input name="submit-review" type="submit" id="submit" class="submit" value="Submit" />
                                         </p>
                                     </div>
-
-
                                 </form>
                             </div>
                         </div>
@@ -238,14 +216,7 @@
                                     <?php if($count_reviews == 0){ ?>
                                         <p class="woocommerce-noreviews">There are no reviews yet.</p>
                                     <?php } ?>
-
                                 </div>
-                                <!--<div id="template-comment-view" style="display: none;">
-                                    <div class="item-comment">
-                                        <p> {{comment}}</p>
-                                        <strong>{{name}} ({{email}})</strong>
-                                    </div>
-                                </div>-->
                                 <div id="template-comment-view" style="display: none;">
                                     <div class="media clearfix">
                                         <div class="media-left">
@@ -336,28 +307,6 @@
         </div>
         <!--end photoswipe-->
         <div id="fb-root"></div>
-        <!--<script language="javascript" type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
-        <script type="text/javascript">
-            FB.api(
-                '/',
-                'POST',
-                {"scrape": "true", "id": "https://media-cdn.urbanadventures.com/data/254/tour_1156/c-fakepath-12-lead.jpg"},
-                function (response) {
-                }
-            );
-            // Code for deleting facebook cache
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id))
-                    return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=745779065559164facebookAppId";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>-->
-        <!--.fb-share-button(data-href="#{tour.image_full}" data-layout="button")
-        -->
     </div>
     <?php $this->view('templates/ua/_parts/footer-menu',array()); ?>
 </div>
@@ -372,6 +321,4 @@
     <div class="content">
         <img src="/assets/images/ua/dam-cherry-size.png">
     </div>
-</div>
-<!--<script src="--><?//= base_url('templatejs/product.js') ?><!--" type="text/javascript"></script>-->
-<!--<script src="--><?//= base_url('templatejs/cart.js') ?><!--" type="text/javascript"></script>-->
+</div>t>-->

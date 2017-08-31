@@ -2,3 +2,18 @@
 <meta name="description" content="Thời trang cho bé, thoi trang cho be, Đầm bé gái, Dam be gai, Đầm bé gái 2 tuổi, Đầm bé gái 3 tuổi, Đầm bé gái 4 tuổi, Đầm bé gái 5 tuổi, Đầm bé gái 6 tuổi">
 <title><?= $title_page ?> | Thời Trang Cho Bé</title>
 <link href="//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:600,400,300" rel="stylesheet" type="text/css">
+<link rel="canonical" href="http://thoitrangchobe.com.vn/<?= $url_category?>" />
+<meta property="og:url" content="http://thoitrangchobe.com.vn/<?= $url_category?>" />
+<meta property="og:image" content="http://thoitrangchobe.com.vn/assets/images/ua/logo.png" />
+<script type="application/ld+json">
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "Thời Trang Cho Bé",
+      "url": "http://thoitrangchobe.com.vn/<?= $url_category?>",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://thoitrangchobe.com.vn/search?q={q}",
+        "query-input": "required name=q"
+      },
+      "description": "Thời trang cho bé, thoi trang cho be, Đầm bé gái, Dam be gai, Đầm bé gái 2 tuổi, Đầm bé gái 3 tuổi, Đầm bé gái 4 tuổi, Đầm bé gái 5 tuổi, Đầm bé gái 6 tuổi"
+</script>

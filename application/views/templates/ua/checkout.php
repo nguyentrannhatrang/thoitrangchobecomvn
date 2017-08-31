@@ -1,4 +1,3 @@
-
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
 <div id="main" class="site-content">
@@ -12,7 +11,6 @@
                             <p id="uxLeadErrorInvalid" name="uxLeadErrorInvalid"></p>
                             <p id="uxLeadError"></p>
                             <h3 class="steps-heading spacer"><span class="step-number">1</span>Sản phẩm</h3>
-
                             <div class="booking-item large-spacer">
                                 <?php foreach ($data_carts as $data_cart){ ?>
                                     <?php foreach ($data_cart as $sizeCode=>$item) {?>
@@ -42,7 +40,6 @@
                                     <div class="grid__item three-quarters">
                                         <div class="sub-total">
                                             <p class="title">Tổng tiền: <span class="price"><?= number_format($summary['total'], 0, '', '.') ?> đồng</span></p>
-<!--                                            <p class="conditions">NOTE: Prices above include all applicable taxes and service charge</p>-->
                                         </div>
                                     </div>
                                 </div>
@@ -100,24 +97,6 @@
                     </div>
                 </div>
                 <div id="booking-step-4" class="booking-step">
-                    <!--<div class="grid">
-                        <div class="grid__item eleven-twelfths palm--one-whole">
-                            <h3 class="steps-heading spacer"><span class="step-number">3</span>Điều khoản và điều kiện</h3>
-                            <div class="grid spacer">
-                                <div class="grid__item one-whole">
-                                    <div class="combo">
-                                        <div class="combo-first">
-                                            <div class="form-checkbox">
-                                                <input id="uxTermCheck" type="checkbox" name="terms" value="accept">
-                                                <label for="uxTermCheck"></label>
-                                            </div>
-                                        </div>
-                                        <div class="combo-last"><a id="terms_conditions" href="javascript:void(0)" class="terms-and-conditions small-spacer">Chấp nhận các điều khoản mua hàng</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
                     <div class="grid--center">
                         <input id="btnBack" type="button" value="Về giỏ hàng">
                         <input id="place_order" type="submit" value="Đặt hàng">

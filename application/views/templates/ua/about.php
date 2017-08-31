@@ -31,8 +31,6 @@
                             Chúc ba mẹ luôn tự hào về thiên thần nhỏ của mình!
                         </p>
                     </div>
-
-
                 </div>
             </div>
         </div>

@@ -1,4 +1,3 @@
-
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
 <div id="main" class="site-content">
@@ -7,9 +6,6 @@
         <div class="city">
             <div class="grid">
                 <div class="grid__item one-whole">
-                    <!--start hero-->
-<!--                    <div class="hero"><img src="/assets/images/ua/banner.png" class="hero-photo"></div>-->
-                    <!--end hero-->
                     <div class="location-blurb spacer">
                         <!-- s-dest-title -->
                         <h1 style="color: #df3a6b"><strong><?= $current_categorie->getName() ?></strong></h1>
@@ -31,24 +27,9 @@
                                                 <div class="sold-out"><img src="/assets/images/ua/het-hang.png"></div>
                                             <?php } ?>
                                         </a>
-
                                         <div class="tour-info-tile-info"><a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" class="tour-info-tile-title"><?= $product->getNameLimit(150)?></a>
-<!--                                            <div class="location">--><!--</div>-->
-
-
-                                            <!--s-price-->
                                             <div class="tour-info-price-and-more"><span class="tour-info-tile-price sp-price"><?= $product->getPriceFormat()?> đồng</span></div>
-                                            <!--e-price-->
                                         </div>
-                                        <!--<div class="tour-info-tile-description palm--hidden">
-                                            <p class="bio">
-                                                <?/*= $product->getBasicDescription(200);*/?>
-                                            </p>
-                                            <div class="more-info">
-                                                <a href="/category-<?/*= $product->urlCategory */?>/<?/*= $product->url*/?>">
-                                                </a>
-                                            </div>
-                                        </div>-->
                                     </div>
                                 </div>
                                 <?php } ?>

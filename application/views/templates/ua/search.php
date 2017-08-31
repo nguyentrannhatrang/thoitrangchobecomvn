@@ -1,4 +1,3 @@
-
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
 <div id="main" class="site-content">
@@ -24,22 +23,8 @@
                                         <div class=" ribbon"></div>
                                         <a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" title="<?= $product->getName()?>" style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-info-tile-image"></a>
                                         <div class="tour-info-tile-info"><a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" class="tour-info-tile-title"><?= $product->getNameLimit(150)?></a>
-<!--                                            <div class="location">--><!--</div>-->
-
-
-                                            <!--s-price-->
-                                            <div class="tour-info-price-and-more"><span class="tour-info-tile-price"><?= $product->getPriceFormat()?> đồng</span></div>
-                                            <!--e-price-->
+                                        <div class="tour-info-price-and-more"><span class="tour-info-tile-price"><?= $product->getPriceFormat()?> đồng</span></div>
                                         </div>
-                                        <!--<div class="tour-info-tile-description palm--hidden">
-                                            <p class="bio">
-                                                <?/*= $product->getBasicDescription(200);*/?>
-                                            </p>
-                                            <div class="more-info">
-                                                <a href="/category-<?/*= $product->urlCategory */?>/<?/*= $product->url*/?>">
-                                                </a>
-                                            </div>
-                                        </div>-->
                                     </div>
                                 </div>
                                 <?php } ?>

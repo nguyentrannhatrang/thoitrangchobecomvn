@@ -1,4 +1,3 @@
-
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
 <div id="main" class="site-content">
@@ -16,9 +15,7 @@
                     ?>
                     <p>
                         Đơn hàng của bạn là <b><?= $booking->booking->refNo ?></b> . Chúng tôi sẽ liên hệ với bạn bằng <strong><?= $traveller->email ?></strong> hoặc <strong><?= $traveller->phone ?></strong> để xác nhận đơn hàng.
-
                     </p>
-
                 </div>
             </div>
         </div>
@@ -47,7 +44,6 @@
                                             </div>
                                         </div>
                                         <div class="cart-tour-info">
-
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +56,6 @@
                         <div class="grid__item three-quarters">
                             <div class="sub-total">
                                 <p class="title">Tổng tiền: <span class="price"><?= number_format($booking->booking->getTotal(), 0, '', '.') ?> đồng</span></p>
-                                <!--                            <p class="conditions">Prices above include all applicable taxes and service charges</p>-->
                             </div>
                         </div>
                     </div>

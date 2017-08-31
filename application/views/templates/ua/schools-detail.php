@@ -1,4 +1,3 @@
-
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
 <div id="main" class="site-content">
@@ -19,7 +18,6 @@
                     <div class="column grid__item">
                         Địa chỉ: <?= $schools->getAddress() ?>
                     </div>
-
                 </div>
             </div>
         </div>

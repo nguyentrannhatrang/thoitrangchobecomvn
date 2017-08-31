@@ -287,7 +287,8 @@ class ProductModel extends CI_Model
         products.url, 
         products.meta_description, 
         products.meta_keywords, 
-        trans2.name as categorie_name');
+        trans2.name as categorie_name
+        ,shop_categories.url_name');
 
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
         $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
@@ -297,6 +298,7 @@ class ProductModel extends CI_Model
         $this->db->where('trans2.abbr', MY_LANGUAGE_ABBR);
         $this->db->where('trans2.type', 'shop_categorie');
         $this->db->where('visibility', 1);
+        $this->db->join('shop_categories', 'shop_categories.id = products.shop_categorie');
         $query = $this->db->get('products');
         return $this->convertToObject($query->row_array());
     }

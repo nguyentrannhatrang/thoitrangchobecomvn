@@ -1,4 +1,3 @@
-
 <?php $this->view('templates/ua/_parts/mobile-menu',array()); ?>
 <div id="overlay-one" class="overlay"></div>
 <div id="main" class="site-content">
@@ -20,7 +19,6 @@
                     <div class="map" id="map">
                         <div id="googleMap" style="width: 100%; height: 350px;">Google Map</div>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index,follow">
     <link rel="shortcut icon" type="image/png" href="/assets/images/ua/favicon.png">
+    <meta property="og:site_name" content="THỜI TRANG CHO BÉ" />
     <?php if(isset($page_name)){ ?>
         <?php $this->view('templates/ua/_parts/head-'.$page_name,array()); ?>
     <?php }else{ ?>
@@ -17,20 +18,9 @@
             ?>
         </style>
     <?php } ?>
-
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
     <!-- End Visual Website Optimizer Asynchronous Code -->
-    <script type="application/ld+json">
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": "Thời Trang Cho Bé",
-      "url": "http://thoitrangchobe.com.vn/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "http://thoitrangchobe.com.vn/search?q={q}",
-        "query-input": "required name=q"
-      },
-      "description": "Đầm bé gái vải cotton mịn, mát mẻ."
-</script>
 </head>
 <body>
 <!-- Google Analytics -->

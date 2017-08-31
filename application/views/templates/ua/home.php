@@ -9,26 +9,6 @@
             </div>
         </div>
         <div class="home-page">
-            <!--<div class="hero-image">
-                <div class="grid">
-                    <div class="grid__item one-whole palm--hidden">
-                        <img width="980px" height="400px" title="Thời trang cho bé" alt="Đầm bé gái, Thời trang cho bé" src="/assets/images/ua/banner.png">
-                    </div>                    
-                </div>
-            </div>-->
-            <!--<div class="carousel palm--hidden hidden show-slider">
-                <ul class="bxslider-carousel">
-                    <?php
-/*                    /** @var ProductModel $product */
-                    /*foreach ($products_slider as $product){ */?>
-                    <li><a href="/category-<?/*= $product->urlCategory */?>/<?/*=$product->url*/?>/" target="_blank">
-                            <div style="background-image: url('<?/*= base_url('/attachments/shop_images/'.$product->image)*/?>');" class="carousel-image"></div>
-                            <h2 class="carousel-title"></h2></a>
-                    </li>
-                    <?php /*} */?>
-                </ul>
-                <i id="slider-prev" class="slider-prev"></i><i id="slider-next" class="slider-next"></i>
-            </div>-->
             <!--start featured-->
             <br/>
             <div class="sections">
@@ -57,8 +37,6 @@
                                 <div class="tour-tile-info">
                                     <h5 class="tour-tile-title"><?=$product->getNameLimit(50)?></h5>
                                     <span>
-
-<!--                                        <span class="tour-tile-location">--><?//= $product->getBasicDescription(60)?><!--</span><br/>-->
                                     <span class="tour-tile-location sp-price"><?= $product->getPriceFormat()?> đồng</span>
                                     </span>
                                 </div>

@@ -33,6 +33,8 @@ class Product extends MY_Controller
         $head['description'] = $product->getMetaDescription();
         $head['keywords'] = $product->getMetaKeywords();
         $head['title_page'] = $product->getName();
+        $head['url_product'] = 'category-'.$product->getUrlCategory().'/'.$product->getUrl();
+        $head['image_product'] = 'attachments/shop_images/'.$product->image;
         $data['others_image'] = $this->loadOthersImages($product->getFolder());
         $generate = new GenerateData();
         $listSizePrice = $generate->loadArrayWithPrice();

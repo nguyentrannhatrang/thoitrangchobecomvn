@@ -67,6 +67,7 @@ class Schools extends MY_Controller
         $head['page_name'] = 'schools-detail';
         $schools = $this->loadSchoolsByUrl($url);
         $head['title_page'] = $schools->getName();
+        $head['url_schools'] = $schools->getUrl();
         $data['schools'] = $schools;
         $this->renderUa('schools-detail', $head, $data);
     }
