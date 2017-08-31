@@ -44,13 +44,16 @@
                         <ul class="nav-links">
                             <li class="nav-link-element"><a href="/" class="nav-link-anchor">Trang Chủ</a></li>
                             <?php foreach ($top_menu as $item){?>
-                            <li class="nav-link-element"><a id="featured_nav<?= $item['info']['url'] ?>" href="/category-<?= $item['info']['url'] ?>" class="nav-link-anchor"><?= $item['info']['name'] ?><i class="icon icon-down-arrow"></i></a>
+                            <li class="nav-link-element">
+                                <a id="featured_nav<?= $item['info']['url'] ?>" href="/category-<?= $item['info']['url'] ?>"
+                                   class="nav-link-anchor" title="Đầm bé gái - <?= $item['info']['name']?>"><?= $item['info']['name'] ?><i class="icon icon-down-arrow"></i>
+                                </a>
                                 <?php if(!empty($item['children'])){ ?>
                                 <div class="nav-dropdown-container">
                                     <div class="nav-dropdown">
                                         <dl class="subnav-section">
                                             <?php foreach ($item['children'] as $child){ ?>
-                                            <dd class="nav-dropdown-element"><a href="/category-<?= $child['url'] ?>" class="nav-dropdown-anchor"><?= $child['name'] ?></a></dd>
+                                            <dd class="nav-dropdown-element"><a href="/category-<?= $child['url'] ?>" class="nav-dropdown-anchor" title="Đầm bé gái - <?= $child['name']?>"><?= $child['name'] ?></a></dd>
                                             <?php } ?>
                                         </dl>
                                     </div>

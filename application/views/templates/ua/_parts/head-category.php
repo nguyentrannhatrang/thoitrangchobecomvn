@@ -1,6 +1,7 @@
 <meta name="keywords" content="Thời trang cho bé, thoi trang cho be, Đầm bé gái, Dam be gai">
 <meta name="description" content="Thời trang cho bé, thoi trang cho be, Đầm bé gái, Dam be gai, Đầm bé gái 2 tuổi, Đầm bé gái 3 tuổi, Đầm bé gái 4 tuổi, Đầm bé gái 5 tuổi, Đầm bé gái 6 tuổi">
 <title><?= $title_page ?> | Thời Trang Cho Bé</title>
+<meta name="robots" content="index,follow">
 <link href="//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:600,400,300" rel="stylesheet" type="text/css">
 <link rel="canonical" href="http://thoitrangchobe.com.vn/<?= $url_category?>" />
 <meta property="og:url" content="http://thoitrangchobe.com.vn/<?= $url_category?>" />

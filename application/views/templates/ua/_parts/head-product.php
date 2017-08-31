@@ -1,3 +1,4 @@
+<meta name="robots" content="index,follow">
 <meta name="keywords" content="<?= isset($keywords) && $keywords ?$keywords:$product_name ?>">
 <meta name="description" content="<?= isset($description) && $description ?$description:$product_name ?>">
 <title><?= $product_name ?> | Thời Trang Cho Bé</title>

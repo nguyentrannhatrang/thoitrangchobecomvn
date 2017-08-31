@@ -1,6 +1,7 @@
 <meta name="keywords" content="Thời trang cho bé, thoi trang cho be, Đầm bé gái, Dam be gai, Vải cotton">
 <meta name="description" content="Đầm bé gái vải cotton mịn, mát mẻ.">
 <title>Giỏ Hàng | Thời Trang Cho Bé</title>
+<meta name="robots" content="noindex,follow">
 <link rel="canonical" href="http://thoitrangchobe.com.vn" />
 <meta property="og:url" content="http://thoitrangchobe.com.vn/cart" />
 <meta property="og:image" content="http://thoitrangchobe.com.vn/assets/images/ua/logo.png" />

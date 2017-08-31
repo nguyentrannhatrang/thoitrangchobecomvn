@@ -8,7 +8,7 @@
                 <div class="combo reversed">
                     <div class="combo-first">
                         <div class="tour-title font-carto-gothic-regular">
-                            <p><?= $product->getName() ?></p>
+                            <h3><?= $product->getName() ?></h3>
                         </div>
                     </div>
                     <div class="combo-last">
@@ -23,13 +23,14 @@
         <div  class="tour-booking large--show">
             <div class="grid large--show product-main-image-page">
                 <div class="grid__item two-thirds lap--one-third bkg-image" >
-                    <img src="<?= base_url('/attachments/shop_images/'.$product->image)?>">
+                    <img src="<?= base_url('/attachments/shop_images/'.$product->image)?>"
+                         title="Đầm bé gái - <?= $product->getName()?>" alt="Đầm bé gái - <?= $product->getName()?>">
                 </div>
                 <div class="grid__item one-third lap--two-thirds">
                     <div class="booking">
                         <div class="booking-header">
                             <div class="tour-title font-carto-gothic-regular">
-                                <p class="main-name-title"><?= $product->getName() ?></p>
+                                <h3 class="main-name-title"><?= $product->getName() ?></h3>
                             </div>
                             <div class="tour-location font-open-sans">
                                 <p><?= $product->getPriceFormat() ?> đồng</p>
@@ -130,9 +131,9 @@
                         <div class="photo-gallery">
                             <div class="photo-gallery-row">
                                 <div class="current-photo">
-                                    <img id="img_main" src="<?= base_url('/attachments/shop_images/'.$product->image) ?>" title="<?= $product->getName()?>"  alt="<?= $product->getName() ?>, thoitrangchobe"  />
+                                    <img id="img_main" src="<?= base_url('/attachments/shop_images/'.$product->image) ?>" title="Đầm bé gái - <?= $product->getName()?>"  alt="<?= $product->getName() ?>"  />
                                     <?php foreach ($others_image as $index=>$other) {?>
-                                    <img id="img_<?= $index ?>" src="<?= $other ?>" title="<?= $product->getName()?>"  alt="<?= $product->getName() ?>, thoitrangchobe"  />
+                                    <img id="img_<?= $index ?>" src="<?= $other ?>" title="Đầm bé gái - <?= $product->getName()?>"  alt="Đầm bé gái - <?= $product->getName() ?>"  />
                                     <?php } ?>
                                 </div>
                                 <div class="gallery-tiles">
@@ -147,16 +148,16 @@
                                     <ul class="bxslider-carousel">
                                         <li>
                                             <div style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image) ?>');" rel="<?= base_url('/attachments/shop_images/'.$product->image) ?>" id="img_main" class="carousel-image">
-                                                <a href="<?= base_url('/attachments/shop_images/'.$product->image) ?>" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe" title="<?= $product->getName()?>" >
-                                                    <img src="<?= base_url('/attachments/shop_images/'.$product->image) ?>" style="display:none" title="<?= $product->getName()?>" alt="<?= $product->getName()?>" >
+                                                <a href="<?= base_url('/attachments/shop_images/'.$product->image) ?>" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe" title="Đầm bé gái - <?= $product->getName()?>" >
+                                                    <img src="<?= base_url('/attachments/shop_images/'.$product->image) ?>" style="display:none" title="Đầm bé gái - <?= $product->getName()?>" alt="Đầm bé gái - <?= $product->getName()?>" >
                                                 </a>
                                             </div>
                                         </li>
                                         <?php foreach ($others_image as $index=>$other) {?>
                                         <li>
                                             <div style="background-image: url('<?= $other ?>');" rel="<?= $other ?>" id="img_<?= $index ?>" class="carousel-image">
-                                                <a href="<?= $other ?>" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe" title="<?= $product->getName()?>" >
-                                                    <img src="<?= $other ?>" style="display:none" title="<?= $product->getName()?>" alt="<?= $product->getName()?>" >
+                                                <a href="<?= $other ?>" itemprop="contentUrl" data-size="600x400" data-index="1" class="photoswipe" title="Đầm bé gái - <?= $product->getName()?>" >
+                                                    <img src="<?= $other ?>" style="display:none" title="Đầm bé gái - <?= $product->getName()?>" alt="Đầm bé gái - <?= $product->getName()?>" >
                                                 </a>
                                             </div>
                                         </li>
@@ -221,7 +222,7 @@
                                     <div class="media clearfix">
                                         <div class="media-left">
                                             <a href="javascript:;">
-                                                <img title="<?= $product->getName()?>" alt="<?= $product->getName()?>"  src="/assets/images/ua/no-avatar.png">
+                                                <img title="Đầm bé gái - <?= $product->getName()?>" alt="Đầm bé gái - <?= $product->getName()?>"  src="/assets/images/ua/no-avatar.png">
                                             </a>
                                         </div>
                                         <div class="media-body">

@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="robots" content="index,follow">
     <link rel="shortcut icon" type="image/png" href="/assets/images/ua/favicon.png">
     <meta property="og:site_name" content="THỜI TRANG CHO BÉ" />
     <?php if(isset($page_name)){ ?>

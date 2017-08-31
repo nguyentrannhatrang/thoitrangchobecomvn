@@ -14,12 +14,13 @@
     <ul class="site-navigation-links">
         <li class="navigation-link"><a href="/" class="link large">Trang Chủ</a></li>
         <?php foreach ($top_menu as $item){?>
-        <li class="navigation-link"><a href="/category-<?= $item['info']['url'] ?>" class="link large"><?= $item['info']['name'] ?></a>
+        <li class="navigation-link">
+            <a href="/category-<?= $item['info']['url'] ?>" class="link large" title="Đầm bé gái - <?= $item['info']['name']?>"><?= $item['info']['name'] ?></a>
             <?php if(!empty($item['children'])){ ?>
             <ul class="nested-link-group">
                 <?php foreach ($item['children'] as $child){ ?>
                 <li class="nested-link">
-                    <a href="/category-<?= $child['url'] ?>" class="link"><?= $child['name'] ?></a>
+                    <a href="/category-<?= $child['url'] ?>" class="link" title="Đầm bé gái - <?= $child['name']?>"><?= $child['name'] ?></a>
                 </li>
                 <?php } ?>
             </ul>

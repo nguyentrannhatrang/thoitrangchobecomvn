@@ -1,6 +1,7 @@
+<meta name="robots" content="noindex,follow">
 <meta name="keywords" content="Thời trang cho bé, thoi trang cho be, Đầm bé gái, Dam be gai">
 <meta name="description" content="Thời trang cho bé, thoi trang cho be, Đầm bé gái, Dam be gai">
-<title>Thời Trang Cho Bé | Cherryfashion</title>
+<title>Thời Trang Cho Bé | Đầm Bé Gái</title>
 <link href="//fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:600,400,300" rel="stylesheet" type="text/css">
 <link rel="canonical" href="http://thoitrangchobe.com.vn" />
 <meta property="og:url" content="http://thoitrangchobe.com.vn/thankyou" />

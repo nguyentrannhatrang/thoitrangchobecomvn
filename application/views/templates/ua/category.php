@@ -22,7 +22,7 @@
                                 <div class="grid__item one-third palm--one-whole spacer">
                                     <div class="tour-info-tile">
                                         <div class=" ribbon"></div>
-                                        <a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-info-tile-image" title="<?= $product->getName()?>">
+                                        <a href="/category-<?= $product->urlCategory ?>/<?= $product->url?>" style="background-image: url('<?= base_url('/attachments/shop_images/'.$product->image)?>');" class="tour-info-tile-image" title="Đầm bé gái - <?= $product->getName()?>">
                                             <?php if($product->getQuantity() < 1 ) {?>
                                                 <div class="sold-out"><img src="/assets/images/ua/het-hang.png"></div>
                                             <?php } ?>

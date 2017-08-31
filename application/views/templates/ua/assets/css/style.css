@@ -538,12 +538,15 @@ div.sold-out img{
     margin-top: 15px;
 }
 a.tour-info-tile-title,
-p.main-name-title,
+.main-name-title,
 h5.tour-info-tile-title,
 h5.tour-tile-title,
 .item-product-name
 {
     text-transform: capitalize;
+}
+.main-name-title{
+    color: #fff;
 }
 ul.list-blogs li{
     margin-bottom: 8px;
