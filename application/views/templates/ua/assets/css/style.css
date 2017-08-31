@@ -321,6 +321,9 @@ div.tour-info-tile-description div.more-info{
     .product-main-image-page, .product-main-image-page .bkg-image{
         min-height: 500px;
     }
+    .product-main-image-page, .product-main-image-page .bkg-image img{
+        width: 100%;
+    }
     .product-main-image-page .booking{
         border: 1px solid #df3a6b ;
         border-top: none;

@@ -29,6 +29,8 @@ class ProductModel extends CI_Model
     public $priceOld;
     public $basicDescription;
     public $urlCategory;
+    public $metaDescription;
+    public $metaKeywords;
 
     /**
      * @return array
@@ -136,6 +138,8 @@ class ProductModel extends CI_Model
              translations.price,
               translations.old_price,
                products.url,
+               products.meta_description,
+               products.meta_keywords,
             shop_categories.url_name');
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
         $this->db->join('shop_categories', 'shop_categories.id = products.shop_categorie');
@@ -250,7 +254,7 @@ class ProductModel extends CI_Model
 
         $this->db->select('products.*, translations.title as name,
         translations.description,translations.basic_description, translations.price, translations.old_price,
-        products.url, trans2.name as categorie_name,shop_categories.url_name');
+        products.url,products.meta_description,products.meta_keywords, trans2.name as categorie_name,shop_categories.url_name');
 
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
         $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
@@ -281,6 +285,8 @@ class ProductModel extends CI_Model
         translations.price, 
         translations.old_price, 
         products.url, 
+        products.meta_description, 
+        products.meta_keywords, 
         trans2.name as categorie_name');
 
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
@@ -321,6 +327,8 @@ class ProductModel extends CI_Model
         $product->description = isset($arr['description'])?$arr['description']:'';
         $product->basicDescription = isset($arr['basic_description'])?$arr['basic_description']:'';
         $product->urlCategory = isset($arr['url_name'])?$arr['url_name']:'';
+        $product->metaDescription = isset($arr['meta_description'])?$arr['meta_description']:'';
+        $product->metaKeywords = isset($arr['meta_keywords'])?$arr['meta_keywords']:'';
         return $product;
     }
 
@@ -669,6 +677,38 @@ class ProductModel extends CI_Model
     public function setUrlCategory($urlCategory)
     {
         $this->urlCategory = $urlCategory;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
+    }
+
+    /**
+     * @param $meta
+     */
+    public function setMetaDescription($meta)
+    {
+        $this->metaDescription = $meta;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords;
+    }
+
+    /**
+     * @param $meta
+     */
+    public function setMetaKeywords($meta)
+    {
+        $this->metaKeywords = $meta;
     }
 
     /**

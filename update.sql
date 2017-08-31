@@ -138,3 +138,7 @@ CREATE TABLE `schools`(
   INDEX `schools_standard` (`standard`),
   INDEX `schools_url` (`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE products ADD meta_description VARCHAR(255) ;
+ALTER TABLE products ADD meta_keywords VARCHAR(255) ;

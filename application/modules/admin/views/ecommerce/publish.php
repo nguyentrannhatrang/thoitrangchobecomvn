@@ -36,6 +36,14 @@ if ($this->session->flashdata('result_publish')) {
         <input type="text" <?php /*echo ($product_id)?'readonly':'' */?> name="title_for_url" id="title_for_url" value="<?= @$_POST['url']?>" class="form-control">
     </div>
     <div class="form-group">
+        <label>Meta Description (Max 255)</label>
+        <input type="text" name="meta_description" id="meta_description" value="<?= @$_POST['meta_description']?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Meta Keywords (Max 255)</label>
+        <input type="text" name="meta_keywords" id="meta_keywords" value="<?= @$_POST['meta_keywords']?>" class="form-control">
+    </div>
+    <div class="form-group">
         <a href="javascript:void(0);" class="btn btn-default" id="showSliderDescrption">Show Slider Description <span class="glyphicon glyphicon-circle-arrow-down"></span></a>
     </div>
     <div id="theSliderDescrption" <?= isset($_POST['in_slider']) && $_POST['in_slider'] == 1 ? 'style="display:block;"' : '' ?>>

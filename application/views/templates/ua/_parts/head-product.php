@@ -1,6 +1,9 @@
-<meta name="keywords" content="<?= $product_name ?>">
-<meta name="description" content="<?= $product_name ?>,Thời trang cho bé, thoi trang cho be, Đầm bé gái, Dam be gai, Đầm bé gái 2 tuổi, Đầm bé gái 3 tuổi, Đầm bé gái 4 tuổi, Đầm bé gái 5 tuổi, Đầm bé gái 6 tuổi">
+<meta name="keywords" content="<?= isset($keywords) && $keywords ?$keywords:$product_name ?>">
+<meta name="description" content="<?= isset($description) && $description ?$description:$product_name ?>">
 <title><?= $product_name ?> | Thời Trang Cho Bé</title>
+<meta property="og:title"              content="<?= $product_name ?>" />
+<meta property="og:description"        content="<?= isset($description) && $description ?$description:$product_name ?>" />
+
 <!--<link href="--><?//= base_url('templatecss/product.css') ?><!--" rel="stylesheet">-->
 <style type="text/css">
     <?php

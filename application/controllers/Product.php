@@ -30,6 +30,8 @@ class Product extends MY_Controller
         /** @var ProductModel $product */
         $product = $productModel->getProductByUrl($url);
         $data['product'] = $product;
+        $head['description'] = $product->getMetaDescription();
+        $head['keywords'] = $product->getMetaKeywords();
         $head['title_page'] = $product->getName();
         $data['others_image'] = $this->loadOthersImages($product->getFolder());
         $generate = new GenerateData();
