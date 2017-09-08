@@ -31,6 +31,6 @@
     var availableTags = [];
     <?php } ?>
 </script>
-<script src="https://uhchat.net/code.php?f=7d04a7"></script>
+<!--<script src="https://uhchat.net/code.php?f=7d04a7"></script>-->
 </body>
 </html>

@@ -34,6 +34,11 @@
                 <div class="aps-social-icon-wrapper">
                     <div class="aps-group-horizontal">
                         <div class="fb-follow" data-href="https://www.facebook.com/cherryfashion.vn" data-width="320" data-height="100" data-layout="box_count" data-size="small" data-show-faces="true"></div>
+                        <!-- Your share button code -->
+                        <div class="fb-share-button"
+                             data-href="http://thoitrangchobe.com.vn<?= $_SERVER['REQUEST_URI'] ?>"
+                             data-layout="button_count">
+                        </div>
                         <div class="fb-messengermessageus"
                              messenger_app_id="434363263629006"
                              page_id="1754154044896831"
