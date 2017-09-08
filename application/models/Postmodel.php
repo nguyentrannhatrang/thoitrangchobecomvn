@@ -72,6 +72,20 @@ class PostModel extends CI_Model
         $query = $this->db->get('blog_posts');
         return $this->convertToObject($query->row_array());
     }
+
+    /**
+     * @param $id
+     * @return ProductDetailModel
+     */
+    public function getOnePostByUrl($url)
+    {
+        $this->db->select('translations.title, translations.description, blog_posts.image, blog_posts.time');
+        $this->db->where('blog_posts.url', $url);
+        $this->db->join('translations', 'translations.for_id = blog_posts.id', 'left');
+        $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
+        $query = $this->db->get('blog_posts');
+        return $this->convertToObject($query->row_array());
+    }
     /**
      * @param $arr
      * @return ProductDetailModel

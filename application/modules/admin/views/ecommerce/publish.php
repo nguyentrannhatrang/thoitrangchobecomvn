@@ -33,7 +33,15 @@ if ($this->session->flashdata('result_publish')) {
     ?>
     <div class="form-group">
         <label>Url</label>
-        <input type="text" <?php echo ($product_id)?'readonly':'' ?> name="title_for_url" id="title_for_url" value="<?= @$_POST['url']?>" class="form-control">
+        <input type="text" <?php /*echo ($product_id)?'readonly':'' */?> name="title_for_url" id="title_for_url" value="<?= @$_POST['url']?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Meta Description (Max 255)</label>
+        <input type="text" name="meta_description" id="meta_description" value="<?= @$_POST['meta_description']?>" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Meta Keywords (Max 255)</label>
+        <input type="text" name="meta_keywords" id="meta_keywords" value="<?= @$_POST['meta_keywords']?>" class="form-control">
     </div>
     <div class="form-group">
         <a href="javascript:void(0);" class="btn btn-default" id="showSliderDescrption">Show Slider Description <span class="glyphicon glyphicon-circle-arrow-down"></span></a>
@@ -166,25 +174,43 @@ if ($this->session->flashdata('result_publish')) {
     <div class="form-group for-shop">
         <a class="btn btn-default btn-xs" data-target="#modalConvertor" data-toggle="modal" href="javascript:void(0)">Convert currency <span class="glyphicon glyphicon-euro"></span></a>
     </div>
+    <div class="form-group for-shop row">
+        <div class="col-lg-3">
+           Màu
+        </div>
+        <div class="col-lg-3">
+            Size
+        </div>
+        <div class="col-lg-3">
+            Số lượng
+        </div>
+        <div class="col-lg-3">
+            Giá
+        </div>
+    </div>
     <?php if($details) {?>
-        <?php foreach ($details->result() as $details) { ?>
+        <?php foreach ($details as $detail) { ?>
             <div class="form-group for-shop row">
                 <div class="col-lg-3">
                     <select name="detail_color[]">
                         <?php foreach ($colors->result() as $color) { ?>
-                            <option value="<?php echo $color->code; ?>" <?php echo ($details->color ==$color->code?'selected':'' ) ?>><?php echo $color->name; ?></option>
+                            <option value="<?php echo $color->code; ?>" <?php echo ($detail->color ==$color->code?'selected':'' ) ?>><?php echo $color->name; ?></option>
                         <?php }?>
                     </select>
                 </div>
                 <div class="col-lg-3">
                     <select name="detail_size[]">
-                        <?php foreach ($sizes->result() as $size) { ?>
-                            <option value="<?php echo $size->code; ?>" <?php echo ($details->size ==$size->code?'selected':'' ) ?>><?php echo $size->name; ?></option>
+                        <?php foreach ($sizes as $sizeCode=>$sizeName) { ?>
+                            <option value="<?php echo $sizeCode; ?>" <?php echo ($detail->size == $sizeCode?'selected':'' ) ?>><?php echo $sizeName; ?></option>
                         <?php }?>
                     </select>
                 </div>
                 <div class="col-lg-3">
-                    <input name="detail_quantity[]" value="<?php echo $details->quantity; ?>" />
+                    <input name="detail_quantity[]" value="<?php echo $detail->quantity; ?>" />
+                </div>
+                <div class="col-lg-3">
+                    <input class="format_price_detail" value="<?php echo $detail->price; ?>" />
+                    <input name="detail_price[]" class="detail_price" type="hidden" value="<?php echo $detail->price; ?>" />
                 </div>
             </div>
         <?php }?>
@@ -201,20 +227,24 @@ if ($this->session->flashdata('result_publish')) {
             </div>
             <div class="col-lg-3">
                 <select name="detail_size[]">
-                    <?php foreach ($sizes->result() as $size) { ?>
-                        <option value="<?php echo $size->code; ?>"><?php echo $size->name; ?></option>
+                    <?php foreach ($sizes as $sizeCode=>$sizeName) { ?>
+                        <option value="<?php echo $sizeCode; ?>"><?php echo $sizeName; ?></option>
                     <?php }?>
                 </select>
             </div>
             <div class="col-lg-3">
                 <input name="detail_quantity[]" value="" />
             </div>
+            <div class="col-lg-3">
+                <input class="format_price_detail" value="" />
+                <input name="detail_price[]" type="hidden" class="detail_price" value="" />
+            </div>
         </div>
     </div>
     <div class="form-group for-shop">
         <button type="button" value="" id="btn-add-detail">Add Detail</button>
     </div>
-    <button type="submit" name="submit" class="btn btn-lg btn-default">Publish</button>
+    <button type="submit" name="submit" class="btn btn-lg btn-default">Save</button>
     <?php if ($this->uri->segment(3) !== null) { ?>
         <a href="<?= base_url('admin/products') ?>" class="btn btn-lg btn-default">Cancel</a>
     <?php } ?>

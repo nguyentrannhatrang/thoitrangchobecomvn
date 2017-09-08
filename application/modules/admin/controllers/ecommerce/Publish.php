@@ -18,6 +18,7 @@ class Publish extends ADMIN_Controller
     {
         parent::__construct();
         $this->load->model('ProductModel');
+        $this->load->library('GenerateData');
     }
 
     public function index($id = 0)
@@ -32,6 +33,8 @@ class Publish extends ADMIN_Controller
         if (isset($_POST['submit'])) {
             if ($id > 0) {
                 $is_update = true;
+                if(!$this->isUrlUnique($id,$_POST['title_for_url']))
+                    unset($_POST['title_for_url']);
             }
             unset($_POST['submit']);
             $config['upload_path'] = './attachments/shop_images/';
@@ -62,6 +65,8 @@ class Publish extends ADMIN_Controller
             unset($_POST['translations']); //remove for product
             $result = $this->AdminModel->setProduct($this->createDataProduct($_POST), $id);
             if ($result !== false) {
+                $productModel = new ProductModel();
+                $productModel->updateQuantityProduct($result);
                 $this->AdminModel->setProductTranslation($translations, $result, $is_update); // send to translation table
                 $this->session->set_flashdata('result_publish', 'product is published!');
                 if ($id == 0) {
@@ -69,6 +74,10 @@ class Publish extends ADMIN_Controller
                 } else {
                     $this->saveHistory('Success updated product');
                 }
+                //generate product
+                $generate = new GenerateData();
+                $generate->listProducts();
+                $generate->listProductSlider();
                 if (isset($_SESSION['filter']) && $id > 0) {
                     $get = '';
                     foreach ($_SESSION['filter'] as $key => $value) {
@@ -93,11 +102,36 @@ class Publish extends ADMIN_Controller
         
         $data['languages'] = $this->AdminModel->getLanguages();
         $data['colors'] = $this->AdminModel->getColors();
-        $data['sizes'] = $this->AdminModel->getSizes();
+        $listSize = $this->AdminModel->getSizes();
+        $aSizes = array();
+        foreach ($listSize->result() as $size) {
+            $aSizes[$size->code] = $size->name;
+        }
+        uksort($aSizes,function ($a,$b){
+            if(filter_var($a, FILTER_SANITIZE_NUMBER_INT) > filter_var($b, FILTER_SANITIZE_NUMBER_INT))
+                return 1;
+            else
+                return -1;
+        });
+        $data['sizes'] = $aSizes;
         $data['shop_categories'] = $this->AdminModel->getShopCategories();
         $data['brands'] = $this->AdminModel->getBrands();
         $data['otherImgs'] = $this->loadOthersImages();
-        $data['details'] = $this->AdminModel->getProductDetailByProduct($id);
+        $details = $this->AdminModel->getProductDetailByProduct($id);
+        $listDetail = array();
+        if($details){
+            foreach ($details->result() as $details) {
+                $listDetail[] = $details;
+            }
+        }
+
+        usort($listDetail,function ($a,$b){
+            if(filter_var($a->size, FILTER_SANITIZE_NUMBER_INT) > filter_var($b->size, FILTER_SANITIZE_NUMBER_INT))
+                return 1;
+            else
+                return -1;
+        });
+        $data['details'] = $listDetail ;
         $this->load->view('_parts/header', $head);
         $this->load->view('ecommerce/publish', $data);
         $this->load->view('_parts/footer');
@@ -232,6 +266,19 @@ class Publish extends ADMIN_Controller
         }
     }
 
+    protected function isUrlUnique($id,$url){
+        if(empty($url)) {
+            return false;
+        }
+
+        $productModel = new ProductModel();
+        /** @var ProductModel $product */
+        $product = $productModel->getProductByUrl($url);
+        if($product->id !== '' && (int)$product->id != $id){
+            return false;
+        }
+        return true;
+    }
 
     public function checkUrlUnique($id){
         $url = isset($_GET['product_url'])?$_GET['product_url']:'';

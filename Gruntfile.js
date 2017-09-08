@@ -17,7 +17,7 @@ module.exports = function (grunt) {
         },
         // Task configuration.
         ngmin: {
-            public_common: {
+            /*public_common: {
                 src: [
                     'application/views/templates/corner/assets/js/jquery.js',
                     'application/views/templates/corner/assets/js/jquery-migrate.min.js',
@@ -50,22 +50,46 @@ module.exports = function (grunt) {
                     'application/views/templates/corner/assets/js/checkout.js'
                 ],
                 dest: 'tmp/other.js'
+            }*/
+            home: {
+                src: [
+                    'application/views/templates/ua/assets/js/app.js',
+                    'application/views/templates/ua/assets/js/home.js',
+                    'application/views/templates/ua/assets/js/cart.js',
+                    'application/views/templates/ua/assets/js/function.js'
+                ],
+                dest: 'tmp/home.js'
+            },
+            checkout: {
+                src: [
+                    'application/views/templates/ua/assets/js/checkout.js'
+                ],
+                dest: 'tmp/checkout.js'
+            },
+            product: {
+                src: [
+                    'application/views/templates/ua/assets/js/product.js'
+                ],
+                dest: 'tmp/product.js'
             }
         },
         uglify: {
             widget: {
                 files: {
-                	'tmp/public_common.min.js': ['tmp/public_common.js'],
+                	/*'tmp/public_common.min.js': ['tmp/public_common.js'],
                 	'tmp/home.min.js': ['tmp/home.js'],
                 	'tmp/other.min.js': ['tmp/other.js'],
-                	'tmp/css_home.min.css': ['tmp/css_home.css']
+                	'tmp/css_home.min.css': ['tmp/css_home.css']*/
+                    'tmp/home.min.js': ['tmp/home.js'],
+                    'tmp/checkout.min.js': ['tmp/checkout.js'],
+                    'tmp/product.min.js': ['tmp/product.js']
                 }
             }
         },
         concat: {
             widget: {
                 files: {
-                	'application/views/templates/corner/assets/js/home.min.js': [
+                	/*'application/views/templates/corner/assets/js/home.min.js': [
                         'tmp/public_common.min.js',
                         'tmp/home.min.js'
 						],
@@ -86,7 +110,40 @@ module.exports = function (grunt) {
 						],
                 	'application/views/templates/corner/assets/css/home.min.css': [
                         'tmp/css_home.min.css'
-						]
+						]*/
+                    'assets/admin/js/admin_js.js': [
+                        'assets/bootstrap-select-1.12.1/js/bootstrap-select.min.js',
+                        'assets/js/bootstrap.min.js',
+                        'assets/js/bootbox.min.js',
+                        'assets/js/zxcvbn.js',
+                        'assets/js/zxcvbn_bootstrap3.js',
+                        'assets/js/pGenerator.jquery.js',
+                        'assets/js/jquery.priceformat.min.js',
+                        'assets/admin/js/product.js',
+                        'assets/admin/js/booking_item.js'
+                    ],
+                    'application/views/templates/ua/assets/js/home.min.js': [
+                        'application/views/templates/ua/assets/js/vendor.min.js',
+                        'application/views/templates/ua/assets/js/thoitrangchobe.min.js',
+                        'tmp/home.min.js',
+                        'application/views/templates/ua/assets/js/jquery.modal.min.js'
+                    ],
+                    'application/views/templates/ua/assets/js/checkout.min.js': [
+                        'application/views/templates/ua/assets/js/vendor.min.js',
+                        'application/views/templates/ua/assets/js/thoitrangchobe.min.js',
+                        'tmp/home.min.js',
+                        'application/views/templates/ua/assets/js/jquery.modal.min.js',
+                        'tmp/checkout.min.js'
+                    ],
+                    'application/views/templates/ua/assets/js/product.min.js': [
+                        'application/views/templates/ua/assets/js/vendor.min.js',
+                        'application/views/templates/ua/assets/js/thoitrangchobe.min.js',
+                        'tmp/home.min.js',
+                        'application/views/templates/ua/assets/js/jquery.modal.min.js',
+                        'application/views/templates/ua/assets/js/photoswipe.min.js',
+                        'application/views/templates/ua/assets/js/photoswipe-ui-default.min.js',
+                        'tmp/product.min.js'
+                    ]
                 }
             }
         },
@@ -97,7 +154,7 @@ module.exports = function (grunt) {
 		  },
 		  target: {
 			files: {
-			  'application/views/templates/corner/assets/css/css_home.css': 
+             /*'application/views/templates/corner/assets/css/css_home.css':
 			  [
                   'application/views/templates/corner/assets/css/jquery.modal.min.css',
                     'application/views/templates/corner/assets/css/lightbox.css',
@@ -130,8 +187,29 @@ module.exports = function (grunt) {
                     'application/views/templates/corner/assets/css/slick.css',
                     'application/views/templates/corner/assets/css/responsive.css',
                     'application/views/templates/corner/assets/css/my.css'
-                ]
+                ]*/
+                'application/views/templates/ua/assets/css/home.css':
+                    [
+                        'application/views/templates/ua/assets/css/vendor.min.css',
+                        'application/views/templates/ua/assets/css/thoitrangchobe.css',
+                        'application/views/templates/ua/assets/css/font-awesome.min.css',
+                        'application/views/templates/ua/assets/css/jquery.modal.min.css',
+                        'application/views/templates/ua/assets/css/font.google.css',
+                        'application/views/templates/ua/assets/css/style.css'
+                    ],
+                'application/views/templates/ua/assets/css/product.css':
+                    [
+                        'application/views/templates/ua/assets/css/vendor.min.css',
+                        'application/views/templates/ua/assets/css/thoitrangchobe.css',
+                        'application/views/templates/ua/assets/css/font-awesome.min.css',
+                        'application/views/templates/ua/assets/css/jquery.modal.min.css',
+                        'application/views/templates/ua/assets/css/font.google.css',
+                        'application/views/templates/ua/assets/css/photoswipe.css',
+                        'application/views/templates/ua/assets/css/default-skin.css',
+                        'application/views/templates/ua/assets/css/style.css'
+                    ]
 			}
+
 		  }
 		}
     });

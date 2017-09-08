@@ -28,24 +28,30 @@ class ProductModel extends CI_Model
     public $price;
     public $priceOld;
     public $basicDescription;
+    public $urlCategory;
+    public $metaDescription;
+    public $metaKeywords;
 
     /**
      * @return array
      */
     public function loadByCategorieTop($categories ,$limit = 10){
-        
+        //$this->db->cache_on();
         $this->db->where_in('products.shop_categorie', $categories);
 
         $this->db->select(
             'products.id, 
             products.image, 
+            products.quantity, 
             translations.title as name,
             translations.basic_description, 
             translations.price, 
             translations.old_price, 
-            products.url');
+            products.url,
+            shop_categories.url_name');
 
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
+        $this->db->join('shop_categories', 'shop_categories.id = products.shop_categorie');
         $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
         $this->db->where('translations.type', 'product');
 
@@ -55,13 +61,55 @@ class ProductModel extends CI_Model
 
         $this->db->where('visibility', 1);
         $this->db->where('show_home', 1);
-        $this->db->where('quantity >', 0);
-        $this->db->order_by('position', 'asc');
+        //$this->db->where('quantity >', 0);
+        $this->db->order_by('products.position', 'asc');
         $query = $this->db->get(self::TABLE_NAME);
         $arr = array();
         if ($query !== false) {
             foreach ($query->result_array() as $row) {
                 $arr[] = $this->convertToObject($row);
+            }
+        }
+        return $arr;
+    }
+
+    /**
+     * @param int $limit
+     * @return array
+     */
+    public function loadSlider($limit = 10,$isArray = false){
+        //$this->db->cache_on();
+        $this->db->select(
+            'products.id, 
+            products.image, 
+            translations.title as name,
+            translations.basic_description, 
+            translations.price, 
+            translations.old_price, 
+            products.url,
+            shop_categories.url_name'
+            );
+
+
+        $this->db->join('translations', 'translations.for_id = products.id', 'left');
+        $this->db->join('shop_categories', 'shop_categories.id = products.shop_categorie');
+        $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
+        $this->db->where('translations.type', 'product');
+
+
+        $this->db->where('visibility', 1);
+        $this->db->where('in_slider', 1);
+        $this->db->where('quantity >', 0);
+        $this->db->order_by('products.position', 'asc');
+        $this->db->limit($limit, 0);
+        $query = $this->db->get(self::TABLE_NAME);
+        $arr = array();
+        if ($query !== false) {
+            foreach ($query->result_array() as $row) {
+                if($isArray)
+                    $arr[] = $row;
+                else
+                    $arr[] = $this->convertToObject($row);
             }
         }
         return $arr;
@@ -74,8 +122,9 @@ class ProductModel extends CI_Model
      * @param int $start
      * @return array
      */
-    public function getProducts(array $categories = array(),$checkQuantity = true,$limit = 20,$start = 0)
+    public function getProducts(array $categories = array(),$checkQuantity = true,$limit = 20,$start = 0,$notId = null)
     {
+        //$this->db->cache_on();
         if ($limit !== null && $start !== null) {
             $this->db->limit($limit, $start);
         }
@@ -88,8 +137,12 @@ class ProductModel extends CI_Model
             translations.basic_description,
              translations.price,
               translations.old_price,
-               products.url');
+               products.url,
+               products.meta_description,
+               products.meta_keywords,
+            shop_categories.url_name');
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
+        $this->db->join('shop_categories', 'shop_categories.id = products.shop_categorie');
         $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
         $this->db->where('translations.type', 'product');
         $this->db->where('visibility', 1);
@@ -97,7 +150,10 @@ class ProductModel extends CI_Model
         if ($checkQuantity) {
             $this->db->where('quantity >', 0);
         }
-        $this->db->order_by('position', 'asc');
+        if(!empty($notId)){
+            $this->db->where('products.id <>', $notId);
+        }
+        $this->db->order_by('products.position', 'asc');
         $query = $this->db->get(self::TABLE_NAME);
         $arr = array();
         if ($query !== false) {
@@ -116,7 +172,8 @@ class ProductModel extends CI_Model
      * @return array
      */
     public function loadAll($checkQuantity = true)
-    {       
+    {
+        //$this->db->cache_on();
         $this->db->select(
             'products.id,
             translations.title as name,
@@ -128,7 +185,7 @@ class ProductModel extends CI_Model
         if ($checkQuantity) {
             $this->db->where('quantity >', 0);
         }
-        $this->db->order_by('position', 'asc');
+        $this->db->order_by('products.position', 'asc');
         $query = $this->db->get(self::TABLE_NAME);
         $arr = array();
         if ($query !== false) {
@@ -157,8 +214,10 @@ class ProductModel extends CI_Model
             translations.basic_description,
              translations.price,
               translations.old_price,
-               products.url');
+               products.url,
+               shop_categories.url_name');
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
+        $this->db->join('shop_categories', 'shop_categories.id = products.shop_categorie');
         $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
         $this->db->where('translations.type', 'product');
         $this->db->where('visibility', 1);
@@ -173,7 +232,7 @@ class ProductModel extends CI_Model
         if ($checkQuantity) {
             $this->db->where('quantity >', 0);
         }
-        $this->db->order_by('position', 'asc');
+        $this->db->order_by('products.position', 'asc');
         $query = $this->db->get(self::TABLE_NAME);
         $arr = array();
         if ($query !== false) {
@@ -186,15 +245,16 @@ class ProductModel extends CI_Model
 
     /**
      * @param $id
-     * @return Category
+     * @return ProductModel
      */
     public function getProductById($id)
     {
+        //$this->db->cache_on();
         $this->db->where('products.id', $id);
 
         $this->db->select('products.*, translations.title as name,
         translations.description,translations.basic_description, translations.price, translations.old_price,
-        products.url, trans2.name as categorie_name');
+        products.url,products.meta_description,products.meta_keywords, trans2.name as categorie_name,shop_categories.url_name');
 
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
         $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
@@ -204,16 +264,18 @@ class ProductModel extends CI_Model
         $this->db->where('trans2.abbr', MY_LANGUAGE_ABBR);
         $this->db->where('trans2.type', 'shop_categorie');
         $this->db->where('visibility', 1);
+        $this->db->join('shop_categories', 'shop_categories.id = products.shop_categorie');
         $query = $this->db->get('products');
         return $this->convertToObject($query->row_array());
     }
 
     /**
-     * @param $id
-     * @return Category
+     * @param $url
+     * @return ProductModel
      */
     public function getProductByUrl($url)
     {
+        //$this->db->cache_on();
         $this->db->where('products.url', $url);
 
         $this->db->select('products.*,
@@ -223,7 +285,10 @@ class ProductModel extends CI_Model
         translations.price, 
         translations.old_price, 
         products.url, 
-        trans2.name as categorie_name');
+        products.meta_description, 
+        products.meta_keywords, 
+        trans2.name as categorie_name
+        ,shop_categories.url_name');
 
         $this->db->join('translations', 'translations.for_id = products.id', 'left');
         $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
@@ -233,13 +298,14 @@ class ProductModel extends CI_Model
         $this->db->where('trans2.abbr', MY_LANGUAGE_ABBR);
         $this->db->where('trans2.type', 'shop_categorie');
         $this->db->where('visibility', 1);
+        $this->db->join('shop_categories', 'shop_categories.id = products.shop_categorie');
         $query = $this->db->get('products');
         return $this->convertToObject($query->row_array());
     }
 
     /**
      * @param $arr
-     * @return Category
+     * @return ProductModel
      */
     public function convertToObject($arr){
         $product = new ProductModel();
@@ -262,6 +328,9 @@ class ProductModel extends CI_Model
         $product->price = isset($arr['price'])?$arr['price']:0;
         $product->description = isset($arr['description'])?$arr['description']:'';
         $product->basicDescription = isset($arr['basic_description'])?$arr['basic_description']:'';
+        $product->urlCategory = isset($arr['url_name'])?$arr['url_name']:'';
+        $product->metaDescription = isset($arr['meta_description'])?$arr['meta_description']:'';
+        $product->metaKeywords = isset($arr['meta_keywords'])?$arr['meta_keywords']:'';
         return $product;
     }
 
@@ -583,6 +652,122 @@ class ProductModel extends CI_Model
     public function setBasicDescription($basicDescription)
     {
         $this->basicDescription = $basicDescription;
+    }
+
+    public function getNameLimit($length = 50)
+    {
+        if($length<=0 || strlen($this->name) < $length)
+            return $this->name;
+
+        while ($length>0 && substr($this->name,$length,1) != ' '){
+            $length--;
+        }
+        return substr($this->name,0,$length).'...';
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrlCategory()
+    {
+        return $this->urlCategory;
+    }
+
+    /**
+     * @param mixed $urlCategory
+     */
+    public function setUrlCategory($urlCategory)
+    {
+        $this->urlCategory = $urlCategory;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
+    }
+
+    /**
+     * @param $meta
+     */
+    public function setMetaDescription($meta)
+    {
+        $this->metaDescription = $meta;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords;
+    }
+
+    /**
+     * @param $meta
+     */
+    public function setMetaKeywords($meta)
+    {
+        $this->metaKeywords = $meta;
+    }
+
+    /**
+     * @param int $limit
+     * @return array
+     */
+    public function loadTopSell($limit = 6){
+
+        $this->db->select(
+            'products.id, 
+            products.image, 
+            translations.title as name,
+            translations.basic_description, 
+            translations.price, 
+            translations.old_price, 
+            products.url,
+            shop_categories.url_name');
+
+        $this->db->join('translations', 'translations.for_id = products.id', 'left');
+        $this->db->join('shop_categories', 'shop_categories.id = products.shop_categorie');
+        $this->db->where('translations.abbr', MY_LANGUAGE_ABBR);
+        $this->db->where('translations.type', 'product');
+
+        $this->db->where('visibility', 1);
+        $this->db->where('in_slider', 1);
+        $this->db->where('quantity >', 0);
+        $this->db->order_by('products.position', 'asc');
+        $this->db->limit($limit, 0);
+        $query = $this->db->get(self::TABLE_NAME);
+        $arr = array();
+        if ($query !== false) {
+            foreach ($query->result_array() as $row) {
+                $arr[] = $this->convertToObject($row);
+            }
+        }
+        return $arr;
+    }
+
+    /**
+     * @param $productId
+     */
+    public function updateQuantityProduct($productId){
+        try{
+            $productDetail = new ProductDetailModel();
+            $listDetail = $productDetail->loadByProduct($productId);
+            $quantity = 0;
+            if($listDetail){
+                /** @var ProductDetailModel $item */
+                foreach ($listDetail as $item){
+                    $quantity +=$item->getQuantity();
+                }
+            }
+            $this->db->query('UPDATE products SET quantity=' . $quantity . ' WHERE id = ' . $productId);
+        }catch (\Exception $e){
+
+        }
+
     }
 
 

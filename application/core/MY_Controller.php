@@ -12,6 +12,8 @@ class MY_Controller extends MX_Controller
         parent::__construct();
         $this->load->model('AdminModel');
         $this->load->model('CategoryModel');
+        $this->load->model('ProductModel');
+        $this->load->library('GenerateData');
         $this->getActivePages();
         $this->checkForPostRequests();
         $this->setReferrer();
@@ -68,9 +70,61 @@ class MY_Controller extends MX_Controller
         $head['current_menu'] = array($view=>true);
         $vars = $this->loadVars();
         $this->load->vars($vars);
-        $this->load->view($this->template . '_parts/header1', $head);
+        $sufix = '1';
+        if(strpos($this->template,'\\ua\\'))
+            $sufix ='';
+        $this->load->view($this->template . '_parts/header'.$sufix, $head);
         $this->load->view($this->template . $view, $data);
-        $this->load->view($this->template . '_parts/footer1', $footer);
+        $this->load->view($this->template . '_parts/footer'.$sufix, $footer);
+    }
+
+    /**
+     * @return string
+     * @throws Exception
+     */
+    protected function getAllProduct(){
+        try{
+            $generate = new GenerateData();
+            $result = $generate->loadListProducts();
+            if(is_null($result)){
+                $result = array();
+                $product = new ProductModel();
+                $list = $product->loadAll(false);
+                /** @var ProductModel $item */
+                foreach ($list as $item){
+                    $result[] = $item->getName();
+                }
+            }
+            if(!empty($result))
+                return '"'.implode('","',$result).'"';
+            return '';
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
+
+
+    /*
+     * Render page from controller
+     * it loads header and footer auto
+     */
+
+    public function renderUa($view, $head, $data = null, $footer = null)
+    {
+        if(empty($footer))
+            $footer = array();
+        //$head['cartItems'] = $this->shoppingcart->getCartItems();
+        //$head['sumOfItems'] = $this->shoppingcart->sumValues;
+        //$head['menu'] = $this->getListMenu();
+        $head['current_menu'] = array($view=>true);
+        $data['top_menu'] = $this->getLeftMenu();
+        $data['listProductName'] = $this->getAllProduct();
+        $vars = $this->loadVars();
+        $this->load->vars($vars);
+        $this->load->view($this->template . '_parts/header', $head);
+        $this->load->view($this->template . $view, $data);
+        $this->load->view($this->template . '_parts/footer', $footer);
     }
 
     /*
@@ -206,26 +260,33 @@ class MY_Controller extends MX_Controller
      * @return array
      */
     protected function getLeftMenu(){
-        $result=array();
-        $aCategories = $this->CategoryModel->loadAll();
-        /** @var CategoryModel $category */
-        foreach ($aCategories as $category){
-            if(empty($category->subFor)){
-                if(!isset($result[$category->id]))
-                    $result[$category->id] = array();
-                $result[$category->id]['info'] = array('name' => $category->name, 'url' => $category->urlName);
-                if(!isset($result[$category->id]['children']))
-                    $result[$category->id]['children'] = array();
-                continue;
-            }
-            if(!empty($category->subFor)){
-                if(!isset($result[$category->subFor])){
-                    $result[$category->subFor] = array('info' => array());
-                    $result[$category->subFor]['children'] = array();
+        $generate = new GenerateData();
+        $result = $generate->loadListCategories();
+        if(is_null($result)){
+            $result=array();
+            $aCategories = $this->CategoryModel->loadAll();
+            /** @var CategoryModel $category */
+            foreach ($aCategories as $category){
+                if(empty($category->subFor)){
+                    if(!isset($result[$category->id]))
+                        $result[$category->id] = array();
+                    $result[$category->id]['info'] = array('name' => $category->name, 'url' => $category->urlName);
+                    if(!isset($result[$category->id]['children']))
+                        $result[$category->id]['children'] = array();
+                    continue;
                 }
-                $result[$category->subFor]['children'][] = array('name' => $category->name, 'url' => $category->urlName);
+                if(!empty($category->subFor)){
+                    if(!isset($result[$category->subFor])){
+                        $result[$category->subFor] = array('info' => array());
+                        $result[$category->subFor]['children'] = array();
+                    }
+                    $result[$category->subFor]['children'][] = array('name' => $category->name, 'url' => $category->urlName);
+                }
             }
         }
+
         return $result;
     }
+
+
 }

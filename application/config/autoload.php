@@ -145,4 +145,4 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array('Publicmodel','Travellermodel','Sizemodel','Productmodel','ProductDetailmodel',
     'Commentsmodel','Colormodel','Categorymodel','Bookingmodel','Bookingdetailmodel',
-    'Bookingdetailcollection','Booking');
+    'Bookingdetailcollection','Booking','Schoolsmodel','Districtmodel','Provincemodel');

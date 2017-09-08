@@ -10,7 +10,7 @@ class Checkout extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper(array('currency_convertor'));
+        $this->load->helper(array('currency_convertor','generate'));
         $this->load->library('email');
         $this->load->model('CategoryModel');
         $this->load->model('ProductModel');
@@ -56,7 +56,7 @@ class Checkout extends MY_Controller
                         $booking->status = BookingModel::STATUS_CONFIRM;
                         $booking->updateDataFromDetail($aDetails);
                         $booking->message = $message;
-                        $booking->refNo = generateBookingId('BO');
+                        $booking->refNo = generateBookingId('CH');
                         $bkId = $booking->insert();
                         /** @var BookingDetailModel $itemDetail */
                         foreach ($aDetails as $itemDetail){
@@ -69,6 +69,14 @@ class Checkout extends MY_Controller
                         }
                         $this->db->trans_complete();
                         $this->db->trans_commit();
+                        $aProduct = array();
+                        $productModel = new ProductModel();
+                        /** @var BookingDetailModel $itemDetail */
+                        foreach ($aDetails as $itemDetail){
+                            if(in_array($itemDetail->product,$aProduct)) continue;
+                            $productModel->updateQuantityProduct($itemDetail->product);
+                            $aProduct[] = $itemDetail->product;
+                        }
                         //send mail
                         //$this->send();
                         redirect($this->config->item('base_url').'thankyou/'.$bkId);
@@ -96,18 +104,25 @@ class Checkout extends MY_Controller
         $data['data_carts'] = $dataCart;
         $data['summary'] = $this->totalQuantityPrice();
         $head['title_page'] = 'Đặt hàng';
-        $this->render2('checkout', $head, $data);
+        $head['page_name'] = 'checkout';
+        $footer = array('page_name'=>$head['page_name']);
+        $this->renderUa('checkout', $head, $data,$footer);
     }
 
     protected function getAndCheckQuantity($dataCart){
         $total = 0;
         $arrReduce = array();
         $aDetails = array();
+        $listSize = $this->SizeModel->loadPrice();
+
         foreach ($dataCart as $productId=>$arrSize){
             foreach ($arrSize as $sizeId=>$item) {
                 if(!is_array($item)) continue;
                 $product_db = $this->ProductModel->getProductById($productId);
-                $product_total = $product_db->price * intval($item['quantity']);
+                $price = $product_db->price;
+                if(isset($listSize[$sizeId]))
+                    $price +=(float)$listSize[$sizeId];
+                $product_total = $price * intval($item['quantity']);
                 //$content .= $product_db->name . ' x ' . $item['quantity'] . ' = ' . $product_total . " Lei \n";
                 $total += $product_total;
                 /** @var ProductDetailModel $productDetail */
@@ -134,7 +149,7 @@ class Checkout extends MY_Controller
                 $modelDetail->product_name = $product_db->name;
                 $modelDetail->quantity = $item['quantity'];
                 $modelDetail->product = $productId;
-                $modelDetail->price = $product_db->price;
+                $modelDetail->price = $price;
                 $modelDetail->total = $product_total;
                 $modelDetail->status = BookingDetailModel::STATUS_CONFIRM;
                 $aDetails[] = $modelDetail;

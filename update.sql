@@ -16,7 +16,7 @@ CREATE TABLE `product_detail` (
   `size` varchar(10) NOT NULL,
   `quantity` int(5) NOT NULL,
   PRIMARY KEY (`product`,`color`,`size`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE products ADD show_home TINYINT(1);
 ALTER TABLE shop_categories ADD url_name VARCHAR(100);
@@ -32,7 +32,7 @@ CREATE TABLE `traveller`(
   PRIMARY KEY (`id`),
   INDEX `traveller_email_index` (`email`),
   INDEX `traveller_phone_index` (`phone`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
   CREATE TABLE `booking`(
@@ -48,7 +48,7 @@ CREATE TABLE `traveller`(
   PRIMARY KEY (`id`),
   INDEX `booking_user_id_index` (`user_id`),
   INDEX `booking_status_index` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `booking_detail`(
   `id` int(11) NOT NULL AUTO_INCREMENT ,
@@ -68,7 +68,7 @@ CREATE TABLE `booking_detail`(
   PRIMARY KEY (`id`),
   INDEX `booking_detail_bkId_index` (`bkId`),
   INDEX `booking_detail_status_index` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `comments`(
   `id` int(11) NOT NULL AUTO_INCREMENT ,
@@ -83,7 +83,7 @@ CREATE TABLE `comments`(
   INDEX `comments_email` (`email`),
   INDEX `comments_product` (`product`),
   INDEX `comments_status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE booking ADD refNo varchar(17);
 ALTER TABLE booking ADD product_name varchar(255);
@@ -97,3 +97,48 @@ ALTER TABLE products ADD basic_description text;
 ALTER TABLE products ADD price FLOAT ;
 ALTER TABLE products ADD old_price FLOAT ;
 CREATE INDEX products_name_index ON products (name);
+
+
+ALTER TABLE sizes ADD plus_price float;
+
+
+ALTER TABLE product_detail ADD price FLOAT;
+ALTER TABLE booking ADD sent INT(2);
+
+
+////schools
+CREATE TABLE `province`(
+  `id` VARCHAR (11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `district`(
+  `id` VARCHAR (11) NOT NULL,
+  `province` VARCHAR(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `schools`(
+  `id` int(11) NOT NULL AUTO_INCREMENT ,
+  `district` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NULL,
+  `phone` varchar(255) NULL,
+  `description` longtext NULL,
+  `international` int(1) NULL DEFAULT 0,
+  `standard` int(1) NULL DEFAULT 0,
+  `url` VARCHAR (255) NOT NULL,
+  `created` int(10) NOT NULL,
+  `updated` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `schools_name` (`name`),
+  INDEX `schools_international` (`international`),
+  INDEX `schools_standard` (`standard`),
+  INDEX `schools_url` (`url`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE products ADD meta_description VARCHAR(255) ;
+ALTER TABLE products ADD meta_keywords VARCHAR(255) ;

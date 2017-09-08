@@ -14,13 +14,39 @@ class CategoryModel extends CI_Model
     public $name;
 
     /**
+     * CategoryModel constructor.
+     * @param $id
+     * @param $subFor
+     * @param $position
+     * @param $urlName
+     * @param $name
+     */
+    public function __construct(
+        $id = '',
+        $subFor = '',
+        $position = '',
+        $urlName = '',
+        $name = '')
+    {
+        $this->id = $id;
+        $this->subFor = $subFor;
+        $this->position = $position;
+        $this->urlName = $urlName;
+        $this->name = $name;
+        parent::__construct();
+        //$this->db->cache_on();
+
+    }
+
+
+    /**
      * @return array
      */
     public function loadAll(){
         $this->db->select('shop_categories.sub_for, shop_categories.id, translations.name,shop_categories.url_name');
         $this->db->where('abbr', MY_LANGUAGE_ABBR);
         $this->db->where('type', 'shop_categorie');
-        $this->db->order_by('position', 'asc');
+        $this->db->order_by('shop_categories.sub_for', 'desc');
         $this->db->join('shop_categories', 'shop_categories.id = translations.for_id', 'INNER');
         $query = $this->db->get('translations');
         $arr = array();

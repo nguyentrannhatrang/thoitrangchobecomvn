@@ -100,7 +100,7 @@
                                         </div>
                                     </li>
                                     <li class="header">ECOMMERCE</li>
-                                    <li><a href="<?= base_url(PATH_ADMIN.'/publish') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/publish' ? 'class="active"' : '' ?>><i class="fa fa-edit"></i> Create product</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/publish') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/publish' ? 'class="active"' : '' ?>><i class="fa fa-edit"></i> Add product</a></li>
                                     <li><a href="<?= base_url(PATH_ADMIN.'/products') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/products' ? 'class="active"' : '' ?>><i class="fa fa-files-o"></i> Products list</a></li>
                                     <?php if ($showBrands == 1) { ?>
                                         <li><a href="<?= base_url(PATH_ADMIN.'/brands') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/brands' ? 'class="active"' : '' ?>><i class="fa fa-registered"></i> Brands</a></li>
@@ -120,6 +120,11 @@
                                         <li><a href="<?= base_url(PATH_ADMIN.'/blogpublish') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/blogpublish' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> Publish post</a></li>
                                         <li><a href="<?= base_url(PATH_ADMIN.'/blog') ?>" <?= urldecode(uri_string()) == PATH_ADMIN.'/blog' ? 'class="active"' : '' ?>><i class="fa fa-th" aria-hidden="true"></i> Posts</a></li>
                                     <?php } ?>
+                                    <li class="header">COMMENTS</li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/comment') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/comment' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> Comments</a></li>
+                                    <li class="header">SCHOOLS</li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/schools') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/schools' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> Schools</a></li>
+                                    <li><a href="<?= base_url(PATH_ADMIN.'/editschools') ?>" <?= urldecode(uri_string()) ==PATH_ADMIN. '/editschools' ? 'class="active"' : '' ?>><i class="fa fa-edit" aria-hidden="true"></i> New Schools</a></li>
                                     <?php
                                     if (!empty($textualPages)) {
                                         foreach ($nonDynPages as $nonDynPage) {

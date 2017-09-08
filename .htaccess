@@ -3,10 +3,15 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L]
-<FilesMatch "\.(ico|jpg|jpeg|png|gif|css|swf)$">
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|css|swf|woff )$">
    <IfModule mod_expires.c>
-       ExpiresActive on
-       ExpiresDefault "access plus 30 days"
+        Header set cache-control: public
+        ExpiresActive on
+
+        ExpiresByType font/ttf      "access plus 1 month"
+        ExpiresByType font/woff     "access plus 1 month"
+        ExpiresByType image/svg+xml "access plus 1 month"
+        ExpiresDefault "access plus 30 days"
    </IfModule>
    Header unset ETag
    FileETag None

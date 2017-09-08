@@ -567,7 +567,16 @@ $config['setting_email']=array('protocol' => 'smtp',
     'smtp_pass' => 'ntnt123456',
     'mailtype' => 'html',
     'charset' => 'utf-8');
+/*$config['setting_email']=array('protocol' => 'smtp',
+    'smtp_host' => 'tls://mail.thoitrangchobe.com.vn',
+    'smtp_port' => 25,
+    'smtp_user' => 'admin@thoitrangchobe.com.vn',
+    'smtp_pass' => 'Emailntnt1987',
+    'mailtype' => 'html',
+    'charset' => 'utf-8');*/
 
 $config['email_from']=array('email' => 'tadidinguyentrang@gmail.com',
     'name' => 'ntnt');
+$config['email_reply']=array('email' => 'nguyentrannhatrang@gmail.com',
+    'name' => 'nguyen trang');
     

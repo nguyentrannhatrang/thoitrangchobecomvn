@@ -21,10 +21,14 @@ class Category extends MY_Controller
 //        $head['description'] = @$arrSeo['description'];
 //        $head['keywords'] = str_replace(" ", ",", $head['title']);
         $data['products'] = $this->getListProduct($category);
-        $data['left_menu'] = $this->getLeftMenu();
-        $data['current_categorie'] = $this->CategoryModel->getByUrl($category);
+        //$data['left_menu'] = $this->getLeftMenu();
+        /** @var CategoryModel $modelCategory */
+        $modelCategory = $this->CategoryModel->getByUrl($category);
+        $data['current_categorie'] = $modelCategory;
         $head['title_page'] = $data['current_categorie']->getName();
-        $this->render2('category', $head, $data);
+        $head['page_name'] = 'category';
+        $head['url_category'] = 'category-'.$modelCategory->getUrlName();
+        $this->renderUa('category', $head, $data);
     }
 
     /**
@@ -33,7 +37,7 @@ class Category extends MY_Controller
      */
     protected function getListProduct($categorie){
         $aCategories = $this->CategoryModel->getIdByUrl($categorie);
-        return $this->ProductModel->getProducts($aCategories);
+        return $this->ProductModel->getProducts($aCategories,false);
         
     }
 

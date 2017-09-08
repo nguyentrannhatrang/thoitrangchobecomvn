@@ -52,10 +52,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 $route['default_controller'] = 'home';
 
+
 $route['category-(:any)'] = 'category/index/$1';
-$route['product-(:any)'] = 'product/index/$1';
+$route['category-(:any)/(:any)'] = 'product/index/$1/$2';
 $route['thankyou/(:num)'] = 'thankyou/index/$1';
 $route['search'] = 'search/index';
+$route['gioi-thieu'] = 'about/index';
+$route['lien-he'] = 'contact/index';
+$route['truong-mam-non'] = 'schools/index';
+$route['truong-mam-non/(:any)'] = 'schools/load/$1';
 
 
 // Load default conrtoller when have only currency from multilanguage
@@ -99,6 +104,7 @@ $route['shop-product_(:num)'] = "home/viewProduct/$3";
 $route['blog/(:num)'] = "blog/index/$1";
 $route['blog/(:any)_(:num)'] = "blog/viewPost/$2";
 $route['(\w{2})/blog/(:any)_(:num)'] = "blog/viewPost/$3";
+$route['blog/(:any)'] = "blog/postDetail/$1";
 
 // Shopping cart page
 $route['shopping-cart'] = "ShoppingCartPage";
@@ -139,6 +145,7 @@ $route['admin/blogpublish'] = "admin/blog/BlogPublish";
 $route['admin/blogpublish/(:num)'] = "admin/blog/BlogPublish/index/$1";
 $route['admin/blog'] = "admin/blog/blog";
 $route['admin/blog/(:num)'] = "admin/blog/blog/index/$1";
+$route['admin/comment'] = "admin/comment/comment";
 // SETTINGS GROUP
 $route['admin/settings'] = "admin/settings/settings";
 $route['admin/styling'] = "admin/settings/styling";
@@ -167,5 +174,14 @@ $route['admin/order_edit/(:num)'] = "admin/ecommerce/orderEdit/index/$1";
 $route['admin/order_edit/(:any)'] = "admin/ecommerce/orderEdit/$1";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+/// SCHOOLS
+///
+/// $route['admin/blogpublish'] = "admin/blog/BlogPublish";
+$route['admin/editschools'] = "admin/schools/EditSchools/index/0";
+$route['admin/editschools/(:num)'] = "admin/schools/EditSchools/index/$1";
+$route['admin/schools'] = "admin/schools/schools";
+$route['admin/schoolssave'] = "admin/schools/EditSchools/save";
+$route['admin/schools/(:num)'] = "admin/schools/schools/index/$1";
+
 
 

@@ -16,7 +16,7 @@ class Product extends MY_Controller
         $this->load->model('CommentsModel');
     }
 
-    public function index($url = '')
+    public function index($category = '',$url = '')
     {
         $data = array();
         $head = array();
@@ -24,20 +24,49 @@ class Product extends MY_Controller
         $head['title'] = @$arrSeo['title'];
         $head['description'] = @$arrSeo['description'];
         $head['keywords'] = str_replace(" ", ",", $head['title']);
-        $data['right_menu'] = $this->getLeftMenu();
+        /** @var ProductModel $productModel */
+        $productModel = $this->ProductModel;
+        //$data['right_menu'] = $this->getLeftMenu();
         /** @var ProductModel $product */
-        $product = $this->ProductModel->getProductByUrl($url);
+        $product = $productModel->getProductByUrl($url);
         $data['product'] = $product;
+        $head['description'] = $product->getMetaDescription();
+        $head['keywords'] = $product->getMetaKeywords();
         $head['title_page'] = $product->getName();
+        $head['url_product'] = 'category-'.$product->getUrlCategory().'/'.$product->getUrl();
+        $head['image_product'] = 'attachments/shop_images/'.$product->image;
         $data['others_image'] = $this->loadOthersImages($product->getFolder());
-        $listSize = $this->SizeModel->loadArray();
-        $productDetails = $this->ProductDetailModel->loadByProduct($product->id);
+        $generate = new GenerateData();
+        $listSizePrice = $generate->loadArrayWithPrice();
+        //$listSizePrice = $this->SizeModel->loadArrayWithPrice();
+        $listSize = array();
+        $listSizeForPrice = array();
+
+        $productDetails = $this->ProductDetailModel->loadByProduct($product->id,true);
+        /** @var ProductDetailModel $valueDetail */
+        foreach ($productDetails as $valueDetail){
+            if($valueDetail->getSize() && isset($listSizePrice[$valueDetail->getSize()])){
+                $listSizePrice[$valueDetail->getSize()]['price'] = $valueDetail->getPrice();
+            }
+        }
+        foreach ($listSizePrice as $id=>$aSize){
+            $listSize[$id] = $aSize['name'];
+        }
+        asort($listSize);
+        foreach ($listSizePrice as $id=>$aSize){
+            $listSizeForPrice[$id] = $aSize['price'];
+        }
+
         $aSize = $this->getSizes($productDetails,$listSize);
         $data['sizes_data'] = $aSize;
+        $data['sizes_data_price'] = $listSizeForPrice;
         $data['count_reviews'] = $this->CommentsModel->countByProduct($product->getId());
         $data['current_categorie'] = $this->CategoryModel->getById($product->shopCategorie);
-        $data['relation_products'] = $this->ProductModel->getProducts(array($product->shopCategorie),true,10);
-        $this->render2('product', $head, $data);
+        $data['relation_products'] = $productModel->getProducts(array($product->shopCategorie),true,3,0,$product->getId());
+        $head['page_name'] = 'product';
+        $head['product_name'] = $product->getName();
+        $footer = array('page_name'=>$head['page_name']);
+        $this->renderUa('product', $head, $data,$footer);
     }
 
     /**
@@ -53,6 +82,12 @@ class Product extends MY_Controller
                 'quantity'=>$detail->quantity,
                 'code'=>$detail->size);
         }
+        uksort($result,function ($a,$b){
+            if(filter_var($a, FILTER_SANITIZE_NUMBER_INT) > filter_var($b, FILTER_SANITIZE_NUMBER_INT))
+                return 1;
+            else
+                return -1;
+        });
         return $result;
     }
 
@@ -64,7 +99,7 @@ class Product extends MY_Controller
     {
         $aResult = array();
         if ($folder != null) {
-            $dir = 'attachments' . DIRECTORY_SEPARATOR . 'shop_images' . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR;
+            $dir = 'attachments/shop_images/'  . $folder . '/';
             if (is_dir($dir)) {
                 if ($dh = opendir($dir)) {
                     while (($file = readdir($dh)) !== false) {
@@ -117,8 +152,38 @@ class Product extends MY_Controller
     public function loadComment($product,$page){
         $limit = 10;
         $start = ($page-1)*$limit;
-        $data = $this->CommentsModel->getByProductArray($product,$limit,$start);
+        /** @var CommentsModel $commentModel */
+        $commentModel = $this->CommentsModel;
+        $data = $commentModel->getByProductArray($product,$limit,$start);
+        foreach ($data as &$_data){
+            if(isset($_data['created'])){
+                $ago = time() - $_data['created'];
+                if($ago < 86400){
+                    $_data['created'] = $this->getStringTime($ago);
+                }else
+                    $_data['created'] = 'Ngày '.date('d').' Tháng '.date('m').' Năm '.date('Y');
+            }
+        }
         echo json_encode(array('count'=>count($data),'data'=>$data));
+    }
+
+    /**
+     * @param $time
+     * @return string
+     */
+    protected function getStringTime($time){
+        $hour = floor($time/3600);
+        $time -= $hour*3600;
+        $minute = floor($time/60);
+        $time -= $minute*60;
+        $str = '';
+        if($hour)
+            $str = $hour .' giờ ';
+        if($minute)
+            $str .= $minute .' phút ';
+        if(empty($str))
+            $str = $time .' giây';
+        return $str .' trước';
     }
 
 }

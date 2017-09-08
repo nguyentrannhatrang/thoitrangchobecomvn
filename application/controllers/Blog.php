@@ -5,16 +5,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Blog extends MY_Controller
 {
 
-    private $num_rows = 1;
+    private $num_rows = 20;
     protected  $arhives= false;
     public function __construct()
     {
+        parent::__construct();
+        $this->load->model('Postmodel');
         parent::__construct();
         if (!in_array('blog', $this->nonDynPages)) {
             show_404();
         }
         $this->load->helper(array('pagination'));
-        $this->load->model('PostModel');
+
     }
 
     public function index($page = 0)
@@ -43,7 +45,8 @@ class Blog extends MY_Controller
         $rowscount = $this->AdminModel->postsCount();
         $data['links_pagination'] = pagination('blog', $rowscount, $this->num_rows);
         $data['right_menu'] = $this->getLeftMenu();
-        $this->render2('blog', $head, $data);
+        //$head['page_name'] = 'blog';
+        $this->renderUa('blog', $head, $data);
     }
 
     public function viewPost($id)
@@ -64,7 +67,28 @@ class Blog extends MY_Controller
         $head['description'] = url_title(character_limiter(strip_tags($data['article']->getDescription()), 130));
         $head['keywords'] = str_replace(" ", ",", $data['article']->getTitle());
         $head['title_page'] = $data['article']->getTitle();
-        $this->render2('view_blog_post', $head, $data);
+        $this->renderUa('view_blog_post', $head, $data);
+    }
+
+    public function postDetail($url)
+    {
+        if (is_null($url)) {
+            show_404();
+        }
+        $data = array();
+        $head = array();
+        $postModel = new PostModel();
+        $data['article'] = $postModel->getOnePostByUrl($url);
+        if ($data['article'] == null) {
+            show_404();
+        }
+        $data['right_menu'] = $this->getLeftMenu();
+        $data['archives'] = $this->getBlogArchiveHtml();
+        $head['title'] = $data['article']->getTitle();
+        $head['description'] = url_title(character_limiter(strip_tags($data['article']->getDescription()), 130));
+        $head['keywords'] = str_replace(" ", ",", $data['article']->getTitle());
+        $head['title_page'] = $data['article']->getTitle();
+        $this->renderUa('view_blog_post', $head, $data);
     }
 
     private function getBlogArchiveHtml()

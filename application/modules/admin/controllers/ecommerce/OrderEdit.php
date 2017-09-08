@@ -104,14 +104,16 @@ class OrderEdit extends ADMIN_Controller
                 foreach ($items as &$item) {
                     if($item->id == $itemId){
                         $item->product = $product;
-                        $item->product_name = $this->getProductName($product);
+                        /** @var  $productModel */
+                        $productModel = $this->getProduct($product);
+                        $item->product_name = $productModel->getName();
                         //set product name
                         $item->color = $color;
                         $item->size = $size;
                         $item->quantity = $quantity;
                         $item->status = $status;
-                        $item->price = $price;
-                        $item->total = (float)$price * (int) $quantity;
+                        $item->price = $productModel->getPrice();
+                        $item->total = (float)$price;
                         break;
                     }
                 }
@@ -120,14 +122,16 @@ class OrderEdit extends ADMIN_Controller
                 $detail = new BookingDetailModel();
                 $detail->id = $detail->generateIdNew();
                 $detail->product = $product;
-                $detail->product_name = $this->getProductName($product);
+                /** @var  $productModel */
+                $productModel = $this->getProduct($product);
+                $detail->product_name = $productModel->getName();
                 //set product name
                 $detail->color = $color;
                 $detail->size = $size;
                 $detail->quantity = $quantity;
                 $detail->status = $status;
-                $detail->price = $price;
-                $detail->total = (float)$price * (int) $quantity;
+                $detail->price = $productModel->getPrice();
+                $detail->total = (float)$price;
                 $items[] = $detail;
             }
         }
@@ -135,8 +139,8 @@ class OrderEdit extends ADMIN_Controller
         $this->session->set_userdata('booking_item',serialize($items));
         $this->session->set_userdata('booking',serialize($booking));
         $itemsArr = array();
-        foreach ($items as $item){
-            $itemsArr[] =  $bookingDetailModel->convertToArray($item);
+        foreach ($items as $_item){
+            $itemsArr[] =  $bookingDetailModel->convertToArray($_item);
         }
         $bookingModel = new BookingModel();
         echo json_encode(array('result'=>1,
@@ -157,6 +161,17 @@ class OrderEdit extends ADMIN_Controller
         return $product->getName();
     }
 
+    /**
+     * @param $productId
+     * @return ProductModel
+     */
+    private function getProduct($productId){
+        /** @var ProductModel $product */
+        $product = new ProductModel();
+        $product = $product->getProductById($productId);
+        return $product;
+    }
+
     public function save()
     {
         if (!empty($_POST) && !empty($_POST['refno'])) {
@@ -172,6 +187,8 @@ class OrderEdit extends ADMIN_Controller
             $traveller->phone = isset($_POST['customer_phone'])?$_POST['customer_phone']:'';
             $traveller->address = isset($_POST['customer_address'])?$_POST['customer_address']:'';
             $booking->status = isset($_POST['booking_status'])?(int)$_POST['booking_status']:0;
+            $booking->message = isset($_POST['message'])?$_POST['message']:'';
+            $booking->setSent(1);
             $booking->updateAll($traveller,$items);
         } elseif (!empty($_POST)) {//add new
             $traveller = new TravellerModel();
@@ -183,10 +200,11 @@ class OrderEdit extends ADMIN_Controller
             $items = unserialize($items);
             $booking = $this->session->userdata('booking');
             $booking = unserialize($booking);
+            $booking->refNo = generateBookingId('OF');
             $booking->status = isset($_POST['booking_status'])?(int)$_POST['booking_status']:0;
+            $booking->message = isset($_POST['message'])?$_POST['message']:'';
+            $booking->setSent(1);
             $booking->insertAll($traveller,$items);
-
-
         }
 
         echo json_encode(array('result'=>1,
