@@ -60,7 +60,7 @@ class Home extends MY_Controller
         //$data['brands'] = $this->AdminModel->getBrands();
         //$data['links_pagination'] = pagination('home', $rowscount, $this->num_rows);
         $head['page_name'] = 'home';
-        $this->renderUa('home', $head, $data);
+        $this->renderKinder('home', $head, $data);
     }
 
     /**

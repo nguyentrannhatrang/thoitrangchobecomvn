@@ -1,0 +1,4 @@
+.slider-active .slider-opacity::before {
+    background-color: #ffffff;
+    opacity: 0;
+}

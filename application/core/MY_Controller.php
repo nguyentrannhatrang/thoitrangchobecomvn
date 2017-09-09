@@ -127,6 +127,29 @@ class MY_Controller extends MX_Controller
         $this->load->view($this->template . '_parts/footer', $footer);
     }
 
+
+    /*
+     * Render page from controller
+     * it loads header and footer auto
+     */
+
+    public function renderKinder($view, $head, $data = null, $footer = null)
+    {
+        if(empty($footer))
+            $footer = array();
+        //$head['cartItems'] = $this->shoppingcart->getCartItems();
+        //$head['sumOfItems'] = $this->shoppingcart->sumValues;
+        //$head['menu'] = $this->getListMenu();
+        $head['current_menu'] = array($view=>true);
+        $head['top_menu'] = $this->getLeftMenu();
+        $data['listProductName'] = $this->getAllProduct();
+        $vars = $this->loadVars();
+        $this->load->vars($vars);
+        $this->load->view($this->template . '_parts/header', $head);
+        $this->load->view($this->template . $view, $data);
+        $this->load->view($this->template . '_parts/footer', $footer);
+    }
+
     /*
      * Load variables from values-store
      * texts, social media links, logos, etc.
