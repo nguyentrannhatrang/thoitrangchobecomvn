@@ -41,6 +41,8 @@
     <link href="/assets/kinder/css/responsive.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/assets/kinder/css/skin-theme.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/assets/kinder/css/cherry.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/assets/kinder/css/media-max.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/assets/kinder/css/media-min.css" rel="stylesheet" type="text/css" media="all" />
     <!-- Header hook for plugins ================================================== -->
     <script> var prices = [], productImages = [], bestSellersHTML = "", newestProductsHTML = ""; /* set product prices */  /* get the collection images */
         var collectionImages = []; </script>
