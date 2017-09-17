@@ -28,7 +28,7 @@ class Category extends MY_Controller
         $head['title_page'] = $data['current_categorie']->getName();
         $head['page_name'] = 'category';
         $head['url_category'] = 'category-'.$modelCategory->getUrlName();
-        $this->renderUa('category', $head, $data);
+        $this->renderKinder('category', $head, $data);
     }
 
     /**

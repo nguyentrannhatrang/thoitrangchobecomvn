@@ -249,5 +249,15 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
+
+<script>
+    <?php if(isset($listProductName)){?>
+    var availableTags = [
+        <?= $listProductName ?>
+    ];
+    <?php } else {?>
+    var availableTags = [];
+    <?php } ?>
+</script>
 </body>
 </html>

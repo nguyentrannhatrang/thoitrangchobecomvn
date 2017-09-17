@@ -124,29 +124,30 @@
 
                                     <div class="search-block-top display-inline">
                                         <div class="icon-search">
-                                            <a href="#"><i class="pe-7s-search"></i></a>
+<!--                                            <a href="#"><i class="pe-7s-search"></i></a>-->
+                                            <form action="/search" method="get" class="search-bar" role="search" id="search-header">
+                                                <input type="text" id="txt-search" name="s" value="" placeholder="Tên sản phẩm" class="input-group-field" aria-label="Tên sản phẩm">
+                                                <button type="submit" class="button-search"><i class="pe-7s-search"></i></button>
+                                            </form>
                                         </div>
-                                        <div class="toogle-content">
-                                            <!-- /snippets/search-bar.liquid -->
-
-
+                                       <!-- <div class="toogle-content">
                                             <form action="/search" method="get" class="search-bar" role="search" id="search-header">
                                                 <input type="text" id="txt-search" name="s" value="" placeholder="Tên sản phẩm" class="input-group-field" aria-label="Tên sản phẩm">
                                                 <button type="submit" class="button-search"><i class="pe-7s-search"></i></button>
                                             </form>
 
-                                        </div>
+                                        </div>-->
                                     </div>
 
 
-                                    <div class="language-menu none">
+                                   <!-- <div class="language-menu none">
                                         <div class="currency-select">
                                             <select class="submenu-mainmenu currency-picker" id="currencies" name="currencies" style="display: inline; width: auto; vertical-align: inherit;">
                                                 <option value="USD" selected="selected">VND</option>
                                             </select>
                                             <i class="pe-7s-angle-down"></i>
                                         </div>
-                                    </div>
+                                    </div>-->
 
                                 </div>
                             </div>
