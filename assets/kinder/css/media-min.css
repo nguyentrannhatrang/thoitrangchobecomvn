@@ -5,4 +5,43 @@
     .search-block-top{
         padding-top: 22px;
     }
+    #category-listing .grid-item{
+        height:480px;
+    }
+    #category-listing .grid-item .shop-img .shop-single-img img{
+        height:385px;
+    }
+    #category-listing .sold-out div{
+        text-shadow:1px 1px 3px #cccccc;
+        transform: rotate(0deg) !important;
+        -webkit-transform: rotate(0deg) !important;
+        -moz-transform: rotate(0deg) !important;
+    }
+    #category-listing .sold-out{
+        background-color: rgba(23, 23, 23, 0.43);
+        width: 80px;
+        height: 80px;
+        opacity: 1;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(0, 0, 0);
+        border-radius: 40px;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        padding-top: 13px;
+        padding-left: 2px;
+        z-index: 9999;
+        box-shadow: 3px 3px 5px rgb(204, 204, 204);
+        transform: rotate(0deg);
+        text-align: center;
+        position: absolute;
+        background-position: center center;
+        top: 40.228%;
+        left: 40.228%;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+    }
 }

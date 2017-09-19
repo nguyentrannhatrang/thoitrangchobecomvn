@@ -66,7 +66,7 @@ class Product extends MY_Controller
         $head['page_name'] = 'product';
         $head['product_name'] = $product->getName();
         $footer = array('page_name'=>$head['page_name']);
-        $this->renderUa('product', $head, $data,$footer);
+        $this->renderKinder('product', $head, $data,$footer);
     }
 
     /**

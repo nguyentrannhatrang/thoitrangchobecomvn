@@ -76,12 +76,6 @@
                                                     <li class="mega-menu-li image-menu">
                                                         <a href="/collections/instabadge-best-selling"><img src="http://cdn.shopify.com/s/files/1/1010/9088/collections/20841295_2191894037703715_1347110199_o_large.jpg?v=1504545575" alt="" /></a>
                                                     </li>
-                                                    <li class="mega-menu-li image-menu">
-                                                        <a href="/collections/instabadge-best-selling"><img src="http://cdn.shopify.com/s/files/1/1010/9088/collections/20841295_2191894037703715_1347110199_o_large.jpg?v=1504545575" alt="" /></a>
-                                                    </li>
-                                                    <li class="mega-menu-li image-menu">
-                                                        <a href="/collections/instabadge-best-selling"><img src="http://cdn.shopify.com/s/files/1/1010/9088/collections/20841295_2191894037703715_1347110199_o_large.jpg?v=1504545575" alt="" /></a>
-                                                    </li>
                                                 </ul>
                                             </li>
                                             <li><a href="/gioi-thieu">Giới Thiệu</a></li>
