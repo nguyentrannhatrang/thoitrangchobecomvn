@@ -6,4 +6,11 @@
         width: 33.33%;
         float: left;
     }
+    .recently-viewed-products .owl-theme .owl-controls .owl-buttons div,
+    .recently-viewed-products .owl-theme .owl-nav .owl-buttons div,
+    .related-products .owl-theme .owl-nav div,
+    #ProductThumbs .owl-nav div,
+    .related-products .owl-theme .owl-controls .owl-buttons div {
+        margin-top: -20px;
+    }
 }

@@ -22,9 +22,7 @@ jQuery(function($){
             dataType: 'json',
             data: $('#frm-product').serialize(),
             success:  function(data) {
-                $('#quantity_mobile').val(0);
                 $('#quantity').val(0);
-                $('#pa_size_mobile').val('');
                 $('#pa_size').val('');
                 if(data !== 'undefined'){
                     if(data.summary !== 'undefined'){

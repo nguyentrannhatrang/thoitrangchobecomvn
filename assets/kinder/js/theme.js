@@ -198,6 +198,7 @@
                 }
             }
             $button.parent().find('input').val(newVal);
+            $button.parent().find('input').change();
         });
 
 

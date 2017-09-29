@@ -137,11 +137,16 @@ input[type="number"]{
 .recently-viewed-products .owl-theme .owl-controls .owl-buttons div,
 .recently-viewed-products .owl-theme .owl-nav .owl-buttons div,
  .related-products .owl-theme .owl-nav div,
+#ProductThumbs .owl-nav div,
  .related-products .owl-theme .owl-controls .owl-buttons div {
     width: 35px;
     height: 35px;
     top: 50%;
     margin-top: -43px;
+}
+#ProductThumbs .owl-nav div{
+    margin-top: -20px;
+    cursor: hand;
 }
 .related-products .owl-theme .owl-controls .owl-buttons div.owl-next,
 .recently-viewed-products .owl-theme .owl-nav div.owl-next,
@@ -183,4 +188,110 @@ input[type="number"]{
     padding-bottom: 55px;
     font-size: 20px;
     font-size: 20px;
+}
+.product-details .quantity-cart {
+    margin-bottom: 25px;
+}
+.quantity-cart .product-quantity2 {
+    border: 1px solid #ddd;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 22px;
+    padding: 0 30px;
+    position: relative;
+    width: 100px;
+}
+
+.quantity-cart .product-quantity2 input {
+
+    border: medium none;
+    height: 38px;
+    text-align: center;
+    width: 40px;
+    background: transparent none repeat scroll 0 0;
+
+}
+.quantity-cart .product-quantity2 span.dec{
+    left: 0;
+}
+.quantity-cart .product-quantity2 span {
+    cursor: pointer;
+    color: #848484;
+    display: block;
+    height: 38px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 29px;
+}
+.quantity-cart .product-quantity2 span.inc {
+    right: 0;
+}
+.quantity-cart .product-quantity2 span {
+    cursor: pointer;
+    color: #848484;
+    display: block;
+    height: 38px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 29px;
+}
+
+#ProductThumbs .owl-nav .owl-prev{
+    left: -10px;
+    background: url(/assets/kinder/image/bkg-icons11.png) 100% -592px no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #fff;
+}
+
+#ProductThumbs .owl-nav .owl-next{
+    right: -10px;
+    background: url(/assets/kinder/image/bkg-icons11.png) 100% -651px no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #fff;
+}
+.owl-item{
+    cursor: pointer;
+}
+.list-size .size-element {
+    float: left;
+    -webkit-transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    margin: 0px 10px 10px 0;
+    position: relative;
+}
+.list-size label {
+    border: 1px solid #d2d8db;
+    border-top-color: rgb(210, 216, 219);
+    border-right-color: rgb(210, 216, 219);
+    border-bottom-color: rgb(210, 216, 219);
+    border-left-color: rgb(210, 216, 219);
+    border-top-color: rgb(210, 216, 219);
+    border-right-color: rgb(210, 216, 219);
+    border-bottom-color: rgb(210, 216, 219);
+    border-left-color: rgb(210, 216, 219);
+    float: left;
+    font-size: 13px;
+    font-weight: normal;
+    height: 42px !important;
+    line-height: 40px;
+    margin: 0;
+    min-width: 42px !important;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.size-element label {
+    padding: 0 10px;
+}
+.size-element > input {
+    display: none;
+}
+.list-size input:checked + label, .list-size label:hover {
+    background: #404e53;
+    border-color: #404e53;
+    color: #fff;
 }

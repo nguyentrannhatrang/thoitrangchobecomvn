@@ -70,5 +70,6 @@
     <script src="/assets/kinder/js/theme.js" type="text/javascript"></script>
     <script src="/assets/kinder/js/cherry/cart.js" type="text/javascript"></script>
     <script src="/assets/kinder/js/cherry/function.js" type="text/javascript"></script>
+    <script src="/assets/kinder/js/cherry/product.js" type="text/javascript"></script>
 </head>
 <?php $this->view('templates/kinder/_parts/banner-menu',array('top_menu'=>$top_menu)); ?>

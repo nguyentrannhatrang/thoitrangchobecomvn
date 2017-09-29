@@ -1,48 +1,30 @@
 jQuery(document).ready(function () {
 
 
+
 //jQuery(function($){
 
     var page = 1;
-    $(document).on('change','#pa_size',function () {
-        change_size();
-        $('#quantity').change();
-
+    $(document).on('click','#ProductThumbs .owl-item',function () {
+        var src_img = $(this).find('img').attr('src');
+        $('#product-featured-image').attr('src',src_img);
     });
+    $(document).on('click','.size-option',function () {
+        change_size();
+    });
+    function get_price_by_size(size_current){
+        var result = $('#size-price-'+size_current).val();
+        return parseInt(result);
+    }
     $(document).on('change','#quantity',function (e) {
         if($(this).val() > $(this).attr('max')){
             e.preventDefault();
             $(this).val($(this).attr('max'));
             $(this).change();
+            return;
         }
-    });
-    $(document).on('change','#quantity_mobile',function (e) {
-        if($(this).val() > $(this).attr('max')){
-            e.preventDefault();
-            $(this).val($(this).attr('max'));
-            $(this).change();
-        }
-    });
-    $(document).on('change','#pa_size_mobile',function () {
-        change_size_mobile();
-        $('#quantity_mobile').change();
-
-    });
-    function plus_price_by_size(size_current){
-        var result = 0;
-        if(typeof size_price !== 'undefined'){
-            var details = jQuery.parseJSON(size_price);
-            $.each(details,function(size,price){
-                if(size_current == size){
-                    result = price;
-                }
-            });
-        }
-        return parseInt(result);
-    }
-    $(document).on('change','#quantity',function () {
-        //var total = parseInt($(this).val()) * parseFloat($('#product_price').val());
-        var total =plus_price_by_size($('#pa_size').val());
+        var size_change = $('input.size-option[name="size-option-0"]:checked').val();
+        var total =get_price_by_size(size_change);
         if(total > 0)
             $('.total-price').removeClass('hide');
         else{
@@ -52,35 +34,11 @@ jQuery(document).ready(function () {
         total = total*$(this).val();
         $('#total-price').text(NTNT.format_price(total));
     });
-    $(document).on('change','#quantity_mobile',function () {
-        //var total = parseInt($(this).val()) * parseFloat($('#product_price_mobile').val());
-        var total =plus_price_by_size($('#pa_size_mobile').val());
-        if(total > 0)
-            $('.total-price-mobile').removeClass('hide');
-        else{
-            if(!$('.total-price-mobile').hasClass('hide'))
-                $('.total-price-mobile').addClass('hide');
-        }
-        total = total*$(this).val();
-        $('#total-price-mobile').text(NTNT.format_price(total));
-    });
 
-    function change_size_mobile() {
-        change_size(true);
-    }
-    function change_size(is_mobile) {
-        var is_mobile = is_mobile || false;
-        var mobile = '';
-        if(is_mobile)
-            mobile = '_mobile';
-        var size_change = $('#pa_size' + mobile).val();
-        if(!size_change){
-            $('#quantity' + mobile).attr('min',0);
-            $('#quantity' + mobile).attr('max',0);
-            $('#quantity' + mobile).val(0);
-            $('#out_stock' + mobile).text('');
-            return ;
-        }
+    function change_size() {
+        var size_change = $('input.size-option[name="size-option-0"]:checked').val();
+        $('#pa_size').val(size_change);
+        var price = $('#'+size_change).val();
         var quantity = 0;
         if(typeof size_quantity !== 'undefined'){
             var details = jQuery.parseJSON(size_quantity);
@@ -96,16 +54,17 @@ jQuery(document).ready(function () {
         var quantity_booked = get_quantity_in_cart($('#product_id').val(),size_change);
         quantity = quantity - quantity_booked;
         if(quantity <0) quantity = 0;
-        $('#quantity' + mobile).attr('min',0);
-        $('#quantity' + mobile).attr('max',quantity);
+        $('#quantity').attr('min',0);
+        $('#quantity').attr('max',quantity);
         if(quantity >0) {
-            $('#quantity' + mobile).val(1);
-            $('#out_stock' + mobile).text('');
+            $('#quantity').val(1);
+            $('#out_stock').text('');
         }
         else {
-            $('#quantity' + mobile).val(0);
-            $('#out_stock' + mobile).text('Đã hết hàng');
+            $('#quantity').val(0);
+            $('#out_stock').text('Đã hết hàng');
         }
+        $('#quantity').change();
     }
 
     /**
@@ -215,56 +174,7 @@ jQuery(document).ready(function () {
         };
         $.ajax(option);
     }
-    Photoswipe();
-    function Photoswipe(){
-        var $pswp = $('.pswp')[0];
-        var image = [];
-
-        $('.pictures').each( function() {
-            var $pic     = $(this),
-                getItems = function() {
-                    var items = [];
-                    $pic.find('a').each(function() {
-                        var $href   = $(this).attr('href'),
-                            $size   = $(this).data('size').split('x'),
-                            $width  = $size[0],
-                            $height = $size[1];
-
-                        var item = {
-                            src : $href,
-                            w   : $width,
-                            h   : $height
-                        }
-
-                        items.push(item);
-                    });
-                    return items;
-                }
-            var items = getItems();
-
-            /* $.each(items, function(index, value) {
-             image[index]     = new Image();
-             image[index].src = value['src'];
-             });*/
-
-            $pic.on('click', 'li', function(event) {
-                event.preventDefault();
-
-                var $index = $(this).index();
-                var options = {
-                    index: $index-3,
-                    bgOpacity: 0.7,
-                    showHideOpacity: true
-                }
-
-                var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
-                lightBox.init();
-            });
-
-        });
-    }
-    $('#pa_size').change();
-    $('#pa_size_mobile').change();
+    change_size();
 
     $(document).on('click','.info-size',function (e) {
         e.preventDefault();
